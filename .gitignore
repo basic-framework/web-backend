@@ -31,3 +31,5 @@ build/
 
 ### VS Code ###
 .vscode/
+#配置文件
+zl-web/src/main/resources/application-dev.yml
