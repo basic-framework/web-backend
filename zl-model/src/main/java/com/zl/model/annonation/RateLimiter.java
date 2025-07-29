@@ -2,7 +2,7 @@ package com.zl.model.annonation;
 
 
 
-import com.lgh.model.enums.LimitType;
+import com.zl.model.enums.LimitType;
 
 import java.lang.annotation.*;
 

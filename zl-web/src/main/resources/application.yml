@@ -1,0 +1,95 @@
+server:
+  port: 8080
+spring:
+  profiles:
+    active: dev
+  main:
+    allow-circular-references: true
+  datasource:
+    druid:
+      driver-class-name: ${spring.datasource.druid.driver-class-name}
+      url: ${spring.datasource.druid.url}
+      username: ${spring.datasource.druid.username}
+      password: ${spring.datasource.druid.password}
+  data:
+    redis:
+      host: ${spring.data.redis.host}
+      port: ${spring.data.redis.port}
+      database: ${spring.data.redis.database}
+      password: ${spring.data.redis.password}
+
+  ai:
+    openai:
+      base-url: ${spring.ai.openai.base-url}
+      api-key: ${spring.ai.openai.api-key}
+      chat:
+        options:
+          model: qwen-max-latest
+      embedding:
+        options:
+          model: text-embedding-v3
+          dimensions: 1024
+    vectorstore:
+      redis:
+        initialize-schema: true
+        index: 0
+        prefix: "doc:" # 向量库key前缀
+
+
+
+mybatis:
+  mapper-locations: classpath:mapper/*.xml
+  type-aliases-package: com.lgh.model.entity
+
+  configuration:
+    map-underscore-to-camel-case: true
+
+
+
+
+
+zl:
+  framework:
+    security:
+      ignore-url:
+        - /resource/menus/**
+        - /resource/myButten/**
+        - /customer/**
+        - /web/login
+        - /web/logout
+        - /doc.html/**
+        - /*-swagger/**
+        - /swagger-resources/**
+        - /v3/api-docs/**
+        - /webjars/**
+        - /common/**
+        - /ws/**
+        - /swagger-ui/**
+      defaule-password: 123456
+  # token配置
+  token:
+    # 令牌自定义标识
+    header: Authorization
+    # 令牌密钥
+    secret: abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyz
+    # 令牌有效期（默认30分钟）
+    expireTime: 1800000
+
+
+  minio:
+    endpoint: ${nursing-house.minio.endpoint}
+    access-key: ${nursing-house.minio.access-key}
+    secret-key: ${nursing-house.minio.secret-key}
+    bucket-name: ${nursing-house.minio.bucket-name}
+
+
+
+#日志记录
+logging:
+  level:
+    com:
+      lgh:
+        manage:
+          mapper: debug
+          service: info
+          controller: info
