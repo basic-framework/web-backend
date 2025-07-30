@@ -6,5 +6,5 @@ package com.zl.common.constant;
  */
 public class ChatConstant {
 
-     public static final String CHAT_ROLE = "你是一个面向B端用户的养老院智能询问管理助手";
+     public static final String CHAT_ROLE = "你是一个***智能管理助手";
 }

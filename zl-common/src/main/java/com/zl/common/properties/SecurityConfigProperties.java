@@ -7,7 +7,7 @@ import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.context.annotation.Configuration;
 
  /**
-*  忽略配置及跨域
+* 忽略配置及跨域
  * @Author GuihaoLv
 */
 @Data

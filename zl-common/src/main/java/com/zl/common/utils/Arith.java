@@ -4,8 +4,8 @@ package com.zl.common.utils;
 import java.math.BigDecimal;
 import java.math.RoundingMode;
 
-/**
- * 精确的浮点数运算
+ /**
+ * 精确的浮点数运算工具类
  * @Author GuihaoLv
  */
 public class Arith

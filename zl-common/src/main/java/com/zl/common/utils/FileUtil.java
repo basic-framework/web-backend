@@ -15,6 +15,11 @@ public class FileUtil {
     @Autowired
     private MinIoProperties minIoProperties;
 
+     /**
+     * 从URL中提取文件名
+     * @param url
+     * @return
+     */
     public  String extractFileNameFromUrl(String url) {
         String bucketName = minIoProperties.getBucketName(); // nursing-house
         // 找到bucketName在url中的位置

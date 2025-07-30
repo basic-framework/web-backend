@@ -74,18 +74,6 @@ public class UserThreadLocal {
         return LOCAL.get();
     }
 
-//    /**
-//     * 从当前线程中获取前端后端id
-//     * @return 用户id
-//     */
-//    public static Long getMgtUserId() {
-//        String subject = subjectThreadLocal.get();
-//        if (ObjectUtil.isEmpty(subject)) {
-//            return null;
-//        }
-//        BaseVo baseVo = JSONObject.parseObject(subject, BaseVo.class);
-//        return baseVo.getId() ;
-//    }
 
 
 }

@@ -7,7 +7,7 @@ import com.zl.common.constant.CommonConstant;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-/**
+ /**
  * IP解析工具类
  * @Auther:GuihaoLv
  */
@@ -22,7 +22,7 @@ public class AddressUtil {
 
     public static String getRealAddressByIP(String ip) {
         // 内网不查询
-        if (com.lgh.common.utils.IPUtil.internalIp(ip)) {
+        if (IPUtil.internalIp(ip)) {
             return "内网IP";
         }
         //ture：获取ip地址开关

@@ -4,8 +4,8 @@ import javax.crypto.Cipher;
 import javax.crypto.spec.SecretKeySpec;
 import java.util.Base64;
 
-/**
- * AES加密工具类
+ /**
+ * AES加密（对称加密）工具类
  * @Author GuihaoLv
  */
 public class AESUtil {
