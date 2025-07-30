@@ -2,15 +2,13 @@ package com.zl.web.service.impl;
 
 import cn.hutool.core.bean.BeanUtil;
 import cn.hutool.core.util.ObjectUtil;
-import com.zl.common.utils.UserUtil;
+import com.zl.common.utils.authUtils.UserUtil;
 import com.zl.model.dto.LoginVo;
 import com.zl.model.entity.User;
 import com.zl.model.vo.UserNavVo;
 import com.zl.web.mapper.UserMapper;
 import com.zl.web.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.core.Authentication;
-import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 

@@ -1,7 +1,7 @@
 package com.zl.web.manager.security;
 
 import com.zl.common.constant.UserConstant;
-import com.zl.common.utils.JwtUtil;
+import com.zl.common.utils.authUtils.JwtUtil;
 import io.jsonwebtoken.Claims;
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;

@@ -2,9 +2,8 @@ package com.zl.web.manager.asyncTask;
 
 
 
-import com.zl.common.utils.SpringUtil;
-import com.zl.common.utils.Threads;
-import org.springframework.stereotype.Component;
+import com.zl.common.utils.springUtils.SpringUtil;
+import com.zl.common.utils.jucUtils.Threads;
 
 import java.util.TimerTask;
 import java.util.concurrent.ScheduledExecutorService;

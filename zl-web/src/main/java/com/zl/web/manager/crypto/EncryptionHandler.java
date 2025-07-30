@@ -1,7 +1,7 @@
 package com.zl.web.manager.crypto;
 
 import com.zl.model.annonation.EncryptField;
-import com.zl.common.utils.AESUtil;
+import com.zl.common.utils.encrypUtils.AESUtil;
 import java.lang.reflect.Field;
 
 

@@ -1,4 +1,4 @@
-package com.zl.common.utils;
+package com.zl.common.utils.validateUtils;
 
  /**
  * 正则表达式校验工具类

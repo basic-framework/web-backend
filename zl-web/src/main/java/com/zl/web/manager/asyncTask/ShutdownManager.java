@@ -1,6 +1,6 @@
 package com.zl.web.manager.asyncTask;
 
-import com.zl.common.utils.HttpUtil;
+import com.zl.common.utils.httpUtils.HttpUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;

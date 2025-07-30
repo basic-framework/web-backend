@@ -1,4 +1,4 @@
-package com.zl.common.utils;
+package com.zl.common.utils.validateUtils;
 
 
  /**

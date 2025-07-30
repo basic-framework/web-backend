@@ -1,11 +1,6 @@
 package com.zl.web.manager.security;
-import cn.hutool.core.util.ObjectUtil;
-import com.alibaba.fastjson2.JSONObject;
-import com.zl.common.constant.UserConstant;
 import com.zl.common.properties.JwtProperties;
-import com.zl.common.utils.JwtUtil;
-import com.zl.model.dto.LoginVo;
-import io.jsonwebtoken.Claims;
+import com.zl.common.utils.authUtils.JwtUtil;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
@@ -16,9 +11,7 @@ import org.springframework.security.core.Authentication;
 import org.springframework.security.web.access.intercept.RequestAuthorizationContext;
 import org.springframework.stereotype.Component;
 import org.springframework.util.AntPathMatcher;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.concurrent.TimeUnit;
+
 import java.util.function.Supplier;
 
 

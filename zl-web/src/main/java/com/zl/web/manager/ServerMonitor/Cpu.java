@@ -1,7 +1,7 @@
 package com.zl.web.manager.ServerMonitor;
 
 
-import com.zl.common.utils.Arith;
+import com.zl.common.utils.calculateUtils.Arith;
 
 /**
  * CPU相关信息

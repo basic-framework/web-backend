@@ -1,4 +1,4 @@
-package com.zl.common.utils;
+package com.zl.common.utils.encrypUtils;
 
 import cn.hutool.crypto.digest.BCrypt;
 import org.springframework.stereotype.Component;

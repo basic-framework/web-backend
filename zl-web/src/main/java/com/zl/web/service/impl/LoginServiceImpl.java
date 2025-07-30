@@ -6,7 +6,7 @@ import com.alibaba.fastjson2.JSONObject;
 import com.zl.common.constant.UserConstant;
 import com.zl.common.context.UserThreadLocal;
 import com.zl.common.properties.JwtProperties;
-import com.zl.common.utils.JwtUtil;
+import com.zl.common.utils.authUtils.JwtUtil;
 import com.zl.model.dto.LoginDto;
 import com.zl.model.dto.LoginVo;
 import com.zl.model.entity.Resource;

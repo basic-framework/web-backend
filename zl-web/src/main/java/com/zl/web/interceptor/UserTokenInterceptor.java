@@ -4,7 +4,7 @@ import cn.hutool.core.util.ObjectUtil;
 import com.zl.common.constant.UserConstant;
 import com.zl.common.context.UserThreadLocal;
 import com.zl.common.properties.JwtProperties;
-import com.zl.common.utils.JwtUtil;
+import com.zl.common.utils.authUtils.JwtUtil;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import org.springframework.beans.factory.annotation.Autowired;

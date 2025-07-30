@@ -1,19 +1,13 @@
 package com.zl.web.controller;
 
 import com.zl.common.result.Result;
-import com.zl.common.utils.AddressUtil;
-import com.zl.common.utils.IPUtil;
 import com.zl.model.vo.UserNavVo;
 import com.zl.web.service.UserService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
-import jakarta.servlet.http.HttpServletRequest;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-
-import java.util.HashMap;
-import java.util.Map;
 
 
 /**

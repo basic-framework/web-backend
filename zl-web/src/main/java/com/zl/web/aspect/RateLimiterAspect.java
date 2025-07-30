@@ -5,8 +5,8 @@ package com.zl.web.aspect;
  * Redis 在此场景中作为 临时数据存储工具，其资源消耗可控且可优化，不会对存储系统造成实质性压力。
  */
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.zl.common.utils.IPUtil;
-import com.zl.common.utils.UserUtil;
+import com.zl.common.utils.ipUtils.IPUtil;
+import com.zl.common.utils.authUtils.UserUtil;
 import jakarta.servlet.http.HttpServletRequest;
 import org.aspectj.lang.reflect.MethodSignature;
 import com.zl.model.annonation.RateLimiter;

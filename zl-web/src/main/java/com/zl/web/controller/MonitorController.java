@@ -1,8 +1,8 @@
 package com.zl.web.controller;
 
 import com.zl.common.result.Result;
-import com.zl.common.utils.AddressUtil;
-import com.zl.common.utils.IPUtil;
+import com.zl.common.utils.ipUtils.AddressUtil;
+import com.zl.common.utils.ipUtils.IPUtil;
 import com.zl.web.manager.ServerMonitor.Server;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
