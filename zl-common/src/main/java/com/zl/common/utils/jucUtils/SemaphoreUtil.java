@@ -10,12 +10,12 @@ import org.slf4j.LoggerFactory;
  * 信号量相关处理
  * @Author GuihaoLv
  */
-public class SemaphoreUtils
+public class SemaphoreUtil
 {
     /**
-     * SemaphoreUtils 日志控制器
+     * SemaphoreUtil 日志控制器
      */
-    private static final Logger LOGGER = LoggerFactory.getLogger(SemaphoreUtils.class);
+    private static final Logger LOGGER = LoggerFactory.getLogger(SemaphoreUtil.class);
 
     /**
      * 获取信号量
