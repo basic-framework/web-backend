@@ -2,7 +2,7 @@ package com.zl.web.controller;
 
 import com.zl.common.result.Result;
 import com.zl.model.dto.LoginDto;
-import com.zl.model.dto.LoginVo;
+import com.zl.model.vo.LoginVo;
 import com.zl.web.service.LoginService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;

@@ -47,6 +47,7 @@
         <module>zl-common</module>
         <module>zl-model</module>
         <module>zl-web</module>
+        <module>zl-extend</module>
     </modules>
 
 

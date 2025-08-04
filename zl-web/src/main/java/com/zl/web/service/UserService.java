@@ -1,6 +1,6 @@
 package com.zl.web.service;
 
-import com.zl.model.dto.LoginVo;
+import com.zl.model.vo.LoginVo;
 import com.zl.model.vo.UserNavVo;
 
 public interface UserService {

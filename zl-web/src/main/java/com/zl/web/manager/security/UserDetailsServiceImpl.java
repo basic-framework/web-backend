@@ -1,6 +1,6 @@
 package com.zl.web.manager.security;
 
-import com.zl.model.dto.LoginVo;
+import com.zl.model.vo.LoginVo;
 import com.zl.web.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;

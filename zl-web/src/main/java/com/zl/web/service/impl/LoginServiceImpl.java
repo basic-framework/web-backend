@@ -8,7 +8,7 @@ import com.zl.common.context.UserThreadLocal;
 import com.zl.common.properties.JwtProperties;
 import com.zl.common.utils.authUtils.JwtUtil;
 import com.zl.model.dto.LoginDto;
-import com.zl.model.dto.LoginVo;
+import com.zl.model.vo.LoginVo;
 import com.zl.model.entity.Resource;
 import com.zl.model.entity.Role;
 import com.zl.web.manager.security.UserAuth;

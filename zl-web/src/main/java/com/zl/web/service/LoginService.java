@@ -1,7 +1,7 @@
 package com.zl.web.service;
 
 import com.zl.model.dto.LoginDto;
-import com.zl.model.dto.LoginVo;
+import com.zl.model.vo.LoginVo;
 
 
 public interface LoginService {

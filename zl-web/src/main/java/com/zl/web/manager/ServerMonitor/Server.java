@@ -1,8 +1,5 @@
 package com.zl.web.manager.ServerMonitor;
-import java.net.UnknownHostException;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Properties;
+
 import com.zl.common.utils.calculateUtils.Arith;
 import com.zl.common.utils.ipUtils.IPUtil;
 import oshi.SystemInfo;
@@ -14,6 +11,11 @@ import oshi.software.os.FileSystem;
 import oshi.software.os.OSFileStore;
 import oshi.software.os.OperatingSystem;
 import oshi.util.Util;
+
+import java.net.UnknownHostException;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Properties;
 
 /**
  * 服务器相关信息

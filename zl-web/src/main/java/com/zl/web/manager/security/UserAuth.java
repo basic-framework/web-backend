@@ -1,7 +1,7 @@
 package com.zl.web.manager.security;
 
 import cn.hutool.core.util.ObjectUtil;
-import com.zl.model.dto.LoginVo;
+import com.zl.model.vo.LoginVo;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.springframework.security.core.GrantedAuthority;
