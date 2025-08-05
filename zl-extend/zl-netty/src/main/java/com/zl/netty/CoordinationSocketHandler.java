@@ -27,6 +27,7 @@ import java.util.concurrent.ConcurrentHashMap;
 //TextWebSocketFrame 表示 WebSocket 中的文本帧消息。
 public class CoordinationSocketHandler extends SimpleChannelInboundHandler<TextWebSocketFrame> {
 
+
     //用于保存所有连接的客户端 Channel，可用于广播消息
     public static ChannelGroup channelGroup = new DefaultChannelGroup(GlobalEventExecutor.INSTANCE);
     //使用一个 HashMap 存储用户 ID 和对应的 Channel 映射，用于点对点消息通信。
