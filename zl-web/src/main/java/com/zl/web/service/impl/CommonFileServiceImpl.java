@@ -1,6 +1,7 @@
 package com.zl.web.service.impl;
 
 import com.zl.common.properties.MinIoProperties;
+import com.zl.netty.CoordinationSocketHandler;
 import com.zl.web.service.CommonFileService;
 import io.minio.*;
 import io.minio.http.Method;
