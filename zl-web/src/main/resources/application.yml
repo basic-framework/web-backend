@@ -57,13 +57,13 @@ zl:
         - /customer/**
         - /web/login
         - /web/logout
+        - /ws/**
         - /doc.html/**
         - /*-swagger/**
         - /swagger-resources/**
         - /v3/api-docs/**
         - /webjars/**
         - /common/**
-        - /ws/**
         - /swagger-ui/**
       defaule-password: 123456
 

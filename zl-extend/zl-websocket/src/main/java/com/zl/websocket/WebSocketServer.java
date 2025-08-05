@@ -39,7 +39,7 @@ public class WebSocketServer {
         System.out.println("收到来自客户端：" + userId + "的信息:" + message);
     }
 
-//
+
 //    @OnMessage
 //    public void onMessage(String message, @PathParam("userId") String userId) {
 //        System.out.println("收到来自客户端：" + userId + "的信息:" + message);
@@ -73,19 +73,6 @@ public class WebSocketServer {
         sessionMap.remove(userId);
     }
 
-    //遍历所有现存的Session对象，并尝试向每个客户端发送文本消息。如果发送过程中遇到任何异常，就捕获异常并打印堆栈跟踪信息。
-    public void sendToAllClient(String message) {
-        Collection<Session> sessions = sessionMap.values();
-        JSONObject jsonMessage = JSON.parseObject(message);
-        for (Session session : sessions) {
-            try {
-                session.getBasicRemote().sendText(jsonMessage.toJSONString());
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-        }
-    }
-
     /**
      * 发生错误时调用
      */
@@ -96,21 +83,44 @@ public class WebSocketServer {
     }
 
 
-    /**
-     * 向指定客户端发送文本消息
-     * @param userId 客户端的会话ID
-     * @param message 要发送的消息
+     /**
+     * 广播
+     * @param message
      */
-    public void sendToClient(String userId, String fromId,String message) {
+    //遍历所有现存的Session对象，并尝试向每个客户端发送文本消息。如果发送过程中遇到任何异常，就捕获异常并打印堆栈跟踪信息。
+    public void sendToAllClient(String message) {
+        Collection<Session> sessions = sessionMap.values();
+        JSONObject jsonMessage = new JSONObject();
+        jsonMessage.put("content", message); // 原始内容放在content字段
+        jsonMessage.put("timestamp", System.currentTimeMillis());
+        jsonMessage.put("status", "success");
+        System.out.println("广播消息"+jsonMessage.toJSONString()+"到"+sessions.size()+"个客户端");
+        for (Session session : sessions) {
+            try {
+                session.getBasicRemote().sendText(jsonMessage.toJSONString());
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+
+     /**
+     * 向指定客户端发送文本消息（指定发送方）
+     * @param fromUserId 发送方
+     * @param toUserId 接收方
+     * @param message
+     */
+    public void sendToClient(String fromUserId,String toUserId,String message) {
         try {
             // 创建标准消息结构
             JSONObject messageJson = new JSONObject();
             messageJson.put("content", message); // 原始内容放在content字段
             messageJson.put("timestamp", System.currentTimeMillis());
             messageJson.put("status", "success");
-            messageJson.put("from",fromId);
-            System.out.println( fromId+"发送消息"+messageJson.toJSONString()+"到"+userId);
-            Session session = sessionMap.get(userId);
+            messageJson.put("from",fromUserId);
+            System.out.println( fromUserId+"发送消息"+messageJson.toJSONString()+"到"+toUserId);
+            Session session = sessionMap.get(toUserId);
             if (session != null && session.isOpen()) {
                 // 发送序列化的JSON字符串
                 session.getBasicRemote().sendText(messageJson.toJSONString());
@@ -122,19 +132,19 @@ public class WebSocketServer {
 
 
     /**
-     * 系统向某个用户发送消息
-     * @param userId
+     * 系统向某个用户发送消息(无指定发送方)
+     * @param toUserId
      * @param message
      */
-    public void sendToClient(String userId,String message) {
+    public void sendToClient(String toUserId,String message) {
         try {
             // 创建标准消息结构
             JSONObject messageJson = new JSONObject();
             messageJson.put("content", message); // 原始内容放在content字段
             messageJson.put("timestamp", System.currentTimeMillis());
             messageJson.put("status", "success");
-            System.out.println("发送消息"+messageJson.toJSONString()+"到"+userId);
-            Session session = sessionMap.get(userId);
+            System.out.println("发送消息"+messageJson.toJSONString()+"到"+toUserId);
+            Session session = sessionMap.get(toUserId);
             if (session != null && session.isOpen()) {
                 // 发送序列化的JSON字符串
                 session.getBasicRemote().sendText(messageJson.toJSONString());

@@ -4,7 +4,7 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 
-@SpringBootApplication(scanBasePackages = {"com.zl.web", "com.zl.common"})
+@SpringBootApplication(scanBasePackages = {"com.zl.*"})
 public class ZLBasicApplication {
 
     public static void main(String[] args) {

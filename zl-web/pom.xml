@@ -167,6 +167,13 @@
             <version>2.0.30</version>
         </dependency>
 
+        <!--WebSocket依赖-->
+        <dependency>
+            <groupId>com.zl</groupId>
+            <artifactId>zl-websocket</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
+
 
 
     </dependencies>
