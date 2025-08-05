@@ -48,7 +48,7 @@ public class CoordinationNettyServer {
                             //核心 WebSocket 处理器
                             ch.pipeline().addLast(new WebSocketServerProtocolHandler("/ws", "WebSocket", true, 65536 * 10));
                             ch.pipeline().addLast(coordinationSocketHandler);//自定义消息处理类
-                            ch.pipeline().addLast(coordinationHeartBeatHandler);//自定义心跳处理类
+                           // ch.pipeline().addLast(coordinationHeartBeatHandler);//自定义心跳处理类
                         }
                     });
             ChannelFuture cf = sb.bind().sync(); //异步绑定端口，sync()阻塞等待绑定完成。
@@ -59,4 +59,8 @@ public class CoordinationNettyServer {
             bossGroup.shutdownGracefully().sync();
         }
     }
+
+
+
+
 }

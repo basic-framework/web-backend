@@ -120,6 +120,8 @@ public class CoordinationSocketHandler extends SimpleChannelInboundHandler<TextW
 
 
 
+
+
 //    private void endCall(Map map) {
 //        String fromUserId = map.get("userId").toString();
 //        String toUserId = map.get("toUserId").toString();
@@ -147,7 +149,51 @@ public class CoordinationSocketHandler extends SimpleChannelInboundHandler<TextW
 //    }
 
 
+    /**
+     * 发送消息(指定发送方)
+     * @param fromUserId
+     * @param toUserId
+     * @param message
+     */
+    public void sendToUser(String fromUserId,String toUserId, String message) {
+        Channel channel = cmap.get("user:"+toUserId);
+        Map<String,Object> obj = new HashMap<>();
+        obj.put("type",2); // 对话
+        obj.put("fromUserId", fromUserId);
+        obj.put("content",message);
+        obj.put("time", System.currentTimeMillis());
+        if (channel != null && channel.isActive()) {
+            channel.writeAndFlush(new TextWebSocketFrame(JSON.toJSONString(obj)));
+        } else {
+            log.warn("用户 {} 不在线，无法发送消息",toUserId);
+        }
+    }
 
+    /**
+     * 发送消息(不指定发送方)
+     * @param toUserId
+     * @param message
+     */
+    public void sendToUserWithNo(String toUserId, String message) {
+        Channel channel = cmap.get("user:"+toUserId);
+        Map<String,Object> obj = new HashMap<>();
+        obj.put("type",2); // 对话
+        obj.put("content",message);
+        obj.put("time", System.currentTimeMillis());
+        if (channel != null && channel.isActive()) {
+            channel.writeAndFlush(new TextWebSocketFrame(JSON.toJSONString(obj)));
+        } else {
+            log.warn("用户 {} 不在线，无法发送消息",toUserId);
+        }
+    }
+
+    /**
+     * 发送消息(广播)
+     * @param message
+     */
+    public void sendToAll(String message) {
+        channelGroup.writeAndFlush(new TextWebSocketFrame(message));
+    }
 
 
     /**
