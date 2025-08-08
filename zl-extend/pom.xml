@@ -15,6 +15,7 @@
 
 
     <properties>
+        <zl.version>1.0-SNAPSHOT</zl.version>
         <netty>4.1.79.Final</netty>
     </properties>
 
@@ -22,6 +23,12 @@
 
     <dependencyManagement>
         <dependencies>
+            <!--引入common模块-->
+            <dependency>
+                <groupId>com.zl</groupId>
+                <artifactId>zl-common</artifactId>
+                <version>${zl.version}</version>
+            </dependency>
             <!-- netty -->
             <dependency>
                 <groupId>io.netty</groupId>
