@@ -31,7 +31,6 @@
         <jackson.version>2.18.0</jackson.version>
         <jwt.version>0.12.6</jwt.version>
         <knife4j.version>4.5.0</knife4j.version>
-        <oshi.version>6.6.6</oshi.version>
         <lombok>1.18.20</lombok>
         <hutool.version>5.8.0.M3</hutool.version>
         <httpUtils>4.5.13</httpUtils>
@@ -47,6 +46,7 @@
         <module>zl-model</module>
         <module>zl-web</module>
         <module>zl-extend</module>
+        <module>zl-extend/zl-oshi</module>
     </modules>
 
 
@@ -150,12 +150,6 @@
                 <groupId>cn.hutool</groupId>
                 <artifactId>hutool-all</artifactId>
                 <version>${hutool.version}</version>
-            </dependency>
-            <!-- 获取系统信息 -->
-            <dependency>
-                <groupId>com.github.oshi</groupId>
-                <artifactId>oshi-core</artifactId>
-                <version>${oshi.version}</version>
             </dependency>
 
 

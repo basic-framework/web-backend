@@ -1,4 +1,4 @@
-package com.zl.web.manager.ServerMonitor;
+package com.zl.oshi.model;
 
 import com.zl.common.utils.calculateUtils.Arith;
 

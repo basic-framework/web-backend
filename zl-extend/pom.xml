@@ -19,6 +19,7 @@
     <properties>
         <zl.version>1.0-SNAPSHOT</zl.version>
         <netty>4.1.79.Final</netty>
+        <oshi.version>6.6.6</oshi.version>
     </properties>
 
 
@@ -36,6 +37,12 @@
                 <groupId>io.netty</groupId>
                 <artifactId>netty-all</artifactId>
                 <version>${netty}</version>
+            </dependency>
+            <!-- 获取系统信息 -->
+            <dependency>
+                <groupId>com.github.oshi</groupId>
+                <artifactId>oshi-core</artifactId>
+                <version>${oshi.version}</version>
             </dependency>
 
 

@@ -1,4 +1,4 @@
-package com.zl.web.manager.ServerMonitor;
+package com.zl.oshi.model;
 
 /**
  * 系统相关信息
