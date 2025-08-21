@@ -1,6 +1,6 @@
 package com.zl.web.mapper;
 
-import com.zl.model.entity.Role;
+import com.zl.model.entity.security.Role;
 import org.apache.ibatis.annotations.Delete;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;

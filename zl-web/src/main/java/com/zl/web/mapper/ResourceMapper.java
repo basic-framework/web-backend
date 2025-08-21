@@ -1,6 +1,6 @@
 package com.zl.web.mapper;
 
-import com.zl.model.entity.Resource;
+import com.zl.model.entity.security.Resource;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Select;
 

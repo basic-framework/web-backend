@@ -1,7 +1,6 @@
 package com.zl.web.service;
 
-import com.zl.model.entity.Role;
-import org.apache.ibatis.annotations.Select;
+import com.zl.model.entity.security.Role;
 
 import java.util.List;
 

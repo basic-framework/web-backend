@@ -1,11 +1,10 @@
 package com.zl.web.service.impl;
 
-import com.zl.model.entity.Resource;
-import com.zl.model.entity.Role;
+import com.zl.model.entity.security.Resource;
+import com.zl.model.entity.security.Role;
 import com.zl.web.mapper.ResourceMapper;
 import com.zl.web.mapper.RoleMapper;
 import com.zl.web.service.ResourceService;
-import org.checkerframework.checker.units.qual.A;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

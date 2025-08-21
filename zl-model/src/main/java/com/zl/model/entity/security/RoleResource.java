@@ -1,4 +1,4 @@
-package com.zl.model.entity;
+package com.zl.model.entity.security;
 
 import com.zl.model.base.BaseEntity;
 import lombok.AllArgsConstructor;
@@ -7,17 +7,14 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
  /**
- * 用户实体类
+ * 角色资源关联实体类
  * @Auther: GuihaoLv
  */
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-public class User extends BaseEntity {
-    private String username;
-    private String password;
-    private String email;
-    private String phoneNumber;
-    private String avatar;
+public class RoleResource extends BaseEntity {
+    private Long roleId;      // 角色ID
+    private String resourceNo; // 资源编号
 }

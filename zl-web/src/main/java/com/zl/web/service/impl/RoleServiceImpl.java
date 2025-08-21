@@ -1,6 +1,6 @@
 package com.zl.web.service.impl;
 
-import com.zl.model.entity.Role;
+import com.zl.model.entity.security.Role;
 import com.zl.web.mapper.RoleMapper;
 import com.zl.web.service.RoleService;
 import org.springframework.beans.factory.annotation.Autowired;

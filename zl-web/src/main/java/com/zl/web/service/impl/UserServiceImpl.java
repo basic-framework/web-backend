@@ -4,7 +4,7 @@ import cn.hutool.core.bean.BeanUtil;
 import cn.hutool.core.util.ObjectUtil;
 import com.zl.common.utils.authUtils.UserUtil;
 import com.zl.model.vo.LoginVo;
-import com.zl.model.entity.User;
+import com.zl.model.entity.security.User;
 import com.zl.model.vo.UserNavVo;
 import com.zl.web.mapper.UserMapper;
 import com.zl.web.service.UserService;

@@ -1,7 +1,7 @@
 package com.zl.web.mapper;
 
 
-import com.zl.model.entity.User;
+import com.zl.model.entity.security.User;
 import com.zl.model.vo.UserNavVo;
 import org.apache.ibatis.annotations.Delete;
 import org.apache.ibatis.annotations.Mapper;

@@ -1,4 +1,4 @@
-package com.zl.model.entity;
+package com.zl.model.entity.security;
 
 import com.zl.model.base.BaseEntity;
 import lombok.AllArgsConstructor;

@@ -1,6 +1,6 @@
 package com.zl.model.vo;
 
-import com.zl.model.entity.User;
+import com.zl.model.entity.security.User;
 import lombok.*;
 import java.util.Set;
 

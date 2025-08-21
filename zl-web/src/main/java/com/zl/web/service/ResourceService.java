@@ -1,6 +1,6 @@
 package com.zl.web.service;
 
-import com.zl.model.entity.Resource;
+import com.zl.model.entity.security.Resource;
 
 import java.util.List;
 

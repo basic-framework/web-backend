@@ -3,7 +3,7 @@ import cn.hutool.core.util.StrUtil;
 import com.alibaba.fastjson2.JSONObject;
 import com.zl.common.context.UserThreadLocal;
 import com.zl.model.vo.LoginVo;
-import com.zl.model.entity.User;
+import com.zl.model.entity.security.User;
 
 
  /**
