@@ -3,46 +3,50 @@
     <modelVersion>4.0.0</modelVersion>
     <parent>
         <groupId>com.zl</groupId>
-        <artifactId>zl-basic-backend</artifactId>
+        <artifactId>zl-extend</artifactId>
         <version>1.0-SNAPSHOT</version>
     </parent>
-    <artifactId>zl-extend</artifactId>
+
+    <artifactId>zl-file</artifactId>
     <packaging>pom</packaging>
 
     <modules>
-        <module>zl-websocket</module>
-        <module>zl-netty</module>
-        <module>zl-file</module>
+        <module>zl-minio</module>
+        <module>zl-file-starter</module>
     </modules>
 
-
     <properties>
-        <zl.version>1.0-SNAPSHOT</zl.version>
-        <netty>4.1.79.Final</netty>
+        <minio>8.5.3</minio>
     </properties>
-
 
 
     <dependencyManagement>
         <dependencies>
-            <!--引入common模块-->
+
             <dependency>
                 <groupId>com.zl</groupId>
-                <artifactId>zl-common</artifactId>
-                <version>${zl.version}</version>
+                <artifactId>zl-minio</artifactId>
+                <version>1.0-SNAPSHOT</version>
             </dependency>
-            <!-- netty -->
             <dependency>
-                <groupId>io.netty</groupId>
-                <artifactId>netty-all</artifactId>
-                <version>${netty}</version>
+                <groupId>com.zl</groupId>
+                <artifactId>zl-file-starter</artifactId>
+                <version>1.0-SNAPSHOT</version>
             </dependency>
 
+            <!--minio-->
+            <dependency>
+                <groupId>io.minio</groupId>
+                <artifactId>minio</artifactId>
+                <version>${minio}</version>
+            </dependency>
 
 
         </dependencies>
 
     </dependencyManagement>
+
+
 
 
 </project>

@@ -1,0 +1,50 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <groupId>com.zl</groupId>
+        <artifactId>zl-file</artifactId>
+        <version>1.0-SNAPSHOT</version>
+    </parent>
+    <artifactId>zl-file-starter</artifactId>
+
+    <dependencies>
+        <!-- 引入minio模块 -->
+        <dependency>
+            <groupId>com.zl</groupId>
+            <artifactId>zl-minio</artifactId>
+        </dependency>
+        <!--引入common模块-->
+        <dependency>
+            <groupId>com.zl</groupId>
+            <artifactId>zl-common</artifactId>
+        </dependency>
+        <!-- SpringBoot相关依赖-->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+        </dependency>
+        <!-- Spring Boot自动配置工具 -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-autoconfigure</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-configuration-processor</artifactId>
+            <optional>true</optional> <!-- 生成配置元数据，方便IDE提示 -->
+        </dependency>
+
+        <!-- Lombok（简化代码） -->
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <optional>true</optional>
+        </dependency>
+
+
+
+    </dependencies>
+
+
+</project>

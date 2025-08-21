@@ -1,4 +1,4 @@
-package com.zl.web.config;
+package com.zl.minio.config;
 
 import com.zl.common.properties.MinIoProperties;
 import io.minio.MinioClient;
@@ -8,7 +8,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 
-/**
+ /**
  * MinIO配置类
  * @Author GuihaoLv
  */

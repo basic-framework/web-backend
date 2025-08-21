@@ -1,0 +1,21 @@
+# 全局配置
+file:
+  storage:
+    type: minio # 可选：minio/aliyun
+  controller:
+    path: /web/commonFile # 自定义Controller路径（默认/api/file）
+
+  # MinIO配置（当type=minio时生效）
+  minio:
+    endpoint: ${zl.minio.endpoint}
+    access-key: ${zl.minio.access-key}
+    secret-key: ${zl.minio.secret-key}
+    bucket-name: ${zl.minio.bucket-name}
+
+  # 阿里云OSS配置（当type=aliyun时生效）
+  aliyun:
+    oss:
+      endpoint: oss-cn-beijing.aliyuncs.com
+      access-key: your-access-key
+      secret-key: your-secret-key
+      bucket-name: test-bucket

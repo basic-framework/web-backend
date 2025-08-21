@@ -34,7 +34,6 @@
         <oshi.version>6.6.6</oshi.version>
         <lombok>1.18.20</lombok>
         <hutool.version>5.8.0.M3</hutool.version>
-        <minio>8.5.3</minio>
         <httpUtils>4.5.13</httpUtils>
         <javax.annotation>1.3.2</javax.annotation>
         <easyexcel>3.3.2</easyexcel>
@@ -158,12 +157,7 @@
                 <artifactId>oshi-core</artifactId>
                 <version>${oshi.version}</version>
             </dependency>
-            <!--minio-->
-            <dependency>
-                <groupId>io.minio</groupId>
-                <artifactId>minio</artifactId>
-                <version>${minio}</version>
-            </dependency>
+
 
             <!-- HTTP工具类 -->
             <dependency>

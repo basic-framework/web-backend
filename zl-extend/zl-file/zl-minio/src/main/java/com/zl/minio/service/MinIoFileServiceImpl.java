@@ -1,8 +1,8 @@
-package com.zl.web.service.impl;
+package com.zl.minio.service;
 
+import com.zl.minio.api.CommonFileService;
+import com.zl.common.properties.FileStorageProperties;
 import com.zl.common.properties.MinIoProperties;
-import com.zl.netty.CoordinationSocketHandler;
-import com.zl.web.service.CommonFileService;
 import io.minio.*;
 import io.minio.http.Method;
 import jakarta.servlet.http.HttpServletResponse;
@@ -17,16 +17,34 @@ import java.util.Date;
 import java.util.UUID;
 import java.util.concurrent.TimeUnit;
 
-
 @Service
-public class CommonFileServiceImpl implements CommonFileService {
+public class MinIoFileServiceImpl implements CommonFileService {
     @Autowired
     private MinIoProperties minIoProperties;
 
     @Autowired
     private MinioClient client;
 
-    /**
+    private final int presignedUrlExpiry; // 从全局配置获取有效期
+
+    // 构造器注入配置（替代@Autowired字段注入，更规范）
+    @Autowired
+    public MinIoFileServiceImpl(MinIoProperties minIoProperties,
+                                FileStorageProperties globalProperties) {
+        this.minIoProperties = minIoProperties;
+        this.presignedUrlExpiry = globalProperties.getPresignedUrlExpiry();
+        // 初始化MinIO客户端
+        this.client = MinioClient.builder()
+                .endpoint(minIoProperties.getEndpoint())
+                .credentials(minIoProperties.getAccessKey(), minIoProperties.getSecretKey())
+                .build();
+    }
+
+
+
+
+
+     /**
      * 通用文件上传请求(单个)
      * @param file
      * @return
@@ -57,7 +75,7 @@ public class CommonFileServiceImpl implements CommonFileService {
 
 
 
-     /**
+    /**
      * 配置Bucket的访问策略
      * @param bucketName
      * @return

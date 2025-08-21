@@ -3,6 +3,12 @@ server:
 spring:
   profiles:
     active: dev
+    include: file  # 引入"file"环境的配置（即application-file.yml）
+  servlet:
+    multipart:
+      max-file-size: 10MB
+      max-request-size: 100MB
+
   main:
     allow-circular-references: true
   datasource:
@@ -75,16 +81,16 @@ zl:
     secret: abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyz
     # 令牌有效期（默认30分钟）
     expireTime: 1800000
-
-
-  minio:
-    endpoint: ${zl.minio.endpoint}
-    access-key: ${zl.minio.access-key}
-    secret-key: ${zl.minio.secret-key}
-    bucket-name: ${zl.minio.bucket-name}
   aliyun:
     access-key-id: ${zl.aliyun.access-key-id}
     access-key-secret: ${zl.aliyun.access-key-secret}
+
+
+
+
+
+
+
 
 
 #日志记录

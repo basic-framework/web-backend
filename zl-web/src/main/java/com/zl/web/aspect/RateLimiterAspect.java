@@ -55,8 +55,6 @@ public class RateLimiterAspect
     {
         this.limitScript = limitScript;
     }
-    @Autowired
-    private ObjectMapper jacksonObjectMapper;
 
     @Before("@annotation(rateLimiter)")
     public void doBefore(JoinPoint point, RateLimiter rateLimiter) throws Throwable
