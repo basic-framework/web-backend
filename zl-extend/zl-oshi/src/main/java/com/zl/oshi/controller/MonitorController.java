@@ -5,6 +5,8 @@ import com.zl.common.utils.ipUtils.AddressUtil;
 import com.zl.common.utils.ipUtils.IPUtil;
 
 import com.zl.oshi.model.Server;
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.servlet.http.HttpServletRequest;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,6 +24,7 @@ import java.util.*;
 @RestController
 @RequestMapping("/web/monitor")
 @Slf4j
+@Tag(name = "运维监测相关接口")
 public class MonitorController {
     @Autowired
     private StringRedisTemplate redisTemplate;
@@ -32,6 +35,7 @@ public class MonitorController {
      * @return IP和归属地信息
      */
     @GetMapping("/ipMonitor")
+    @Operation(summary = "实时IP地址监测接口及IP解析地址")
     public Result<Map<String, String>> monitorIp(HttpServletRequest request) {
         Map<String, String> result = new HashMap<>();
 
@@ -50,6 +54,7 @@ public class MonitorController {
      * @throws Exception
      */
     @GetMapping("/getRedisInfo")
+    @Operation(summary = "获取缓存监控信息")
     public Result getInfo() throws Exception {
         Map<String, Object> result = new HashMap<>(3);
         //获取 Redis 服务器信息（如版本、内存使用等）
@@ -99,6 +104,7 @@ public class MonitorController {
      * @throws Exception
      */
     @GetMapping("/serverMonitor")
+    @Operation(summary = "获取服务器监控信息")
     public Result getServerInfo() throws Exception {
         Server server = new Server();
         server.copyTo(); // 采集系统信息

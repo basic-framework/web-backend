@@ -20,12 +20,11 @@
             <groupId>io.minio</groupId>
             <artifactId>minio</artifactId>
         </dependency>
-        <!-- SpringBoot相关依赖-->
+        <!--引入framework模块-->
         <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-web</artifactId>
+            <groupId>com.zl</groupId>
+            <artifactId>zl-framework</artifactId>
         </dependency>
-
 
 
 

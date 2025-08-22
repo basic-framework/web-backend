@@ -13,20 +13,17 @@
             <groupId>com.github.oshi</groupId>
             <artifactId>oshi-core</artifactId>
         </dependency>
-        <!-- SpringBoot相关依赖-->
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-web</artifactId>
-        </dependency>
         <!--引入common模块-->
         <dependency>
             <groupId>com.zl</groupId>
             <artifactId>zl-common</artifactId>
         </dependency>
+        <!--引入framework模块-->
         <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-data-redis</artifactId>
+            <groupId>com.zl</groupId>
+            <artifactId>zl-framework</artifactId>
         </dependency>
+
     </dependencies>
 
 

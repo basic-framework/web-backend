@@ -48,6 +48,7 @@
         <module>zl-extend</module>
         <module>zl-extend/zl-oshi</module>
         <module>zl-security</module>
+        <module>zl-framework</module>
     </modules>
 
 

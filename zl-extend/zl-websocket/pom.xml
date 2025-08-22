@@ -18,8 +18,8 @@
             <artifactId>spring-boot-starter-websocket</artifactId>
         </dependency>
         <dependency>
-            <groupId>com.alibaba.fastjson2</groupId>
-            <artifactId>fastjson2</artifactId>
+            <groupId>com.zl</groupId>
+            <artifactId>zl-framework</artifactId>
         </dependency>
 
 

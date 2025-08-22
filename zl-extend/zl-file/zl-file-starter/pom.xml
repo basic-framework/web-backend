@@ -19,27 +19,10 @@
             <groupId>com.zl</groupId>
             <artifactId>zl-common</artifactId>
         </dependency>
-        <!-- SpringBoot相关依赖-->
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-web</artifactId>
-        </dependency>
-        <!-- Spring Boot自动配置工具 -->
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-autoconfigure</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-configuration-processor</artifactId>
-            <optional>true</optional> <!-- 生成配置元数据，方便IDE提示 -->
-        </dependency>
 
-        <!-- Lombok（简化代码） -->
         <dependency>
-            <groupId>org.projectlombok</groupId>
-            <artifactId>lombok</artifactId>
-            <optional>true</optional>
+            <groupId>com.zl</groupId>
+            <artifactId>zl-framework</artifactId>
         </dependency>
 
 
