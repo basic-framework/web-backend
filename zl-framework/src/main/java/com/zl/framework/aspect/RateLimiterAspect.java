@@ -1,10 +1,9 @@
-package com.zl.web.aspect;
+package com.zl.framework.aspect;
 
 /**
  * 限流机制 不直接限制 Redis 存储，而是利用 Redis 的 高性能计数 和 自动过期 特性，实现对应用请求频率的控制。
  * Redis 在此场景中作为 临时数据存储工具，其资源消耗可控且可优化，不会对存储系统造成实质性压力。
  */
-import com.fasterxml.jackson.databind.ObjectMapper;
 import com.zl.common.utils.ipUtils.IPUtil;
 import com.zl.common.utils.authUtils.UserUtil;
 import jakarta.servlet.http.HttpServletRequest;

@@ -2,7 +2,7 @@ package com.zl.framework.config;
 
 import com.zl.common.properties.SecurityConfigProperties;
 import com.zl.framework.filter.JwtAuthenticationFilter;
-import com.zl.framework.manager.JwtAuthorizationManager;
+import com.zl.framework.manager.security.JwtAuthorizationManager;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.annotation.Bean;

@@ -27,7 +27,6 @@ public class UserTokenInterceptor implements HandlerInterceptor {
     private JwtUtil jwtUtil;
 
 
-
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
         //非控制器请求，非RequestMapping
@@ -55,12 +54,14 @@ public class UserTokenInterceptor implements HandlerInterceptor {
 
 
 
-
     @Override
     public void afterCompletion(HttpServletRequest request, HttpServletResponse response, Object handler, Exception ex) throws Exception {
         //移除当前线程变量中的数据
         UserThreadLocal.remove();
     }
+
+
+
 
 
 }

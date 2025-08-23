@@ -38,17 +38,18 @@ public class LoginController {
         return Result.success(loginVo);
     }
 
+
       /**
       * 用户退出
       * @param
       * @return
       */
-     @PostMapping("/logout")
-     @Operation(summary = "退出登录")
-     public Result<Boolean> logout() {
-         Boolean flag=loginService.logout();
-         return Result.success(flag);
-     }
+    @PostMapping("/logout")
+    @Operation(summary = "退出登录")
+    public Result<Boolean> logout() {
+        Boolean flag=loginService.logout();
+        return Result.success(flag);
+    }
 
 
 

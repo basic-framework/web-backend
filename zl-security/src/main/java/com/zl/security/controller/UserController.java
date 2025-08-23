@@ -32,12 +32,12 @@ public class UserController {
     }
 
      /**
-     * 重置密码
+     * 修改密码
      * @param newPassword
      * @return
      */
     @PostMapping("/resetPassword")
-    @Operation(summary = "重置密码")
+    @Operation(summary = "修改密码")
     public Result<Boolean> resetPassword(@RequestParam("newPassword") String newPassword) {
         Boolean flag=userService.resetPassword(newPassword);
         return Result.success(flag);

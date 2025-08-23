@@ -1,4 +1,4 @@
-package com.zl.framework.manager;
+package com.zl.framework.manager.security;
 import cn.hutool.core.util.ObjectUtil;
 import com.alibaba.fastjson2.JSONObject;
 import com.zl.common.constant.UserConstant;

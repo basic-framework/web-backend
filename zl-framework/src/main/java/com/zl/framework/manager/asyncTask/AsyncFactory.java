@@ -1,4 +1,4 @@
-package com.zl.web.manager.asyncTask;
+package com.zl.framework.manager.asyncTask;
 
 
 import org.slf4j.Logger;
