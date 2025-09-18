@@ -1,4 +1,4 @@
-package com.zl.web.manager.springai.handler;
+package com.zl.springai.handler;
 
 
 import java.util.List;

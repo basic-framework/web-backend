@@ -13,6 +13,9 @@
         <module>zl-websocket</module>
         <module>zl-netty</module>
         <module>zl-file</module>
+        <module>zl-oshi</module>
+        <module>zl-langchain4j</module>
+        <module>zl-springai</module>
     </modules>
 
 

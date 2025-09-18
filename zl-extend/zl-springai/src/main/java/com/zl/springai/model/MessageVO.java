@@ -1,4 +1,4 @@
-package com.zl.web.manager.springai.model;
+package com.zl.springai.model;
 
 import lombok.Data;
 import lombok.NoArgsConstructor;

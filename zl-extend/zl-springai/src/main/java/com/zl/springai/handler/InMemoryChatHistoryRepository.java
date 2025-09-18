@@ -1,9 +1,9 @@
-package com.zl.web.manager.springai.handler;
+package com.zl.springai.handler;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.ObjectWriter;
-import com.zl.web.manager.springai.model.Msg;
+import com.zl.springai.model.Msg;
 import jakarta.annotation.PostConstruct;
 import jakarta.annotation.PreDestroy;
 import lombok.RequiredArgsConstructor;

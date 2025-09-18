@@ -1,4 +1,4 @@
-package com.zl.web.manager.springai.handler;
+package com.zl.springai.handler;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.redis.core.StringRedisTemplate;
 import org.springframework.stereotype.Component;

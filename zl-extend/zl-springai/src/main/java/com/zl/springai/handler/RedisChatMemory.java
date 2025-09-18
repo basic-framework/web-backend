@@ -1,8 +1,8 @@
-package com.zl.web.manager.springai.handler;
+package com.zl.springai.handler;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.zl.web.manager.springai.model.Msg;
+import com.zl.springai.model.Msg;
 import lombok.RequiredArgsConstructor;
 import org.springframework.ai.chat.memory.ChatMemory;
 import org.springframework.ai.chat.messages.Message;

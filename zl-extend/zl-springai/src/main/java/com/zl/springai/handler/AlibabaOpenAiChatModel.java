@@ -1,4 +1,4 @@
-package com.zl.web.manager.springai.handler;
+package com.zl.springai.handler;
 import io.micrometer.observation.Observation;
 import io.micrometer.observation.ObservationRegistry;
 import io.micrometer.observation.contextpropagation.ObservationThreadLocalAccessor;

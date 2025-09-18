@@ -1,4 +1,4 @@
-package com.zl.web.manager.springai.model;
+package com.zl.springai.model;
 import com.zl.model.base.BaseEntity;
 import lombok.AllArgsConstructor;
 import lombok.Builder;

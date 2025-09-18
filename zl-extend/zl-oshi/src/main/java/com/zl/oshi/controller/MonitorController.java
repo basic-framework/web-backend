@@ -3,7 +3,6 @@ package com.zl.oshi.controller;
 import com.zl.common.result.Result;
 import com.zl.common.utils.ipUtils.AddressUtil;
 import com.zl.common.utils.ipUtils.IPUtil;
-
 import com.zl.oshi.model.Server;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
@@ -72,15 +71,15 @@ public class MonitorController {
         commandStats.stringPropertyNames().forEach(key -> {
             Map<String, String> data = new HashMap<>(2);
             String property = commandStats.getProperty(key);
-//            data.put("name", StringUtils.removeStart(key, "cmdstat_"));
-//            data.put("value", StringUtils.substringBetween(property, "calls=", ",usec"));
+            //data.put("name", StringUtils.removeStart(key, "cmdstat_"));
+            //data.put("value", StringUtils.substringBetween(property, "calls=", ",usec"));
             // 替代 StringUtils.removeStart(key, "cmdstat_")
             String name = key.startsWith("cmdstat_")
                     ? key.substring("cmdstat_".length())
                     : key;
             data.put("name", name);
 
-// 替代 StringUtils.substringBetween(property, "calls=", ",usec")
+            // 替代 StringUtils.substringBetween(property, "calls=", ",usec")
             String value = null;
             int startIdx = property.indexOf("calls=");
             if (startIdx != -1) {
@@ -98,7 +97,7 @@ public class MonitorController {
     }
 
 
-    /**
+     /**
      * 获取服务器监控信息
      * @return
      * @throws Exception

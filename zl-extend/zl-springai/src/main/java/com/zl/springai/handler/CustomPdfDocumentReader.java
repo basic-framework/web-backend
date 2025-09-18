@@ -1,4 +1,4 @@
-package com.zl.web.manager.springai.handler;
+package com.zl.springai.handler;
 
 import org.apache.pdfbox.pdmodel.PDDocument;
 import org.apache.pdfbox.text.PDFTextStripper;

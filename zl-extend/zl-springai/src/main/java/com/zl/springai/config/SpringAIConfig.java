@@ -1,9 +1,10 @@
-package com.zl.web.config;
+package com.zl.springai.config;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
 import com.zl.common.constant.ChatConstant;
-import com.zl.web.manager.springai.handler.AlibabaOpenAiChatModel;
-import com.zl.web.manager.springai.handler.RedisChatMemory;
+
+import com.zl.springai.handler.AlibabaOpenAiChatModel;
+import com.zl.springai.handler.RedisChatMemory;
 import io.micrometer.observation.ObservationRegistry;
 import org.springframework.ai.autoconfigure.openai.OpenAiChatProperties;
 import org.springframework.ai.autoconfigure.openai.OpenAiConnectionProperties;
@@ -16,15 +17,11 @@ import org.springframework.ai.chat.client.advisor.SimpleLoggerAdvisor;
 import org.springframework.ai.chat.memory.ChatMemory;
 import org.springframework.ai.chat.observation.ChatModelObservationConvention;
 import org.springframework.ai.chat.prompt.ChatOptions;
-import org.springframework.ai.document.DocumentReader;
 import org.springframework.ai.embedding.EmbeddingModel;
 import org.springframework.ai.model.SimpleApiKey;
 import org.springframework.ai.model.tool.ToolCallingManager;
-import org.springframework.ai.openai.OpenAiChatModel;
-import org.springframework.ai.openai.OpenAiEmbeddingModel;
 import org.springframework.ai.openai.api.OpenAiApi;
 import org.springframework.ai.vectorstore.SearchRequest;
-import org.springframework.ai.vectorstore.SimpleVectorStore;
 import org.springframework.ai.vectorstore.VectorStore;
 import org.springframework.ai.vectorstore.redis.RedisVectorStore;
 import org.springframework.beans.factory.ObjectProvider;
@@ -34,8 +31,6 @@ import org.springframework.boot.autoconfigure.data.redis.RedisConnectionDetails;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.Lazy;
-import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.data.redis.core.StringRedisTemplate;
 import org.springframework.retry.support.RetryTemplate;
 import org.springframework.util.CollectionUtils;
@@ -45,7 +40,6 @@ import org.springframework.web.client.RestClient;
 import org.springframework.web.reactive.function.client.WebClient;
 import redis.clients.jedis.JedisPooled;
 
-import java.net.URI;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -64,6 +58,12 @@ import java.util.Objects;
 public class SpringAIConfig {
     @Autowired
     private StringRedisTemplate stringRedisTemplate;
+
+//    @Bean
+//    public ChatClient commonClient(OpenAiChatModel model){
+//        return ChatClient.builder(model)
+//                .build();
+//    }
 
 
 
@@ -112,8 +112,10 @@ public class SpringAIConfig {
 
 
 
+
+
     @Bean
-    public ChatClient chatSenceClient(OpenAiChatModel model, ChatMemory chatMemory,VectorStore vectorStore) {
+    public ChatClient chatSenceClient(AlibabaOpenAiChatModel model, ChatMemory chatMemory, VectorStore vectorStore) {
         return ChatClient
                 .builder(model)
                 .defaultOptions(ChatOptions.builder().model("qwen-omni-turbo").build())

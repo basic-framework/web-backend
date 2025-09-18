@@ -46,7 +46,6 @@
         <module>zl-model</module>
         <module>zl-web</module>
         <module>zl-extend</module>
-        <module>zl-extend/zl-oshi</module>
         <module>zl-security</module>
         <module>zl-framework</module>
     </modules>
@@ -138,12 +137,13 @@
                 <groupId>com.github.xiaoymin</groupId>
                 <artifactId>knife4j-openapi3-jakarta-spring-boot-starter</artifactId>
                 <version>${knife4j.version}</version>
-                <!--                <exclusions>-->
-                <!--                    <exclusion>-->
-                <!--                        <groupId>org.springdoc</groupId>-->
-                <!--                        <artifactId>springdoc-openapi-starter-webmvc-ui</artifactId>-->
-                <!--                    </exclusion>-->
-                <!--                </exclusions>-->
+<!--                                <exclusions>-->
+<!--                                    <exclusion>-->
+<!--                                        <groupId>org.springdoc</groupId>-->
+<!--                                        <artifactId>springdoc-openapi-starter-webmvc-ui</artifactId>-->
+<!--                                    </exclusion>-->
+<!--                                </exclusions>-->
+
             </dependency>
 
 

@@ -3,7 +3,7 @@ server:
 spring:
   profiles:
     active: dev
-    include: file  # 引入"file"环境的配置（即application-file.yml）
+    include: file,extend  # 引入"file"环境的配置（即application-file.yml）
   servlet:
     multipart:
       max-file-size: 10MB
@@ -22,7 +22,7 @@ spring:
       host: ${spring.data.redis.host}
       port: ${spring.data.redis.port}
       database: ${spring.data.redis.database}
-      password: ${spring.data.redis.password}
+#      password: ${spring.data.redis.password}
 
   ai:
     openai:
@@ -50,8 +50,14 @@ mybatis:
   configuration:
     map-underscore-to-camel-case: true
 
-
-
+langchain4j:
+  open-ai:
+    chat-model:
+      base-url: https://dashscope.aliyuncs.com/compatible-mode/v1
+      api-key: sk-ea422ccad9354bc0afb3784e46154364
+      model-name: qwen-plus
+      log-requests: true #请求消息日志
+      log-responses: true #响应消息日志
 
 
 zl:
@@ -63,6 +69,7 @@ zl:
         - /customer/**
         - /web/login
         - /web/logout
+        - /web/**
         - /ws/**
         - /doc.html/**
         - /*-swagger/**

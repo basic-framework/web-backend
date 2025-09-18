@@ -45,28 +45,11 @@
         </dependency>
 
 
-        <!--SpringAI相关配置-->
-        <dependency>
-            <groupId>org.springframework.ai</groupId>
-            <artifactId>spring-ai-openai-spring-boot-starter</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>redis.clients</groupId>
-            <artifactId>jedis</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework.ai</groupId>
-            <artifactId>spring-ai-redis-store-spring-boot-starter</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework.ai</groupId>
-            <artifactId>spring-ai-pdf-document-reader</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.apache.pdfbox</groupId>
-            <artifactId>pdfbox</artifactId>
-            <version>2.0.30</version>
-        </dependency>
+<!--        <dependency>-->
+<!--            <groupId>org.apache.pdfbox</groupId>-->
+<!--            <artifactId>pdfbox</artifactId>-->
+<!--            <version>2.0.30</version>-->
+<!--        </dependency>-->
 
 
         <!--扩展依赖引入-->
@@ -95,21 +78,24 @@
             <artifactId>zl-oshi</artifactId>
             <version>1.0-SNAPSHOT</version>
         </dependency>
+        <!-- langchain4j 依赖 -->
+        <dependency>
+            <groupId>com.zl</groupId>
+            <artifactId>zl-langchain4j</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
+        <!--springai依赖-->
+<!--        <dependency>-->
+<!--            <groupId>com.zl</groupId>-->
+<!--            <artifactId>zl-springai</artifactId>-->
+<!--            <version>1.0-SNAPSHOT</version>-->
+<!--        </dependency>-->
+
 
 
     </dependencies>
 
-    <dependencyManagement>
-        <dependencies>
-            <dependency>
-                <groupId>org.springframework.ai</groupId>
-                <artifactId>spring-ai-bom</artifactId>
-                <version>${spring-ai.version}</version>
-                <type>pom</type>
-                <scope>import</scope>
-            </dependency>
-        </dependencies>
-    </dependencyManagement>
+
 
 
     <build>
