@@ -90,8 +90,12 @@
 <!--            <artifactId>zl-springai</artifactId>-->
 <!--            <version>1.0-SNAPSHOT</version>-->
 <!--        </dependency>-->
-
-
+        <!--rabbitmq依赖-->
+        <dependency>
+            <groupId>com.zl</groupId>
+            <artifactId>zl-rabbitmq</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependenghi
 
     </dependencies>
 

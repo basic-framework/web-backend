@@ -16,6 +16,7 @@
         <module>zl-oshi</module>
         <module>zl-langchain4j</module>
         <module>zl-springai</module>
+        <module>zl-rabbitmq</module>
     </modules>
 
 

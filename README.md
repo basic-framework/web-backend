@@ -2,7 +2,7 @@
 
 ## 项目简介
 
-`zl-backend` 是智一套企业级后端基础脚手架，基于 Spring Boot 构建。该项目采用模块化设计，旨在提供一个可扩展、易维护的后端开发基础架构，适用于快速搭建企业级应用系统。
+`zl-backend` 是一套企业级后端基础脚手架，基于 Spring Boot 构建。该项目采用模块化设计，旨在提供一个可扩展、易维护的后端开发基础架构，适用于快速搭建企业级应用系统。
 项目目前处于开发阶段，后续会根据需求进行功能完善和优化。
 
 ## 技术栈
@@ -30,3 +30,5 @@ zl-backend/
     ├── zl-springai   # Spring AI 集成模块
     ├── zl-langchain4j # LangChain4j 集成模块
     └── zl-websocket  # WebSocket 通信模块
+
+

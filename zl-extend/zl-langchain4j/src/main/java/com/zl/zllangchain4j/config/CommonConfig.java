@@ -76,24 +76,24 @@ public class CommonConfig {
 //        ingestor.ingest(documents);
 //        return store;
 //    }
-@Bean
-public EmbeddingStore store(){
-    //1.加载文档进内存
-    //List<Document> documents = ClassPathDocumentLoader.loadDocuments("content");
-    //加载文档的时候指定解析器
-    List<Document> documents = ClassPathDocumentLoader.loadDocuments("content",new ApachePdfBoxDocumentParser());
-    //2.构建向量数据库操作对象  操作的是内存版本的向量数据库
-    InMemoryEmbeddingStore store = new InMemoryEmbeddingStore();
-    //构建文档分割器对象
-    DocumentSplitter ds = DocumentSplitters.recursive(500,100);
-    //3.构建一个EmbeddingStoreIngestor对象,完成文本数据切割,向量化, 存储
-    EmbeddingStoreIngestor ingestor = EmbeddingStoreIngestor.builder()
-            .embeddingStore(store)
-            .documentSplitter(ds)
-            .build();
-    ingestor.ingest(documents);
-    return store;
-}
+    @Bean
+    public EmbeddingStore store(){
+        //1.加载文档进内存
+        //List<Document> documents = ClassPathDocumentLoader.loadDocuments("content");
+        //加载文档的时候指定解析器
+        List<Document> documents = ClassPathDocumentLoader.loadDocuments("content",new ApachePdfBoxDocumentParser());
+        //2.构建向量数据库操作对象  操作的是内存版本的向量数据库
+        InMemoryEmbeddingStore store = new InMemoryEmbeddingStore();
+        //构建文档分割器对象
+        DocumentSplitter ds = DocumentSplitters.recursive(500,100);
+        //3.构建一个EmbeddingStoreIngestor对象,完成文本数据切割,向量化, 存储
+        EmbeddingStoreIngestor ingestor = EmbeddingStoreIngestor.builder()
+                .embeddingStore(store)
+                .documentSplitter(ds)
+                .build();
+        ingestor.ingest(documents);
+        return store;
+    }
     @Bean
     public ContentRetriever contentRetriever(EmbeddingStore store){
         return EmbeddingStoreContentRetriever.builder()
