@@ -42,8 +42,8 @@ spring:
 langchain4j:
   open-ai:
     streaming-chat-model: #流式模型配置
-      base-url: https://dashscope.aliyuncs.com/compatible-mode/v1
-      api-key: sk-ea422ccad9354bc0afb3784e46154364
+      base-url: ${spring.ai.openai.base-url}
+      api-key: ${spring.ai.openai.api-key}
       model-name: qwen-plus
       log-requests: true #请求消息日志
       log-responses: true #响应消息日志
