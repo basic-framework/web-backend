@@ -35,6 +35,10 @@ spring:
         max-attempts: 3 # 最大重试次数
 
 
+
+
+
+
 langchain4j:
   open-ai:
     streaming-chat-model: #流式模型配置
