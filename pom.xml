@@ -38,6 +38,7 @@
         <easyexcel>3.3.2</easyexcel>
         <bcprov-jdk15on>1.70</bcprov-jdk15on>
         <spring-ai.version>1.0.0-M6</spring-ai.version>
+        <redission.version>3.13.6</redission.version>
     </properties>
 
 
@@ -175,7 +176,11 @@
                 <artifactId>bcprov-jdk15on</artifactId>
                 <version>${bcprov-jdk15on}</version>
             </dependency>
-
+            <dependency>
+                <groupId>org.redisson</groupId>
+                <artifactId>redisson</artifactId>
+                <version>${redission.version}</version>
+            </dependency>
 
 
         </dependencies>

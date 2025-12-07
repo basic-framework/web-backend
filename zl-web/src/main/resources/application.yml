@@ -22,7 +22,7 @@ spring:
       host: ${spring.data.redis.host}
       port: ${spring.data.redis.port}
       database: ${spring.data.redis.database}
-#      password: ${spring.data.redis.password}
+      password: ${spring.data.redis.password}
 
 
 
