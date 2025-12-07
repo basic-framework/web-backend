@@ -96,11 +96,12 @@ public class CommonFileController {
 
 
 
-    /**要改成使用预签名URL，让前端直接与MinIO交互，减轻服务器负担。
-     * 生成上传预签名URL（PUT）
-     * @param fileName
-     * @return
-     */
+    /**
+    * 生成上传预签名URL（PUT）
+    * @param fileName
+    * @return
+    * 要改成使用预签名URL，让前端直接与MinIO交互，减轻服务器负担。
+    */
     @GetMapping("/presigned-upload-url")
     @Operation(summary = "生成上传预签名URL（PUT）")
     public Result<String> generateUploadUrl(@RequestParam("fileName") String fileName) {
@@ -108,10 +109,11 @@ public class CommonFileController {
         return Result.success(url);
     }
 
-    /**要改成使用预签名URL，让前端直接与MinIO交互，减轻服务器负担。
+     /**
      * 生成下载预签名URL（GET）
      * @param fileName
      * @return
+     * 要改成使用预签名URL，让前端直接与MinIO交互，减轻服务器负担。
      */
     @GetMapping("/presigned-download-url")
     @Operation(summary = "生成下载预签名URL（GET）")

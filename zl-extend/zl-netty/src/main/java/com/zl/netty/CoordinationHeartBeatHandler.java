@@ -28,7 +28,6 @@ public class CoordinationHeartBeatHandler extends ChannelDuplexHandler {
             }else if(e.state()==IdleState.WRITER_IDLE){
                 ctx.writeAndFlush("heart");
             }
-
         }
     }
 

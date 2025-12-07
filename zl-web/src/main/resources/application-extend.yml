@@ -34,7 +34,11 @@ spring:
         multiplier: 1 # 失败后下次的等待时长倍数，下次等待时长 = initial-interval * multiplier
         max-attempts: 3 # 最大重试次数
 
-
+  mqtt:
+    broker-url: tcp://localhost:1883
+    client-id: demo-client
+    username: user
+    password: 123456
 
 
 
