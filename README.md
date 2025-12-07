@@ -31,8 +31,6 @@ zl-backend/
 ├── .gitignore       # Git忽略文件配置
 ├── README.md        # 项目说明文档
 ├── doc/             # 文档目录
-│   ├── ThreadLocal.png
-│   └── 后台登录验证流程 .jpg
 ├── sql/             # SQL脚本目录
 │   └── zl.sql       # 初始化数据库脚本
 ├── pom.xml          # 项目父POM文件
@@ -51,6 +49,8 @@ zl-backend/
     ├── zl-langchain4j # LangChain4j 集成模块
     ├── zl-websocket/ # WebSocket 通信模块
     └── zl-rabbitmq/ # RabbitMQ 消息队列集成模块
+    └── zl-emqx/ # EMQ MQTT 物联网服务模块
+    
 ```
 
 ## 模块说明
@@ -72,6 +72,7 @@ zl-backend/
 - **zl-langchain4j**：LangChain4j集成，提供大语言模型应用能力
 - **zl-websocket**：WebSocket通信模块，支持实时消息推送
 - **zl-rabbitmq**：消息队列集成，支持异步消息处理
+- **zl-emqx**：EMQ MQTT 物联网服务模块
 
 ## 功能特性
 
@@ -99,6 +100,7 @@ zl-backend/
 - WebSocket实时通信
 - 高性能网络通信（Netty）
 - 消息队列支持（RabbitMQ）
+- 物联网服务支持（EMQ MQTT）
 
 ## 配置说明
 
