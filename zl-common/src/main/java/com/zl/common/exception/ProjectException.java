@@ -21,6 +21,7 @@ public class ProjectException extends RuntimeException {
     public ProjectException() {
 
     }
+
     public ProjectException(int code, String message) {
         this.code = code;
         this.message = message;

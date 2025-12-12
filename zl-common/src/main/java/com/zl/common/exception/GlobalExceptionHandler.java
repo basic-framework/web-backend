@@ -35,13 +35,15 @@ public class GlobalExceptionHandler {
         if (ObjectUtil.isNotEmpty(exception.getCause())) {
             log.error("其他未知异常 -> ", exception);
         }
-
         return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
                 .body(MapUtil.<String, Object>builder()
                         .put("code", HttpStatus.INTERNAL_SERVER_ERROR.value())
                         .put("msg", exception.getMessage())
                         .build());
     }
+
+
+
 
     /**
      * 处理IllegalArgumentException。
@@ -116,7 +118,6 @@ public class GlobalExceptionHandler {
         if (ObjectUtil.isNotEmpty(exception.getCause())) {
             log.error("其他未知异常 -> ", exception);
         }
-
 
         return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
                 .body(MapUtil.<String, Object>builder()
