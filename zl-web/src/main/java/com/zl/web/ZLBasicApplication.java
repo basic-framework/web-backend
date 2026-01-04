@@ -9,7 +9,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 
 @SpringBootApplication(scanBasePackages = {"com.zl.*"})
-@MapperScan("com.zl.*") // 直接指定 Mapper 所在包
+@MapperScan("com.zl.**.mapper")
 public class ZLBasicApplication implements CommandLineRunner {
 
     public static void main(String[] args) {

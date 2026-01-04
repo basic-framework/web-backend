@@ -16,9 +16,9 @@ import org.springframework.web.servlet.HandlerInterceptor;
 import java.util.Map;
 
 /**
-* 拦截用户信息存ThreadLocal中的拦截器
-* @Auther: GuihaoLv
-*/
+ * 拦截用户信息存ThreadLocal中的拦截器
+ * @Auther: GuihaoLv
+ */
 @Component
 public class UserTokenInterceptor implements HandlerInterceptor {
     @Autowired

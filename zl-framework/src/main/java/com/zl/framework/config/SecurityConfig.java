@@ -2,13 +2,13 @@ package com.zl.framework.config;
 
 import com.zl.common.properties.SecurityConfigProperties;
 import com.zl.framework.filter.JwtAuthenticationFilter;
-import com.zl.framework.manager.security.JwtAuthorizationManager;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.config.annotation.authentication.configuration.AuthenticationConfiguration;
+import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
@@ -26,13 +26,11 @@ import java.util.List;
  */
 @Configuration
 @EnableConfigurationProperties(SecurityConfigProperties.class)
-public class SecurityConfig  {
+@EnableGlobalMethodSecurity(prePostEnabled = true) // 启用方法级权限控制
+public class SecurityConfig {
 
     @Autowired
     SecurityConfigProperties securityConfigProperties;
-
-    @Autowired
-    JwtAuthorizationManager jwtAuthorizationManager;
 
      @Autowired
      private JwtAuthenticationFilter jwtAuthenticationFilter; // 注入过滤器
@@ -48,7 +46,7 @@ public class SecurityConfig  {
                          .requestMatchers(ignoreUrl.toArray(new String[0]))
                          .permitAll()
                          .anyRequest()
-                         .access(jwtAuthorizationManager)
+                         .authenticated() // 只需要认证，不在这里进行授权
                  )
                  .csrf(csrf -> csrf.disable())
                  .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS));

@@ -8,7 +8,7 @@ import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
- /**
+/**
  * Web 配置类
  * @Author GuihaoLv
  */
@@ -17,15 +17,15 @@ public class WebConfig implements WebMvcConfigurer {
     @Autowired
     private UserTokenInterceptor userTokenInterceptor;
 
-     @Override
-     public void addInterceptors(InterceptorRegistry registry) {
-         registry.addInterceptor(userTokenInterceptor)
-                 .addPathPatterns("/**")
-                 .excludePathPatterns("/web/login"); // 登录不拦截
+    @Override
+    public void addInterceptors(InterceptorRegistry registry) {
+        registry.addInterceptor(userTokenInterceptor)
+                .addPathPatterns("/**")
+                .excludePathPatterns("/web/login"); // 登录不拦截
 
-     }
+    }
 
-     /**
+    /**
      设置静态资源映射
      * @param registry
      */
@@ -40,7 +40,7 @@ public class WebConfig implements WebMvcConfigurer {
                 .addResourceLocations("classpath:/META-INF/resources/webjars/");
     }
 
-     // 新增：配置默认Servlet
+    // 新增：配置默认Servlet
 //     @Override
 //     public void configureDefaultServletHandling(DefaultServletHandlerConfigurer configurer) {
 //         configurer.enable("default"); // 指定默认Servlet名称为"default"

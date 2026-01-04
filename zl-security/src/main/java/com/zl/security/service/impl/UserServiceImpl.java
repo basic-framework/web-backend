@@ -26,9 +26,6 @@ public class UserServiceImpl implements UserService {
      * @return
      */
     public LoginVo findUserVoForLogin(String username) {
-        User userVo = LoginVo.builder()
-                .username(username)
-                .build();
         User user = userMapper.findUserVoForLogin(username);
         if (!ObjectUtil.isEmpty(user)){
             return BeanUtil.toBean(user,LoginVo.class);

@@ -1,11 +1,11 @@
-<mxfile host="drawio-plugin" modified="2025-12-16T14:57:36.865Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36" etag="U5Uwx31ZONMuX01sWLzQ" version="22.1.22" type="embed">
+<mxfile host="drawio-plugin" modified="2026-01-04T07:54:26.473Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36" etag="od8Jsw3htJQnCVA0LddA" version="22.1.22" type="embed">
   <diagram id="ykWcop_5_FoSBd9mRbOM" name="Page-1">
-    <mxGraphModel dx="1395" dy="657" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1200" pageHeight="1600" math="0" shadow="0">
+    <mxGraphModel dx="963" dy="548" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1200" pageHeight="1600" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
         <mxCell id="2" value="zl-web(业务模块)&lt;br&gt;根据需求引入相应模块" style="rounded=1;whiteSpace=wrap;html=1;" parent="1" vertex="1">
-          <mxGeometry x="600" y="70" width="150" height="100" as="geometry" />
+          <mxGeometry x="590" y="70" width="150" height="100" as="geometry" />
         </mxCell>
         <mxCell id="3" value="zl-framework(框架核心模块)" style="rounded=1;whiteSpace=wrap;html=1;" parent="1" vertex="1">
           <mxGeometry x="735" y="260" width="170" height="60" as="geometry" />
@@ -99,37 +99,37 @@
             <mxPoint as="offset" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="51" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="32" target="44">
+        <mxCell id="51" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" parent="1" source="32" target="44" edge="1">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
         <mxCell id="32" value="AI相关" style="rounded=1;whiteSpace=wrap;html=1;" parent="1" vertex="1">
           <mxGeometry x="220" y="30" width="100" height="50" as="geometry" />
         </mxCell>
-        <mxCell id="50" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="33" target="45">
+        <mxCell id="50" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" parent="1" source="33" target="45" edge="1">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
         <mxCell id="33" value="消息系统" style="rounded=1;whiteSpace=wrap;html=1;" parent="1" vertex="1">
-          <mxGeometry x="220" y="130" width="100" height="50" as="geometry" />
+          <mxGeometry x="220" y="135" width="100" height="50" as="geometry" />
         </mxCell>
-        <mxCell id="52" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="34" target="46">
+        <mxCell id="52" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" parent="1" source="34" target="46" edge="1">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
         <mxCell id="34" value="MQ" style="rounded=1;whiteSpace=wrap;html=1;" parent="1" vertex="1">
           <mxGeometry x="220" y="250" width="100" height="50" as="geometry" />
         </mxCell>
-        <mxCell id="53" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="35" target="47">
+        <mxCell id="53" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" parent="1" source="35" target="47" edge="1">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
         <mxCell id="35" value="监控" style="rounded=1;whiteSpace=wrap;html=1;" parent="1" vertex="1">
           <mxGeometry x="220" y="340" width="100" height="50" as="geometry" />
         </mxCell>
-        <mxCell id="56" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="36" target="49">
+        <mxCell id="56" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" parent="1" source="36" target="49" edge="1">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
         <mxCell id="36" value="物联网" style="rounded=1;whiteSpace=wrap;html=1;" parent="1" vertex="1">
           <mxGeometry x="220" y="530" width="100" height="50" as="geometry" />
         </mxCell>
-        <mxCell id="54" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="37" target="48">
+        <mxCell id="54" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" source="37" target="48" edge="1">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
         <mxCell id="37" value="文件系统" style="rounded=1;whiteSpace=wrap;html=1;" parent="1" vertex="1">
@@ -172,22 +172,22 @@
           </mxGeometry>
         </mxCell>
         <mxCell id="44" value="SpringAI&lt;br&gt;LangChain4J&lt;br&gt;SpringAIAlibaba" style="whiteSpace=wrap;html=1;aspect=fixed;" parent="1" vertex="1">
-          <mxGeometry x="85" width="90" height="90" as="geometry" />
+          <mxGeometry x="70" y="10" width="90" height="90" as="geometry" />
         </mxCell>
         <mxCell id="45" value="原生WebSocket&lt;br&gt;Netty整合WebSocket,WebRTC" style="whiteSpace=wrap;html=1;aspect=fixed;" parent="1" vertex="1">
-          <mxGeometry x="60" y="100" width="115" height="115" as="geometry" />
+          <mxGeometry x="55" y="100" width="120" height="120" as="geometry" />
         </mxCell>
         <mxCell id="46" value="RabbitMQ&lt;br&gt;RocketMQ&lt;br&gt;KafKa" style="whiteSpace=wrap;html=1;aspect=fixed;" parent="1" vertex="1">
-          <mxGeometry x="70" y="240" width="80" height="80" as="geometry" />
+          <mxGeometry x="81" y="235" width="80" height="80" as="geometry" />
         </mxCell>
         <mxCell id="47" value="OSHI&lt;br&gt;" style="whiteSpace=wrap;html=1;aspect=fixed;" parent="1" vertex="1">
           <mxGeometry x="100" y="340" width="50" height="50" as="geometry" />
         </mxCell>
         <mxCell id="48" value="基于OSS对象存储的文件系统整合，封装自定义starter" style="whiteSpace=wrap;html=1;aspect=fixed;" parent="1" vertex="1">
-          <mxGeometry x="81" y="420" width="88" height="88" as="geometry" />
+          <mxGeometry x="85" y="421" width="88" height="88" as="geometry" />
         </mxCell>
         <mxCell id="49" value="EMQX(MQTT协议封装)" style="whiteSpace=wrap;html=1;aspect=fixed;" parent="1" vertex="1">
-          <mxGeometry x="85" y="520" width="80" height="80" as="geometry" />
+          <mxGeometry x="85" y="515" width="80" height="80" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
