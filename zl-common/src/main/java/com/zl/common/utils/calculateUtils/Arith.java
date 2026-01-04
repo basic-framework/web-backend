@@ -15,9 +15,7 @@ public class Arith
     private static final int DEF_DIV_SCALE = 10;
 
     /** 这个类不能实例化 */
-    private Arith()
-    {
-    }
+    private Arith() {}
 
     /**
      * 提供精确的加法运算。
