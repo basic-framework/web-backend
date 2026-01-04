@@ -3,15 +3,17 @@ package com.zl.file.controller;
 import com.zl.common.result.Result;
 
 import com.zl.minio.api.CommonFileService;
-import io.minio.errors.ErrorResponseException;
-import io.minio.errors.InsufficientDataException;
+import io.minio.errors.*;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import lombok.extern.slf4j.Slf4j;
 
+import java.io.IOException;
 import java.rmi.ServerException;
+import java.security.InvalidKeyException;
+import java.security.NoSuchAlgorithmException;
 import java.util.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -213,7 +215,7 @@ public class CommonFileController {
      @PostMapping("/download/getFileSize")
      @Operation(summary = "获取文件总大小")
      public Result<Long> getFileSize(@RequestParam("fileMd5") String fileMd5,
-                                     @RequestParam("fileName") String fileName) throws ServerException, InsufficientDataException, ErrorResponseException, IOException, NoSuchAlgorithmException, InvalidKeyException, InvalidResponseException, XmlParserException, InternalException {
+                                     @RequestParam("fileName") String fileName) throws IOException, InsufficientDataException, ErrorResponseException, IOException, NoSuchAlgorithmException, InvalidKeyException, InvalidResponseException, XmlParserException, InternalException, io.minio.errors.ServerException, NoSuchAlgorithmException, InvalidKeyException, InvalidResponseException, XmlParserException, InternalException {
          Long res=commonFileService.getFileSize(fileMd5, fileName);
          return Result.success(res);
      }
