@@ -18,6 +18,7 @@
         <module>zl-springai</module>
         <module>zl-rabbitmq</module>
         <module>zl-emqx</module>
+        <module>zl-xxl-job</module>
     </modules>
 
 
