@@ -3,10 +3,15 @@ package com.zl.file.controller;
 import com.zl.common.result.Result;
 
 import com.zl.minio.api.CommonFileService;
+import io.minio.errors.ErrorResponseException;
+import io.minio.errors.InsufficientDataException;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
+import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import lombok.extern.slf4j.Slf4j;
+
+import java.rmi.ServerException;
 import java.util.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -124,7 +129,96 @@ public class CommonFileController {
 
 
 
+     /**
+      * 文件上传前检查
+      * @param fileMd5
+      * @return
+      */
+     @PostMapping("/upload/checkFile")
+     @Operation(summary = "文件上传前检查")
+     public Result<Boolean> checkFile(@RequestParam("fileMd5") String fileMd5) {
+         Boolean exists = commonFileService.checkFileExists(fileMd5);
+         return Result.success(exists);
+     }
+
+     /**
+      * 分块上传前检查
+      * @param fileMd5
+      * @param chunk
+      * @return
+      */
+     @PostMapping("/upload/checkChunk")
+     @Operation(summary = "文件上传前检查")
+     public Result<Boolean> checkChunk(@RequestParam("fileMd5") String fileMd5,
+                                       @RequestParam("chunk")int chunk) {
+         Boolean exists = commonFileService.checkChunkExists(fileMd5,chunk);
+         return Result.success(exists);
+     }
+
+     /**
+      * 上传分块文件
+      * @param fileMd5
+      * @param chunk
+      * @return
+      */
+     @PostMapping("/upload/uploadChunk")
+     @Operation(summary = "传分块文件")
+     public Result<Boolean> uploadChunk(@RequestParam("file") MultipartFile file,
+                                        @RequestParam("fileMd5") String fileMd5,
+                                        @RequestParam("chunk")int chunk) {
+         Boolean success = commonFileService.uploadChunk(file, fileMd5, chunk);
+         return Result.success(success);
+     }
+
+     /**
+      * 合并分块文件
+      * @param fileMd5
+      * @param chunkTotal
+      * @return
+      */
+     @PostMapping("/upload/mergeChunk")
+     @Operation(summary = "合并分块文件")
+     public Result<Boolean> mergeChunk(@RequestParam("fileMd5") String fileMd5,
+                                       @RequestParam("fileName") String fileName,
+                                       @RequestParam("chunkTotal") int chunkTotal) {
+         Boolean success = commonFileService.mergeChunk(fileMd5, fileName, chunkTotal);
+         return Result.success(success);
+     }
+
+     /**
+      * 大文件分片下载接口（支持Range字节范围请求）
+      * @param fileMd5 文件MD5（定位MinIO文件）
+      * @param fileName 文件名（含扩展名，用于拼接路径）
+      * @param request 获取Range请求头
+      * @param response 返回分片流+响应头
+      */
+     @PostMapping("/download/largeFile")
+     @Operation(summary = "大文件分片下载")
+     public void downloadLargeFile(@RequestParam("fileMd5") String fileMd5,
+                                   @RequestParam("fileName") String fileName,
+                                   HttpServletRequest request,
+                                   HttpServletResponse response) {
+         try {
+             // 调用服务层分片下载逻辑
+             commonFileService.downloadLargeFile(fileMd5, fileName, request, response);
+         } catch (Exception e) {
+             log.error("大文件分片下载失败，fileMd5：{}", fileMd5, e);
+             response.setStatus(HttpServletResponse.SC_INTERNAL_SERVER_ERROR);
+         }
+     }
+
+     /**
+      * 辅助接口：获取文件总大小（前端初始化分片下载时调用）
+      */
+     @PostMapping("/download/getFileSize")
+     @Operation(summary = "获取文件总大小")
+     public Result<Long> getFileSize(@RequestParam("fileMd5") String fileMd5,
+                                     @RequestParam("fileName") String fileName) throws ServerException, InsufficientDataException, ErrorResponseException, IOException, NoSuchAlgorithmException, InvalidKeyException, InvalidResponseException, XmlParserException, InternalException {
+         Long res=commonFileService.getFileSize(fileMd5, fileName);
+         return Result.success(res);
+     }
 
 
 
-}
+
+ }
