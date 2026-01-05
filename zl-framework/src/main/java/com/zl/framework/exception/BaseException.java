@@ -1,4 +1,4 @@
-package com.zl.common.exception;
+package com.zl.framework.exception;
 
 
 import lombok.Data;

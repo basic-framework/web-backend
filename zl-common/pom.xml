@@ -18,7 +18,6 @@
             <artifactId>zl-model</artifactId>
             <version>1.0-SNAPSHOT</version>
         </dependency>
-
         <!-- SpringBoot相关依赖-->
         <dependency>
             <groupId>org.springframework.boot</groupId>

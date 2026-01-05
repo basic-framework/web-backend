@@ -24,6 +24,16 @@ spring:
       database: ${spring.data.redis.database}
       password: ${spring.data.redis.password}
 
+# knife4j配置
+springdoc:
+  api-docs:
+    path: /v3/api-docs
+  group-configs:
+    - group: default
+      paths-to-match: /**
+      packages-to-scan: com.zl
+knife4j:
+  enable: true
 
 
 
