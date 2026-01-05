@@ -52,7 +52,6 @@
     </modules>
 
 
-
     <dependencyManagement>
         <dependencies>
             <!-- spring-boot -->
@@ -138,13 +137,12 @@
                 <groupId>com.github.xiaoymin</groupId>
                 <artifactId>knife4j-openapi3-jakarta-spring-boot-starter</artifactId>
                 <version>${knife4j.version}</version>
-<!--                                <exclusions>-->
-<!--                                    <exclusion>-->
-<!--                                        <groupId>org.springdoc</groupId>-->
-<!--                                        <artifactId>springdoc-openapi-starter-webmvc-ui</artifactId>-->
-<!--                                    </exclusion>-->
-<!--                                </exclusions>-->
-
+<!--                 <exclusions>-->
+<!--                     <exclusion>-->
+<!--                         <groupId>org.springdoc</groupId>-->
+<!--                         <artifactId>springdoc-openapi-starter-webmvc-ui</artifactId>-->
+<!--                     </exclusion>-->
+<!--                 </exclusions>-->
             </dependency>
 
 

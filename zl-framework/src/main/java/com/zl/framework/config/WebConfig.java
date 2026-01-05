@@ -1,28 +1,35 @@
 package com.zl.framework.config;
 
-
 import com.zl.framework.interceptor.UserTokenInterceptor;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
-
+import java.util.List;
 /**
  * Web 配置类
  * @Author GuihaoLv
  */
 @Configuration
+@ConfigurationProperties(prefix = "zl.framework.security")
 public class WebConfig implements WebMvcConfigurer {
     @Autowired
     private UserTokenInterceptor userTokenInterceptor;
+    private List<String> ignoreUrl;
+    // 必须保留setter方法，用于配置注入
+    public void setIgnoreUrl(List<String> ignoreUrl) {
+        this.ignoreUrl = ignoreUrl;
+    }
+
 
     @Override
     public void addInterceptors(InterceptorRegistry registry) {
         registry.addInterceptor(userTokenInterceptor)
                 .addPathPatterns("/**")
-                .excludePathPatterns("/web/login"); // 登录不拦截
-
+//                .excludePathPatterns("/web/login"); // 登录不拦截
+                .excludePathPatterns(ignoreUrl.toArray(new String[0]));
     }
 
     /**
@@ -40,10 +47,6 @@ public class WebConfig implements WebMvcConfigurer {
                 .addResourceLocations("classpath:/META-INF/resources/webjars/");
     }
 
-    // 新增：配置默认Servlet
-//     @Override
-//     public void configureDefaultServletHandling(DefaultServletHandlerConfigurer configurer) {
-//         configurer.enable("default"); // 指定默认Servlet名称为"default"
-//     }
+
 
 }

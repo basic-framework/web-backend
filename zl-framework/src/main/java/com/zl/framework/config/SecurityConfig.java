@@ -54,8 +54,8 @@ public class SecurityConfig {
 
     @Autowired
     private JwtAuthenticationFilter jwtAuthenticationFilter; // 注入JWT认证过滤器
-    @Autowired
-    JwtAuthorizationManager jwtAuthorizationManager;
+//    @Autowired
+//    JwtAuthorizationManager jwtAuthorizationManager;
 
     /**
      * 核心安全过滤链配置

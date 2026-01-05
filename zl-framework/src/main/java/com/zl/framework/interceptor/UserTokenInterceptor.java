@@ -1,9 +1,7 @@
 package com.zl.framework.interceptor;
-
 import cn.hutool.core.util.ObjectUtil;
 import com.zl.common.constant.UserConstant;
 import com.zl.common.context.UserThreadLocal;
-import com.zl.common.properties.JwtProperties;
 import com.zl.common.utils.authUtils.JwtUtil;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
@@ -12,7 +10,6 @@ import org.springframework.data.redis.core.StringRedisTemplate;
 import org.springframework.stereotype.Component;
 import org.springframework.web.method.HandlerMethod;
 import org.springframework.web.servlet.HandlerInterceptor;
-
 import java.util.Map;
 
 /**

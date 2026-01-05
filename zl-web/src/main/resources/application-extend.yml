@@ -1,4 +1,6 @@
 spring:
+
+  #SpringAI配置
   ai:
     openai:
       base-url: ${spring.ai.openai.base-url}
@@ -16,7 +18,7 @@ spring:
         index: 0
         prefix: "doc:" # 向量库key前缀
 
-
+  #RabbitMQ配置
   rabbitmq:
     host: 121.40.147.57
     port: 5672
@@ -34,12 +36,14 @@ spring:
         multiplier: 1 # 失败后下次的等待时长倍数，下次等待时长 = initial-interval * multiplier
         max-attempts: 3 # 最大重试次数
 
+  #EMQX配置
   mqtt:
     broker-url: tcp://localhost:1883
     client-id: demo-client
     username: user
     password: 123456
 
+#XXL-JOB配置
 xxl:
   job:
     admin:
@@ -54,7 +58,7 @@ xxl:
     accessToken: default_token
 
 
-
+#Langchain4j配置
 langchain4j:
   open-ai:
     streaming-chat-model: #流式模型配置

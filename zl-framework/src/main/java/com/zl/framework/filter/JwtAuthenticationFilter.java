@@ -1,6 +1,8 @@
 package com.zl.framework.filter;
+import cn.hutool.core.text.AntPathMatcher;
 import cn.hutool.core.util.ObjectUtil;
 import com.zl.common.constant.UserConstant;
+import com.zl.common.properties.SecurityConfigProperties;
 import com.zl.common.utils.authUtils.JwtUtil;
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.ExpiredJwtException;
@@ -10,7 +12,10 @@ import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import lombok.Value;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.data.redis.core.StringRedisTemplate;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
@@ -34,17 +39,41 @@ import java.util.stream.Collectors;
  */
 @Slf4j
 @Component
+@EnableConfigurationProperties(SecurityConfigProperties.class)
 public class JwtAuthenticationFilter extends OncePerRequestFilter {
 
     private final StringRedisTemplate stringRedisTemplate;
     private final JwtUtil jwtUtil;
     private final String TOKEN_PREFIX = "Bearer ";
     private final String AUTH_HEADER = "Authorization";
+    @Autowired
+    private SecurityConfigProperties securityConfigProperties;
+    private final AntPathMatcher pathMatcher = new AntPathMatcher();
+
 
     public JwtAuthenticationFilter(StringRedisTemplate stringRedisTemplate, JwtUtil jwtUtil) {
         this.stringRedisTemplate = stringRedisTemplate;
         this.jwtUtil = jwtUtil;
     }
+
+    /**
+     * 核心方法：指定哪些路径不需要经过当前过滤器（对应拦截器的excludePathPatterns）
+     * 返回true = 不过滤（放行），返回false = 需要过滤
+     */
+    @Override
+    protected boolean shouldNotFilter(HttpServletRequest request) throws ServletException {
+        String requestURI = request.getRequestURI();
+        // 遍历排除路径列表，匹配到则放行
+        for (String ignoreUrl : securityConfigProperties.getIgnoreUrl()) {
+            // 修正：使用手动创建的 pathMatcher 实例进行匹配（解决 DEFAULT 无法解析问题）
+            if (pathMatcher.match(ignoreUrl, requestURI)) {
+                return true; // 放行，不执行当前过滤器逻辑
+            }
+        }
+        // 非排除路径，需要执行过滤器逻辑
+        return false;
+    }
+
 
     @Override
     protected void doFilterInternal(HttpServletRequest request,
