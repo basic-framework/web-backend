@@ -12,11 +12,6 @@
     <name>zl-web</name>
 
 
-    <properties>
-        <spring-ai.version>1.0.0-M6</spring-ai.version>
-    </properties>
-
-
 
     <dependencies>
         <!--引入common模块-->
@@ -43,7 +38,12 @@
             <artifactId>zl-security</artifactId>
             <version>1.0-SNAPSHOT</version>
         </dependency>
-
+        <!-- pagehelper 分页插件 -->
+        <dependency>
+            <groupId>com.github.pagehelper</groupId>
+            <artifactId>pagehelper-spring-boot-starter</artifactId>
+            <version>2.1.0</version>
+        </dependency>
         <!--扩展依赖引入-->
         <!--WebSocket依赖-->
         <dependency>
@@ -65,11 +65,11 @@
             <version>1.0-SNAPSHOT</version>
         </dependency>
         <!-- 引入oshi模块 -->
-        <dependency>
-            <groupId>com.zl</groupId>
-            <artifactId>zl-oshi</artifactId>
-            <version>1.0-SNAPSHOT</version>
-        </dependency>
+<!--        <dependency>-->
+<!--            <groupId>com.zl</groupId>-->
+<!--            <artifactId>zl-oshi</artifactId>-->
+<!--            <version>1.0-SNAPSHOT</version>-->
+<!--        </dependency>-->
         <!-- langchain4j 依赖 -->
 <!--        <dependency>-->
 <!--            <groupId>com.zl</groupId>-->

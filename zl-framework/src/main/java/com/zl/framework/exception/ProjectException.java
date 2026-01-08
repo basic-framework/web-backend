@@ -44,8 +44,8 @@ public class ProjectException extends RuntimeException {
 
 
     private void setBasicMsg(IBasicEnum basicEnumIntface) {
-        this.code = basicEnumIntface.getCode();
-        this.message = basicEnumIntface.getMsg();
+        this.code = basicEnumIntface.getValue();
+        this.message = basicEnumIntface.getDesc();
         this.basicEnumIntface = basicEnumIntface;
     }
 
