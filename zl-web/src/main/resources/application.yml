@@ -86,16 +86,10 @@ zl:
 
 
 
-
-
-
-
-#日志记录
+#日志记录 - 详细配置请参考 logback-spring.xml
 logging:
+  config: classpath:logback-spring.xml
   level:
+    root: INFO
     com:
-      lgh:
-        manage:
-          mapper: debug
-          service: info
-          controller: info
+      zl: DEBUG
