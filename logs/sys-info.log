@@ -127,3 +127,7 @@
 2026-01-09 23:02:29.395 [http-nio-8080-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - [initServletBean,532] - Initializing Servlet 'dispatcherServlet'
 2026-01-09 23:02:29.396 [http-nio-8080-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - [initServletBean,554] - Completed initialization in 1 ms
 2026-01-09 23:02:29.456 [http-nio-8080-exec-1] INFO  com.zl.web.controller.LogTestController - [testAllLogLevels,46] - INFO级别日志：应用程序正常运行的信息
+2026-01-09 23:10:39.215 [SpringApplicationShutdownHook] INFO  o.s.boot.web.embedded.tomcat.GracefulShutdown - [shutDownGracefully,54] - Commencing graceful shutdown. Waiting for active requests to complete
+2026-01-09 23:10:39.875 [tomcat-shutdown] INFO  o.s.boot.web.embedded.tomcat.GracefulShutdown - [doShutdown,76] - Graceful shutdown complete
+2026-01-09 23:10:40.012 [SpringApplicationShutdownHook] INFO  com.alibaba.druid.pool.DruidDataSource - [?,?] - {dataSource-1} closing ...
+2026-01-09 23:10:40.015 [SpringApplicationShutdownHook] INFO  com.alibaba.druid.pool.DruidDataSource - [?,?] - {dataSource-1} closed
