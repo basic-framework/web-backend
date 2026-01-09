@@ -1,7 +1,8 @@
 package com.zl.springai.config;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
-import com.zl.common.constant.ChatConstant;
+import com.zl.springai.functionCalling.FCTools;
+import com.zl.springai.prompt.ChatConstant;
 
 import com.zl.springai.handler.AlibabaOpenAiChatModel;
 import com.zl.springai.handler.RedisChatMemory;
@@ -59,14 +60,6 @@ public class SpringAIConfig {
     @Autowired
     private StringRedisTemplate stringRedisTemplate;
 
-//    @Bean
-//    public ChatClient commonClient(OpenAiChatModel model){
-//        return ChatClient.builder(model)
-//                .build();
-//    }
-
-
-
     @Bean
     public ObjectMapper objectMapper() {
         ObjectMapper objectMapper = new ObjectMapper();
@@ -76,13 +69,20 @@ public class SpringAIConfig {
         return objectMapper;
     }
 
+
+
     @Bean
     public ChatMemory chatMemory() {
        return new RedisChatMemory(stringRedisTemplate, objectMapper());
     }
 
 
-
+    /**
+     * 创建SimpleVectorStore向量数据库
+     * 基于内存存储
+     * @param embeddingModel
+     * @return
+     */
 //    @Bean
 //    public VectorStore vectorStore(OpenAiEmbeddingModel embeddingModel) {
 //        return SimpleVectorStore.builder(embeddingModel).build();
@@ -135,6 +135,35 @@ public class SpringAIConfig {
     }
 
 
+
+
+    /**
+     * FunctionCalling工具类
+     * @return
+     */
+    @Bean
+    public FCTools fcTools() {
+        return new FCTools();
+    }
+
+    /**
+     * FunctionCalling功能测试的ChatClient
+     * @param model 聊天模型
+     * @param fcTools FunctionCalling工具类
+     * @return 配置好的ChatClient
+     */
+    @Bean
+    public ChatClient functionCallingClient(AlibabaOpenAiChatModel model, FCTools fcTools) {
+        return ChatClient
+                .builder(model)
+                .defaultOptions(ChatOptions.builder().model("qwen-omni-turbo").build())
+                .defaultSystem(ChatConstant.FUNCTION_CALLING_PROMPT)
+                .defaultAdvisors(
+                        new SimpleLoggerAdvisor()
+                )
+                .defaultTools(List.of(fcTools))
+                .build();
+    }
 
      //引入此模型解决OpenAI规范不兼容的问题
      @Bean
