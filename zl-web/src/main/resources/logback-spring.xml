@@ -19,6 +19,7 @@
         </encoder>
     </appender>
 
+
     <!-- 系统信息日志输出 -->
     <appender name="file_info" class="ch.qos.logback.core.rolling.RollingFileAppender">
         <file>${log.path}/sys-info.log</file>

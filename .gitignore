@@ -33,3 +33,6 @@ build/
 .vscode/
 #配置文件
 zl-web/src/main/resources/application-dev.yml
+
+# 日志文件
+/logs/
