@@ -1,133 +1,223 @@
-2026-01-09 22:53:26.787 [SpringApplicationShutdownHook] INFO  o.s.b.w.e.t.GracefulShutdown - [shutDownGracefully,54] - Commencing graceful shutdown. Waiting for active requests to complete
-2026-01-09 22:53:45.642 [background-preinit] INFO  o.h.v.i.util.Version - [<clinit>,21] - HV000001: Hibernate Validator 8.0.2.Final
-2026-01-09 22:53:45.708 [main] INFO  c.z.w.ZLBasicApplication - [logStarting,53] - Starting ZLBasicApplication using Java 17.0.12 with PID 27064 (F:\外接项目\智领软件公司基础脚手架\zl-backend\zl-web\target\classes started by 惠普 in F:\外接项目\智领软件公司基础脚手架\zl-backend)
-2026-01-09 22:53:45.712 [main] INFO  c.z.w.ZLBasicApplication - [logStartupProfileInfo,658] - The following 3 profiles are active: "file", "extend", "dev"
-2026-01-09 22:53:46.949 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - [multipleStoresDetected,295] - Multiple Spring Data modules found, entering strict repository configuration mode
-2026-01-09 22:53:46.953 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - [registerRepositoriesIn,143] - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
-2026-01-09 22:53:46.992 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - [registerRepositoriesIn,211] - Finished Spring Data repository scanning in 16 ms. Found 0 Redis repository interfaces.
-2026-01-09 22:53:48.000 [main] INFO  o.s.b.w.e.t.TomcatWebServer - [initialize,111] - Tomcat initialized with port 8080 (http)
-2026-01-09 22:53:48.003 [main] INFO  o.a.c.c.AprLifecycleListener - [log,168] - Loaded Apache Tomcat Native library [2.0.7] using APR version [1.7.4].
-2026-01-09 22:53:48.008 [main] INFO  o.a.c.c.AprLifecycleListener - [log,168] - OpenSSL successfully initialized [OpenSSL 3.0.13 30 Jan 2024]
-2026-01-09 22:53:48.023 [main] INFO  o.a.c.h.Http11NioProtocol - [log,168] - Initializing ProtocolHandler ["http-nio-8080"]
-2026-01-09 22:53:48.025 [main] INFO  o.a.c.c.StandardService - [log,168] - Starting service [Tomcat]
-2026-01-09 22:53:48.027 [main] INFO  o.a.c.c.StandardEngine - [log,168] - Starting Servlet engine: [Apache Tomcat/10.1.40]
-2026-01-09 22:53:48.119 [main] INFO  o.a.c.c.C.[.[.[/] - [log,168] - Initializing Spring embedded WebApplicationContext
-2026-01-09 22:53:48.121 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - [prepareWebApplicationContext,301] - Root WebApplicationContext: initialization completed in 2349 ms
-2026-01-09 22:53:48.659 [main] INFO  c.a.d.s.b.a.DruidDataSourceAutoConfigure - [dataSource,68] - Init DruidDataSource
-2026-01-09 22:53:48.778 [main] INFO  c.a.d.p.DruidDataSource - [init,673] - {dataSource-1} inited
-2026-01-09 22:53:48.924 [main] INFO  o.s.s.c.a.a.c.InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer - [configure,114] - Global AuthenticationManager configured with UserDetailsService bean with name userDetailsServiceImpl
-2026-01-09 22:53:49.370 [main] INFO  c.z.f.c.RedisConfig - [redisTemplate,49] - 开始创建模板对象
-2026-01-09 22:53:49.460 [main] INFO  o.redisson.Version - [logVersion,41] - Redisson 3.13.6
-2026-01-09 22:53:49.786 [redisson-netty-4-16] INFO  o.r.c.p.MasterPubSubConnectionPool - [lambda$run$0,167] - 1 connections initialized for /127.0.0.1:6379
-2026-01-09 22:53:49.801 [redisson-netty-4-20] INFO  o.r.c.p.MasterConnectionPool - [lambda$run$0,167] - 24 connections initialized for /127.0.0.1:6379
-2026-01-09 22:53:50.895 [main] INFO  o.a.c.h.Http11NioProtocol - [log,168] - Starting ProtocolHandler ["http-nio-8080"]
-2026-01-09 22:53:50.907 [main] INFO  o.s.b.w.e.t.TomcatWebServer - [start,243] - Tomcat started on port 8080 (http) with context path '/'
-2026-01-09 22:53:50.921 [main] INFO  c.z.w.ZLBasicApplication - [logStarted,59] - Started ZLBasicApplication in 6.032 seconds (process running for 6.847)
-2026-01-09 22:54:29.518 [SpringApplicationShutdownHook] INFO  o.s.b.w.e.t.GracefulShutdown - [shutDownGracefully,54] - Commencing graceful shutdown. Waiting for active requests to complete
-2026-01-09 22:54:30.144 [tomcat-shutdown] INFO  o.s.b.w.e.t.GracefulShutdown - [doShutdown,76] - Graceful shutdown complete
-2026-01-09 22:54:30.290 [SpringApplicationShutdownHook] INFO  c.a.d.p.DruidDataSource - [close,1880] - {dataSource-1} closing ...
-2026-01-09 22:54:30.293 [SpringApplicationShutdownHook] INFO  c.a.d.p.DruidDataSource - [close,1953] - {dataSource-1} closed
-2026-01-09 22:54:36.497 [background-preinit] INFO  o.h.v.i.util.Version - [<clinit>,21] - HV000001: Hibernate Validator 8.0.2.Final
-2026-01-09 22:54:36.560 [main] INFO  c.z.w.ZLBasicApplication - [logStarting,53] - Starting ZLBasicApplication using Java 17.0.12 with PID 9504 (F:\外接项目\智领软件公司基础脚手架\zl-backend\zl-web\target\classes started by 惠普 in F:\外接项目\智领软件公司基础脚手架\zl-backend)
-2026-01-09 22:54:36.563 [main] INFO  c.z.w.ZLBasicApplication - [logStartupProfileInfo,658] - The following 3 profiles are active: "file", "extend", "dev"
-2026-01-09 22:54:37.795 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - [multipleStoresDetected,295] - Multiple Spring Data modules found, entering strict repository configuration mode
-2026-01-09 22:54:37.799 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - [registerRepositoriesIn,143] - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
-2026-01-09 22:54:37.834 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - [registerRepositoriesIn,211] - Finished Spring Data repository scanning in 15 ms. Found 0 Redis repository interfaces.
-2026-01-09 22:54:38.838 [main] INFO  o.s.b.w.e.t.TomcatWebServer - [initialize,111] - Tomcat initialized with port 8080 (http)
-2026-01-09 22:54:38.841 [main] INFO  o.a.c.c.AprLifecycleListener - [log,168] - Loaded Apache Tomcat Native library [2.0.7] using APR version [1.7.4].
-2026-01-09 22:54:38.846 [main] INFO  o.a.c.c.AprLifecycleListener - [log,168] - OpenSSL successfully initialized [OpenSSL 3.0.13 30 Jan 2024]
-2026-01-09 22:54:38.861 [main] INFO  o.a.c.h.Http11NioProtocol - [log,168] - Initializing ProtocolHandler ["http-nio-8080"]
-2026-01-09 22:54:38.862 [main] INFO  o.a.c.c.StandardService - [log,168] - Starting service [Tomcat]
-2026-01-09 22:54:38.863 [main] INFO  o.a.c.c.StandardEngine - [log,168] - Starting Servlet engine: [Apache Tomcat/10.1.40]
-2026-01-09 22:54:38.947 [main] INFO  o.a.c.c.C.[.[.[/] - [log,168] - Initializing Spring embedded WebApplicationContext
-2026-01-09 22:54:38.947 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - [prepareWebApplicationContext,301] - Root WebApplicationContext: initialization completed in 2326 ms
-2026-01-09 22:54:39.496 [main] INFO  c.a.d.s.b.a.DruidDataSourceAutoConfigure - [dataSource,68] - Init DruidDataSource
-2026-01-09 22:54:39.618 [main] INFO  c.a.d.p.DruidDataSource - [init,673] - {dataSource-1} inited
-2026-01-09 22:54:39.781 [main] INFO  o.s.s.c.a.a.c.InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer - [configure,114] - Global AuthenticationManager configured with UserDetailsService bean with name userDetailsServiceImpl
-2026-01-09 22:54:40.214 [main] INFO  c.z.f.c.RedisConfig - [redisTemplate,49] - 开始创建模板对象
-2026-01-09 22:54:40.303 [main] INFO  o.redisson.Version - [logVersion,41] - Redisson 3.13.6
-2026-01-09 22:54:40.632 [redisson-netty-4-19] INFO  o.r.c.p.MasterPubSubConnectionPool - [lambda$run$0,167] - 1 connections initialized for /127.0.0.1:6379
-2026-01-09 22:54:40.643 [redisson-netty-4-19] INFO  o.r.c.p.MasterConnectionPool - [lambda$run$0,167] - 24 connections initialized for /127.0.0.1:6379
-2026-01-09 22:54:41.724 [main] INFO  o.a.c.h.Http11NioProtocol - [log,168] - Starting ProtocolHandler ["http-nio-8080"]
-2026-01-09 22:54:41.738 [main] INFO  o.s.b.w.e.t.TomcatWebServer - [start,243] - Tomcat started on port 8080 (http) with context path '/'
-2026-01-09 22:54:41.753 [main] INFO  c.z.w.ZLBasicApplication - [logStarted,59] - Started ZLBasicApplication in 6.019 seconds (process running for 6.811)
-2026-01-09 22:55:20.022 [http-nio-8080-exec-1] INFO  o.a.c.c.C.[.[.[/] - [log,168] - Initializing Spring DispatcherServlet 'dispatcherServlet'
-2026-01-09 22:55:20.022 [http-nio-8080-exec-1] INFO  o.s.w.s.DispatcherServlet - [initServletBean,532] - Initializing Servlet 'dispatcherServlet'
-2026-01-09 22:55:20.024 [http-nio-8080-exec-1] INFO  o.s.w.s.DispatcherServlet - [initServletBean,554] - Completed initialization in 2 ms
-2026-01-09 22:55:20.081 [http-nio-8080-exec-1] INFO  c.z.w.c.TestController - [someMethod,19] - 这是一条信息日志
-2026-01-09 22:55:21.731 [http-nio-8080-exec-2] INFO  c.z.w.c.TestController - [someMethod,19] - 这是一条信息日志
-2026-01-09 22:55:22.152 [http-nio-8080-exec-7] INFO  c.z.w.c.TestController - [someMethod,19] - 这是一条信息日志
-2026-01-09 22:55:22.350 [http-nio-8080-exec-4] INFO  c.z.w.c.TestController - [someMethod,19] - 这是一条信息日志
-2026-01-09 22:55:22.536 [http-nio-8080-exec-5] INFO  c.z.w.c.TestController - [someMethod,19] - 这是一条信息日志
-2026-01-09 22:55:22.767 [http-nio-8080-exec-3] INFO  c.z.w.c.TestController - [someMethod,19] - 这是一条信息日志
-2026-01-09 22:55:34.827 [http-nio-8080-exec-6] INFO  c.z.w.c.TestController - [someMethod,19] - 这是一条信息日志
-2026-01-09 22:57:16.708 [SpringApplicationShutdownHook] INFO  o.s.b.w.e.t.GracefulShutdown - [shutDownGracefully,54] - Commencing graceful shutdown. Waiting for active requests to complete
-2026-01-09 22:57:17.341 [tomcat-shutdown] INFO  o.s.b.w.e.t.GracefulShutdown - [doShutdown,76] - Graceful shutdown complete
-2026-01-09 22:57:17.495 [SpringApplicationShutdownHook] INFO  c.a.d.p.DruidDataSource - [close,1880] - {dataSource-1} closing ...
-2026-01-09 22:57:17.497 [SpringApplicationShutdownHook] INFO  c.a.d.p.DruidDataSource - [close,1953] - {dataSource-1} closed
-2026-01-09 22:57:24.300 [background-preinit] INFO  o.h.v.i.util.Version - [<clinit>,21] - HV000001: Hibernate Validator 8.0.2.Final
-2026-01-09 22:57:24.367 [main] INFO  c.z.w.ZLBasicApplication - [logStarting,53] - Starting ZLBasicApplication using Java 17.0.12 with PID 22932 (F:\外接项目\智领软件公司基础脚手架\zl-backend\zl-web\target\classes started by 惠普 in F:\外接项目\智领软件公司基础脚手架\zl-backend)
-2026-01-09 22:57:24.369 [main] INFO  c.z.w.ZLBasicApplication - [logStartupProfileInfo,658] - The following 3 profiles are active: "file", "extend", "dev"
-2026-01-09 22:57:25.645 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - [multipleStoresDetected,295] - Multiple Spring Data modules found, entering strict repository configuration mode
-2026-01-09 22:57:25.650 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - [registerRepositoriesIn,143] - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
-2026-01-09 22:57:25.686 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - [registerRepositoriesIn,211] - Finished Spring Data repository scanning in 16 ms. Found 0 Redis repository interfaces.
-2026-01-09 22:57:26.679 [main] INFO  o.s.b.w.e.t.TomcatWebServer - [initialize,111] - Tomcat initialized with port 8080 (http)
-2026-01-09 22:57:26.683 [main] INFO  o.a.c.c.AprLifecycleListener - [log,168] - Loaded Apache Tomcat Native library [2.0.7] using APR version [1.7.4].
-2026-01-09 22:57:26.688 [main] INFO  o.a.c.c.AprLifecycleListener - [log,168] - OpenSSL successfully initialized [OpenSSL 3.0.13 30 Jan 2024]
-2026-01-09 22:57:26.702 [main] INFO  o.a.c.h.Http11NioProtocol - [log,168] - Initializing ProtocolHandler ["http-nio-8080"]
-2026-01-09 22:57:26.704 [main] INFO  o.a.c.c.StandardService - [log,168] - Starting service [Tomcat]
-2026-01-09 22:57:26.704 [main] INFO  o.a.c.c.StandardEngine - [log,168] - Starting Servlet engine: [Apache Tomcat/10.1.40]
-2026-01-09 22:57:26.780 [main] INFO  o.a.c.c.C.[.[.[/] - [log,168] - Initializing Spring embedded WebApplicationContext
-2026-01-09 22:57:26.781 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - [prepareWebApplicationContext,301] - Root WebApplicationContext: initialization completed in 2347 ms
-2026-01-09 22:57:27.320 [main] INFO  c.a.d.s.b.a.DruidDataSourceAutoConfigure - [dataSource,68] - Init DruidDataSource
-2026-01-09 22:57:27.437 [main] INFO  c.a.d.p.DruidDataSource - [init,673] - {dataSource-1} inited
-2026-01-09 22:57:27.593 [main] INFO  o.s.s.c.a.a.c.InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer - [configure,114] - Global AuthenticationManager configured with UserDetailsService bean with name userDetailsServiceImpl
-2026-01-09 22:57:28.043 [main] INFO  c.z.f.c.RedisConfig - [redisTemplate,49] - 开始创建模板对象
-2026-01-09 22:57:28.137 [main] INFO  o.redisson.Version - [logVersion,41] - Redisson 3.13.6
-2026-01-09 22:57:28.470 [redisson-netty-4-18] INFO  o.r.c.p.MasterPubSubConnectionPool - [lambda$run$0,167] - 1 connections initialized for /127.0.0.1:6379
-2026-01-09 22:57:28.482 [redisson-netty-4-19] INFO  o.r.c.p.MasterConnectionPool - [lambda$run$0,167] - 24 connections initialized for /127.0.0.1:6379
-2026-01-09 22:57:29.592 [main] INFO  o.a.c.h.Http11NioProtocol - [log,168] - Starting ProtocolHandler ["http-nio-8080"]
-2026-01-09 22:57:29.604 [main] INFO  o.s.b.w.e.t.TomcatWebServer - [start,243] - Tomcat started on port 8080 (http) with context path '/'
-2026-01-09 22:57:29.618 [main] INFO  c.z.w.ZLBasicApplication - [logStarted,59] - Started ZLBasicApplication in 6.069 seconds (process running for 6.864)
-2026-01-09 22:57:47.464 [http-nio-8080-exec-1] INFO  o.a.c.c.C.[.[.[/] - [log,168] - Initializing Spring DispatcherServlet 'dispatcherServlet'
-2026-01-09 22:57:47.464 [http-nio-8080-exec-1] INFO  o.s.w.s.DispatcherServlet - [initServletBean,532] - Initializing Servlet 'dispatcherServlet'
-2026-01-09 22:57:47.465 [http-nio-8080-exec-1] INFO  o.s.w.s.DispatcherServlet - [initServletBean,554] - Completed initialization in 1 ms
-2026-01-09 22:57:47.523 [http-nio-8080-exec-1] INFO  c.z.w.c.LogTestController - [testAllLogLevels,46] - INFO级别日志：应用程序正常运行的信息
-2026-01-09 22:58:07.397 [http-nio-8080-exec-3] INFO  c.z.w.c.LogTestController - [testLogWithParams,82] - 用户操作：用户名=testUser, 用户ID=12345, 操作=用户登录
-2026-01-09 22:58:20.120 [http-nio-8080-exec-10] INFO  c.z.w.c.LogTestController - [testPerformanceLog,105] - 操作执行完成，耗时: 114ms
-2026-01-09 23:01:06.128 [SpringApplicationShutdownHook] INFO  o.s.b.w.e.t.GracefulShutdown - [shutDownGracefully,54] - Commencing graceful shutdown. Waiting for active requests to complete
-2026-01-09 23:01:06.748 [tomcat-shutdown] INFO  o.s.b.w.e.t.GracefulShutdown - [doShutdown,76] - Graceful shutdown complete
-2026-01-09 23:01:06.899 [SpringApplicationShutdownHook] INFO  c.a.d.p.DruidDataSource - [close,1880] - {dataSource-1} closing ...
-2026-01-09 23:01:06.902 [SpringApplicationShutdownHook] INFO  c.a.d.p.DruidDataSource - [close,1953] - {dataSource-1} closed
-2026-01-09 23:01:10.611 [background-preinit] INFO  org.hibernate.validator.internal.util.Version - [<clinit>,21] - HV000001: Hibernate Validator 8.0.2.Final
-2026-01-09 23:01:10.686 [main] INFO  com.zl.web.ZLBasicApplication - [logStarting,53] - Starting ZLBasicApplication using Java 17.0.12 with PID 37760 (F:\外接项目\智领软件公司基础脚手架\zl-backend\zl-web\target\classes started by 惠普 in F:\外接项目\智领软件公司基础脚手架\zl-backend)
-2026-01-09 23:01:10.687 [main] INFO  com.zl.web.ZLBasicApplication - [logStartupProfileInfo,658] - The following 3 profiles are active: "file", "extend", "dev"
-2026-01-09 23:01:11.933 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - [multipleStoresDetected,295] - Multiple Spring Data modules found, entering strict repository configuration mode
-2026-01-09 23:01:11.937 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - [registerRepositoriesIn,143] - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
-2026-01-09 23:01:11.972 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - [registerRepositoriesIn,211] - Finished Spring Data repository scanning in 16 ms. Found 0 Redis repository interfaces.
-2026-01-09 23:01:12.938 [main] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - [initialize,111] - Tomcat initialized with port 8080 (http)
-2026-01-09 23:01:12.940 [main] INFO  org.apache.catalina.core.AprLifecycleListener - [log,168] - Loaded Apache Tomcat Native library [2.0.7] using APR version [1.7.4].
-2026-01-09 23:01:12.946 [main] INFO  org.apache.catalina.core.AprLifecycleListener - [log,168] - OpenSSL successfully initialized [OpenSSL 3.0.13 30 Jan 2024]
-2026-01-09 23:01:12.961 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - [log,168] - Initializing ProtocolHandler ["http-nio-8080"]
-2026-01-09 23:01:12.964 [main] INFO  org.apache.catalina.core.StandardService - [log,168] - Starting service [Tomcat]
-2026-01-09 23:01:12.965 [main] INFO  org.apache.catalina.core.StandardEngine - [log,168] - Starting Servlet engine: [Apache Tomcat/10.1.40]
-2026-01-09 23:01:13.044 [main] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - [log,168] - Initializing Spring embedded WebApplicationContext
-2026-01-09 23:01:13.045 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - [prepareWebApplicationContext,301] - Root WebApplicationContext: initialization completed in 2295 ms
-2026-01-09 23:01:13.581 [main] INFO  c.a.d.s.b.a.DruidDataSourceAutoConfigure - [?,?] - Init DruidDataSource
-2026-01-09 23:01:13.704 [main] INFO  com.alibaba.druid.pool.DruidDataSource - [?,?] - {dataSource-1} inited
-2026-01-09 23:01:13.861 [main] INFO  o.s.s.c.a.a.c.InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer - [configure,114] - Global AuthenticationManager configured with UserDetailsService bean with name userDetailsServiceImpl
-2026-01-09 23:01:14.307 [main] INFO  com.zl.framework.config.RedisConfig - [redisTemplate,49] - 开始创建模板对象
-2026-01-09 23:01:14.403 [main] INFO  org.redisson.Version - [logVersion,41] - Redisson 3.13.6
-2026-01-09 23:01:14.733 [redisson-netty-4-20] INFO  o.r.connection.pool.MasterPubSubConnectionPool - [lambda$run$0,167] - 1 connections initialized for /127.0.0.1:6379
-2026-01-09 23:01:14.747 [redisson-netty-4-18] INFO  org.redisson.connection.pool.MasterConnectionPool - [lambda$run$0,167] - 24 connections initialized for /127.0.0.1:6379
-2026-01-09 23:01:15.913 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - [log,168] - Starting ProtocolHandler ["http-nio-8080"]
-2026-01-09 23:01:15.925 [main] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - [start,243] - Tomcat started on port 8080 (http) with context path '/'
-2026-01-09 23:01:15.939 [main] INFO  com.zl.web.ZLBasicApplication - [logStarted,59] - Started ZLBasicApplication in 6.109 seconds (process running for 6.999)
-2026-01-09 23:02:29.395 [http-nio-8080-exec-1] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - [log,168] - Initializing Spring DispatcherServlet 'dispatcherServlet'
-2026-01-09 23:02:29.395 [http-nio-8080-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - [initServletBean,532] - Initializing Servlet 'dispatcherServlet'
-2026-01-09 23:02:29.396 [http-nio-8080-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - [initServletBean,554] - Completed initialization in 1 ms
-2026-01-09 23:02:29.456 [http-nio-8080-exec-1] INFO  com.zl.web.controller.LogTestController - [testAllLogLevels,46] - INFO级别日志：应用程序正常运行的信息
-2026-01-09 23:10:39.215 [SpringApplicationShutdownHook] INFO  o.s.boot.web.embedded.tomcat.GracefulShutdown - [shutDownGracefully,54] - Commencing graceful shutdown. Waiting for active requests to complete
-2026-01-09 23:10:39.875 [tomcat-shutdown] INFO  o.s.boot.web.embedded.tomcat.GracefulShutdown - [doShutdown,76] - Graceful shutdown complete
-2026-01-09 23:10:40.012 [SpringApplicationShutdownHook] INFO  com.alibaba.druid.pool.DruidDataSource - [?,?] - {dataSource-1} closing ...
-2026-01-09 23:10:40.015 [SpringApplicationShutdownHook] INFO  com.alibaba.druid.pool.DruidDataSource - [?,?] - {dataSource-1} closed
+2026-01-10 17:05:15.898 [background-preinit] INFO  org.hibernate.validator.internal.util.Version - [<clinit>,21] - HV000001: Hibernate Validator 8.0.2.Final
+2026-01-10 17:05:16.052 [main] INFO  com.zl.web.ZLBasicApplication - [logStarting,53] - Starting ZLBasicApplication using Java 17.0.12 with PID 32444 (F:\外接项目\智领软件公司基础脚手架\zl-backend\zl-web\target\classes started by 惠普 in F:\外接项目\智领软件公司基础脚手架\zl-backend)
+2026-01-10 17:05:16.054 [main] INFO  com.zl.web.ZLBasicApplication - [logStartupProfileInfo,658] - The following 3 profiles are active: "file", "extend", "dev"
+2026-01-10 17:05:18.238 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - [multipleStoresDetected,295] - Multiple Spring Data modules found, entering strict repository configuration mode
+2026-01-10 17:05:18.246 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - [registerRepositoriesIn,143] - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2026-01-10 17:05:18.313 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - [registerRepositoriesIn,211] - Finished Spring Data repository scanning in 27 ms. Found 0 Redis repository interfaces.
+2026-01-10 17:05:20.303 [main] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - [initialize,111] - Tomcat initialized with port 8080 (http)
+2026-01-10 17:05:20.318 [main] INFO  org.apache.catalina.core.AprLifecycleListener - [log,168] - Loaded Apache Tomcat Native library [2.0.7] using APR version [1.7.4].
+2026-01-10 17:05:20.336 [main] INFO  org.apache.catalina.core.AprLifecycleListener - [log,168] - OpenSSL successfully initialized [OpenSSL 3.0.13 30 Jan 2024]
+2026-01-10 17:05:20.369 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - [log,168] - Initializing ProtocolHandler ["http-nio-8080"]
+2026-01-10 17:05:20.371 [main] INFO  org.apache.catalina.core.StandardService - [log,168] - Starting service [Tomcat]
+2026-01-10 17:05:20.371 [main] INFO  org.apache.catalina.core.StandardEngine - [log,168] - Starting Servlet engine: [Apache Tomcat/10.1.40]
+2026-01-10 17:05:20.523 [main] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - [log,168] - Initializing Spring embedded WebApplicationContext
+2026-01-10 17:05:20.524 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - [prepareWebApplicationContext,301] - Root WebApplicationContext: initialization completed in 4349 ms
+2026-01-10 17:05:21.598 [main] INFO  c.a.d.s.b.a.DruidDataSourceAutoConfigure - [?,?] - Init DruidDataSource
+2026-01-10 17:05:21.828 [main] INFO  com.alibaba.druid.pool.DruidDataSource - [?,?] - {dataSource-1} inited
+2026-01-10 17:05:22.061 [main] INFO  o.s.s.c.a.a.c.InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer - [configure,114] - Global AuthenticationManager configured with UserDetailsService bean with name userDetailsServiceImpl
+2026-01-10 17:05:22.795 [main] INFO  com.zl.framework.config.RedisConfig - [redisTemplate,49] - 开始创建模板对象
+2026-01-10 17:05:22.924 [main] INFO  org.redisson.Version - [logVersion,41] - Redisson 3.13.6
+2026-01-10 17:05:23.295 [redisson-netty-4-17] INFO  o.r.connection.pool.MasterPubSubConnectionPool - [lambda$run$0,167] - 1 connections initialized for /127.0.0.1:6379
+2026-01-10 17:05:23.315 [redisson-netty-4-20] INFO  org.redisson.connection.pool.MasterConnectionPool - [lambda$run$0,167] - 24 connections initialized for /127.0.0.1:6379
+2026-01-10 17:05:24.602 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - [log,168] - Starting ProtocolHandler ["http-nio-8080"]
+2026-01-10 17:05:24.622 [main] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - [start,243] - Tomcat started on port 8080 (http) with context path '/'
+2026-01-10 17:05:24.638 [main] INFO  com.zl.web.ZLBasicApplication - [logStarted,59] - Started ZLBasicApplication in 10.123 seconds (process running for 11.471)
+2026-01-10 17:05:27.263 [http-nio-8080-exec-1] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - [log,168] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2026-01-10 17:05:27.264 [http-nio-8080-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - [initServletBean,532] - Initializing Servlet 'dispatcherServlet'
+2026-01-10 17:05:27.265 [http-nio-8080-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - [initServletBean,554] - Completed initialization in 1 ms
+2026-01-10 17:06:22.945 [http-nio-8080-exec-9] INFO  com.zl.common.utils.httpUtils.HttpUtil - [executeRequest,429] - sendRequest - http://whois.pconline.com.cn/ipJson.jsp?ip=114.114.114.114&json=true
+2026-01-10 17:06:34.163 [http-nio-8080-exec-9] INFO  com.zl.common.utils.httpUtils.HttpUtil - [executeRequest,433] - recv - 
+
+
+
+
+{"ip":"114.114.114.114","pro":"江苏省","proCode":"320000","city":"南京市","cityCode":"320100","region":"","regionCode":"0","addr":"江苏省南京市 电信","regionNames":"","err":""}
+
+
+
+
+2026-01-10 17:14:33.983 [SpringApplicationShutdownHook] INFO  o.s.boot.web.embedded.tomcat.GracefulShutdown - [shutDownGracefully,54] - Commencing graceful shutdown. Waiting for active requests to complete
+2026-01-10 17:14:34.694 [tomcat-shutdown] INFO  o.s.boot.web.embedded.tomcat.GracefulShutdown - [doShutdown,76] - Graceful shutdown complete
+2026-01-10 17:14:34.839 [SpringApplicationShutdownHook] INFO  com.alibaba.druid.pool.DruidDataSource - [?,?] - {dataSource-1} closing ...
+2026-01-10 17:14:34.843 [SpringApplicationShutdownHook] INFO  com.alibaba.druid.pool.DruidDataSource - [?,?] - {dataSource-1} closed
+2026-01-10 17:14:44.818 [background-preinit] INFO  org.hibernate.validator.internal.util.Version - [<clinit>,21] - HV000001: Hibernate Validator 8.0.2.Final
+2026-01-10 17:14:44.940 [main] INFO  com.zl.web.ZLBasicApplication - [logStarting,53] - Starting ZLBasicApplication using Java 17.0.12 with PID 32812 (F:\外接项目\智领软件公司基础脚手架\zl-backend\zl-web\target\classes started by 惠普 in F:\外接项目\智领软件公司基础脚手架\zl-backend)
+2026-01-10 17:14:44.942 [main] INFO  com.zl.web.ZLBasicApplication - [logStartupProfileInfo,658] - The following 3 profiles are active: "file", "extend", "dev"
+2026-01-10 17:14:46.881 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - [multipleStoresDetected,295] - Multiple Spring Data modules found, entering strict repository configuration mode
+2026-01-10 17:14:46.887 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - [registerRepositoriesIn,143] - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2026-01-10 17:14:46.937 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - [registerRepositoriesIn,211] - Finished Spring Data repository scanning in 22 ms. Found 0 Redis repository interfaces.
+2026-01-10 17:14:48.379 [main] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - [initialize,111] - Tomcat initialized with port 8080 (http)
+2026-01-10 17:14:48.384 [main] INFO  org.apache.catalina.core.AprLifecycleListener - [log,168] - Loaded Apache Tomcat Native library [2.0.7] using APR version [1.7.4].
+2026-01-10 17:14:48.394 [main] INFO  org.apache.catalina.core.AprLifecycleListener - [log,168] - OpenSSL successfully initialized [OpenSSL 3.0.13 30 Jan 2024]
+2026-01-10 17:14:48.416 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - [log,168] - Initializing ProtocolHandler ["http-nio-8080"]
+2026-01-10 17:14:48.419 [main] INFO  org.apache.catalina.core.StandardService - [log,168] - Starting service [Tomcat]
+2026-01-10 17:14:48.419 [main] INFO  org.apache.catalina.core.StandardEngine - [log,168] - Starting Servlet engine: [Apache Tomcat/10.1.40]
+2026-01-10 17:14:48.550 [main] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - [log,168] - Initializing Spring embedded WebApplicationContext
+2026-01-10 17:14:48.550 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - [prepareWebApplicationContext,301] - Root WebApplicationContext: initialization completed in 3515 ms
+2026-01-10 17:14:49.377 [main] INFO  c.a.d.s.b.a.DruidDataSourceAutoConfigure - [?,?] - Init DruidDataSource
+2026-01-10 17:14:49.557 [main] INFO  com.alibaba.druid.pool.DruidDataSource - [?,?] - {dataSource-1} inited
+2026-01-10 17:14:49.790 [main] INFO  o.s.s.c.a.a.c.InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer - [configure,114] - Global AuthenticationManager configured with UserDetailsService bean with name userDetailsServiceImpl
+2026-01-10 17:14:50.447 [main] INFO  com.zl.framework.config.RedisConfig - [redisTemplate,49] - 开始创建模板对象
+2026-01-10 17:14:50.565 [main] INFO  org.redisson.Version - [logVersion,41] - Redisson 3.13.6
+2026-01-10 17:14:51.013 [redisson-netty-4-13] INFO  o.r.connection.pool.MasterPubSubConnectionPool - [lambda$run$0,167] - 1 connections initialized for /127.0.0.1:6379
+2026-01-10 17:14:51.030 [redisson-netty-4-19] INFO  org.redisson.connection.pool.MasterConnectionPool - [lambda$run$0,167] - 24 connections initialized for /127.0.0.1:6379
+2026-01-10 17:14:52.403 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - [log,168] - Starting ProtocolHandler ["http-nio-8080"]
+2026-01-10 17:14:52.418 [main] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - [start,243] - Tomcat started on port 8080 (http) with context path '/'
+2026-01-10 17:14:52.433 [main] INFO  com.zl.web.ZLBasicApplication - [logStarted,59] - Started ZLBasicApplication in 8.89 seconds (process running for 10.211)
+2026-01-10 17:15:30.157 [SpringApplicationShutdownHook] INFO  o.s.boot.web.embedded.tomcat.GracefulShutdown - [shutDownGracefully,54] - Commencing graceful shutdown. Waiting for active requests to complete
+2026-01-10 17:15:30.804 [tomcat-shutdown] INFO  o.s.boot.web.embedded.tomcat.GracefulShutdown - [doShutdown,76] - Graceful shutdown complete
+2026-01-10 17:15:30.972 [SpringApplicationShutdownHook] INFO  com.alibaba.druid.pool.DruidDataSource - [?,?] - {dataSource-1} closing ...
+2026-01-10 17:15:30.973 [SpringApplicationShutdownHook] INFO  com.alibaba.druid.pool.DruidDataSource - [?,?] - {dataSource-1} closed
+2026-01-10 17:15:35.087 [background-preinit] INFO  org.hibernate.validator.internal.util.Version - [<clinit>,21] - HV000001: Hibernate Validator 8.0.2.Final
+2026-01-10 17:15:35.161 [main] INFO  com.zl.web.ZLBasicApplication - [logStarting,53] - Starting ZLBasicApplication using Java 17.0.12 with PID 33480 (F:\外接项目\智领软件公司基础脚手架\zl-backend\zl-web\target\classes started by 惠普 in F:\外接项目\智领软件公司基础脚手架\zl-backend)
+2026-01-10 17:15:35.163 [main] INFO  com.zl.web.ZLBasicApplication - [logStartupProfileInfo,658] - The following 3 profiles are active: "file", "extend", "dev"
+2026-01-10 17:15:36.516 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - [multipleStoresDetected,295] - Multiple Spring Data modules found, entering strict repository configuration mode
+2026-01-10 17:15:36.521 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - [registerRepositoriesIn,143] - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2026-01-10 17:15:36.559 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - [registerRepositoriesIn,211] - Finished Spring Data repository scanning in 17 ms. Found 0 Redis repository interfaces.
+2026-01-10 17:15:37.632 [main] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - [initialize,111] - Tomcat initialized with port 8080 (http)
+2026-01-10 17:15:37.635 [main] INFO  org.apache.catalina.core.AprLifecycleListener - [log,168] - Loaded Apache Tomcat Native library [2.0.7] using APR version [1.7.4].
+2026-01-10 17:15:37.642 [main] INFO  org.apache.catalina.core.AprLifecycleListener - [log,168] - OpenSSL successfully initialized [OpenSSL 3.0.13 30 Jan 2024]
+2026-01-10 17:15:37.659 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - [log,168] - Initializing ProtocolHandler ["http-nio-8080"]
+2026-01-10 17:15:37.661 [main] INFO  org.apache.catalina.core.StandardService - [log,168] - Starting service [Tomcat]
+2026-01-10 17:15:37.662 [main] INFO  org.apache.catalina.core.StandardEngine - [log,168] - Starting Servlet engine: [Apache Tomcat/10.1.40]
+2026-01-10 17:15:37.754 [main] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - [log,168] - Initializing Spring embedded WebApplicationContext
+2026-01-10 17:15:37.754 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - [prepareWebApplicationContext,301] - Root WebApplicationContext: initialization completed in 2518 ms
+2026-01-10 17:15:38.361 [main] INFO  c.a.d.s.b.a.DruidDataSourceAutoConfigure - [?,?] - Init DruidDataSource
+2026-01-10 17:15:38.486 [main] INFO  com.alibaba.druid.pool.DruidDataSource - [?,?] - {dataSource-1} inited
+2026-01-10 17:15:38.655 [main] INFO  o.s.s.c.a.a.c.InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer - [configure,114] - Global AuthenticationManager configured with UserDetailsService bean with name userDetailsServiceImpl
+2026-01-10 17:15:39.117 [main] INFO  com.zl.framework.config.RedisConfig - [redisTemplate,49] - 开始创建模板对象
+2026-01-10 17:15:39.216 [main] INFO  org.redisson.Version - [logVersion,41] - Redisson 3.13.6
+2026-01-10 17:15:39.566 [redisson-netty-4-17] INFO  o.r.connection.pool.MasterPubSubConnectionPool - [lambda$run$0,167] - 1 connections initialized for /127.0.0.1:6379
+2026-01-10 17:15:39.578 [redisson-netty-4-18] INFO  org.redisson.connection.pool.MasterConnectionPool - [lambda$run$0,167] - 24 connections initialized for /127.0.0.1:6379
+2026-01-10 17:15:40.755 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - [log,168] - Starting ProtocolHandler ["http-nio-8080"]
+2026-01-10 17:15:40.768 [main] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - [start,243] - Tomcat started on port 8080 (http) with context path '/'
+2026-01-10 17:15:40.783 [main] INFO  com.zl.web.ZLBasicApplication - [logStarted,59] - Started ZLBasicApplication in 6.61 seconds (process running for 7.528)
+2026-01-10 17:16:05.569 [SpringApplicationShutdownHook] INFO  o.s.boot.web.embedded.tomcat.GracefulShutdown - [shutDownGracefully,54] - Commencing graceful shutdown. Waiting for active requests to complete
+2026-01-10 17:16:06.213 [tomcat-shutdown] INFO  o.s.boot.web.embedded.tomcat.GracefulShutdown - [doShutdown,76] - Graceful shutdown complete
+2026-01-10 17:16:06.372 [SpringApplicationShutdownHook] INFO  com.alibaba.druid.pool.DruidDataSource - [?,?] - {dataSource-1} closing ...
+2026-01-10 17:16:06.375 [SpringApplicationShutdownHook] INFO  com.alibaba.druid.pool.DruidDataSource - [?,?] - {dataSource-1} closed
+2026-01-10 17:16:13.361 [background-preinit] INFO  org.hibernate.validator.internal.util.Version - [<clinit>,21] - HV000001: Hibernate Validator 8.0.2.Final
+2026-01-10 17:16:13.435 [main] INFO  com.zl.web.ZLBasicApplication - [logStarting,53] - Starting ZLBasicApplication using Java 17.0.12 with PID 32996 (F:\外接项目\智领软件公司基础脚手架\zl-backend\zl-web\target\classes started by 惠普 in F:\外接项目\智领软件公司基础脚手架\zl-backend)
+2026-01-10 17:16:13.436 [main] INFO  com.zl.web.ZLBasicApplication - [logStartupProfileInfo,658] - The following 3 profiles are active: "file", "extend", "dev"
+2026-01-10 17:16:14.767 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - [multipleStoresDetected,295] - Multiple Spring Data modules found, entering strict repository configuration mode
+2026-01-10 17:16:14.772 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - [registerRepositoriesIn,143] - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2026-01-10 17:16:14.812 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - [registerRepositoriesIn,211] - Finished Spring Data repository scanning in 18 ms. Found 0 Redis repository interfaces.
+2026-01-10 17:16:15.910 [main] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - [initialize,111] - Tomcat initialized with port 8080 (http)
+2026-01-10 17:16:15.914 [main] INFO  org.apache.catalina.core.AprLifecycleListener - [log,168] - Loaded Apache Tomcat Native library [2.0.7] using APR version [1.7.4].
+2026-01-10 17:16:15.920 [main] INFO  org.apache.catalina.core.AprLifecycleListener - [log,168] - OpenSSL successfully initialized [OpenSSL 3.0.13 30 Jan 2024]
+2026-01-10 17:16:15.936 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - [log,168] - Initializing ProtocolHandler ["http-nio-8080"]
+2026-01-10 17:16:15.940 [main] INFO  org.apache.catalina.core.StandardService - [log,168] - Starting service [Tomcat]
+2026-01-10 17:16:15.940 [main] INFO  org.apache.catalina.core.StandardEngine - [log,168] - Starting Servlet engine: [Apache Tomcat/10.1.40]
+2026-01-10 17:16:16.030 [main] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - [log,168] - Initializing Spring embedded WebApplicationContext
+2026-01-10 17:16:16.030 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - [prepareWebApplicationContext,301] - Root WebApplicationContext: initialization completed in 2532 ms
+2026-01-10 17:16:16.641 [main] INFO  c.a.d.s.b.a.DruidDataSourceAutoConfigure - [?,?] - Init DruidDataSource
+2026-01-10 17:16:16.777 [main] INFO  com.alibaba.druid.pool.DruidDataSource - [?,?] - {dataSource-1} inited
+2026-01-10 17:16:16.953 [main] INFO  o.s.s.c.a.a.c.InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer - [configure,114] - Global AuthenticationManager configured with UserDetailsService bean with name userDetailsServiceImpl
+2026-01-10 17:16:17.443 [main] INFO  com.zl.framework.config.RedisConfig - [redisTemplate,49] - 开始创建模板对象
+2026-01-10 17:16:17.545 [main] INFO  org.redisson.Version - [logVersion,41] - Redisson 3.13.6
+2026-01-10 17:16:17.883 [redisson-netty-4-13] INFO  o.r.connection.pool.MasterPubSubConnectionPool - [lambda$run$0,167] - 1 connections initialized for /127.0.0.1:6379
+2026-01-10 17:16:17.900 [redisson-netty-4-19] INFO  org.redisson.connection.pool.MasterConnectionPool - [lambda$run$0,167] - 24 connections initialized for /127.0.0.1:6379
+2026-01-10 17:16:19.002 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - [log,168] - Starting ProtocolHandler ["http-nio-8080"]
+2026-01-10 17:16:19.015 [main] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - [start,243] - Tomcat started on port 8080 (http) with context path '/'
+2026-01-10 17:16:19.031 [main] INFO  com.zl.web.ZLBasicApplication - [logStarted,59] - Started ZLBasicApplication in 6.543 seconds (process running for 7.359)
+2026-01-10 17:16:34.076 [http-nio-8080-exec-1] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - [log,168] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2026-01-10 17:16:34.076 [http-nio-8080-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - [initServletBean,532] - Initializing Servlet 'dispatcherServlet'
+2026-01-10 17:16:34.078 [http-nio-8080-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - [initServletBean,554] - Completed initialization in 1 ms
+2026-01-10 17:19:33.241 [SpringApplicationShutdownHook] INFO  o.s.boot.web.embedded.tomcat.GracefulShutdown - [shutDownGracefully,54] - Commencing graceful shutdown. Waiting for active requests to complete
+2026-01-10 17:19:33.985 [tomcat-shutdown] INFO  o.s.boot.web.embedded.tomcat.GracefulShutdown - [doShutdown,76] - Graceful shutdown complete
+2026-01-10 17:19:34.137 [SpringApplicationShutdownHook] INFO  com.alibaba.druid.pool.DruidDataSource - [?,?] - {dataSource-1} closing ...
+2026-01-10 17:19:34.139 [SpringApplicationShutdownHook] INFO  com.alibaba.druid.pool.DruidDataSource - [?,?] - {dataSource-1} closed
+2026-01-10 17:19:42.361 [background-preinit] INFO  org.hibernate.validator.internal.util.Version - [<clinit>,21] - HV000001: Hibernate Validator 8.0.2.Final
+2026-01-10 17:19:42.435 [main] INFO  com.zl.web.ZLBasicApplication - [logStarting,53] - Starting ZLBasicApplication using Java 17.0.12 with PID 26980 (F:\外接项目\智领软件公司基础脚手架\zl-backend\zl-web\target\classes started by 惠普 in F:\外接项目\智领软件公司基础脚手架\zl-backend)
+2026-01-10 17:19:42.437 [main] INFO  com.zl.web.ZLBasicApplication - [logStartupProfileInfo,658] - The following 3 profiles are active: "file", "extend", "dev"
+2026-01-10 17:19:43.797 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - [multipleStoresDetected,295] - Multiple Spring Data modules found, entering strict repository configuration mode
+2026-01-10 17:19:43.801 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - [registerRepositoriesIn,143] - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2026-01-10 17:19:43.842 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - [registerRepositoriesIn,211] - Finished Spring Data repository scanning in 19 ms. Found 0 Redis repository interfaces.
+2026-01-10 17:19:44.925 [main] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - [initialize,111] - Tomcat initialized with port 8080 (http)
+2026-01-10 17:19:44.930 [main] INFO  org.apache.catalina.core.AprLifecycleListener - [log,168] - Loaded Apache Tomcat Native library [2.0.7] using APR version [1.7.4].
+2026-01-10 17:19:44.935 [main] INFO  org.apache.catalina.core.AprLifecycleListener - [log,168] - OpenSSL successfully initialized [OpenSSL 3.0.13 30 Jan 2024]
+2026-01-10 17:19:44.951 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - [log,168] - Initializing ProtocolHandler ["http-nio-8080"]
+2026-01-10 17:19:44.952 [main] INFO  org.apache.catalina.core.StandardService - [log,168] - Starting service [Tomcat]
+2026-01-10 17:19:44.953 [main] INFO  org.apache.catalina.core.StandardEngine - [log,168] - Starting Servlet engine: [Apache Tomcat/10.1.40]
+2026-01-10 17:19:45.042 [main] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - [log,168] - Initializing Spring embedded WebApplicationContext
+2026-01-10 17:19:45.042 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - [prepareWebApplicationContext,301] - Root WebApplicationContext: initialization completed in 2529 ms
+2026-01-10 17:19:45.615 [main] INFO  c.a.d.s.b.a.DruidDataSourceAutoConfigure - [?,?] - Init DruidDataSource
+2026-01-10 17:19:45.746 [main] INFO  com.alibaba.druid.pool.DruidDataSource - [?,?] - {dataSource-1} inited
+2026-01-10 17:19:45.908 [main] INFO  o.s.s.c.a.a.c.InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer - [configure,114] - Global AuthenticationManager configured with UserDetailsService bean with name userDetailsServiceImpl
+2026-01-10 17:19:46.449 [main] INFO  com.zl.framework.config.RedisConfig - [redisTemplate,49] - 开始创建模板对象
+2026-01-10 17:19:46.591 [main] INFO  org.redisson.Version - [logVersion,41] - Redisson 3.13.6
+2026-01-10 17:19:46.983 [redisson-netty-4-22] INFO  o.r.connection.pool.MasterPubSubConnectionPool - [lambda$run$0,167] - 1 connections initialized for /127.0.0.1:6379
+2026-01-10 17:19:46.997 [redisson-netty-4-18] INFO  org.redisson.connection.pool.MasterConnectionPool - [lambda$run$0,167] - 24 connections initialized for /127.0.0.1:6379
+2026-01-10 17:19:48.175 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - [log,168] - Starting ProtocolHandler ["http-nio-8080"]
+2026-01-10 17:19:48.189 [main] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - [start,243] - Tomcat started on port 8080 (http) with context path '/'
+2026-01-10 17:19:48.206 [main] INFO  com.zl.web.ZLBasicApplication - [logStarted,59] - Started ZLBasicApplication in 6.766 seconds (process running for 7.687)
+2026-01-10 17:19:56.677 [http-nio-8080-exec-1] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - [log,168] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2026-01-10 17:19:56.678 [http-nio-8080-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - [initServletBean,532] - Initializing Servlet 'dispatcherServlet'
+2026-01-10 17:19:56.679 [http-nio-8080-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - [initServletBean,554] - Completed initialization in 0 ms
+2026-01-10 17:22:51.311 [SpringApplicationShutdownHook] INFO  o.s.boot.web.embedded.tomcat.GracefulShutdown - [shutDownGracefully,54] - Commencing graceful shutdown. Waiting for active requests to complete
+2026-01-10 17:22:51.981 [tomcat-shutdown] INFO  o.s.boot.web.embedded.tomcat.GracefulShutdown - [doShutdown,76] - Graceful shutdown complete
+2026-01-10 17:22:52.135 [SpringApplicationShutdownHook] INFO  com.alibaba.druid.pool.DruidDataSource - [?,?] - {dataSource-1} closing ...
+2026-01-10 17:22:52.137 [SpringApplicationShutdownHook] INFO  com.alibaba.druid.pool.DruidDataSource - [?,?] - {dataSource-1} closed
+2026-01-10 17:22:58.546 [background-preinit] INFO  org.hibernate.validator.internal.util.Version - [<clinit>,21] - HV000001: Hibernate Validator 8.0.2.Final
+2026-01-10 17:22:58.657 [main] INFO  com.zl.web.ZLBasicApplication - [logStarting,53] - Starting ZLBasicApplication using Java 17.0.12 with PID 29632 (F:\外接项目\智领软件公司基础脚手架\zl-backend\zl-web\target\classes started by 惠普 in F:\外接项目\智领软件公司基础脚手架\zl-backend)
+2026-01-10 17:22:58.659 [main] INFO  com.zl.web.ZLBasicApplication - [logStartupProfileInfo,658] - The following 3 profiles are active: "file", "extend", "dev"
+2026-01-10 17:23:00.593 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - [multipleStoresDetected,295] - Multiple Spring Data modules found, entering strict repository configuration mode
+2026-01-10 17:23:00.599 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - [registerRepositoriesIn,143] - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2026-01-10 17:23:00.656 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - [registerRepositoriesIn,211] - Finished Spring Data repository scanning in 25 ms. Found 0 Redis repository interfaces.
+2026-01-10 17:23:01.927 [main] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - [initialize,111] - Tomcat initialized with port 8080 (http)
+2026-01-10 17:23:01.931 [main] INFO  org.apache.catalina.core.AprLifecycleListener - [log,168] - Loaded Apache Tomcat Native library [2.0.7] using APR version [1.7.4].
+2026-01-10 17:23:01.936 [main] INFO  org.apache.catalina.core.AprLifecycleListener - [log,168] - OpenSSL successfully initialized [OpenSSL 3.0.13 30 Jan 2024]
+2026-01-10 17:23:01.952 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - [log,168] - Initializing ProtocolHandler ["http-nio-8080"]
+2026-01-10 17:23:01.954 [main] INFO  org.apache.catalina.core.StandardService - [log,168] - Starting service [Tomcat]
+2026-01-10 17:23:01.954 [main] INFO  org.apache.catalina.core.StandardEngine - [log,168] - Starting Servlet engine: [Apache Tomcat/10.1.40]
+2026-01-10 17:23:02.046 [main] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - [log,168] - Initializing Spring embedded WebApplicationContext
+2026-01-10 17:23:02.047 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - [prepareWebApplicationContext,301] - Root WebApplicationContext: initialization completed in 3280 ms
+2026-01-10 17:23:02.651 [main] INFO  c.a.d.s.b.a.DruidDataSourceAutoConfigure - [?,?] - Init DruidDataSource
+2026-01-10 17:23:02.782 [main] INFO  com.alibaba.druid.pool.DruidDataSource - [?,?] - {dataSource-1} inited
+2026-01-10 17:23:02.948 [main] INFO  o.s.s.c.a.a.c.InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer - [configure,114] - Global AuthenticationManager configured with UserDetailsService bean with name userDetailsServiceImpl
+2026-01-10 17:23:03.419 [main] INFO  com.zl.framework.config.RedisConfig - [redisTemplate,49] - 开始创建模板对象
+2026-01-10 17:23:03.521 [main] INFO  org.redisson.Version - [logVersion,41] - Redisson 3.13.6
+2026-01-10 17:23:03.883 [redisson-netty-4-16] INFO  o.r.connection.pool.MasterPubSubConnectionPool - [lambda$run$0,167] - 1 connections initialized for /127.0.0.1:6379
+2026-01-10 17:23:03.896 [redisson-netty-4-20] INFO  org.redisson.connection.pool.MasterConnectionPool - [lambda$run$0,167] - 24 connections initialized for /127.0.0.1:6379
+2026-01-10 17:23:05.064 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - [log,168] - Starting ProtocolHandler ["http-nio-8080"]
+2026-01-10 17:23:05.077 [main] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - [start,243] - Tomcat started on port 8080 (http) with context path '/'
+2026-01-10 17:23:05.092 [main] INFO  com.zl.web.ZLBasicApplication - [logStarted,59] - Started ZLBasicApplication in 7.789 seconds (process running for 8.723)
+2026-01-10 17:23:19.513 [http-nio-8080-exec-1] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - [log,168] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2026-01-10 17:23:19.514 [http-nio-8080-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - [initServletBean,532] - Initializing Servlet 'dispatcherServlet'
+2026-01-10 17:23:19.515 [http-nio-8080-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - [initServletBean,554] - Completed initialization in 1 ms
+2026-01-10 17:26:49.759 [SpringApplicationShutdownHook] INFO  o.s.boot.web.embedded.tomcat.GracefulShutdown - [shutDownGracefully,54] - Commencing graceful shutdown. Waiting for active requests to complete
+2026-01-10 17:26:50.414 [tomcat-shutdown] INFO  o.s.boot.web.embedded.tomcat.GracefulShutdown - [doShutdown,76] - Graceful shutdown complete
+2026-01-10 17:26:50.561 [SpringApplicationShutdownHook] INFO  com.alibaba.druid.pool.DruidDataSource - [?,?] - {dataSource-1} closing ...
+2026-01-10 17:26:50.564 [SpringApplicationShutdownHook] INFO  com.alibaba.druid.pool.DruidDataSource - [?,?] - {dataSource-1} closed
+2026-01-10 17:26:56.830 [background-preinit] INFO  org.hibernate.validator.internal.util.Version - [<clinit>,21] - HV000001: Hibernate Validator 8.0.2.Final
+2026-01-10 17:26:56.905 [main] INFO  com.zl.web.ZLBasicApplication - [logStarting,53] - Starting ZLBasicApplication using Java 17.0.12 with PID 33584 (F:\外接项目\智领软件公司基础脚手架\zl-backend\zl-web\target\classes started by 惠普 in F:\外接项目\智领软件公司基础脚手架\zl-backend)
+2026-01-10 17:26:56.908 [main] INFO  com.zl.web.ZLBasicApplication - [logStartupProfileInfo,658] - The following 3 profiles are active: "file", "extend", "dev"
+2026-01-10 17:26:58.299 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - [multipleStoresDetected,295] - Multiple Spring Data modules found, entering strict repository configuration mode
+2026-01-10 17:26:58.303 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - [registerRepositoriesIn,143] - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2026-01-10 17:26:58.341 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - [registerRepositoriesIn,211] - Finished Spring Data repository scanning in 17 ms. Found 0 Redis repository interfaces.
+2026-01-10 17:26:59.436 [main] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - [initialize,111] - Tomcat initialized with port 8080 (http)
+2026-01-10 17:26:59.442 [main] INFO  org.apache.catalina.core.AprLifecycleListener - [log,168] - Loaded Apache Tomcat Native library [2.0.7] using APR version [1.7.4].
+2026-01-10 17:26:59.448 [main] INFO  org.apache.catalina.core.AprLifecycleListener - [log,168] - OpenSSL successfully initialized [OpenSSL 3.0.13 30 Jan 2024]
+2026-01-10 17:26:59.466 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - [log,168] - Initializing ProtocolHandler ["http-nio-8080"]
+2026-01-10 17:26:59.468 [main] INFO  org.apache.catalina.core.StandardService - [log,168] - Starting service [Tomcat]
+2026-01-10 17:26:59.469 [main] INFO  org.apache.catalina.core.StandardEngine - [log,168] - Starting Servlet engine: [Apache Tomcat/10.1.40]
+2026-01-10 17:26:59.567 [main] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - [log,168] - Initializing Spring embedded WebApplicationContext
+2026-01-10 17:26:59.567 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - [prepareWebApplicationContext,301] - Root WebApplicationContext: initialization completed in 2588 ms
+2026-01-10 17:27:00.182 [main] INFO  c.a.d.s.b.a.DruidDataSourceAutoConfigure - [?,?] - Init DruidDataSource
+2026-01-10 17:27:00.308 [main] INFO  com.alibaba.druid.pool.DruidDataSource - [?,?] - {dataSource-1} inited
+2026-01-10 17:27:00.478 [main] INFO  o.s.s.c.a.a.c.InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer - [configure,114] - Global AuthenticationManager configured with UserDetailsService bean with name userDetailsServiceImpl
+2026-01-10 17:27:00.974 [main] INFO  com.zl.framework.config.RedisConfig - [redisTemplate,49] - 开始创建模板对象
+2026-01-10 17:27:01.082 [main] INFO  org.redisson.Version - [logVersion,41] - Redisson 3.13.6
+2026-01-10 17:27:01.438 [redisson-netty-4-14] INFO  o.r.connection.pool.MasterPubSubConnectionPool - [lambda$run$0,167] - 1 connections initialized for /127.0.0.1:6379
+2026-01-10 17:27:01.455 [redisson-netty-4-19] INFO  org.redisson.connection.pool.MasterConnectionPool - [lambda$run$0,167] - 24 connections initialized for /127.0.0.1:6379
+2026-01-10 17:27:02.666 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - [log,168] - Starting ProtocolHandler ["http-nio-8080"]
+2026-01-10 17:27:02.679 [main] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - [start,243] - Tomcat started on port 8080 (http) with context path '/'
+2026-01-10 17:27:02.695 [main] INFO  com.zl.web.ZLBasicApplication - [logStarted,59] - Started ZLBasicApplication in 6.777 seconds (process running for 7.609)
+2026-01-10 17:27:12.274 [http-nio-8080-exec-2] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - [log,168] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2026-01-10 17:27:12.275 [http-nio-8080-exec-2] INFO  org.springframework.web.servlet.DispatcherServlet - [initServletBean,532] - Initializing Servlet 'dispatcherServlet'
+2026-01-10 17:27:12.277 [http-nio-8080-exec-2] INFO  org.springframework.web.servlet.DispatcherServlet - [initServletBean,554] - Completed initialization in 2 ms
+2026-01-10 17:27:18.146 [http-nio-8080-exec-4] INFO  com.zl.common.utils.httpUtils.HttpUtil - [executeRequest,429] - sendRequest - http://ip-api.haoservice.com/ip/geo?ip=47.93.9.70&json=true
+2026-01-10 17:28:31.092 [SpringApplicationShutdownHook] INFO  o.s.boot.web.embedded.tomcat.GracefulShutdown - [shutDownGracefully,54] - Commencing graceful shutdown. Waiting for active requests to complete
+2026-01-10 17:28:31.740 [tomcat-shutdown] INFO  o.s.boot.web.embedded.tomcat.GracefulShutdown - [doShutdown,76] - Graceful shutdown complete
+2026-01-10 17:28:31.899 [SpringApplicationShutdownHook] INFO  com.alibaba.druid.pool.DruidDataSource - [?,?] - {dataSource-1} closing ...
+2026-01-10 17:28:31.903 [SpringApplicationShutdownHook] INFO  com.alibaba.druid.pool.DruidDataSource - [?,?] - {dataSource-1} closed

@@ -1,3 +1,28 @@
-2026-01-09 23:01:10.687 [main] DEBUG com.zl.web.ZLBasicApplication - [logStarting,54] - Running with Spring Boot v3.4.5, Spring v6.2.6
-2026-01-09 23:01:13.488 [main] DEBUG com.zl.framework.filter.JwtAuthenticationFilter - [init,240] - Filter 'jwtAuthenticationFilter' configured for use
-2026-01-09 23:02:29.456 [http-nio-8080-exec-1] DEBUG com.zl.web.controller.LogTestController - [testAllLogLevels,42] - DEBUG级别日志：调试信息，用于开发阶段问题排查
+2026-01-10 17:05:16.053 [main] DEBUG com.zl.web.ZLBasicApplication - [logStarting,54] - Running with Spring Boot v3.4.5, Spring v6.2.6
+2026-01-10 17:05:21.413 [main] DEBUG com.zl.framework.filter.JwtAuthenticationFilter - [init,240] - Filter 'jwtAuthenticationFilter' configured for use
+2026-01-10 17:14:44.941 [main] DEBUG com.zl.web.ZLBasicApplication - [logStarting,54] - Running with Spring Boot v3.4.5, Spring v6.2.6
+2026-01-10 17:14:49.207 [main] DEBUG com.zl.framework.filter.JwtAuthenticationFilter - [init,240] - Filter 'jwtAuthenticationFilter' configured for use
+2026-01-10 17:15:35.162 [main] DEBUG com.zl.web.ZLBasicApplication - [logStarting,54] - Running with Spring Boot v3.4.5, Spring v6.2.6
+2026-01-10 17:15:38.247 [main] DEBUG com.zl.framework.filter.JwtAuthenticationFilter - [init,240] - Filter 'jwtAuthenticationFilter' configured for use
+2026-01-10 17:16:13.435 [main] DEBUG com.zl.web.ZLBasicApplication - [logStarting,54] - Running with Spring Boot v3.4.5, Spring v6.2.6
+2026-01-10 17:16:16.534 [main] DEBUG com.zl.framework.filter.JwtAuthenticationFilter - [init,240] - Filter 'jwtAuthenticationFilter' configured for use
+2026-01-10 17:16:34.145 [http-nio-8080-exec-1] DEBUG com.zl.common.utils.ipUtils.AddressUtil - [getRealAddressByIP,69] - IP定位查询：127.0.0.1 为内网IP，无需查询
+2026-01-10 17:16:37.622 [http-nio-8080-exec-5] DEBUG com.zl.common.utils.ipUtils.AddressUtil - [getRealAddressByIP,75] - IP定位查询开关已关闭，IP：114.114.114.114
+2026-01-10 17:16:42.234 [http-nio-8080-exec-8] DEBUG com.zl.common.utils.ipUtils.AddressUtil - [getRealAddressByIP,75] - IP定位查询开关已关闭，IP：114.114.114.114
+2026-01-10 17:16:43.251 [http-nio-8080-exec-4] DEBUG com.zl.common.utils.ipUtils.AddressUtil - [getRealAddressByIP,75] - IP定位查询开关已关闭，IP：114.114.114.114
+2026-01-10 17:17:39.933 [http-nio-8080-exec-7] DEBUG com.zl.common.utils.ipUtils.AddressUtil - [getRealAddressByIP,75] - IP定位查询开关已关闭，IP：223.5.5.5
+2026-01-10 17:17:47.368 [http-nio-8080-exec-10] DEBUG com.zl.common.utils.ipUtils.AddressUtil - [getRealAddressByIP,75] - IP定位查询开关已关闭，IP：119.29.29.29
+2026-01-10 17:18:09.794 [http-nio-8080-exec-1] DEBUG com.zl.common.utils.ipUtils.AddressUtil - [getRealAddressByIP,75] - IP定位查询开关已关闭，IP：223.5.5.5
+2026-01-10 17:19:42.436 [main] DEBUG com.zl.web.ZLBasicApplication - [logStarting,54] - Running with Spring Boot v3.4.5, Spring v6.2.6
+2026-01-10 17:19:45.509 [main] DEBUG com.zl.framework.filter.JwtAuthenticationFilter - [init,240] - Filter 'jwtAuthenticationFilter' configured for use
+2026-01-10 17:20:11.339 [http-nio-8080-exec-9] DEBUG com.zl.common.utils.ipUtils.AddressUtil - [getRealAddressByIP,75] - IP定位查询开关已关闭，IP：223.5.5.5
+2026-01-10 17:22:58.658 [main] DEBUG com.zl.web.ZLBasicApplication - [logStarting,54] - Running with Spring Boot v3.4.5, Spring v6.2.6
+2026-01-10 17:23:02.545 [main] DEBUG com.zl.framework.filter.JwtAuthenticationFilter - [init,240] - Filter 'jwtAuthenticationFilter' configured for use
+2026-01-10 17:23:19.593 [http-nio-8080-exec-1] DEBUG com.zl.common.utils.ipUtils.AddressUtil - [getRealAddressByIP,47] - IP：223.5.5.5 为公网IP，无定位查询，返回默认标识：XX XX
+2026-01-10 17:23:29.733 [http-nio-8080-exec-3] DEBUG com.zl.common.utils.ipUtils.AddressUtil - [getRealAddressByIP,47] - IP：223.5.5.5 为公网IP，无定位查询，返回默认标识：XX XX
+2026-01-10 17:23:38.923 [http-nio-8080-exec-5] DEBUG com.zl.common.utils.ipUtils.AddressUtil - [getRealAddressByIP,47] - IP：223.5.5.5 为公网IP，无定位查询，返回默认标识：XX XX
+2026-01-10 17:24:22.692 [http-nio-8080-exec-10] DEBUG com.zl.common.utils.ipUtils.AddressUtil - [getRealAddressByIP,47] - IP：223.5.5.5 为公网IP，无定位查询，返回默认标识：XX XX
+2026-01-10 17:25:21.959 [http-nio-8080-exec-8] DEBUG com.zl.common.utils.ipUtils.AddressUtil - [getRealAddressByIP,47] - IP：47.93.9.70 为公网IP，无定位查询，返回默认标识：XX XX
+2026-01-10 17:25:23.847 [http-nio-8080-exec-10] DEBUG com.zl.common.utils.ipUtils.AddressUtil - [getRealAddressByIP,47] - IP：47.93.9.70 为公网IP，无定位查询，返回默认标识：XX XX
+2026-01-10 17:26:56.907 [main] DEBUG com.zl.web.ZLBasicApplication - [logStarting,54] - Running with Spring Boot v3.4.5, Spring v6.2.6
+2026-01-10 17:27:00.079 [main] DEBUG com.zl.framework.filter.JwtAuthenticationFilter - [init,240] - Filter 'jwtAuthenticationFilter' configured for use

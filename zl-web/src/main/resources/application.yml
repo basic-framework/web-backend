@@ -45,8 +45,6 @@ mybatis:
     map-underscore-to-camel-case: true
 
 
-
-
 zl:
   framework:
     #Security框架配置
