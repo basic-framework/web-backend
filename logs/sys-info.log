@@ -221,3 +221,56 @@
 2026-01-10 17:28:31.740 [tomcat-shutdown] INFO  o.s.boot.web.embedded.tomcat.GracefulShutdown - [doShutdown,76] - Graceful shutdown complete
 2026-01-10 17:28:31.899 [SpringApplicationShutdownHook] INFO  com.alibaba.druid.pool.DruidDataSource - [?,?] - {dataSource-1} closing ...
 2026-01-10 17:28:31.903 [SpringApplicationShutdownHook] INFO  com.alibaba.druid.pool.DruidDataSource - [?,?] - {dataSource-1} closed
+2026-01-10 17:28:51.925 [background-preinit] INFO  org.hibernate.validator.internal.util.Version - [<clinit>,21] - HV000001: Hibernate Validator 8.0.2.Final
+2026-01-10 17:28:52.025 [main] INFO  com.zl.web.ZLBasicApplication - [logStarting,53] - Starting ZLBasicApplication using Java 17.0.12 with PID 8540 (F:\外接项目\智领软件公司基础脚手架\zl-backend\zl-web\target\classes started by 惠普 in F:\外接项目\智领软件公司基础脚手架\zl-backend)
+2026-01-10 17:28:52.027 [main] INFO  com.zl.web.ZLBasicApplication - [logStartupProfileInfo,658] - The following 3 profiles are active: "file", "extend", "dev"
+2026-01-10 17:28:53.441 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - [multipleStoresDetected,295] - Multiple Spring Data modules found, entering strict repository configuration mode
+2026-01-10 17:28:53.446 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - [registerRepositoriesIn,143] - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2026-01-10 17:28:53.485 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - [registerRepositoriesIn,211] - Finished Spring Data repository scanning in 18 ms. Found 0 Redis repository interfaces.
+2026-01-10 17:28:54.544 [main] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - [initialize,111] - Tomcat initialized with port 8080 (http)
+2026-01-10 17:28:54.552 [main] INFO  org.apache.catalina.core.AprLifecycleListener - [log,168] - Loaded Apache Tomcat Native library [2.0.7] using APR version [1.7.4].
+2026-01-10 17:28:54.558 [main] INFO  org.apache.catalina.core.AprLifecycleListener - [log,168] - OpenSSL successfully initialized [OpenSSL 3.0.13 30 Jan 2024]
+2026-01-10 17:28:54.573 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - [log,168] - Initializing ProtocolHandler ["http-nio-8080"]
+2026-01-10 17:28:54.578 [main] INFO  org.apache.catalina.core.StandardService - [log,168] - Starting service [Tomcat]
+2026-01-10 17:28:54.578 [main] INFO  org.apache.catalina.core.StandardEngine - [log,168] - Starting Servlet engine: [Apache Tomcat/10.1.40]
+2026-01-10 17:28:54.676 [main] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - [log,168] - Initializing Spring embedded WebApplicationContext
+2026-01-10 17:28:54.677 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - [prepareWebApplicationContext,301] - Root WebApplicationContext: initialization completed in 2578 ms
+2026-01-10 17:28:55.271 [main] INFO  c.a.d.s.b.a.DruidDataSourceAutoConfigure - [?,?] - Init DruidDataSource
+2026-01-10 17:28:55.398 [main] INFO  com.alibaba.druid.pool.DruidDataSource - [?,?] - {dataSource-1} inited
+2026-01-10 17:28:55.562 [main] INFO  o.s.s.c.a.a.c.InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer - [configure,114] - Global AuthenticationManager configured with UserDetailsService bean with name userDetailsServiceImpl
+2026-01-10 17:28:56.018 [main] INFO  com.zl.framework.config.RedisConfig - [redisTemplate,49] - 开始创建模板对象
+2026-01-10 17:28:56.121 [main] INFO  org.redisson.Version - [logVersion,41] - Redisson 3.13.6
+2026-01-10 17:28:56.485 [redisson-netty-4-18] INFO  o.r.connection.pool.MasterPubSubConnectionPool - [lambda$run$0,167] - 1 connections initialized for /127.0.0.1:6379
+2026-01-10 17:28:56.502 [redisson-netty-4-20] INFO  org.redisson.connection.pool.MasterConnectionPool - [lambda$run$0,167] - 24 connections initialized for /127.0.0.1:6379
+2026-01-10 17:28:57.677 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - [log,168] - Starting ProtocolHandler ["http-nio-8080"]
+2026-01-10 17:28:57.691 [main] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - [start,243] - Tomcat started on port 8080 (http) with context path '/'
+2026-01-10 17:28:57.706 [main] INFO  com.zl.web.ZLBasicApplication - [logStarted,59] - Started ZLBasicApplication in 6.681 seconds (process running for 7.496)
+2026-01-10 17:29:03.053 [http-nio-8080-exec-1] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - [log,168] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2026-01-10 17:29:03.054 [http-nio-8080-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - [initServletBean,532] - Initializing Servlet 'dispatcherServlet'
+2026-01-10 17:29:03.055 [http-nio-8080-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - [initServletBean,554] - Completed initialization in 1 ms
+2026-01-10 17:29:03.207 [http-nio-8080-exec-1] INFO  com.zl.common.utils.httpUtils.HttpUtil - [executeRequest,429] - sendRequest - http://whois.pconline.com.cn/ipJson.jsp?ip=47.93.9.70&json=true
+2026-01-10 17:29:14.425 [http-nio-8080-exec-1] INFO  com.zl.common.utils.httpUtils.HttpUtil - [executeRequest,433] - recv - 
+
+
+
+
+{"ip":"47.93.9.70","pro":"北京市","proCode":"110000","city":"北京市","cityCode":"110000","region":"","regionCode":"0","addr":"北京市 电信","regionNames":"","err":""}
+
+
+
+
+2026-01-10 17:29:23.214 [http-nio-8080-exec-3] INFO  com.zl.common.utils.httpUtils.HttpUtil - [executeRequest,429] - sendRequest - http://whois.pconline.com.cn/ipJson.jsp?ip=47.93.9.70&json=true
+2026-01-10 17:29:23.289 [http-nio-8080-exec-3] INFO  com.zl.common.utils.httpUtils.HttpUtil - [executeRequest,433] - recv - 
+
+
+
+
+{"ip":"47.93.9.70","pro":"北京市","proCode":"110000","city":"北京市","cityCode":"110000","region":"","regionCode":"0","addr":"北京市 电信","regionNames":"","err":""}
+
+
+
+
+2026-01-10 17:32:29.096 [SpringApplicationShutdownHook] INFO  o.s.boot.web.embedded.tomcat.GracefulShutdown - [shutDownGracefully,54] - Commencing graceful shutdown. Waiting for active requests to complete
+2026-01-10 17:32:29.752 [tomcat-shutdown] INFO  o.s.boot.web.embedded.tomcat.GracefulShutdown - [doShutdown,76] - Graceful shutdown complete
+2026-01-10 17:32:29.900 [SpringApplicationShutdownHook] INFO  com.alibaba.druid.pool.DruidDataSource - [?,?] - {dataSource-1} closing ...
+2026-01-10 17:32:29.902 [SpringApplicationShutdownHook] INFO  com.alibaba.druid.pool.DruidDataSource - [?,?] - {dataSource-1} closed

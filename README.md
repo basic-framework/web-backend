@@ -7,6 +7,7 @@
 
 ## 技术栈
 
+### 核心技术
 - **核心框架**：Spring Boot 3.4.5
 - **持久层**：MyBatis 3.0.4、PageHelper 2.1.0
 - **数据库**：MySQL 8.3.0
@@ -17,55 +18,86 @@
 - **构建工具**：Maven
 - **Java 版本**：Java 17+
 - **模块管理**：Maven 多模块项目结构
-- **工具库**：
-    - Hutool 5.8.0.M3（Java工具库）
-    - Fastjson2 2.0.53（JSON处理）
-    - EasyExcel 3.3.2（Excel处理）
-    - Lombok 1.18.20（代码简化工具）
-    - Jackson 2.18.0（JSON处理）
-    - BouncyCastle 1.70（加密算法）
-- **扩展技术**：
-    - Netty 4.1.79.Final（高性能网络通信）
-    - MinIO 8.5.3（对象存储）
-    - OSHI 6.6.6（系统信息采集）
-    - Spring AI 1.0.0-M6（AI集成）
-    - LangChain4j 1.0.1-beta6（大语言模型应用）
-    - XXL-JOB 3.2.0（分布式任务调度）
-    - RabbitMQ（消息队列）
-    - EMQ MQTT（物联网消息协议）
+
+### 工具库
+- **Hutool 5.8.0.M3**：Java工具库，提供丰富的工具方法
+- **Fastjson2 2.0.53**：高性能JSON处理库
+- **EasyExcel 3.3.2**：Excel导入导出工具
+- **Lombok 1.18.20**：代码简化工具，减少样板代码
+- **Jackson 2.18.0**：JSON序列化和反序列化
+- **BouncyCastle 1.70**：加密算法实现
+- **UserAgentUtils 1.21**：客户端信息解析
+- **iTextPDF 5.5.13.3**：PDF导出功能
+- **PDFBox 2.0.30**：PDF处理工具
+
+### 扩展技术
+- **Netty 4.1.79.Final**：高性能网络通信框架
+- **MinIO 8.5.3**：对象存储服务
+- **OSHI 6.6.6**：系统信息采集库
+- **Spring AI 1.0.0-M6**：AI集成框架，支持多种大模型
+- **LangChain4j 1.0.1-beta6**：大语言模型应用开发框架
+- **XXL-JOB 3.2.0**：分布式任务调度平台
+- **RabbitMQ**：消息队列中间件
+- **EMQ MQTT**：物联网消息协议支持
+- **WebFlux**：响应式编程支持
+- **Jedis**：Redis客户端
 
 ## 项目结构
 
 ```bash
 zl-backend/
-├── .gitignore       # Git忽略文件配置
-├── README.md        # 项目说明文档
-├── doc/             # 文档目录
-│   ├── 依赖关系.drawio
-│   ├── 大文件处理方案/
-│   └── 权限认证设计/
-├── sql/             # SQL脚本目录
-│   ├── zl.sql       # 初始化数据库脚本
+├── .gitignore                    # Git忽略文件配置
+├── README.md                     # 项目说明文档
+├── pom.xml                       # 项目父POM文件
+├── docs/                         # 文档目录
+│   ├── 大文件处理方案/            # 大文件处理相关文档
+│   │   ├── 断点续传方案.drawio
+│   │   └── 分片上传中MD5解决文件命名冲突方案.md
+│   ├── 权限认证设计/             # 权限认证相关文档
+│   │   ├── 后台登录验证流程.jpg
+│   │   ├── 两种授权写法.md
+│   │   ├── 三组件执行顺序详解.md
+│   │   ├── 优化后权限系统详细设计指南.md
+│   │   ├── ThreadLocal.png
+│   │   └── m.drawio
+│   ├── 通用功能/                 # 通用功能文档
+│   │   ├── 注意事项.md
+│   │   ├── 幂等控制方案/
+│   │   │   ├── 幂等性控制设计文档.md
+│   │   │   └── 切面与拦截器执行顺序.png
+│   │   ├── 日志方案/
+│   │   │   └── 日志系统使用指南.md
+│   │   └── 异常处理设计/
+│   │       ├── 全局异常处理设计文档.md
+│   │       └── 异常处理使用指南.md
+│   ├── 系统架构/                 # 系统架构文档
+│   │   └── 依赖关系.drawio
+│   └── LLM应用/                   # 大语言模型应用文档
+│       └── functionCalling/
+│           ├── functionCalling与MCP区别.md
+│           └── FunctionCalling原理.png
+├── sql/                          # SQL脚本目录
+│   ├── zl.sql                   # 初始化数据库脚本
 │   └── test_learning_lesson_data.sql
-├── pom.xml          # 项目父POM文件
-├── zl-common/       # 通用工具类和异常处理模块
-├── zl-model/        # 数据模型定义模块
-├── zl-framework/    # 框架核心模块，包含基础配置和通用组件
-├── zl-security/     # 安全认证与授权模块
-├── zl-web/          # Web 层模块，包含控制器和入口类
-└── zl-extend/       # 扩展功能模块
-    ├── zl-file/     # 文件处理相关模块
-    │   ├── zl-file-starter  # 文件服务启动器
-    │   └── zl-minio         # MinIO 文件存储实现
-    ├── zl-netty/    # Netty 网络通信模块
-    ├── zl-oshi/     # 系统信息采集模块（基于 OSHI）
-    ├── zl-springai/ # Spring AI 集成模块
-    ├── zl-langchain4j # LangChain4j 集成模块
-    ├── zl-websocket/ # WebSocket 通信模块
-    ├── zl-rabbitmq/ # RabbitMQ 消息队列集成模块
-    ├── zl-emqx/     # EMQ MQTT 物联网服务模块
-    └── zl-xxl-job/  # XXL-JOB 分布式任务调度模块
-    
+├── zl-common/                    # 通用工具类和异常处理模块
+├── zl-common-core/               # 通用核心功能模块
+│   └── zl-common-idempotent/     # 幂等性控制模块
+├── zl-model/                     # 数据模型定义模块
+├── zl-framework/                 # 框架核心模块，包含基础配置和通用组件
+├── zl-security/                  # 安全认证与授权模块
+├── zl-web/                       # Web 层模块，包含控制器和入口类
+└── zl-extend/                    # 扩展功能模块
+    ├── zl-file/                  # 文件处理相关模块
+    │   ├── zl-file-starter       # 文件服务启动器
+    │   └── zl-minio              # MinIO 文件存储实现
+    ├── zl-netty/                 # Netty 网络通信模块
+    ├── zl-oshi/                  # 系统信息采集模块（基于 OSHI）
+    ├── zl-springai/              # Spring AI 集成模块
+    ├── zl-langchain4j/           # LangChain4j 集成模块
+    ├── zl-websocket/            # WebSocket 通信模块
+    ├── zl-rabbitmq/             # RabbitMQ 消息队列集成模块
+    ├── zl-emqx/                 # EMQ MQTT 物联网服务模块
+    └── zl-xxl-job/              # XXL-JOB 分布式任务调度模块
 ```
 
 ## 模块说明
@@ -73,14 +105,18 @@ zl-backend/
 ### 核心模块
 
 - **zl-common**：提供通用工具类、异常处理、常量定义等基础功能
+- **zl-common-core**：通用核心功能模块，包含幂等性控制等核心功能
+  - **zl-common-idempotent**：基于AOP的幂等性控制实现，支持注解式防重复提交
 - **zl-model**：定义数据实体、DTO、VO等数据模型
-- **zl-framework**：框架核心配置，包含异步任务管理、安全配置等
-- **zl-security**：认证授权机制，基于Spring Security和JWT实现
+- **zl-framework**：框架核心配置，包含异步任务管理、安全配置、全局异常处理等
+- **zl-security**：认证授权机制，基于Spring Security和JWT实现，支持RBAC权限模型
 - **zl-web**：Web层入口，包含控制器、启动类等
 
 ### 扩展模块
 
-- **zl-file**：文件处理模块，提供基于MinIO和阿里云OSS的文件存储服务，支持大文件分片上传和断点续传
+- **zl-file**：文件处理模块，提供基于MinIO的文件存储服务，支持大文件分片上传和断点续传
+  - **zl-file-starter**：文件服务自动配置启动器
+  - **zl-minio**：MinIO对象存储实现
 - **zl-netty**：高性能网络通信模块，基于Netty框架实现，支持TCP/UDP协议和自定义心跳检测
 - **zl-oshi**：系统信息采集模块，可获取服务器CPU、内存、磁盘等硬件信息，支持系统监控
 - **zl-springai**：AI功能集成，基于Spring AI框架，支持多种大模型接入和向量数据库
@@ -99,6 +135,8 @@ zl-backend/
 - 支持Token过期刷新机制
 - 密码加密存储（BCrypt）
 - 登录验证码支持
+- ThreadLocal用户上下文管理
+- 三组件协同认证流程（JwtAuthenticationFilter、UserTokenInterceptor、JwtAuthorizationManager）
 
 ### 数据访问
 - 基于MyBatis的ORM映射
@@ -114,12 +152,21 @@ zl-backend/
 - 在线接口测试
 - 接口分组管理
 
+### 系统功能
+- **幂等性控制**：基于AOP的注解式防重复提交，支持自定义间隔时间和提示信息
+- **全局异常处理**：统一的异常处理机制，支持错误码管理和国际化
+- **日志系统**：基于SLF4J+Logback的分级日志系统，支持按功能和级别分类输出
+- **参数校验**：基于Spring Validation的参数校验框架
+- **统一响应格式**：标准化的API响应格式，支持分页和错误信息
+
 ### 扩展能力
-- 文件存储与管理（支持MinIO和阿里云OSS）
-- 大文件分片上传和断点续传
+- 文件存储与管理（支持MinIO）
+- 大文件分片上传和断点续传（基于MD5的文件命名冲突解决方案）
 - 系统监控（CPU、内存、磁盘等信息）
 - AI功能集成（支持通义千问等多种大模型）
-- 向量数据库支持（Redis）
+  - Spring AI集成：支持Function Calling和向量数据库
+  - LangChain4j集成：支持RAG和文档解析
+  - MCP协议支持：标准化的AI模型与外部工具交互
 - WebSocket实时通信
 - 高性能网络通信（Netty）
 - 消息队列支持（RabbitMQ）
@@ -133,19 +180,25 @@ zl-backend/
 ### 主要配置文件
 - **application.yml**：核心配置文件，包含服务器、安全、MyBatis等基础配置
 - **application-dev.yml**：开发环境配置，包含数据库、Redis、AI服务等配置
-- **application-file.yml**：文件服务配置，支持MinIO和阿里云OSS
+- **application-file.yml**：文件服务配置，支持MinIO
 - **application-extend.yml**：扩展功能配置，包含AI、MQTT、XXL-JOB等配置
+- **logback-spring.xml**：日志系统配置，支持多环境日志级别控制
 
 ### 核心配置项
-- 服务器端口：默认8080
-- 数据源配置：MySQL连接信息（Druid连接池）
-- Redis配置：缓存服务配置，支持Redisson分布式锁
-- JWT配置：Token有效期（默认30分钟）、密钥等
-- 安全配置：忽略URL、默认密码等
-- 文件存储：支持MinIO和阿里云OSS两种存储方式
-- AI服务：支持通义千问等多种大模型
-- 消息队列：RabbitMQ和MQTT配置
-- 任务调度：XXL-JOB分布式任务调度配置
+- **服务器配置**：默认端口8080，支持自定义上下文路径
+- **数据源配置**：MySQL连接信息（Druid连接池），支持连接池监控
+- **Redis配置**：缓存服务配置，支持Redisson分布式锁
+- **JWT配置**：Token有效期（默认30分钟）、密钥等
+- **安全配置**：忽略URL、默认密码、跨域配置等
+- **文件存储**：支持MinIO对象存储，配置分片上传和断点续传
+- **AI服务配置**：
+  - Spring AI：支持通义千问等多种大模型
+  - LangChain4j：支持OpenAI等模型和向量数据库
+  - MCP协议：标准化AI模型与外部工具交互
+- **消息队列配置**：RabbitMQ和MQTT配置
+- **任务调度配置**：XXL-JOB分布式任务调度配置
+- **日志配置**：支持按功能和级别分类输出，可配置输出路径和滚动策略
+- **幂等性配置**：支持自定义防重提交间隔时间和提示信息
 
 ## 快速开始
 
@@ -160,7 +213,7 @@ zl-backend/
 2. 导入MySQL脚本（sql/zl.sql）
 3. 配置数据库连接信息（application-dev.yml）
 4. 配置Redis连接信息（application-dev.yml）
-5. 根据需要配置文件存储（MinIO或阿里云OSS）
+5. 根据需要配置文件存储（MinIO）
 6. 根据需要配置AI服务、消息队列等扩展功能
 7. 执行Maven构建：`mvn clean package`
 8. 运行应用：`java -jar zl-web/target/zl-web-1.0-SNAPSHOT.jar`
@@ -173,12 +226,21 @@ zl-backend/
 - 用户名：admin
 - 密码：123456
 
+### 功能测试
+项目提供了多个测试接口，可用于验证各项功能：
+- **日志测试**：`GET /web/some-method` - 基础日志测试
+- **权限测试**：登录后访问需要权限的接口，验证RBAC权限控制
+- **幂等性测试**：在带有`@RepeatSubmit`注解的接口上重复提交，验证防重功能
+- **文件上传测试**：使用文件上传接口测试大文件分片上传功能
+- **AI功能测试**：配置AI服务后，测试Spring AI或LangChain4j集成功能
+
 ## 开发指南
 
 ### 模块依赖关系
 - **zl-web** 依赖于所有其他模块
 - **zl-security** 依赖于 **zl-framework**
 - **zl-framework** 依赖于 **zl-common** 和 **zl-model**
+- **zl-common-core** 依赖于 **zl-framework**
 - **zl-extend** 下的各模块依赖于 **zl-common** 和 **zl-framework**
 
 ### 编码规范
@@ -189,11 +251,89 @@ zl-backend/
 - 使用统一的返回结果封装（Result、PageResult）
 - 使用ThreadLocal存储用户上下文信息
 
+### 功能开发指南
+
+#### 权限控制开发
+```java
+// 在Controller方法上添加权限注解
+@PreAuthorize("hasAuthority('GET/api/user/list')")
+@GetMapping("/list")
+public Result<List<User>> getUserList() {
+    // 业务逻辑
+}
+
+// 获取当前用户信息
+LoginVo currentUser = UserUtil.getUser();
+Long userId = UserUtil.getUserId();
+```
+
+#### 幂等性控制开发
+```java
+// 在需要防重提交的方法上添加注解
+@RepeatSubmit(interval = 5000, timeUnit = TimeUnit.MILLISECONDS)
+@PostMapping("/save")
+public Result<Void> saveUser(@RequestBody UserDTO userDTO) {
+    // 业务逻辑
+}
+```
+
+#### 日志使用指南
+```java
+@Slf4j
+@Service
+public class UserService {
+    public void createUser(String username) {
+        log.info("创建用户开始, username: {}", username);
+        try {
+            // 业务逻辑
+            log.info("用户创建成功: {}", username);
+        } catch (Exception e) {
+            log.error("创建用户失败", e);
+        }
+    }
+}
+```
+
+#### 异常处理指南
+```java
+// 抛出业务异常
+if (passwordNotMatch) {
+    throw new UserPasswordNotMatchException();
+}
+
+// 自定义异常
+public class CustomException extends BaseServiceException {
+    public CustomException() {
+        super(ErrorCode.CUSTOM_ERROR);
+    }
+}
+```
+
 ### 扩展开发
 - 新增扩展模块请在zl-extend下创建
 - 遵循Spring Boot自动配置规范
 - 提供配置属性类和自动配置类
 - 在META-INF下创建spring.factories或AutoConfiguration.imports文件
+
+### AI功能开发
+```java
+// Spring AI Function Calling
+@Tool(description = "获取指定城市的天气信息")
+public String getWeather(@ToolParam(description = "城市名称") String city) {
+    return weatherService.getWeather(city);
+}
+
+// LangChain4j集成
+@Service
+public class AIService {
+    @Inject
+    private ChatLanguageModel model;
+    
+    public String chat(String message) {
+        return model.generate(message);
+    }
+}
+```
 
 ## 注意事项
 - 项目处于持续开发阶段，功能会不断更新完善
@@ -201,6 +341,20 @@ zl-backend/
 - 生产环境部署时请修改默认密码和密钥
 - 扩展模块可根据实际需求选择性引入
 - 部分扩展功能需要额外配置第三方服务（如MinIO、RabbitMQ等）
+
+### 功能使用注意事项
+- **权限系统**：确保三组件（JwtAuthenticationFilter、UserTokenInterceptor、JwtAuthorizationManager）正确配置，避免ThreadLocal时序问题
+- **幂等性控制**：注意在Controller方法上添加@RepeatSubmit注解，并合理设置间隔时间
+- **日志系统**：生产环境建议调整日志级别为INFO，避免过多DEBUG日志影响性能
+- **文件上传**：大文件上传需要确保MinIO服务正常运行，并合理设置分片大小
+- **AI功能**：使用AI功能前需要配置相应的API密钥和服务地址
+- **全局异常处理**：自定义异常需要继承BaseServiceException，并定义相应的ErrorCode
+
+### 性能优化建议
+- 合理使用Redis缓存，减少数据库查询
+- 大文件上传时调整分片大小，平衡上传速度和内存占用
+- 生产环境启用日志异步输出，避免I/O阻塞
+- 定期清理过期的幂等性控制Key，避免Redis内存占用过高
 
 ## 联系方式
 - 项目地址：[zl-backend](https://github.com/your-repo/zl-backend)
