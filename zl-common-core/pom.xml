@@ -9,13 +9,31 @@
 	</parent>
 
 	<artifactId>zl-common-core</artifactId>
+	<packaging>pom</packaging>
+
+	<modules>
+		<module>zl-common-idempotent</module>
+	</modules>
+
+	<properties>
+		<zl.version>1.0-SNAPSHOT</zl.version>
+	</properties>
+
+	<dependencyManagement>
+		<dependencies>
+			<!--引入framework模块-->
+			<dependency>
+				<groupId>com.zl</groupId>
+				<artifactId>zl-framework</artifactId>
+				<version>${zl.version}</version>
+			</dependency>
 
 
 
+		</dependencies>
 
-	<dependencies>
 
-	</dependencies>
+	</dependencyManagement>
 
 
 
