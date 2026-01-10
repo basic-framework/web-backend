@@ -5,11 +5,11 @@ public class GlobalConstants {
     /**
      * 全局 redis key (业务无关的key)
      */
-    String GLOBAL_REDIS_KEY = "global:";
+    public static final String GLOBAL_REDIS_KEY = "global:";
     /**
      * 防重提交 redis key
      */
-    String REPEAT_SUBMIT_KEY = GLOBAL_REDIS_KEY + "repeat_submit:";
+    public static final String REPEAT_SUBMIT_KEY = GLOBAL_REDIS_KEY + "repeat_submit:";
 
 
 //
