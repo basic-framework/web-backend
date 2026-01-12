@@ -51,37 +51,21 @@ zl-backend/
 ├── pom.xml                       # 项目父POM文件
 ├── docs/                         # 文档目录
 │   ├── 大文件处理方案/            # 大文件处理相关文档
-│   │   ├── 断点续传方案.drawio
-│   │   └── 分片上传中MD5解决文件命名冲突方案.md
 │   ├── 权限认证设计/             # 权限认证相关文档
-│   │   ├── 后台登录验证流程.jpg
-│   │   ├── 两种授权写法.md
-│   │   ├── 三组件执行顺序详解.md
-│   │   ├── 优化后权限系统详细设计指南.md
-│   │   ├── ThreadLocal.png
-│   │   └── m.drawio
 │   ├── 通用功能/                 # 通用功能文档
-│   │   ├── 注意事项.md
-│   │   ├── 幂等控制方案/
-│   │   │   ├── 幂等性控制设计文档.md
-│   │   │   └── 切面与拦截器执行顺序.png
-│   │   ├── 日志方案/
-│   │   │   └── 日志系统使用指南.md
-│   │   └── 异常处理设计/
-│   │       ├── 全局异常处理设计文档.md
-│   │       └── 异常处理使用指南.md
+│   │   ├── 幂等控制方案/         # 幂等性控制设计文档
+│   │   ├── 数据脱敏方案/         # 数据脱敏模块详解
+│   │   ├── 日志方案/             # 日志系统使用指南
+│   │   └── 异常处理设计/         # 全局异常处理设计文档
 │   ├── 系统架构/                 # 系统架构文档
-│   │   └── 依赖关系.drawio
 │   └── LLM应用/                   # 大语言模型应用文档
-│       └── functionCalling/
-│           ├── functionCalling与MCP区别.md
-│           └── FunctionCalling原理.png
 ├── sql/                          # SQL脚本目录
 │   ├── zl.sql                   # 初始化数据库脚本
 │   └── test_learning_lesson_data.sql
 ├── zl-common/                    # 通用工具类和异常处理模块
 ├── zl-common-core/               # 通用核心功能模块
-│   └── zl-common-idempotent/     # 幂等性控制模块
+│   ├── zl-common-idempotent/     # 幂等性控制模块
+│   └── zl-common-sensitive/      # 数据脱敏模块
 ├── zl-model/                     # 数据模型定义模块
 ├── zl-framework/                 # 框架核心模块，包含基础配置和通用组件
 ├── zl-security/                  # 安全认证与授权模块
@@ -105,8 +89,9 @@ zl-backend/
 ### 核心模块
 
 - **zl-common**：提供通用工具类、异常处理、常量定义等基础功能
-- **zl-common-core**：通用核心功能模块，包含幂等性控制等核心功能
+- **zl-common-core**：通用核心功能模块，包含幂等性控制、数据脱敏等核心功能
   - **zl-common-idempotent**：基于AOP的幂等性控制实现，支持注解式防重复提交
+  - **zl-common-sensitive**：基于Jackson序列化的数据脱敏模块，支持多种脱敏策略
 - **zl-model**：定义数据实体、DTO、VO等数据模型
 - **zl-framework**：框架核心配置，包含异步任务管理、安全配置、全局异常处理等
 - **zl-security**：认证授权机制，基于Spring Security和JWT实现，支持RBAC权限模型
@@ -154,6 +139,7 @@ zl-backend/
 
 ### 系统功能
 - **幂等性控制**：基于AOP的注解式防重复提交，支持自定义间隔时间和提示信息
+- **数据脱敏**：基于Jackson序列化的数据脱敏功能，支持手机号、身份证、邮箱等多种脱敏策略
 - **全局异常处理**：统一的异常处理机制，支持错误码管理和国际化
 - **日志系统**：基于SLF4J+Logback的分级日志系统，支持按功能和级别分类输出
 - **参数校验**：基于Spring Validation的参数校验框架
@@ -277,6 +263,32 @@ public Result<Void> saveUser(@RequestBody UserDTO userDTO) {
 }
 ```
 
+#### 数据脱敏开发
+```java
+// 在实体类字段上添加脱敏注解
+public class UserInfo {
+    @Sensitive(strategy = SensitiveStrategy.PHONE)
+    private String phoneNumber;
+    
+    @Sensitive(strategy = SensitiveStrategy.ID_CARD)
+    private String idCard;
+    
+    @Sensitive(strategy = SensitiveStrategy.EMAIL)
+    private String email;
+}
+
+// 实现自定义脱敏控制服务
+@Service
+public class CustomSensitiveService implements SensitiveService {
+    @Override
+    public boolean isSensitive() {
+        // 根据用户角色或其他条件决定是否脱敏
+        UserContext user = UserContext.getCurrent();
+        return !user.isAdmin();
+    }
+}
+```
+
 #### 日志使用指南
 ```java
 @Slf4j
@@ -345,6 +357,7 @@ public class AIService {
 ### 功能使用注意事项
 - **权限系统**：确保三组件（JwtAuthenticationFilter、UserTokenInterceptor、JwtAuthorizationManager）正确配置，避免ThreadLocal时序问题
 - **幂等性控制**：注意在Controller方法上添加@RepeatSubmit注解，并合理设置间隔时间
+- **数据脱敏**：脱敏功能仅在JSON序列化时生效，不影响数据库存储；需要实现SensitiveService接口来控制脱敏行为
 - **日志系统**：生产环境建议调整日志级别为INFO，避免过多DEBUG日志影响性能
 - **文件上传**：大文件上传需要确保MinIO服务正常运行，并合理设置分片大小
 - **AI功能**：使用AI功能前需要配置相应的API密钥和服务地址
