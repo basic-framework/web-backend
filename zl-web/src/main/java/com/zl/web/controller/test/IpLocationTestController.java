@@ -1,4 +1,4 @@
-package com.zl.web.controller;
+package com.zl.web.controller.test;
 
 import com.zl.common.utils.ipUtils.AddressUtil;
 import com.zl.common.utils.ipUtils.IPUtil;

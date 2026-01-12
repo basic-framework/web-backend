@@ -13,6 +13,7 @@
 
 	<modules>
 		<module>zl-common-idempotent</module>
+		<module>zl-common-sensitive</module>
 	</modules>
 
 	<properties>
