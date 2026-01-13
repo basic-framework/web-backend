@@ -23,7 +23,7 @@ DROP TABLE IF EXISTS `sys_oper_log`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `sys_oper_log` (
-  `oper_id` bigint NOT NULL COMMENT '日志主键',
+  `oper_id` bigint NOT NULL AUTO_INCREMENT COMMENT '日志主键',
   `title` varchar(50) COLLATE utf8mb4_general_ci DEFAULT '' COMMENT '模块标题',
   `business_type` int DEFAULT '0' COMMENT '业务类型（0其它 1新增 2修改 3删除）',
   `method` varchar(100) COLLATE utf8mb4_general_ci DEFAULT '' COMMENT '方法名称',
@@ -38,13 +38,13 @@ CREATE TABLE `sys_oper_log` (
   `json_result` varchar(2000) COLLATE utf8mb4_general_ci DEFAULT '' COMMENT '返回参数',
   `status` int DEFAULT '0' COMMENT '操作状态（0正常 1异常）',
   `error_msg` varchar(2000) COLLATE utf8mb4_general_ci DEFAULT '' COMMENT '错误消息',
-  `oper_time` datetime DEFAULT NULL COMMENT '操作时间',
+  `oper_time` datetime DEFAULT (now()) COMMENT '操作时间',
   `cost_time` bigint DEFAULT '0' COMMENT '消耗时间',
   PRIMARY KEY (`oper_id`),
   KEY `idx_sys_oper_log_bt` (`business_type`),
   KEY `idx_sys_oper_log_ot` (`oper_time`),
   KEY `idx_sys_oper_log_s` (`status`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci ROW_FORMAT=DYNAMIC COMMENT='操作日志记录';
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci ROW_FORMAT=DYNAMIC COMMENT='操作日志记录';
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -227,4 +227,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2026-01-13  9:47:28
+-- Dump completed on 2026-01-13 17:39:22

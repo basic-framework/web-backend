@@ -7,10 +7,11 @@ import com.alibaba.ttl.TransmittableThreadLocal;
 import com.zl.common.utils.authUtils.UserUtil;
 import com.zl.common.utils.jsonUtils.JsonUtils;
 import com.zl.common.utils.springUtils.ServletUtils;
-import com.zl.common.utils.springUtils.SpringUtil;
+import com.zl.framework.manager.asyncTask.AsyncManager;
 import com.zl.log.annotation.Log;
 import com.zl.log.enums.BusinessStatus;
 import com.zl.log.event.OperLogEvent;
+import com.zl.log.handler.LogHandler;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import lombok.extern.slf4j.Slf4j;
@@ -25,7 +26,6 @@ import org.springframework.boot.autoconfigure.AutoConfiguration;
 import org.springframework.http.HttpMethod;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.multipart.MultipartFile;
-
 import java.util.Collection;
 import java.util.Map;
 
@@ -45,10 +45,15 @@ public class LogAspect {
     public static final String[] EXCLUDE_PROPERTIES = { "password", "oldPassword", "newPassword", "confirmPassword" };
 
 
-    /**
+     /**
      * 计算操作消耗时间
+     * 使用支持线程池变量传递的ThreadLocal,如果使用ThreadLocal,异步线程无法取到主线程的StopWatch对象
+      * 保证耗时统计的 StopWatch 对象在主线程和异步入库线程之间安全传递，且线程隔离、数据不污染。
+      * StopWatch 是 Apache Commons Lang 库提供的一个工具类，用于测量代码执行时间。
      */
     private static final ThreadLocal<StopWatch> TIME_THREADLOCAL = new TransmittableThreadLocal<>();
+
+
 
     /**
      * 处理请求前执行
@@ -110,7 +115,9 @@ public class LogAspect {
             stopWatch.stop();
             operLog.setCostTime(stopWatch.getTime());
             // 发布事件保存数据库
-            SpringUtil.context().publishEvent(operLog);
+//            SpringUtil.context().publishEvent(operLog);
+            //线程池异步任务直接入库
+            AsyncManager.me().execute(LogHandler.recordOper(operLog));
         } catch (Exception exp) {
             // 记录本地异常日志
             log.error("异常信息:{}", exp.getMessage());

@@ -314,3 +314,440 @@
 2026-01-13 10:41:52.302 [tomcat-shutdown] INFO  o.s.boot.web.embedded.tomcat.GracefulShutdown - [doShutdown,76] - Graceful shutdown complete
 2026-01-13 10:41:52.488 [SpringApplicationShutdownHook] INFO  com.alibaba.druid.pool.DruidDataSource - [?,?] - {dataSource-1} closing ...
 2026-01-13 10:41:52.498 [SpringApplicationShutdownHook] INFO  com.alibaba.druid.pool.DruidDataSource - [?,?] - {dataSource-1} closed
+2026-01-13 10:42:01.988 [background-preinit] INFO  org.hibernate.validator.internal.util.Version - [<clinit>,21] - HV000001: Hibernate Validator 8.0.2.Final
+2026-01-13 10:42:02.074 [main] INFO  com.zl.web.ZLBasicApplication - [logStarting,53] - Starting ZLBasicApplication using Java 17.0.12 with PID 34268 (F:\外接项目\智领软件公司基础脚手架\zl-backend\zl-web\target\classes started by 惠普 in F:\外接项目\智领软件公司基础脚手架\zl-backend)
+2026-01-13 10:42:02.076 [main] INFO  com.zl.web.ZLBasicApplication - [logStartupProfileInfo,658] - The following 3 profiles are active: "file", "extend", "dev"
+2026-01-13 10:42:03.452 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - [multipleStoresDetected,295] - Multiple Spring Data modules found, entering strict repository configuration mode
+2026-01-13 10:42:03.456 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - [registerRepositoriesIn,143] - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2026-01-13 10:42:03.496 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - [registerRepositoriesIn,211] - Finished Spring Data repository scanning in 19 ms. Found 0 Redis repository interfaces.
+2026-01-13 10:42:04.791 [main] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - [initialize,111] - Tomcat initialized with port 8080 (http)
+2026-01-13 10:42:04.797 [main] INFO  org.apache.catalina.core.AprLifecycleListener - [log,168] - Loaded Apache Tomcat Native library [2.0.7] using APR version [1.7.4].
+2026-01-13 10:42:04.802 [main] INFO  org.apache.catalina.core.AprLifecycleListener - [log,168] - OpenSSL successfully initialized [OpenSSL 3.0.13 30 Jan 2024]
+2026-01-13 10:42:04.826 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - [log,168] - Initializing ProtocolHandler ["http-nio-8080"]
+2026-01-13 10:42:04.829 [main] INFO  org.apache.catalina.core.StandardService - [log,168] - Starting service [Tomcat]
+2026-01-13 10:42:04.829 [main] INFO  org.apache.catalina.core.StandardEngine - [log,168] - Starting Servlet engine: [Apache Tomcat/10.1.40]
+2026-01-13 10:42:04.927 [main] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - [log,168] - Initializing Spring embedded WebApplicationContext
+2026-01-13 10:42:04.928 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - [prepareWebApplicationContext,301] - Root WebApplicationContext: initialization completed in 2784 ms
+2026-01-13 10:42:05.580 [main] INFO  c.a.d.s.b.a.DruidDataSourceAutoConfigure - [?,?] - Init DruidDataSource
+2026-01-13 10:42:05.712 [main] INFO  com.alibaba.druid.pool.DruidDataSource - [?,?] - {dataSource-1} inited
+2026-01-13 10:42:05.905 [main] INFO  o.s.s.c.a.a.c.InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer - [configure,114] - Global AuthenticationManager configured with UserDetailsService bean with name userDetailsServiceImpl
+2026-01-13 10:42:06.377 [main] INFO  com.zl.framework.config.RedisConfig - [redisTemplate,49] - 开始创建模板对象
+2026-01-13 10:42:06.478 [main] INFO  org.redisson.Version - [logVersion,41] - Redisson 3.13.6
+2026-01-13 10:42:06.829 [redisson-netty-4-18] INFO  o.r.connection.pool.MasterPubSubConnectionPool - [lambda$run$0,167] - 1 connections initialized for /127.0.0.1:6379
+2026-01-13 10:42:06.844 [redisson-netty-4-20] INFO  org.redisson.connection.pool.MasterConnectionPool - [lambda$run$0,167] - 24 connections initialized for /127.0.0.1:6379
+2026-01-13 10:42:08.108 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - [log,168] - Starting ProtocolHandler ["http-nio-8080"]
+2026-01-13 10:42:08.121 [main] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - [start,243] - Tomcat started on port 8080 (http) with context path '/'
+2026-01-13 10:42:08.137 [main] INFO  com.zl.web.ZLBasicApplication - [logStarted,59] - Started ZLBasicApplication in 7.119 seconds (process running for 7.921)
+2026-01-13 10:42:23.456 [http-nio-8080-exec-1] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - [log,168] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2026-01-13 10:42:23.456 [http-nio-8080-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - [initServletBean,532] - Initializing Servlet 'dispatcherServlet'
+2026-01-13 10:42:23.458 [http-nio-8080-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - [initServletBean,554] - Completed initialization in 2 ms
+2026-01-13 10:42:23.543 [http-nio-8080-exec-1] INFO  com.zl.framework.interceptor.UserTokenInterceptor - [preHandle,33] - 【拦截器】非控制器请求，放行：/favicon.ico
+2026-01-13 10:42:23.651 [http-nio-8080-exec-1] INFO  com.zl.framework.interceptor.UserTokenInterceptor - [afterCompletion,98] - 【拦截器】清理ThreadLocal，请求URI：/favicon.ico
+2026-01-13 10:42:36.646 [http-nio-8080-exec-2] INFO  com.zl.framework.interceptor.UserTokenInterceptor - [preHandle,33] - 【拦截器】非控制器请求，放行：/favicon.ico
+2026-01-13 10:42:36.661 [http-nio-8080-exec-2] INFO  com.zl.framework.interceptor.UserTokenInterceptor - [afterCompletion,98] - 【拦截器】清理ThreadLocal，请求URI：/favicon.ico
+2026-01-13 10:42:50.871 [http-nio-8080-exec-4] INFO  com.zl.framework.interceptor.UserTokenInterceptor - [preHandle,38] - 【拦截器】开始处理请求：/web/user/getUserNavInfo
+2026-01-13 10:42:50.872 [http-nio-8080-exec-4] INFO  com.zl.framework.interceptor.UserTokenInterceptor - [preHandle,42] - 【拦截器】获取到Authorization头：d2d25024-a4ed-4175-92cb-40c6234dff25
+2026-01-13 10:42:50.872 [http-nio-8080-exec-4] INFO  com.zl.framework.interceptor.UserTokenInterceptor - [preHandle,51] - 【拦截器】处理后的userToken：d2d25024-a4ed-4175-92cb-40c6234dff25
+2026-01-13 10:42:50.879 [http-nio-8080-exec-4] INFO  com.zl.framework.interceptor.UserTokenInterceptor - [preHandle,57] - 【拦截器】Redis查询结果 - key：user:jwt-tokend2d25024-a4ed-4175-92cb-40c6234dff25，jwtToken：eyJhbGciOiJIUzI1NiJ9.eyJjdXJyZW50VXNlciI6IntcInRva2VuXCI6XCJkMmQyNTAyNC1hNGVkLTQxNzUtOTJjYi00MGM2MjM0ZGZmMjVcIixcInJvbGVMYWJlbHNcIjpbXSxcInJlc291cmNlUGF0aHNcIjpbXSxcInVzZXJuYW1lXCI6XCJsZ2hcIixcInBhc3N3b3JkXCI6XCJcIixcImVtYWlsXCI6XCJcIixcInBob25lTnVtYmVyXCI6XCJcIixcImlkXCI6MSxcImNyZWF0ZVRpbWVcIjoxNzY3NTE2NjU0MDAwLFwidXBkYXRlVGltZVwiOjE3Njc1MTY2NTQwMDB9IiwiaWF0IjoxNzY4MjcyMTQ2LCJleHAiOjE3NjgyNzM5NDZ9.vOXprwnE9-8EYedyN3_8Z00gzBYHaP0ET4FZDl3jDHM
+2026-01-13 10:42:50.976 [http-nio-8080-exec-4] INFO  com.zl.framework.interceptor.UserTokenInterceptor - [preHandle,66] - 【拦截器】JWT解析结果：{currentUser={"token":"d2d25024-a4ed-4175-92cb-40c6234dff25","roleLabels":[],"resourcePaths":[],"username":"lgh","password":"","email":"","phoneNumber":"","id":1,"createTime":1767516654000,"updateTime":1767516654000}, iat=1768272146, exp=1768273946}
+2026-01-13 10:42:50.978 [http-nio-8080-exec-4] INFO  com.zl.framework.interceptor.UserTokenInterceptor - [preHandle,69] - 【拦截器】JWT中currentUser字段值：{"token":"d2d25024-a4ed-4175-92cb-40c6234dff25","roleLabels":[],"resourcePaths":[],"username":"lgh","password":"","email":"","phoneNumber":"","id":1,"createTime":1767516654000,"updateTime":1767516654000}
+2026-01-13 10:42:50.979 [http-nio-8080-exec-4] INFO  com.zl.framework.interceptor.UserTokenInterceptor - [preHandle,84] - 【拦截器】成功存入ThreadLocal，用户信息：{"token":"d2d25024-a4ed-4175-92cb-40c6234dff25","roleLabels":[],"resourcePaths":[],"username":"lgh","password":"","email":"","phoneNumber":"","id":1,"createTime":1767516654000,"updateTime":1767516654000}
+2026-01-13 10:42:51.439 [http-nio-8080-exec-4] INFO  com.zl.framework.interceptor.UserTokenInterceptor - [afterCompletion,98] - 【拦截器】清理ThreadLocal，请求URI：/web/user/getUserNavInfo
+2026-01-13 10:42:58.800 [http-nio-8080-exec-5] INFO  com.zl.framework.interceptor.UserTokenInterceptor - [preHandle,33] - 【拦截器】非控制器请求，放行：/favicon.ico
+2026-01-13 10:42:58.812 [http-nio-8080-exec-5] INFO  com.zl.framework.interceptor.UserTokenInterceptor - [afterCompletion,98] - 【拦截器】清理ThreadLocal，请求URI：/favicon.ico
+2026-01-13 10:43:06.141 [http-nio-8080-exec-6] INFO  com.zl.framework.interceptor.UserTokenInterceptor - [preHandle,38] - 【拦截器】开始处理请求：/web/ip/location
+2026-01-13 10:43:06.142 [http-nio-8080-exec-6] INFO  com.zl.framework.interceptor.UserTokenInterceptor - [preHandle,42] - 【拦截器】获取到Authorization头：d2d25024-a4ed-4175-92cb-40c6234dff25
+2026-01-13 10:43:06.142 [http-nio-8080-exec-6] INFO  com.zl.framework.interceptor.UserTokenInterceptor - [preHandle,51] - 【拦截器】处理后的userToken：d2d25024-a4ed-4175-92cb-40c6234dff25
+2026-01-13 10:43:06.144 [http-nio-8080-exec-6] INFO  com.zl.framework.interceptor.UserTokenInterceptor - [preHandle,57] - 【拦截器】Redis查询结果 - key：user:jwt-tokend2d25024-a4ed-4175-92cb-40c6234dff25，jwtToken：eyJhbGciOiJIUzI1NiJ9.eyJjdXJyZW50VXNlciI6IntcInRva2VuXCI6XCJkMmQyNTAyNC1hNGVkLTQxNzUtOTJjYi00MGM2MjM0ZGZmMjVcIixcInJvbGVMYWJlbHNcIjpbXSxcInJlc291cmNlUGF0aHNcIjpbXSxcInVzZXJuYW1lXCI6XCJsZ2hcIixcInBhc3N3b3JkXCI6XCJcIixcImVtYWlsXCI6XCJcIixcInBob25lTnVtYmVyXCI6XCJcIixcImlkXCI6MSxcImNyZWF0ZVRpbWVcIjoxNzY3NTE2NjU0MDAwLFwidXBkYXRlVGltZVwiOjE3Njc1MTY2NTQwMDB9IiwiaWF0IjoxNzY4MjcyMTQ2LCJleHAiOjE3NjgyNzM5NDZ9.vOXprwnE9-8EYedyN3_8Z00gzBYHaP0ET4FZDl3jDHM
+2026-01-13 10:43:06.145 [http-nio-8080-exec-6] INFO  com.zl.framework.interceptor.UserTokenInterceptor - [preHandle,66] - 【拦截器】JWT解析结果：{currentUser={"token":"d2d25024-a4ed-4175-92cb-40c6234dff25","roleLabels":[],"resourcePaths":[],"username":"lgh","password":"","email":"","phoneNumber":"","id":1,"createTime":1767516654000,"updateTime":1767516654000}, iat=1768272146, exp=1768273946}
+2026-01-13 10:43:06.147 [http-nio-8080-exec-6] INFO  com.zl.framework.interceptor.UserTokenInterceptor - [preHandle,69] - 【拦截器】JWT中currentUser字段值：{"token":"d2d25024-a4ed-4175-92cb-40c6234dff25","roleLabels":[],"resourcePaths":[],"username":"lgh","password":"","email":"","phoneNumber":"","id":1,"createTime":1767516654000,"updateTime":1767516654000}
+2026-01-13 10:43:06.147 [http-nio-8080-exec-6] INFO  com.zl.framework.interceptor.UserTokenInterceptor - [preHandle,84] - 【拦截器】成功存入ThreadLocal，用户信息：{"token":"d2d25024-a4ed-4175-92cb-40c6234dff25","roleLabels":[],"resourcePaths":[],"username":"lgh","password":"","email":"","phoneNumber":"","id":1,"createTime":1767516654000,"updateTime":1767516654000}
+2026-01-13 10:43:06.248 [http-nio-8080-exec-6] INFO  com.zl.framework.interceptor.UserTokenInterceptor - [afterCompletion,98] - 【拦截器】清理ThreadLocal，请求URI：/web/ip/location
+2026-01-13 10:48:03.371 [http-nio-8080-exec-3] INFO  com.zl.framework.interceptor.UserTokenInterceptor - [preHandle,38] - 【拦截器】开始处理请求：/web/ip/location
+2026-01-13 10:48:03.373 [http-nio-8080-exec-3] INFO  com.zl.framework.interceptor.UserTokenInterceptor - [preHandle,42] - 【拦截器】获取到Authorization头：d2d25024-a4ed-4175-92cb-40c6234dff25
+2026-01-13 10:48:03.373 [http-nio-8080-exec-3] INFO  com.zl.framework.interceptor.UserTokenInterceptor - [preHandle,51] - 【拦截器】处理后的userToken：d2d25024-a4ed-4175-92cb-40c6234dff25
+2026-01-13 10:48:03.375 [http-nio-8080-exec-3] INFO  com.zl.framework.interceptor.UserTokenInterceptor - [preHandle,57] - 【拦截器】Redis查询结果 - key：user:jwt-tokend2d25024-a4ed-4175-92cb-40c6234dff25，jwtToken：eyJhbGciOiJIUzI1NiJ9.eyJjdXJyZW50VXNlciI6IntcInRva2VuXCI6XCJkMmQyNTAyNC1hNGVkLTQxNzUtOTJjYi00MGM2MjM0ZGZmMjVcIixcInJvbGVMYWJlbHNcIjpbXSxcInJlc291cmNlUGF0aHNcIjpbXSxcInVzZXJuYW1lXCI6XCJsZ2hcIixcInBhc3N3b3JkXCI6XCJcIixcImVtYWlsXCI6XCJcIixcInBob25lTnVtYmVyXCI6XCJcIixcImlkXCI6MSxcImNyZWF0ZVRpbWVcIjoxNzY3NTE2NjU0MDAwLFwidXBkYXRlVGltZVwiOjE3Njc1MTY2NTQwMDB9IiwiaWF0IjoxNzY4MjcyMTQ2LCJleHAiOjE3NjgyNzM5NDZ9.vOXprwnE9-8EYedyN3_8Z00gzBYHaP0ET4FZDl3jDHM
+2026-01-13 10:48:03.376 [http-nio-8080-exec-3] INFO  com.zl.framework.interceptor.UserTokenInterceptor - [preHandle,66] - 【拦截器】JWT解析结果：{currentUser={"token":"d2d25024-a4ed-4175-92cb-40c6234dff25","roleLabels":[],"resourcePaths":[],"username":"lgh","password":"","email":"","phoneNumber":"","id":1,"createTime":1767516654000,"updateTime":1767516654000}, iat=1768272146, exp=1768273946}
+2026-01-13 10:48:03.377 [http-nio-8080-exec-3] INFO  com.zl.framework.interceptor.UserTokenInterceptor - [preHandle,69] - 【拦截器】JWT中currentUser字段值：{"token":"d2d25024-a4ed-4175-92cb-40c6234dff25","roleLabels":[],"resourcePaths":[],"username":"lgh","password":"","email":"","phoneNumber":"","id":1,"createTime":1767516654000,"updateTime":1767516654000}
+2026-01-13 10:48:03.377 [http-nio-8080-exec-3] INFO  com.zl.framework.interceptor.UserTokenInterceptor - [preHandle,84] - 【拦截器】成功存入ThreadLocal，用户信息：{"token":"d2d25024-a4ed-4175-92cb-40c6234dff25","roleLabels":[],"resourcePaths":[],"username":"lgh","password":"","email":"","phoneNumber":"","id":1,"createTime":1767516654000,"updateTime":1767516654000}
+2026-01-13 10:48:03.384 [http-nio-8080-exec-3] INFO  com.zl.framework.interceptor.UserTokenInterceptor - [afterCompletion,98] - 【拦截器】清理ThreadLocal，请求URI：/web/ip/location
+2026-01-13 10:51:02.505 [SpringApplicationShutdownHook] INFO  o.s.boot.web.embedded.tomcat.GracefulShutdown - [shutDownGracefully,54] - Commencing graceful shutdown. Waiting for active requests to complete
+2026-01-13 10:51:03.137 [tomcat-shutdown] INFO  o.s.boot.web.embedded.tomcat.GracefulShutdown - [doShutdown,76] - Graceful shutdown complete
+2026-01-13 10:51:03.293 [SpringApplicationShutdownHook] INFO  com.alibaba.druid.pool.DruidDataSource - [?,?] - {dataSource-1} closing ...
+2026-01-13 10:51:03.302 [SpringApplicationShutdownHook] INFO  com.alibaba.druid.pool.DruidDataSource - [?,?] - {dataSource-1} closed
+2026-01-13 10:51:15.948 [background-preinit] INFO  org.hibernate.validator.internal.util.Version - [<clinit>,21] - HV000001: Hibernate Validator 8.0.2.Final
+2026-01-13 10:51:16.064 [main] INFO  com.zl.web.ZLBasicApplication - [logStarting,53] - Starting ZLBasicApplication using Java 17.0.12 with PID 24260 (F:\外接项目\智领软件公司基础脚手架\zl-backend\zl-web\target\classes started by 惠普 in F:\外接项目\智领软件公司基础脚手架\zl-backend)
+2026-01-13 10:51:16.068 [main] INFO  com.zl.web.ZLBasicApplication - [logStartupProfileInfo,658] - The following 3 profiles are active: "file", "extend", "dev"
+2026-01-13 10:51:18.069 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - [multipleStoresDetected,295] - Multiple Spring Data modules found, entering strict repository configuration mode
+2026-01-13 10:51:18.075 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - [registerRepositoriesIn,143] - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2026-01-13 10:51:18.130 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - [registerRepositoriesIn,211] - Finished Spring Data repository scanning in 26 ms. Found 0 Redis repository interfaces.
+2026-01-13 10:51:19.765 [main] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - [initialize,111] - Tomcat initialized with port 8080 (http)
+2026-01-13 10:51:19.769 [main] INFO  org.apache.catalina.core.AprLifecycleListener - [log,168] - Loaded Apache Tomcat Native library [2.0.7] using APR version [1.7.4].
+2026-01-13 10:51:19.777 [main] INFO  org.apache.catalina.core.AprLifecycleListener - [log,168] - OpenSSL successfully initialized [OpenSSL 3.0.13 30 Jan 2024]
+2026-01-13 10:51:19.806 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - [log,168] - Initializing ProtocolHandler ["http-nio-8080"]
+2026-01-13 10:51:19.809 [main] INFO  org.apache.catalina.core.StandardService - [log,168] - Starting service [Tomcat]
+2026-01-13 10:51:19.810 [main] INFO  org.apache.catalina.core.StandardEngine - [log,168] - Starting Servlet engine: [Apache Tomcat/10.1.40]
+2026-01-13 10:51:19.940 [main] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - [log,168] - Initializing Spring embedded WebApplicationContext
+2026-01-13 10:51:19.940 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - [prepareWebApplicationContext,301] - Root WebApplicationContext: initialization completed in 3768 ms
+2026-01-13 10:51:20.802 [main] INFO  c.a.d.s.b.a.DruidDataSourceAutoConfigure - [?,?] - Init DruidDataSource
+2026-01-13 10:51:20.943 [main] INFO  com.alibaba.druid.pool.DruidDataSource - [?,?] - {dataSource-1} inited
+2026-01-13 10:51:21.152 [main] INFO  o.s.s.c.a.a.c.InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer - [configure,114] - Global AuthenticationManager configured with UserDetailsService bean with name userDetailsServiceImpl
+2026-01-13 10:51:21.654 [main] INFO  com.zl.framework.config.RedisConfig - [redisTemplate,49] - 开始创建模板对象
+2026-01-13 10:51:21.761 [main] INFO  org.redisson.Version - [logVersion,41] - Redisson 3.13.6
+2026-01-13 10:51:22.116 [redisson-netty-4-14] INFO  o.r.connection.pool.MasterPubSubConnectionPool - [lambda$run$0,167] - 1 connections initialized for /127.0.0.1:6379
+2026-01-13 10:51:22.131 [redisson-netty-4-19] INFO  org.redisson.connection.pool.MasterConnectionPool - [lambda$run$0,167] - 24 connections initialized for /127.0.0.1:6379
+2026-01-13 10:51:23.417 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - [log,168] - Starting ProtocolHandler ["http-nio-8080"]
+2026-01-13 10:51:23.431 [main] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - [start,243] - Tomcat started on port 8080 (http) with context path '/'
+2026-01-13 10:51:23.447 [main] INFO  com.zl.web.ZLBasicApplication - [logStarted,59] - Started ZLBasicApplication in 8.757 seconds (process running for 9.936)
+2026-01-13 10:51:26.108 [http-nio-8080-exec-1] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - [log,168] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2026-01-13 10:51:26.108 [http-nio-8080-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - [initServletBean,532] - Initializing Servlet 'dispatcherServlet'
+2026-01-13 10:51:26.111 [http-nio-8080-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - [initServletBean,554] - Completed initialization in 1 ms
+2026-01-13 10:51:26.188 [http-nio-8080-exec-1] INFO  com.zl.framework.interceptor.UserTokenInterceptor - [preHandle,38] - 【拦截器】开始处理请求：/web/ip/location
+2026-01-13 10:51:26.188 [http-nio-8080-exec-1] INFO  com.zl.framework.interceptor.UserTokenInterceptor - [preHandle,42] - 【拦截器】获取到Authorization头：d2d25024-a4ed-4175-92cb-40c6234dff25
+2026-01-13 10:51:26.189 [http-nio-8080-exec-1] INFO  com.zl.framework.interceptor.UserTokenInterceptor - [preHandle,51] - 【拦截器】处理后的userToken：d2d25024-a4ed-4175-92cb-40c6234dff25
+2026-01-13 10:51:26.751 [http-nio-8080-exec-1] INFO  com.zl.framework.interceptor.UserTokenInterceptor - [preHandle,57] - 【拦截器】Redis查询结果 - key：user:jwt-tokend2d25024-a4ed-4175-92cb-40c6234dff25，jwtToken：eyJhbGciOiJIUzI1NiJ9.eyJjdXJyZW50VXNlciI6IntcInRva2VuXCI6XCJkMmQyNTAyNC1hNGVkLTQxNzUtOTJjYi00MGM2MjM0ZGZmMjVcIixcInJvbGVMYWJlbHNcIjpbXSxcInJlc291cmNlUGF0aHNcIjpbXSxcInVzZXJuYW1lXCI6XCJsZ2hcIixcInBhc3N3b3JkXCI6XCJcIixcImVtYWlsXCI6XCJcIixcInBob25lTnVtYmVyXCI6XCJcIixcImlkXCI6MSxcImNyZWF0ZVRpbWVcIjoxNzY3NTE2NjU0MDAwLFwidXBkYXRlVGltZVwiOjE3Njc1MTY2NTQwMDB9IiwiaWF0IjoxNzY4MjcyMTQ2LCJleHAiOjE3NjgyNzM5NDZ9.vOXprwnE9-8EYedyN3_8Z00gzBYHaP0ET4FZDl3jDHM
+2026-01-13 10:51:26.913 [http-nio-8080-exec-1] INFO  com.zl.framework.interceptor.UserTokenInterceptor - [preHandle,66] - 【拦截器】JWT解析结果：{currentUser={"token":"d2d25024-a4ed-4175-92cb-40c6234dff25","roleLabels":[],"resourcePaths":[],"username":"lgh","password":"","email":"","phoneNumber":"","id":1,"createTime":1767516654000,"updateTime":1767516654000}, iat=1768272146, exp=1768273946}
+2026-01-13 10:51:26.914 [http-nio-8080-exec-1] INFO  com.zl.framework.interceptor.UserTokenInterceptor - [preHandle,69] - 【拦截器】JWT中currentUser字段值：{"token":"d2d25024-a4ed-4175-92cb-40c6234dff25","roleLabels":[],"resourcePaths":[],"username":"lgh","password":"","email":"","phoneNumber":"","id":1,"createTime":1767516654000,"updateTime":1767516654000}
+2026-01-13 10:51:26.915 [http-nio-8080-exec-1] INFO  com.zl.framework.interceptor.UserTokenInterceptor - [preHandle,84] - 【拦截器】成功存入ThreadLocal，用户信息：{"token":"d2d25024-a4ed-4175-92cb-40c6234dff25","roleLabels":[],"resourcePaths":[],"username":"lgh","password":"","email":"","phoneNumber":"","id":1,"createTime":1767516654000,"updateTime":1767516654000}
+2026-01-13 10:51:27.384 [http-nio-8080-exec-1] INFO  com.zl.framework.interceptor.UserTokenInterceptor - [afterCompletion,98] - 【拦截器】清理ThreadLocal，请求URI：/web/ip/location
+2026-01-13 11:14:58.478 [SpringApplicationShutdownHook] INFO  o.s.boot.web.embedded.tomcat.GracefulShutdown - [shutDownGracefully,54] - Commencing graceful shutdown. Waiting for active requests to complete
+2026-01-13 11:14:59.135 [tomcat-shutdown] INFO  o.s.boot.web.embedded.tomcat.GracefulShutdown - [doShutdown,76] - Graceful shutdown complete
+2026-01-13 11:14:59.335 [SpringApplicationShutdownHook] INFO  com.alibaba.druid.pool.DruidDataSource - [?,?] - {dataSource-1} closing ...
+2026-01-13 11:14:59.339 [SpringApplicationShutdownHook] INFO  com.alibaba.druid.pool.DruidDataSource - [?,?] - {dataSource-1} closed
+2026-01-13 17:29:25.136 [background-preinit] INFO  org.hibernate.validator.internal.util.Version - [<clinit>,21] - HV000001: Hibernate Validator 8.0.2.Final
+2026-01-13 17:29:25.245 [main] INFO  com.zl.web.ZLBasicApplication - [logStarting,53] - Starting ZLBasicApplication using Java 17.0.12 with PID 18900 (F:\外接项目\智领软件公司基础脚手架\zl-backend\zl-web\target\classes started by 惠普 in F:\外接项目\智领软件公司基础脚手架\zl-backend)
+2026-01-13 17:29:25.247 [main] INFO  com.zl.web.ZLBasicApplication - [logStartupProfileInfo,658] - The following 3 profiles are active: "file", "extend", "dev"
+2026-01-13 17:29:27.385 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - [multipleStoresDetected,295] - Multiple Spring Data modules found, entering strict repository configuration mode
+2026-01-13 17:29:27.393 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - [registerRepositoriesIn,143] - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2026-01-13 17:29:27.473 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - [registerRepositoriesIn,211] - Finished Spring Data repository scanning in 32 ms. Found 0 Redis repository interfaces.
+2026-01-13 17:29:29.167 [main] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - [initialize,111] - Tomcat initialized with port 8080 (http)
+2026-01-13 17:29:29.171 [main] INFO  org.apache.catalina.core.AprLifecycleListener - [log,168] - Loaded Apache Tomcat Native library [2.0.7] using APR version [1.7.4].
+2026-01-13 17:29:29.184 [main] INFO  org.apache.catalina.core.AprLifecycleListener - [log,168] - OpenSSL successfully initialized [OpenSSL 3.0.13 30 Jan 2024]
+2026-01-13 17:29:29.202 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - [log,168] - Initializing ProtocolHandler ["http-nio-8080"]
+2026-01-13 17:29:29.204 [main] INFO  org.apache.catalina.core.StandardService - [log,168] - Starting service [Tomcat]
+2026-01-13 17:29:29.204 [main] INFO  org.apache.catalina.core.StandardEngine - [log,168] - Starting Servlet engine: [Apache Tomcat/10.1.40]
+2026-01-13 17:29:29.300 [main] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - [log,168] - Initializing Spring embedded WebApplicationContext
+2026-01-13 17:29:29.300 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - [prepareWebApplicationContext,301] - Root WebApplicationContext: initialization completed in 3953 ms
+2026-01-13 17:29:30.022 [main] INFO  c.a.d.s.b.a.DruidDataSourceAutoConfigure - [?,?] - Init DruidDataSource
+2026-01-13 17:29:30.161 [main] INFO  com.alibaba.druid.pool.DruidDataSource - [?,?] - {dataSource-1} inited
+2026-01-13 17:29:30.356 [main] INFO  o.s.s.c.a.a.c.InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer - [configure,114] - Global AuthenticationManager configured with UserDetailsService bean with name userDetailsServiceImpl
+2026-01-13 17:29:30.902 [main] INFO  com.zl.framework.config.RedisConfig - [redisTemplate,49] - 开始创建模板对象
+2026-01-13 17:29:31.019 [main] INFO  org.redisson.Version - [logVersion,41] - Redisson 3.13.6
+2026-01-13 17:29:31.369 [redisson-netty-4-17] INFO  o.r.connection.pool.MasterPubSubConnectionPool - [lambda$run$0,167] - 1 connections initialized for /127.0.0.1:6379
+2026-01-13 17:29:31.385 [redisson-netty-4-18] INFO  org.redisson.connection.pool.MasterConnectionPool - [lambda$run$0,167] - 24 connections initialized for /127.0.0.1:6379
+2026-01-13 17:29:32.710 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - [log,168] - Starting ProtocolHandler ["http-nio-8080"]
+2026-01-13 17:29:32.723 [main] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - [start,243] - Tomcat started on port 8080 (http) with context path '/'
+2026-01-13 17:29:32.737 [main] INFO  com.zl.web.ZLBasicApplication - [logStarted,59] - Started ZLBasicApplication in 8.908 seconds (process running for 10.323)
+2026-01-13 17:29:48.333 [http-nio-8080-exec-7] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - [log,168] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2026-01-13 17:29:48.334 [http-nio-8080-exec-7] INFO  org.springframework.web.servlet.DispatcherServlet - [initServletBean,532] - Initializing Servlet 'dispatcherServlet'
+2026-01-13 17:29:48.335 [http-nio-8080-exec-7] INFO  org.springframework.web.servlet.DispatcherServlet - [initServletBean,554] - Completed initialization in 1 ms
+2026-01-13 17:29:48.449 [http-nio-8080-exec-7] INFO  com.zl.framework.interceptor.UserTokenInterceptor - [preHandle,33] - 【拦截器】非控制器请求，放行：/favicon.ico
+2026-01-13 17:29:48.602 [http-nio-8080-exec-7] INFO  com.zl.framework.interceptor.UserTokenInterceptor - [afterCompletion,98] - 【拦截器】清理ThreadLocal，请求URI：/favicon.ico
+2026-01-13 17:29:49.388 [http-nio-8080-exec-4] INFO  org.springdoc.api.AbstractOpenApiResource - [getOpenApi,390] - Init duration for springdoc-openapi is: 772 ms
+2026-01-13 17:29:51.874 [http-nio-8080-exec-8] INFO  com.zl.framework.interceptor.UserTokenInterceptor - [preHandle,33] - 【拦截器】非控制器请求，放行：/favicon.ico
+2026-01-13 17:29:51.885 [http-nio-8080-exec-8] INFO  com.zl.framework.interceptor.UserTokenInterceptor - [afterCompletion,98] - 【拦截器】清理ThreadLocal，请求URI：/favicon.ico
+2026-01-13 17:30:02.520 [http-nio-8080-exec-10] INFO  com.zl.framework.interceptor.UserTokenInterceptor - [preHandle,33] - 【拦截器】非控制器请求，放行：/favicon.ico
+2026-01-13 17:30:02.540 [http-nio-8080-exec-10] INFO  com.zl.framework.interceptor.UserTokenInterceptor - [afterCompletion,98] - 【拦截器】清理ThreadLocal，请求URI：/favicon.ico
+2026-01-13 17:30:10.402 [http-nio-8080-exec-9] INFO  com.zl.framework.interceptor.UserTokenInterceptor - [preHandle,38] - 【拦截器】开始处理请求：/web/ip/location
+2026-01-13 17:30:10.403 [http-nio-8080-exec-9] INFO  com.zl.framework.interceptor.UserTokenInterceptor - [preHandle,42] - 【拦截器】获取到Authorization头：629b56f6-518a-4305-8cbf-2ea9adfbfb5e
+2026-01-13 17:30:10.404 [http-nio-8080-exec-9] INFO  com.zl.framework.interceptor.UserTokenInterceptor - [preHandle,51] - 【拦截器】处理后的userToken：629b56f6-518a-4305-8cbf-2ea9adfbfb5e
+2026-01-13 17:30:10.409 [http-nio-8080-exec-9] INFO  com.zl.framework.interceptor.UserTokenInterceptor - [preHandle,57] - 【拦截器】Redis查询结果 - key：user:jwt-token629b56f6-518a-4305-8cbf-2ea9adfbfb5e，jwtToken：eyJhbGciOiJIUzI1NiJ9.eyJjdXJyZW50VXNlciI6IntcInRva2VuXCI6XCI2MjliNTZmNi01MThhLTQzMDUtOGNiZi0yZWE5YWRmYmZiNWVcIixcInJvbGVMYWJlbHNcIjpbXSxcInJlc291cmNlUGF0aHNcIjpbXSxcInVzZXJuYW1lXCI6XCJsZ2hcIixcInBhc3N3b3JkXCI6XCJcIixcImVtYWlsXCI6XCJcIixcInBob25lTnVtYmVyXCI6XCJcIixcImlkXCI6MSxcImNyZWF0ZVRpbWVcIjoxNzY3NTE2NjU0MDAwLFwidXBkYXRlVGltZVwiOjE3Njc1MTY2NTQwMDB9IiwiaWF0IjoxNzY4Mjk2NTk1LCJleHAiOjE3NjgyOTgzOTV9.LRCA41V3NrVQtZmVZQPCwI380PfBv8jCVkrHHRA1ZaY
+2026-01-13 17:30:10.479 [http-nio-8080-exec-9] INFO  com.zl.framework.interceptor.UserTokenInterceptor - [preHandle,66] - 【拦截器】JWT解析结果：{currentUser={"token":"629b56f6-518a-4305-8cbf-2ea9adfbfb5e","roleLabels":[],"resourcePaths":[],"username":"lgh","password":"","email":"","phoneNumber":"","id":1,"createTime":1767516654000,"updateTime":1767516654000}, iat=1768296595, exp=1768298395}
+2026-01-13 17:30:10.480 [http-nio-8080-exec-9] INFO  com.zl.framework.interceptor.UserTokenInterceptor - [preHandle,69] - 【拦截器】JWT中currentUser字段值：{"token":"629b56f6-518a-4305-8cbf-2ea9adfbfb5e","roleLabels":[],"resourcePaths":[],"username":"lgh","password":"","email":"","phoneNumber":"","id":1,"createTime":1767516654000,"updateTime":1767516654000}
+2026-01-13 17:30:10.480 [http-nio-8080-exec-9] INFO  com.zl.framework.interceptor.UserTokenInterceptor - [preHandle,84] - 【拦截器】成功存入ThreadLocal，用户信息：{"token":"629b56f6-518a-4305-8cbf-2ea9adfbfb5e","roleLabels":[],"resourcePaths":[],"username":"lgh","password":"","email":"","phoneNumber":"","id":1,"createTime":1767516654000,"updateTime":1767516654000}
+2026-01-13 17:30:11.009 [http-nio-8080-exec-9] INFO  com.zl.framework.interceptor.UserTokenInterceptor - [afterCompletion,98] - 【拦截器】清理ThreadLocal，请求URI：/web/ip/location
+2026-01-13 17:30:11.245 [schedule-pool-1] INFO  com.zl.common.utils.httpUtils.HttpUtil - [executeRequest,429] - sendRequest - http://whois.pconline.com.cn/ipJson.jsp?ip=0:0:0:0:0:0:0:1&json=true
+2026-01-13 17:30:23.492 [schedule-pool-1] INFO  com.zl.common.utils.httpUtils.HttpUtil - [executeRequest,433] - recv - 
+
+
+
+
+{"ip":"223.99.196.118","pro":"山东省","proCode":"370000","city":"济南市","cityCode":"370100","region":"","regionCode":"0","addr":"山东省济南市 移通","regionNames":"","err":""}
+
+
+
+
+2026-01-13 17:32:15.397 [SpringApplicationShutdownHook] INFO  o.s.boot.web.embedded.tomcat.GracefulShutdown - [shutDownGracefully,54] - Commencing graceful shutdown. Waiting for active requests to complete
+2026-01-13 17:32:15.743 [tomcat-shutdown] INFO  o.s.boot.web.embedded.tomcat.GracefulShutdown - [doShutdown,76] - Graceful shutdown complete
+2026-01-13 17:32:15.902 [SpringApplicationShutdownHook] INFO  com.alibaba.druid.pool.DruidDataSource - [?,?] - {dataSource-1} closing ...
+2026-01-13 17:32:15.908 [SpringApplicationShutdownHook] INFO  com.alibaba.druid.pool.DruidDataSource - [?,?] - {dataSource-1} closed
+2026-01-13 17:32:24.628 [background-preinit] INFO  org.hibernate.validator.internal.util.Version - [<clinit>,21] - HV000001: Hibernate Validator 8.0.2.Final
+2026-01-13 17:32:24.707 [main] INFO  com.zl.web.ZLBasicApplication - [logStarting,53] - Starting ZLBasicApplication using Java 17.0.12 with PID 28740 (F:\外接项目\智领软件公司基础脚手架\zl-backend\zl-web\target\classes started by 惠普 in F:\外接项目\智领软件公司基础脚手架\zl-backend)
+2026-01-13 17:32:24.708 [main] INFO  com.zl.web.ZLBasicApplication - [logStartupProfileInfo,658] - The following 3 profiles are active: "file", "extend", "dev"
+2026-01-13 17:32:26.141 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - [multipleStoresDetected,295] - Multiple Spring Data modules found, entering strict repository configuration mode
+2026-01-13 17:32:26.145 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - [registerRepositoriesIn,143] - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2026-01-13 17:32:26.183 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - [registerRepositoriesIn,211] - Finished Spring Data repository scanning in 17 ms. Found 0 Redis repository interfaces.
+2026-01-13 17:32:27.484 [main] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - [initialize,111] - Tomcat initialized with port 8080 (http)
+2026-01-13 17:32:27.487 [main] INFO  org.apache.catalina.core.AprLifecycleListener - [log,168] - Loaded Apache Tomcat Native library [2.0.7] using APR version [1.7.4].
+2026-01-13 17:32:27.494 [main] INFO  org.apache.catalina.core.AprLifecycleListener - [log,168] - OpenSSL successfully initialized [OpenSSL 3.0.13 30 Jan 2024]
+2026-01-13 17:32:27.510 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - [log,168] - Initializing ProtocolHandler ["http-nio-8080"]
+2026-01-13 17:32:27.515 [main] INFO  org.apache.catalina.core.StandardService - [log,168] - Starting service [Tomcat]
+2026-01-13 17:32:27.516 [main] INFO  org.apache.catalina.core.StandardEngine - [log,168] - Starting Servlet engine: [Apache Tomcat/10.1.40]
+2026-01-13 17:32:27.638 [main] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - [log,168] - Initializing Spring embedded WebApplicationContext
+2026-01-13 17:32:27.639 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - [prepareWebApplicationContext,301] - Root WebApplicationContext: initialization completed in 2858 ms
+2026-01-13 17:32:28.258 [main] INFO  c.a.d.s.b.a.DruidDataSourceAutoConfigure - [?,?] - Init DruidDataSource
+2026-01-13 17:32:28.377 [main] INFO  com.alibaba.druid.pool.DruidDataSource - [?,?] - {dataSource-1} inited
+2026-01-13 17:32:28.559 [main] INFO  o.s.s.c.a.a.c.InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer - [configure,114] - Global AuthenticationManager configured with UserDetailsService bean with name userDetailsServiceImpl
+2026-01-13 17:32:29.088 [main] INFO  com.zl.framework.config.RedisConfig - [redisTemplate,49] - 开始创建模板对象
+2026-01-13 17:32:29.191 [main] INFO  org.redisson.Version - [logVersion,41] - Redisson 3.13.6
+2026-01-13 17:32:29.507 [redisson-netty-4-23] INFO  o.r.connection.pool.MasterPubSubConnectionPool - [lambda$run$0,167] - 1 connections initialized for /127.0.0.1:6379
+2026-01-13 17:32:29.522 [redisson-netty-4-19] INFO  org.redisson.connection.pool.MasterConnectionPool - [lambda$run$0,167] - 24 connections initialized for /127.0.0.1:6379
+2026-01-13 17:32:30.753 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - [log,168] - Starting ProtocolHandler ["http-nio-8080"]
+2026-01-13 17:32:30.768 [main] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - [start,243] - Tomcat started on port 8080 (http) with context path '/'
+2026-01-13 17:32:30.784 [main] INFO  com.zl.web.ZLBasicApplication - [logStarted,59] - Started ZLBasicApplication in 7.106 seconds (process running for 8.201)
+2026-01-13 17:33:31.334 [SpringApplicationShutdownHook] INFO  o.s.boot.web.embedded.tomcat.GracefulShutdown - [shutDownGracefully,54] - Commencing graceful shutdown. Waiting for active requests to complete
+2026-01-13 17:33:31.702 [tomcat-shutdown] INFO  o.s.boot.web.embedded.tomcat.GracefulShutdown - [doShutdown,76] - Graceful shutdown complete
+2026-01-13 17:33:31.850 [SpringApplicationShutdownHook] INFO  com.alibaba.druid.pool.DruidDataSource - [?,?] - {dataSource-1} closing ...
+2026-01-13 17:33:31.854 [SpringApplicationShutdownHook] INFO  com.alibaba.druid.pool.DruidDataSource - [?,?] - {dataSource-1} closed
+2026-01-13 17:33:38.370 [background-preinit] INFO  org.hibernate.validator.internal.util.Version - [<clinit>,21] - HV000001: Hibernate Validator 8.0.2.Final
+2026-01-13 17:33:38.450 [main] INFO  com.zl.web.ZLBasicApplication - [logStarting,53] - Starting ZLBasicApplication using Java 17.0.12 with PID 29300 (F:\外接项目\智领软件公司基础脚手架\zl-backend\zl-web\target\classes started by 惠普 in F:\外接项目\智领软件公司基础脚手架\zl-backend)
+2026-01-13 17:33:38.452 [main] INFO  com.zl.web.ZLBasicApplication - [logStartupProfileInfo,658] - The following 3 profiles are active: "file", "extend", "dev"
+2026-01-13 17:33:39.879 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - [multipleStoresDetected,295] - Multiple Spring Data modules found, entering strict repository configuration mode
+2026-01-13 17:33:39.883 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - [registerRepositoriesIn,143] - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2026-01-13 17:33:39.922 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - [registerRepositoriesIn,211] - Finished Spring Data repository scanning in 18 ms. Found 0 Redis repository interfaces.
+2026-01-13 17:33:41.210 [main] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - [initialize,111] - Tomcat initialized with port 8080 (http)
+2026-01-13 17:33:41.213 [main] INFO  org.apache.catalina.core.AprLifecycleListener - [log,168] - Loaded Apache Tomcat Native library [2.0.7] using APR version [1.7.4].
+2026-01-13 17:33:41.221 [main] INFO  org.apache.catalina.core.AprLifecycleListener - [log,168] - OpenSSL successfully initialized [OpenSSL 3.0.13 30 Jan 2024]
+2026-01-13 17:33:41.236 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - [log,168] - Initializing ProtocolHandler ["http-nio-8080"]
+2026-01-13 17:33:41.238 [main] INFO  org.apache.catalina.core.StandardService - [log,168] - Starting service [Tomcat]
+2026-01-13 17:33:41.238 [main] INFO  org.apache.catalina.core.StandardEngine - [log,168] - Starting Servlet engine: [Apache Tomcat/10.1.40]
+2026-01-13 17:33:41.330 [main] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - [log,168] - Initializing Spring embedded WebApplicationContext
+2026-01-13 17:33:41.331 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - [prepareWebApplicationContext,301] - Root WebApplicationContext: initialization completed in 2806 ms
+2026-01-13 17:33:41.965 [main] INFO  c.a.d.s.b.a.DruidDataSourceAutoConfigure - [?,?] - Init DruidDataSource
+2026-01-13 17:33:42.102 [main] INFO  com.alibaba.druid.pool.DruidDataSource - [?,?] - {dataSource-1} inited
+2026-01-13 17:33:42.299 [main] INFO  o.s.s.c.a.a.c.InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer - [configure,114] - Global AuthenticationManager configured with UserDetailsService bean with name userDetailsServiceImpl
+2026-01-13 17:33:42.802 [main] INFO  com.zl.framework.config.RedisConfig - [redisTemplate,49] - 开始创建模板对象
+2026-01-13 17:33:42.905 [main] INFO  org.redisson.Version - [logVersion,41] - Redisson 3.13.6
+2026-01-13 17:33:43.232 [redisson-netty-4-23] INFO  o.r.connection.pool.MasterPubSubConnectionPool - [lambda$run$0,167] - 1 connections initialized for /127.0.0.1:6379
+2026-01-13 17:33:43.244 [redisson-netty-4-18] INFO  org.redisson.connection.pool.MasterConnectionPool - [lambda$run$0,167] - 24 connections initialized for /127.0.0.1:6379
+2026-01-13 17:33:44.581 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - [log,168] - Starting ProtocolHandler ["http-nio-8080"]
+2026-01-13 17:33:44.595 [main] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - [start,243] - Tomcat started on port 8080 (http) with context path '/'
+2026-01-13 17:33:44.611 [main] INFO  com.zl.web.ZLBasicApplication - [logStarted,59] - Started ZLBasicApplication in 7.137 seconds (process running for 7.938)
+2026-01-13 17:33:50.585 [http-nio-8080-exec-1] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - [log,168] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2026-01-13 17:33:50.585 [http-nio-8080-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - [initServletBean,532] - Initializing Servlet 'dispatcherServlet'
+2026-01-13 17:33:50.588 [http-nio-8080-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - [initServletBean,554] - Completed initialization in 3 ms
+2026-01-13 17:33:50.669 [http-nio-8080-exec-1] INFO  com.zl.framework.interceptor.UserTokenInterceptor - [preHandle,38] - 【拦截器】开始处理请求：/web/ip/location
+2026-01-13 17:33:50.670 [http-nio-8080-exec-1] INFO  com.zl.framework.interceptor.UserTokenInterceptor - [preHandle,42] - 【拦截器】获取到Authorization头：629b56f6-518a-4305-8cbf-2ea9adfbfb5e
+2026-01-13 17:33:50.671 [http-nio-8080-exec-1] INFO  com.zl.framework.interceptor.UserTokenInterceptor - [preHandle,51] - 【拦截器】处理后的userToken：629b56f6-518a-4305-8cbf-2ea9adfbfb5e
+2026-01-13 17:33:51.340 [http-nio-8080-exec-1] INFO  com.zl.framework.interceptor.UserTokenInterceptor - [preHandle,57] - 【拦截器】Redis查询结果 - key：user:jwt-token629b56f6-518a-4305-8cbf-2ea9adfbfb5e，jwtToken：eyJhbGciOiJIUzI1NiJ9.eyJjdXJyZW50VXNlciI6IntcInRva2VuXCI6XCI2MjliNTZmNi01MThhLTQzMDUtOGNiZi0yZWE5YWRmYmZiNWVcIixcInJvbGVMYWJlbHNcIjpbXSxcInJlc291cmNlUGF0aHNcIjpbXSxcInVzZXJuYW1lXCI6XCJsZ2hcIixcInBhc3N3b3JkXCI6XCJcIixcImVtYWlsXCI6XCJcIixcInBob25lTnVtYmVyXCI6XCJcIixcImlkXCI6MSxcImNyZWF0ZVRpbWVcIjoxNzY3NTE2NjU0MDAwLFwidXBkYXRlVGltZVwiOjE3Njc1MTY2NTQwMDB9IiwiaWF0IjoxNzY4Mjk2NTk1LCJleHAiOjE3NjgyOTgzOTV9.LRCA41V3NrVQtZmVZQPCwI380PfBv8jCVkrHHRA1ZaY
+2026-01-13 17:33:51.585 [http-nio-8080-exec-1] INFO  com.zl.framework.interceptor.UserTokenInterceptor - [preHandle,66] - 【拦截器】JWT解析结果：{currentUser={"token":"629b56f6-518a-4305-8cbf-2ea9adfbfb5e","roleLabels":[],"resourcePaths":[],"username":"lgh","password":"","email":"","phoneNumber":"","id":1,"createTime":1767516654000,"updateTime":1767516654000}, iat=1768296595, exp=1768298395}
+2026-01-13 17:33:51.585 [http-nio-8080-exec-1] INFO  com.zl.framework.interceptor.UserTokenInterceptor - [preHandle,69] - 【拦截器】JWT中currentUser字段值：{"token":"629b56f6-518a-4305-8cbf-2ea9adfbfb5e","roleLabels":[],"resourcePaths":[],"username":"lgh","password":"","email":"","phoneNumber":"","id":1,"createTime":1767516654000,"updateTime":1767516654000}
+2026-01-13 17:33:51.587 [http-nio-8080-exec-1] INFO  com.zl.framework.interceptor.UserTokenInterceptor - [preHandle,84] - 【拦截器】成功存入ThreadLocal，用户信息：{"token":"629b56f6-518a-4305-8cbf-2ea9adfbfb5e","roleLabels":[],"resourcePaths":[],"username":"lgh","password":"","email":"","phoneNumber":"","id":1,"createTime":1767516654000,"updateTime":1767516654000}
+2026-01-13 17:33:52.107 [http-nio-8080-exec-1] INFO  com.zl.framework.interceptor.UserTokenInterceptor - [afterCompletion,98] - 【拦截器】清理ThreadLocal，请求URI：/web/ip/location
+2026-01-13 17:33:52.169 [schedule-pool-1] INFO  com.zl.common.utils.httpUtils.HttpUtil - [executeRequest,429] - sendRequest - http://whois.pconline.com.cn/ipJson.jsp?ip=0:0:0:0:0:0:0:1&json=true
+2026-01-13 17:33:52.389 [schedule-pool-1] INFO  com.zl.common.utils.httpUtils.HttpUtil - [executeRequest,433] - recv - 
+
+
+
+
+{"ip":"223.99.196.118","pro":"山东省","proCode":"370000","city":"济南市","cityCode":"370100","region":"","regionCode":"0","addr":"山东省济南市 移通","regionNames":"","err":""}
+
+
+
+
+2026-01-13 17:34:27.161 [SpringApplicationShutdownHook] INFO  o.s.boot.web.embedded.tomcat.GracefulShutdown - [shutDownGracefully,54] - Commencing graceful shutdown. Waiting for active requests to complete
+2026-01-13 17:34:27.644 [tomcat-shutdown] INFO  o.s.boot.web.embedded.tomcat.GracefulShutdown - [doShutdown,76] - Graceful shutdown complete
+2026-01-13 17:34:27.799 [SpringApplicationShutdownHook] INFO  com.alibaba.druid.pool.DruidDataSource - [?,?] - {dataSource-1} closing ...
+2026-01-13 17:34:27.811 [SpringApplicationShutdownHook] INFO  com.alibaba.druid.pool.DruidDataSource - [?,?] - {dataSource-1} closed
+2026-01-13 17:34:31.800 [background-preinit] INFO  org.hibernate.validator.internal.util.Version - [<clinit>,21] - HV000001: Hibernate Validator 8.0.2.Final
+2026-01-13 17:34:31.889 [main] INFO  com.zl.web.ZLBasicApplication - [logStarting,53] - Starting ZLBasicApplication using Java 17.0.12 with PID 3504 (F:\外接项目\智领软件公司基础脚手架\zl-backend\zl-web\target\classes started by 惠普 in F:\外接项目\智领软件公司基础脚手架\zl-backend)
+2026-01-13 17:34:31.891 [main] INFO  com.zl.web.ZLBasicApplication - [logStartupProfileInfo,658] - The following 3 profiles are active: "file", "extend", "dev"
+2026-01-13 17:34:33.286 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - [multipleStoresDetected,295] - Multiple Spring Data modules found, entering strict repository configuration mode
+2026-01-13 17:34:33.290 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - [registerRepositoriesIn,143] - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2026-01-13 17:34:33.332 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - [registerRepositoriesIn,211] - Finished Spring Data repository scanning in 21 ms. Found 0 Redis repository interfaces.
+2026-01-13 17:34:35.260 [main] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - [initialize,111] - Tomcat initialized with port 8080 (http)
+2026-01-13 17:34:35.265 [main] INFO  org.apache.catalina.core.AprLifecycleListener - [log,168] - Loaded Apache Tomcat Native library [2.0.7] using APR version [1.7.4].
+2026-01-13 17:34:35.273 [main] INFO  org.apache.catalina.core.AprLifecycleListener - [log,168] - OpenSSL successfully initialized [OpenSSL 3.0.13 30 Jan 2024]
+2026-01-13 17:34:35.298 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - [log,168] - Initializing ProtocolHandler ["http-nio-8080"]
+2026-01-13 17:34:35.300 [main] INFO  org.apache.catalina.core.StandardService - [log,168] - Starting service [Tomcat]
+2026-01-13 17:34:35.300 [main] INFO  org.apache.catalina.core.StandardEngine - [log,168] - Starting Servlet engine: [Apache Tomcat/10.1.40]
+2026-01-13 17:34:35.445 [main] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - [log,168] - Initializing Spring embedded WebApplicationContext
+2026-01-13 17:34:35.446 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - [prepareWebApplicationContext,301] - Root WebApplicationContext: initialization completed in 3480 ms
+2026-01-13 17:34:36.331 [main] INFO  c.a.d.s.b.a.DruidDataSourceAutoConfigure - [?,?] - Init DruidDataSource
+2026-01-13 17:34:36.468 [main] INFO  com.alibaba.druid.pool.DruidDataSource - [?,?] - {dataSource-1} inited
+2026-01-13 17:34:36.671 [main] INFO  o.s.s.c.a.a.c.InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer - [configure,114] - Global AuthenticationManager configured with UserDetailsService bean with name userDetailsServiceImpl
+2026-01-13 17:34:37.155 [main] INFO  com.zl.framework.config.RedisConfig - [redisTemplate,49] - 开始创建模板对象
+2026-01-13 17:34:37.258 [main] INFO  org.redisson.Version - [logVersion,41] - Redisson 3.13.6
+2026-01-13 17:34:37.579 [redisson-netty-4-23] INFO  o.r.connection.pool.MasterPubSubConnectionPool - [lambda$run$0,167] - 1 connections initialized for /127.0.0.1:6379
+2026-01-13 17:34:37.593 [redisson-netty-4-20] INFO  org.redisson.connection.pool.MasterConnectionPool - [lambda$run$0,167] - 24 connections initialized for /127.0.0.1:6379
+2026-01-13 17:34:38.925 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - [log,168] - Starting ProtocolHandler ["http-nio-8080"]
+2026-01-13 17:34:38.939 [main] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - [start,243] - Tomcat started on port 8080 (http) with context path '/'
+2026-01-13 17:34:38.957 [main] INFO  com.zl.web.ZLBasicApplication - [logStarted,59] - Started ZLBasicApplication in 8.006 seconds (process running for 8.795)
+2026-01-13 17:34:52.707 [http-nio-8080-exec-1] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - [log,168] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2026-01-13 17:34:52.707 [http-nio-8080-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - [initServletBean,532] - Initializing Servlet 'dispatcherServlet'
+2026-01-13 17:34:52.710 [http-nio-8080-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - [initServletBean,554] - Completed initialization in 3 ms
+2026-01-13 17:34:52.795 [http-nio-8080-exec-1] INFO  com.zl.framework.interceptor.UserTokenInterceptor - [preHandle,38] - 【拦截器】开始处理请求：/web/ip/location
+2026-01-13 17:34:52.797 [http-nio-8080-exec-1] INFO  com.zl.framework.interceptor.UserTokenInterceptor - [preHandle,42] - 【拦截器】获取到Authorization头：629b56f6-518a-4305-8cbf-2ea9adfbfb5e
+2026-01-13 17:34:52.798 [http-nio-8080-exec-1] INFO  com.zl.framework.interceptor.UserTokenInterceptor - [preHandle,51] - 【拦截器】处理后的userToken：629b56f6-518a-4305-8cbf-2ea9adfbfb5e
+2026-01-13 17:34:53.369 [http-nio-8080-exec-1] INFO  com.zl.framework.interceptor.UserTokenInterceptor - [preHandle,57] - 【拦截器】Redis查询结果 - key：user:jwt-token629b56f6-518a-4305-8cbf-2ea9adfbfb5e，jwtToken：eyJhbGciOiJIUzI1NiJ9.eyJjdXJyZW50VXNlciI6IntcInRva2VuXCI6XCI2MjliNTZmNi01MThhLTQzMDUtOGNiZi0yZWE5YWRmYmZiNWVcIixcInJvbGVMYWJlbHNcIjpbXSxcInJlc291cmNlUGF0aHNcIjpbXSxcInVzZXJuYW1lXCI6XCJsZ2hcIixcInBhc3N3b3JkXCI6XCJcIixcImVtYWlsXCI6XCJcIixcInBob25lTnVtYmVyXCI6XCJcIixcImlkXCI6MSxcImNyZWF0ZVRpbWVcIjoxNzY3NTE2NjU0MDAwLFwidXBkYXRlVGltZVwiOjE3Njc1MTY2NTQwMDB9IiwiaWF0IjoxNzY4Mjk2NTk1LCJleHAiOjE3NjgyOTgzOTV9.LRCA41V3NrVQtZmVZQPCwI380PfBv8jCVkrHHRA1ZaY
+2026-01-13 17:34:53.531 [http-nio-8080-exec-1] INFO  com.zl.framework.interceptor.UserTokenInterceptor - [preHandle,66] - 【拦截器】JWT解析结果：{currentUser={"token":"629b56f6-518a-4305-8cbf-2ea9adfbfb5e","roleLabels":[],"resourcePaths":[],"username":"lgh","password":"","email":"","phoneNumber":"","id":1,"createTime":1767516654000,"updateTime":1767516654000}, iat=1768296595, exp=1768298395}
+2026-01-13 17:34:53.532 [http-nio-8080-exec-1] INFO  com.zl.framework.interceptor.UserTokenInterceptor - [preHandle,69] - 【拦截器】JWT中currentUser字段值：{"token":"629b56f6-518a-4305-8cbf-2ea9adfbfb5e","roleLabels":[],"resourcePaths":[],"username":"lgh","password":"","email":"","phoneNumber":"","id":1,"createTime":1767516654000,"updateTime":1767516654000}
+2026-01-13 17:34:53.535 [http-nio-8080-exec-1] INFO  com.zl.framework.interceptor.UserTokenInterceptor - [preHandle,84] - 【拦截器】成功存入ThreadLocal，用户信息：{"token":"629b56f6-518a-4305-8cbf-2ea9adfbfb5e","roleLabels":[],"resourcePaths":[],"username":"lgh","password":"","email":"","phoneNumber":"","id":1,"createTime":1767516654000,"updateTime":1767516654000}
+2026-01-13 17:34:54.080 [http-nio-8080-exec-1] INFO  com.zl.framework.interceptor.UserTokenInterceptor - [afterCompletion,98] - 【拦截器】清理ThreadLocal，请求URI：/web/ip/location
+2026-01-13 17:34:54.124 [schedule-pool-1] INFO  com.zl.common.utils.httpUtils.HttpUtil - [executeRequest,429] - sendRequest - http://whois.pconline.com.cn/ipJson.jsp?ip=0:0:0:0:0:0:0:1&json=true
+2026-01-13 17:34:54.295 [schedule-pool-1] INFO  com.zl.common.utils.httpUtils.HttpUtil - [executeRequest,433] - recv - 
+
+
+
+
+{"ip":"111.14.210.139","pro":"山东省","proCode":"370000","city":"济南市","cityCode":"370100","region":"","regionCode":"0","addr":"山东省济南市 移动","regionNames":"","err":""}
+
+
+
+
+2026-01-13 17:36:57.465 [http-nio-8080-exec-2] INFO  com.zl.framework.interceptor.UserTokenInterceptor - [preHandle,38] - 【拦截器】开始处理请求：/web/ip/location
+2026-01-13 17:36:57.466 [http-nio-8080-exec-2] INFO  com.zl.framework.interceptor.UserTokenInterceptor - [preHandle,42] - 【拦截器】获取到Authorization头：629b56f6-518a-4305-8cbf-2ea9adfbfb5e
+2026-01-13 17:36:57.466 [http-nio-8080-exec-2] INFO  com.zl.framework.interceptor.UserTokenInterceptor - [preHandle,51] - 【拦截器】处理后的userToken：629b56f6-518a-4305-8cbf-2ea9adfbfb5e
+2026-01-13 17:36:57.469 [http-nio-8080-exec-2] INFO  com.zl.framework.interceptor.UserTokenInterceptor - [preHandle,57] - 【拦截器】Redis查询结果 - key：user:jwt-token629b56f6-518a-4305-8cbf-2ea9adfbfb5e，jwtToken：eyJhbGciOiJIUzI1NiJ9.eyJjdXJyZW50VXNlciI6IntcInRva2VuXCI6XCI2MjliNTZmNi01MThhLTQzMDUtOGNiZi0yZWE5YWRmYmZiNWVcIixcInJvbGVMYWJlbHNcIjpbXSxcInJlc291cmNlUGF0aHNcIjpbXSxcInVzZXJuYW1lXCI6XCJsZ2hcIixcInBhc3N3b3JkXCI6XCJcIixcImVtYWlsXCI6XCJcIixcInBob25lTnVtYmVyXCI6XCJcIixcImlkXCI6MSxcImNyZWF0ZVRpbWVcIjoxNzY3NTE2NjU0MDAwLFwidXBkYXRlVGltZVwiOjE3Njc1MTY2NTQwMDB9IiwiaWF0IjoxNzY4Mjk2NTk1LCJleHAiOjE3NjgyOTgzOTV9.LRCA41V3NrVQtZmVZQPCwI380PfBv8jCVkrHHRA1ZaY
+2026-01-13 17:36:57.472 [http-nio-8080-exec-2] INFO  com.zl.framework.interceptor.UserTokenInterceptor - [preHandle,66] - 【拦截器】JWT解析结果：{currentUser={"token":"629b56f6-518a-4305-8cbf-2ea9adfbfb5e","roleLabels":[],"resourcePaths":[],"username":"lgh","password":"","email":"","phoneNumber":"","id":1,"createTime":1767516654000,"updateTime":1767516654000}, iat=1768296595, exp=1768298395}
+2026-01-13 17:36:57.473 [http-nio-8080-exec-2] INFO  com.zl.framework.interceptor.UserTokenInterceptor - [preHandle,69] - 【拦截器】JWT中currentUser字段值：{"token":"629b56f6-518a-4305-8cbf-2ea9adfbfb5e","roleLabels":[],"resourcePaths":[],"username":"lgh","password":"","email":"","phoneNumber":"","id":1,"createTime":1767516654000,"updateTime":1767516654000}
+2026-01-13 17:36:57.473 [http-nio-8080-exec-2] INFO  com.zl.framework.interceptor.UserTokenInterceptor - [preHandle,84] - 【拦截器】成功存入ThreadLocal，用户信息：{"token":"629b56f6-518a-4305-8cbf-2ea9adfbfb5e","roleLabels":[],"resourcePaths":[],"username":"lgh","password":"","email":"","phoneNumber":"","id":1,"createTime":1767516654000,"updateTime":1767516654000}
+2026-01-13 17:36:57.480 [http-nio-8080-exec-2] INFO  com.zl.framework.interceptor.UserTokenInterceptor - [afterCompletion,98] - 【拦截器】清理ThreadLocal，请求URI：/web/ip/location
+2026-01-13 17:36:57.497 [schedule-pool-1] INFO  com.zl.common.utils.httpUtils.HttpUtil - [executeRequest,429] - sendRequest - http://whois.pconline.com.cn/ipJson.jsp?ip=0:0:0:0:0:0:0:1&json=true
+2026-01-13 17:36:57.607 [schedule-pool-1] INFO  com.zl.common.utils.httpUtils.HttpUtil - [executeRequest,433] - recv - 
+
+
+
+
+{"ip":"120.192.26.115","pro":"山东省","proCode":"370000","city":"济南市","cityCode":"370100","region":"","regionCode":"0","addr":"山东省济南市 移通","regionNames":"","err":""}
+
+
+
+
+2026-01-13 17:36:59.167 [http-nio-8080-exec-4] INFO  com.zl.framework.interceptor.UserTokenInterceptor - [preHandle,38] - 【拦截器】开始处理请求：/web/ip/location
+2026-01-13 17:36:59.167 [http-nio-8080-exec-4] INFO  com.zl.framework.interceptor.UserTokenInterceptor - [preHandle,42] - 【拦截器】获取到Authorization头：629b56f6-518a-4305-8cbf-2ea9adfbfb5e
+2026-01-13 17:36:59.169 [http-nio-8080-exec-4] INFO  com.zl.framework.interceptor.UserTokenInterceptor - [preHandle,51] - 【拦截器】处理后的userToken：629b56f6-518a-4305-8cbf-2ea9adfbfb5e
+2026-01-13 17:36:59.170 [http-nio-8080-exec-4] INFO  com.zl.framework.interceptor.UserTokenInterceptor - [preHandle,57] - 【拦截器】Redis查询结果 - key：user:jwt-token629b56f6-518a-4305-8cbf-2ea9adfbfb5e，jwtToken：eyJhbGciOiJIUzI1NiJ9.eyJjdXJyZW50VXNlciI6IntcInRva2VuXCI6XCI2MjliNTZmNi01MThhLTQzMDUtOGNiZi0yZWE5YWRmYmZiNWVcIixcInJvbGVMYWJlbHNcIjpbXSxcInJlc291cmNlUGF0aHNcIjpbXSxcInVzZXJuYW1lXCI6XCJsZ2hcIixcInBhc3N3b3JkXCI6XCJcIixcImVtYWlsXCI6XCJcIixcInBob25lTnVtYmVyXCI6XCJcIixcImlkXCI6MSxcImNyZWF0ZVRpbWVcIjoxNzY3NTE2NjU0MDAwLFwidXBkYXRlVGltZVwiOjE3Njc1MTY2NTQwMDB9IiwiaWF0IjoxNzY4Mjk2NTk1LCJleHAiOjE3NjgyOTgzOTV9.LRCA41V3NrVQtZmVZQPCwI380PfBv8jCVkrHHRA1ZaY
+2026-01-13 17:36:59.172 [http-nio-8080-exec-4] INFO  com.zl.framework.interceptor.UserTokenInterceptor - [preHandle,66] - 【拦截器】JWT解析结果：{currentUser={"token":"629b56f6-518a-4305-8cbf-2ea9adfbfb5e","roleLabels":[],"resourcePaths":[],"username":"lgh","password":"","email":"","phoneNumber":"","id":1,"createTime":1767516654000,"updateTime":1767516654000}, iat=1768296595, exp=1768298395}
+2026-01-13 17:36:59.173 [http-nio-8080-exec-4] INFO  com.zl.framework.interceptor.UserTokenInterceptor - [preHandle,69] - 【拦截器】JWT中currentUser字段值：{"token":"629b56f6-518a-4305-8cbf-2ea9adfbfb5e","roleLabels":[],"resourcePaths":[],"username":"lgh","password":"","email":"","phoneNumber":"","id":1,"createTime":1767516654000,"updateTime":1767516654000}
+2026-01-13 17:36:59.173 [http-nio-8080-exec-4] INFO  com.zl.framework.interceptor.UserTokenInterceptor - [preHandle,84] - 【拦截器】成功存入ThreadLocal，用户信息：{"token":"629b56f6-518a-4305-8cbf-2ea9adfbfb5e","roleLabels":[],"resourcePaths":[],"username":"lgh","password":"","email":"","phoneNumber":"","id":1,"createTime":1767516654000,"updateTime":1767516654000}
+2026-01-13 17:36:59.176 [http-nio-8080-exec-4] INFO  com.zl.framework.interceptor.UserTokenInterceptor - [afterCompletion,98] - 【拦截器】清理ThreadLocal，请求URI：/web/ip/location
+2026-01-13 17:36:59.188 [schedule-pool-2] INFO  com.zl.common.utils.httpUtils.HttpUtil - [executeRequest,429] - sendRequest - http://whois.pconline.com.cn/ipJson.jsp?ip=0:0:0:0:0:0:0:1&json=true
+2026-01-13 17:36:59.256 [schedule-pool-2] INFO  com.zl.common.utils.httpUtils.HttpUtil - [executeRequest,433] - recv - 
+
+
+
+
+{"ip":"120.192.26.115","pro":"山东省","proCode":"370000","city":"济南市","cityCode":"370100","region":"","regionCode":"0","addr":"山东省济南市 移通","regionNames":"","err":""}
+
+
+
+
+2026-01-13 17:38:19.936 [http-nio-8080-exec-6] INFO  com.zl.framework.interceptor.UserTokenInterceptor - [preHandle,38] - 【拦截器】开始处理请求：/web/ip/location
+2026-01-13 17:38:19.938 [http-nio-8080-exec-6] INFO  com.zl.framework.interceptor.UserTokenInterceptor - [preHandle,42] - 【拦截器】获取到Authorization头：629b56f6-518a-4305-8cbf-2ea9adfbfb5e
+2026-01-13 17:38:19.938 [http-nio-8080-exec-6] INFO  com.zl.framework.interceptor.UserTokenInterceptor - [preHandle,51] - 【拦截器】处理后的userToken：629b56f6-518a-4305-8cbf-2ea9adfbfb5e
+2026-01-13 17:38:19.939 [http-nio-8080-exec-6] INFO  com.zl.framework.interceptor.UserTokenInterceptor - [preHandle,57] - 【拦截器】Redis查询结果 - key：user:jwt-token629b56f6-518a-4305-8cbf-2ea9adfbfb5e，jwtToken：eyJhbGciOiJIUzI1NiJ9.eyJjdXJyZW50VXNlciI6IntcInRva2VuXCI6XCI2MjliNTZmNi01MThhLTQzMDUtOGNiZi0yZWE5YWRmYmZiNWVcIixcInJvbGVMYWJlbHNcIjpbXSxcInJlc291cmNlUGF0aHNcIjpbXSxcInVzZXJuYW1lXCI6XCJsZ2hcIixcInBhc3N3b3JkXCI6XCJcIixcImVtYWlsXCI6XCJcIixcInBob25lTnVtYmVyXCI6XCJcIixcImlkXCI6MSxcImNyZWF0ZVRpbWVcIjoxNzY3NTE2NjU0MDAwLFwidXBkYXRlVGltZVwiOjE3Njc1MTY2NTQwMDB9IiwiaWF0IjoxNzY4Mjk2NTk1LCJleHAiOjE3NjgyOTgzOTV9.LRCA41V3NrVQtZmVZQPCwI380PfBv8jCVkrHHRA1ZaY
+2026-01-13 17:38:19.941 [http-nio-8080-exec-6] INFO  com.zl.framework.interceptor.UserTokenInterceptor - [preHandle,66] - 【拦截器】JWT解析结果：{currentUser={"token":"629b56f6-518a-4305-8cbf-2ea9adfbfb5e","roleLabels":[],"resourcePaths":[],"username":"lgh","password":"","email":"","phoneNumber":"","id":1,"createTime":1767516654000,"updateTime":1767516654000}, iat=1768296595, exp=1768298395}
+2026-01-13 17:38:19.942 [http-nio-8080-exec-6] INFO  com.zl.framework.interceptor.UserTokenInterceptor - [preHandle,69] - 【拦截器】JWT中currentUser字段值：{"token":"629b56f6-518a-4305-8cbf-2ea9adfbfb5e","roleLabels":[],"resourcePaths":[],"username":"lgh","password":"","email":"","phoneNumber":"","id":1,"createTime":1767516654000,"updateTime":1767516654000}
+2026-01-13 17:38:19.942 [http-nio-8080-exec-6] INFO  com.zl.framework.interceptor.UserTokenInterceptor - [preHandle,84] - 【拦截器】成功存入ThreadLocal，用户信息：{"token":"629b56f6-518a-4305-8cbf-2ea9adfbfb5e","roleLabels":[],"resourcePaths":[],"username":"lgh","password":"","email":"","phoneNumber":"","id":1,"createTime":1767516654000,"updateTime":1767516654000}
+2026-01-13 17:38:19.944 [http-nio-8080-exec-6] INFO  com.zl.framework.interceptor.UserTokenInterceptor - [afterCompletion,98] - 【拦截器】清理ThreadLocal，请求URI：/web/ip/location
+2026-01-13 17:38:19.966 [schedule-pool-1] INFO  com.zl.common.utils.httpUtils.HttpUtil - [executeRequest,429] - sendRequest - http://whois.pconline.com.cn/ipJson.jsp?ip=0:0:0:0:0:0:0:1&json=true
+2026-01-13 17:38:20.090 [schedule-pool-1] INFO  com.zl.common.utils.httpUtils.HttpUtil - [executeRequest,433] - recv - 
+
+
+
+
+{"ip":"111.14.210.139","pro":"山东省","proCode":"370000","city":"济南市","cityCode":"370100","region":"","regionCode":"0","addr":"山东省济南市 移动","regionNames":"","err":""}
+
+
+
+
+2026-01-13 17:38:20.505 [http-nio-8080-exec-7] INFO  com.zl.framework.interceptor.UserTokenInterceptor - [preHandle,38] - 【拦截器】开始处理请求：/web/ip/location
+2026-01-13 17:38:20.506 [http-nio-8080-exec-7] INFO  com.zl.framework.interceptor.UserTokenInterceptor - [preHandle,42] - 【拦截器】获取到Authorization头：629b56f6-518a-4305-8cbf-2ea9adfbfb5e
+2026-01-13 17:38:20.506 [http-nio-8080-exec-7] INFO  com.zl.framework.interceptor.UserTokenInterceptor - [preHandle,51] - 【拦截器】处理后的userToken：629b56f6-518a-4305-8cbf-2ea9adfbfb5e
+2026-01-13 17:38:20.508 [http-nio-8080-exec-7] INFO  com.zl.framework.interceptor.UserTokenInterceptor - [preHandle,57] - 【拦截器】Redis查询结果 - key：user:jwt-token629b56f6-518a-4305-8cbf-2ea9adfbfb5e，jwtToken：eyJhbGciOiJIUzI1NiJ9.eyJjdXJyZW50VXNlciI6IntcInRva2VuXCI6XCI2MjliNTZmNi01MThhLTQzMDUtOGNiZi0yZWE5YWRmYmZiNWVcIixcInJvbGVMYWJlbHNcIjpbXSxcInJlc291cmNlUGF0aHNcIjpbXSxcInVzZXJuYW1lXCI6XCJsZ2hcIixcInBhc3N3b3JkXCI6XCJcIixcImVtYWlsXCI6XCJcIixcInBob25lTnVtYmVyXCI6XCJcIixcImlkXCI6MSxcImNyZWF0ZVRpbWVcIjoxNzY3NTE2NjU0MDAwLFwidXBkYXRlVGltZVwiOjE3Njc1MTY2NTQwMDB9IiwiaWF0IjoxNzY4Mjk2NTk1LCJleHAiOjE3NjgyOTgzOTV9.LRCA41V3NrVQtZmVZQPCwI380PfBv8jCVkrHHRA1ZaY
+2026-01-13 17:38:20.508 [http-nio-8080-exec-7] INFO  com.zl.framework.interceptor.UserTokenInterceptor - [preHandle,66] - 【拦截器】JWT解析结果：{currentUser={"token":"629b56f6-518a-4305-8cbf-2ea9adfbfb5e","roleLabels":[],"resourcePaths":[],"username":"lgh","password":"","email":"","phoneNumber":"","id":1,"createTime":1767516654000,"updateTime":1767516654000}, iat=1768296595, exp=1768298395}
+2026-01-13 17:38:20.508 [http-nio-8080-exec-7] INFO  com.zl.framework.interceptor.UserTokenInterceptor - [preHandle,69] - 【拦截器】JWT中currentUser字段值：{"token":"629b56f6-518a-4305-8cbf-2ea9adfbfb5e","roleLabels":[],"resourcePaths":[],"username":"lgh","password":"","email":"","phoneNumber":"","id":1,"createTime":1767516654000,"updateTime":1767516654000}
+2026-01-13 17:38:20.510 [http-nio-8080-exec-7] INFO  com.zl.framework.interceptor.UserTokenInterceptor - [preHandle,84] - 【拦截器】成功存入ThreadLocal，用户信息：{"token":"629b56f6-518a-4305-8cbf-2ea9adfbfb5e","roleLabels":[],"resourcePaths":[],"username":"lgh","password":"","email":"","phoneNumber":"","id":1,"createTime":1767516654000,"updateTime":1767516654000}
+2026-01-13 17:38:20.512 [http-nio-8080-exec-7] INFO  com.zl.framework.interceptor.UserTokenInterceptor - [afterCompletion,98] - 【拦截器】清理ThreadLocal，请求URI：/web/ip/location
+2026-01-13 17:38:20.531 [schedule-pool-3] INFO  com.zl.common.utils.httpUtils.HttpUtil - [executeRequest,429] - sendRequest - http://whois.pconline.com.cn/ipJson.jsp?ip=0:0:0:0:0:0:0:1&json=true
+2026-01-13 17:38:20.595 [schedule-pool-3] INFO  com.zl.common.utils.httpUtils.HttpUtil - [executeRequest,433] - recv - 
+
+
+
+
+{"ip":"111.14.210.139","pro":"山东省","proCode":"370000","city":"济南市","cityCode":"370100","region":"","regionCode":"0","addr":"山东省济南市 移动","regionNames":"","err":""}
+
+
+
+
+2026-01-13 17:38:20.843 [http-nio-8080-exec-8] INFO  com.zl.framework.interceptor.UserTokenInterceptor - [preHandle,38] - 【拦截器】开始处理请求：/web/ip/location
+2026-01-13 17:38:20.844 [http-nio-8080-exec-8] INFO  com.zl.framework.interceptor.UserTokenInterceptor - [preHandle,42] - 【拦截器】获取到Authorization头：629b56f6-518a-4305-8cbf-2ea9adfbfb5e
+2026-01-13 17:38:20.844 [http-nio-8080-exec-8] INFO  com.zl.framework.interceptor.UserTokenInterceptor - [preHandle,51] - 【拦截器】处理后的userToken：629b56f6-518a-4305-8cbf-2ea9adfbfb5e
+2026-01-13 17:38:20.845 [http-nio-8080-exec-8] INFO  com.zl.framework.interceptor.UserTokenInterceptor - [preHandle,57] - 【拦截器】Redis查询结果 - key：user:jwt-token629b56f6-518a-4305-8cbf-2ea9adfbfb5e，jwtToken：eyJhbGciOiJIUzI1NiJ9.eyJjdXJyZW50VXNlciI6IntcInRva2VuXCI6XCI2MjliNTZmNi01MThhLTQzMDUtOGNiZi0yZWE5YWRmYmZiNWVcIixcInJvbGVMYWJlbHNcIjpbXSxcInJlc291cmNlUGF0aHNcIjpbXSxcInVzZXJuYW1lXCI6XCJsZ2hcIixcInBhc3N3b3JkXCI6XCJcIixcImVtYWlsXCI6XCJcIixcInBob25lTnVtYmVyXCI6XCJcIixcImlkXCI6MSxcImNyZWF0ZVRpbWVcIjoxNzY3NTE2NjU0MDAwLFwidXBkYXRlVGltZVwiOjE3Njc1MTY2NTQwMDB9IiwiaWF0IjoxNzY4Mjk2NTk1LCJleHAiOjE3NjgyOTgzOTV9.LRCA41V3NrVQtZmVZQPCwI380PfBv8jCVkrHHRA1ZaY
+2026-01-13 17:38:20.848 [http-nio-8080-exec-8] INFO  com.zl.framework.interceptor.UserTokenInterceptor - [preHandle,66] - 【拦截器】JWT解析结果：{currentUser={"token":"629b56f6-518a-4305-8cbf-2ea9adfbfb5e","roleLabels":[],"resourcePaths":[],"username":"lgh","password":"","email":"","phoneNumber":"","id":1,"createTime":1767516654000,"updateTime":1767516654000}, iat=1768296595, exp=1768298395}
+2026-01-13 17:38:20.848 [http-nio-8080-exec-8] INFO  com.zl.framework.interceptor.UserTokenInterceptor - [preHandle,69] - 【拦截器】JWT中currentUser字段值：{"token":"629b56f6-518a-4305-8cbf-2ea9adfbfb5e","roleLabels":[],"resourcePaths":[],"username":"lgh","password":"","email":"","phoneNumber":"","id":1,"createTime":1767516654000,"updateTime":1767516654000}
+2026-01-13 17:38:20.848 [http-nio-8080-exec-8] INFO  com.zl.framework.interceptor.UserTokenInterceptor - [preHandle,84] - 【拦截器】成功存入ThreadLocal，用户信息：{"token":"629b56f6-518a-4305-8cbf-2ea9adfbfb5e","roleLabels":[],"resourcePaths":[],"username":"lgh","password":"","email":"","phoneNumber":"","id":1,"createTime":1767516654000,"updateTime":1767516654000}
+2026-01-13 17:38:20.852 [http-nio-8080-exec-8] INFO  com.zl.framework.interceptor.UserTokenInterceptor - [afterCompletion,98] - 【拦截器】清理ThreadLocal，请求URI：/web/ip/location
+2026-01-13 17:38:20.873 [schedule-pool-2] INFO  com.zl.common.utils.httpUtils.HttpUtil - [executeRequest,429] - sendRequest - http://whois.pconline.com.cn/ipJson.jsp?ip=0:0:0:0:0:0:0:1&json=true
+2026-01-13 17:38:20.936 [schedule-pool-2] INFO  com.zl.common.utils.httpUtils.HttpUtil - [executeRequest,433] - recv - 503
+
+2026-01-13 17:38:43.379 [SpringApplicationShutdownHook] INFO  o.s.boot.web.embedded.tomcat.GracefulShutdown - [shutDownGracefully,54] - Commencing graceful shutdown. Waiting for active requests to complete
+2026-01-13 17:38:43.750 [tomcat-shutdown] INFO  o.s.boot.web.embedded.tomcat.GracefulShutdown - [doShutdown,76] - Graceful shutdown complete
+2026-01-13 17:38:43.908 [SpringApplicationShutdownHook] INFO  com.alibaba.druid.pool.DruidDataSource - [?,?] - {dataSource-1} closing ...
+2026-01-13 17:38:43.916 [SpringApplicationShutdownHook] INFO  com.alibaba.druid.pool.DruidDataSource - [?,?] - {dataSource-1} closed
+2026-01-13 17:38:51.076 [background-preinit] INFO  org.hibernate.validator.internal.util.Version - [<clinit>,21] - HV000001: Hibernate Validator 8.0.2.Final
+2026-01-13 17:38:51.164 [main] INFO  com.zl.web.ZLBasicApplication - [logStarting,53] - Starting ZLBasicApplication using Java 17.0.12 with PID 23256 (F:\外接项目\智领软件公司基础脚手架\zl-backend\zl-web\target\classes started by 惠普 in F:\外接项目\智领软件公司基础脚手架\zl-backend)
+2026-01-13 17:38:51.165 [main] INFO  com.zl.web.ZLBasicApplication - [logStartupProfileInfo,658] - The following 3 profiles are active: "file", "extend", "dev"
+2026-01-13 17:38:52.550 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - [multipleStoresDetected,295] - Multiple Spring Data modules found, entering strict repository configuration mode
+2026-01-13 17:38:52.554 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - [registerRepositoriesIn,143] - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2026-01-13 17:38:52.594 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - [registerRepositoriesIn,211] - Finished Spring Data repository scanning in 18 ms. Found 0 Redis repository interfaces.
+2026-01-13 17:38:53.850 [main] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - [initialize,111] - Tomcat initialized with port 8080 (http)
+2026-01-13 17:38:53.853 [main] INFO  org.apache.catalina.core.AprLifecycleListener - [log,168] - Loaded Apache Tomcat Native library [2.0.7] using APR version [1.7.4].
+2026-01-13 17:38:53.859 [main] INFO  org.apache.catalina.core.AprLifecycleListener - [log,168] - OpenSSL successfully initialized [OpenSSL 3.0.13 30 Jan 2024]
+2026-01-13 17:38:53.875 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - [log,168] - Initializing ProtocolHandler ["http-nio-8080"]
+2026-01-13 17:38:53.879 [main] INFO  org.apache.catalina.core.StandardService - [log,168] - Starting service [Tomcat]
+2026-01-13 17:38:53.879 [main] INFO  org.apache.catalina.core.StandardEngine - [log,168] - Starting Servlet engine: [Apache Tomcat/10.1.40]
+2026-01-13 17:38:53.985 [main] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - [log,168] - Initializing Spring embedded WebApplicationContext
+2026-01-13 17:38:53.986 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - [prepareWebApplicationContext,301] - Root WebApplicationContext: initialization completed in 2742 ms
+2026-01-13 17:38:54.623 [main] INFO  c.a.d.s.b.a.DruidDataSourceAutoConfigure - [?,?] - Init DruidDataSource
+2026-01-13 17:38:54.752 [main] INFO  com.alibaba.druid.pool.DruidDataSource - [?,?] - {dataSource-1} inited
+2026-01-13 17:38:54.945 [main] INFO  o.s.s.c.a.a.c.InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer - [configure,114] - Global AuthenticationManager configured with UserDetailsService bean with name userDetailsServiceImpl
+2026-01-13 17:38:55.448 [main] INFO  com.zl.framework.config.RedisConfig - [redisTemplate,49] - 开始创建模板对象
+2026-01-13 17:38:55.549 [main] INFO  org.redisson.Version - [logVersion,41] - Redisson 3.13.6
+2026-01-13 17:38:55.881 [redisson-netty-4-16] INFO  o.r.connection.pool.MasterPubSubConnectionPool - [lambda$run$0,167] - 1 connections initialized for /127.0.0.1:6379
+2026-01-13 17:38:55.897 [redisson-netty-4-19] INFO  org.redisson.connection.pool.MasterConnectionPool - [lambda$run$0,167] - 24 connections initialized for /127.0.0.1:6379
+2026-01-13 17:38:57.192 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - [log,168] - Starting ProtocolHandler ["http-nio-8080"]
+2026-01-13 17:38:57.205 [main] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - [start,243] - Tomcat started on port 8080 (http) with context path '/'
+2026-01-13 17:38:57.220 [main] INFO  com.zl.web.ZLBasicApplication - [logStarted,59] - Started ZLBasicApplication in 6.999 seconds (process running for 7.789)
+2026-01-13 17:38:59.969 [http-nio-8080-exec-1] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - [log,168] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2026-01-13 17:38:59.969 [http-nio-8080-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - [initServletBean,532] - Initializing Servlet 'dispatcherServlet'
+2026-01-13 17:38:59.972 [http-nio-8080-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - [initServletBean,554] - Completed initialization in 2 ms
+2026-01-13 17:39:00.059 [http-nio-8080-exec-1] INFO  com.zl.framework.interceptor.UserTokenInterceptor - [preHandle,38] - 【拦截器】开始处理请求：/web/ip/location
+2026-01-13 17:39:00.060 [http-nio-8080-exec-1] INFO  com.zl.framework.interceptor.UserTokenInterceptor - [preHandle,42] - 【拦截器】获取到Authorization头：629b56f6-518a-4305-8cbf-2ea9adfbfb5e
+2026-01-13 17:39:00.060 [http-nio-8080-exec-1] INFO  com.zl.framework.interceptor.UserTokenInterceptor - [preHandle,51] - 【拦截器】处理后的userToken：629b56f6-518a-4305-8cbf-2ea9adfbfb5e
+2026-01-13 17:39:00.561 [http-nio-8080-exec-1] INFO  com.zl.framework.interceptor.UserTokenInterceptor - [preHandle,57] - 【拦截器】Redis查询结果 - key：user:jwt-token629b56f6-518a-4305-8cbf-2ea9adfbfb5e，jwtToken：eyJhbGciOiJIUzI1NiJ9.eyJjdXJyZW50VXNlciI6IntcInRva2VuXCI6XCI2MjliNTZmNi01MThhLTQzMDUtOGNiZi0yZWE5YWRmYmZiNWVcIixcInJvbGVMYWJlbHNcIjpbXSxcInJlc291cmNlUGF0aHNcIjpbXSxcInVzZXJuYW1lXCI6XCJsZ2hcIixcInBhc3N3b3JkXCI6XCJcIixcImVtYWlsXCI6XCJcIixcInBob25lTnVtYmVyXCI6XCJcIixcImlkXCI6MSxcImNyZWF0ZVRpbWVcIjoxNzY3NTE2NjU0MDAwLFwidXBkYXRlVGltZVwiOjE3Njc1MTY2NTQwMDB9IiwiaWF0IjoxNzY4Mjk2NTk1LCJleHAiOjE3NjgyOTgzOTV9.LRCA41V3NrVQtZmVZQPCwI380PfBv8jCVkrHHRA1ZaY
+2026-01-13 17:39:00.698 [http-nio-8080-exec-1] INFO  com.zl.framework.interceptor.UserTokenInterceptor - [preHandle,66] - 【拦截器】JWT解析结果：{currentUser={"token":"629b56f6-518a-4305-8cbf-2ea9adfbfb5e","roleLabels":[],"resourcePaths":[],"username":"lgh","password":"","email":"","phoneNumber":"","id":1,"createTime":1767516654000,"updateTime":1767516654000}, iat=1768296595, exp=1768298395}
+2026-01-13 17:39:00.698 [http-nio-8080-exec-1] INFO  com.zl.framework.interceptor.UserTokenInterceptor - [preHandle,69] - 【拦截器】JWT中currentUser字段值：{"token":"629b56f6-518a-4305-8cbf-2ea9adfbfb5e","roleLabels":[],"resourcePaths":[],"username":"lgh","password":"","email":"","phoneNumber":"","id":1,"createTime":1767516654000,"updateTime":1767516654000}
+2026-01-13 17:39:00.699 [http-nio-8080-exec-1] INFO  com.zl.framework.interceptor.UserTokenInterceptor - [preHandle,84] - 【拦截器】成功存入ThreadLocal，用户信息：{"token":"629b56f6-518a-4305-8cbf-2ea9adfbfb5e","roleLabels":[],"resourcePaths":[],"username":"lgh","password":"","email":"","phoneNumber":"","id":1,"createTime":1767516654000,"updateTime":1767516654000}
+2026-01-13 17:39:01.187 [http-nio-8080-exec-1] INFO  com.zl.framework.interceptor.UserTokenInterceptor - [afterCompletion,98] - 【拦截器】清理ThreadLocal，请求URI：/web/ip/location
+2026-01-13 17:39:01.218 [schedule-pool-1] INFO  com.zl.common.utils.httpUtils.HttpUtil - [executeRequest,429] - sendRequest - http://whois.pconline.com.cn/ipJson.jsp?ip=0:0:0:0:0:0:0:1&json=true
+2026-01-13 17:39:01.394 [schedule-pool-1] INFO  com.zl.common.utils.httpUtils.HttpUtil - [executeRequest,433] - recv - 
+
+
+
+
+{"ip":"111.14.210.139","pro":"山东省","proCode":"370000","city":"济南市","cityCode":"370100","region":"","regionCode":"0","addr":"山东省济南市 移动","regionNames":"","err":""}
+
+
+
+
+2026-01-13 17:39:01.670 [http-nio-8080-exec-2] INFO  com.zl.framework.interceptor.UserTokenInterceptor - [preHandle,38] - 【拦截器】开始处理请求：/web/ip/location
+2026-01-13 17:39:01.672 [http-nio-8080-exec-2] INFO  com.zl.framework.interceptor.UserTokenInterceptor - [preHandle,42] - 【拦截器】获取到Authorization头：629b56f6-518a-4305-8cbf-2ea9adfbfb5e
+2026-01-13 17:39:01.673 [http-nio-8080-exec-2] INFO  com.zl.framework.interceptor.UserTokenInterceptor - [preHandle,51] - 【拦截器】处理后的userToken：629b56f6-518a-4305-8cbf-2ea9adfbfb5e
+2026-01-13 17:39:01.676 [http-nio-8080-exec-2] INFO  com.zl.framework.interceptor.UserTokenInterceptor - [preHandle,57] - 【拦截器】Redis查询结果 - key：user:jwt-token629b56f6-518a-4305-8cbf-2ea9adfbfb5e，jwtToken：eyJhbGciOiJIUzI1NiJ9.eyJjdXJyZW50VXNlciI6IntcInRva2VuXCI6XCI2MjliNTZmNi01MThhLTQzMDUtOGNiZi0yZWE5YWRmYmZiNWVcIixcInJvbGVMYWJlbHNcIjpbXSxcInJlc291cmNlUGF0aHNcIjpbXSxcInVzZXJuYW1lXCI6XCJsZ2hcIixcInBhc3N3b3JkXCI6XCJcIixcImVtYWlsXCI6XCJcIixcInBob25lTnVtYmVyXCI6XCJcIixcImlkXCI6MSxcImNyZWF0ZVRpbWVcIjoxNzY3NTE2NjU0MDAwLFwidXBkYXRlVGltZVwiOjE3Njc1MTY2NTQwMDB9IiwiaWF0IjoxNzY4Mjk2NTk1LCJleHAiOjE3NjgyOTgzOTV9.LRCA41V3NrVQtZmVZQPCwI380PfBv8jCVkrHHRA1ZaY
+2026-01-13 17:39:01.678 [http-nio-8080-exec-2] INFO  com.zl.framework.interceptor.UserTokenInterceptor - [preHandle,66] - 【拦截器】JWT解析结果：{currentUser={"token":"629b56f6-518a-4305-8cbf-2ea9adfbfb5e","roleLabels":[],"resourcePaths":[],"username":"lgh","password":"","email":"","phoneNumber":"","id":1,"createTime":1767516654000,"updateTime":1767516654000}, iat=1768296595, exp=1768298395}
+2026-01-13 17:39:01.678 [http-nio-8080-exec-2] INFO  com.zl.framework.interceptor.UserTokenInterceptor - [preHandle,69] - 【拦截器】JWT中currentUser字段值：{"token":"629b56f6-518a-4305-8cbf-2ea9adfbfb5e","roleLabels":[],"resourcePaths":[],"username":"lgh","password":"","email":"","phoneNumber":"","id":1,"createTime":1767516654000,"updateTime":1767516654000}
+2026-01-13 17:39:01.678 [http-nio-8080-exec-2] INFO  com.zl.framework.interceptor.UserTokenInterceptor - [preHandle,84] - 【拦截器】成功存入ThreadLocal，用户信息：{"token":"629b56f6-518a-4305-8cbf-2ea9adfbfb5e","roleLabels":[],"resourcePaths":[],"username":"lgh","password":"","email":"","phoneNumber":"","id":1,"createTime":1767516654000,"updateTime":1767516654000}
+2026-01-13 17:39:01.683 [http-nio-8080-exec-2] INFO  com.zl.framework.interceptor.UserTokenInterceptor - [afterCompletion,98] - 【拦截器】清理ThreadLocal，请求URI：/web/ip/location
+2026-01-13 17:39:01.702 [schedule-pool-2] INFO  com.zl.common.utils.httpUtils.HttpUtil - [executeRequest,429] - sendRequest - http://whois.pconline.com.cn/ipJson.jsp?ip=0:0:0:0:0:0:0:1&json=true
+2026-01-13 17:39:01.761 [schedule-pool-2] INFO  com.zl.common.utils.httpUtils.HttpUtil - [executeRequest,433] - recv - 
+
+
+
+
+{"ip":"111.14.210.139","pro":"山东省","proCode":"370000","city":"济南市","cityCode":"370100","region":"","regionCode":"0","addr":"山东省济南市 移动","regionNames":"","err":""}
+
+
+
+

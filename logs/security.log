@@ -73,3 +73,24 @@
 2026-01-13 10:38:43.413 [http-nio-8080-exec-3] DEBUG c.z.security.mapper.RoleMapper.getRoleListByUserId - [debug,135] - ==>  Preparing: select distinct sys_role.* from sys_role left join sys_user_role on sys_role.id=sys_user_role.role_id where sys_user_role.user_id=?
 2026-01-13 10:38:43.413 [http-nio-8080-exec-3] DEBUG c.z.security.mapper.RoleMapper.getRoleListByUserId - [debug,135] - ==> Parameters: 1(Long)
 2026-01-13 10:38:43.420 [http-nio-8080-exec-3] DEBUG c.z.security.mapper.RoleMapper.getRoleListByUserId - [debug,135] - <==      Total: 0
+2026-01-13 10:42:26.032 [http-nio-8080-exec-7] DEBUG c.zl.security.mapper.UserMapper.findUserVoForLogin - [debug,135] - ==>  Preparing: select * from sys_user where username=?
+2026-01-13 10:42:26.076 [http-nio-8080-exec-7] DEBUG c.zl.security.mapper.UserMapper.findUserVoForLogin - [debug,135] - ==> Parameters: lgh(String)
+2026-01-13 10:42:26.125 [http-nio-8080-exec-7] DEBUG c.zl.security.mapper.UserMapper.findUserVoForLogin - [debug,135] - <==      Total: 1
+2026-01-13 10:42:26.379 [http-nio-8080-exec-7] DEBUG c.z.security.mapper.RoleMapper.getRoleListByUserId - [debug,135] - ==>  Preparing: select distinct sys_role.* from sys_role left join sys_user_role on sys_role.id=sys_user_role.role_id where sys_user_role.user_id=?
+2026-01-13 10:42:26.380 [http-nio-8080-exec-7] DEBUG c.z.security.mapper.RoleMapper.getRoleListByUserId - [debug,135] - ==> Parameters: 1(Long)
+2026-01-13 10:42:26.386 [http-nio-8080-exec-7] DEBUG c.z.security.mapper.RoleMapper.getRoleListByUserId - [debug,135] - <==      Total: 0
+2026-01-13 10:42:26.388 [http-nio-8080-exec-7] DEBUG c.z.security.mapper.RoleMapper.getRoleListByUserId - [debug,135] - ==>  Preparing: select distinct sys_role.* from sys_role left join sys_user_role on sys_role.id=sys_user_role.role_id where sys_user_role.user_id=?
+2026-01-13 10:42:26.389 [http-nio-8080-exec-7] DEBUG c.z.security.mapper.RoleMapper.getRoleListByUserId - [debug,135] - ==> Parameters: 1(Long)
+2026-01-13 10:42:26.392 [http-nio-8080-exec-7] DEBUG c.z.security.mapper.RoleMapper.getRoleListByUserId - [debug,135] - <==      Total: 0
+2026-01-13 10:42:51.428 [http-nio-8080-exec-4] DEBUG com.zl.security.mapper.UserMapper.getUserNavInfo - [debug,135] - ==>  Preparing: select u.username,u.avatar,u.phone_number,u.email,ur.role_id from sys_user u left join sys_user_role ur on u.id=ur.user_id where u.id=?
+2026-01-13 10:42:51.430 [http-nio-8080-exec-4] DEBUG com.zl.security.mapper.UserMapper.getUserNavInfo - [debug,135] - ==> Parameters: 1(Long)
+2026-01-13 10:42:51.434 [http-nio-8080-exec-4] DEBUG com.zl.security.mapper.UserMapper.getUserNavInfo - [debug,135] - <==      Total: 1
+2026-01-13 17:29:54.338 [http-nio-8080-exec-1] DEBUG c.zl.security.mapper.UserMapper.findUserVoForLogin - [debug,135] - ==>  Preparing: select * from sys_user where username=?
+2026-01-13 17:29:54.383 [http-nio-8080-exec-1] DEBUG c.zl.security.mapper.UserMapper.findUserVoForLogin - [debug,135] - ==> Parameters: lgh(String)
+2026-01-13 17:29:54.560 [http-nio-8080-exec-1] DEBUG c.zl.security.mapper.UserMapper.findUserVoForLogin - [debug,135] - <==      Total: 1
+2026-01-13 17:29:54.845 [http-nio-8080-exec-1] DEBUG c.z.security.mapper.RoleMapper.getRoleListByUserId - [debug,135] - ==>  Preparing: select distinct sys_role.* from sys_role left join sys_user_role on sys_role.id=sys_user_role.role_id where sys_user_role.user_id=?
+2026-01-13 17:29:54.846 [http-nio-8080-exec-1] DEBUG c.z.security.mapper.RoleMapper.getRoleListByUserId - [debug,135] - ==> Parameters: 1(Long)
+2026-01-13 17:29:54.877 [http-nio-8080-exec-1] DEBUG c.z.security.mapper.RoleMapper.getRoleListByUserId - [debug,135] - <==      Total: 0
+2026-01-13 17:29:54.879 [http-nio-8080-exec-1] DEBUG c.z.security.mapper.RoleMapper.getRoleListByUserId - [debug,135] - ==>  Preparing: select distinct sys_role.* from sys_role left join sys_user_role on sys_role.id=sys_user_role.role_id where sys_user_role.user_id=?
+2026-01-13 17:29:54.880 [http-nio-8080-exec-1] DEBUG c.z.security.mapper.RoleMapper.getRoleListByUserId - [debug,135] - ==> Parameters: 1(Long)
+2026-01-13 17:29:54.882 [http-nio-8080-exec-1] DEBUG c.z.security.mapper.RoleMapper.getRoleListByUserId - [debug,135] - <==      Total: 0

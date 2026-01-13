@@ -1,2 +1,3 @@
 2026-01-13 10:24:40.385 [http-nio-8080-exec-3] WARN  com.zl.framework.config.UserTokenFilter - [doFilter,61] - 【UserTokenFilter】请求/web/login无Authorization头
 2026-01-13 10:25:31.430 [http-nio-8080-exec-2] WARN  com.zl.framework.config.UserTokenFilter - [doFilter,61] - 【UserTokenFilter】请求/web/login无Authorization头
+2026-01-13 10:51:27.284 [http-nio-8080-exec-1] WARN  com.zl.log.aspect.LogAspect - [handleLog,120] - Spring容器上下文未初始化，跳过发布日志事件
