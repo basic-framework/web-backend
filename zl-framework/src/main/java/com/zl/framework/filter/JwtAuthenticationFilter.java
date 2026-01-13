@@ -79,38 +79,38 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
     protected void doFilterInternal(HttpServletRequest request,
                                     HttpServletResponse response,
                                     FilterChain filterChain) throws ServletException, IOException {
+        // 核心修改：把Authentication改为UsernamePasswordAuthenticationToken
+        UsernamePasswordAuthenticationToken authentication = null;
         try {
             // 1. 提取并验证令牌
             String jwtToken = extractAndValidateToken(request);
-            if (jwtToken == null) {
-                filterChain.doFilter(request, response);
-                return;
+            if (jwtToken != null) {
+                // 2. 解析JWT获取用户信息
+                Claims claims = jwtUtil.parseToken(jwtToken);
+                // 3. 构建用户认证信息（原有逻辑不变）
+                authentication = (UsernamePasswordAuthenticationToken) createAuthentication(claims, request);
+                log.debug("JWT认证成功，用户: {}", claims.getSubject());
             }
-
-            // 2. 解析JWT获取用户信息
-            Claims claims = jwtUtil.parseToken(jwtToken);
-
-            // 3. 构建用户认证信息
-            Authentication authentication = createAuthentication(claims, request);
-
-            // 4. 设置认证信息到安全上下文
-            SecurityContextHolder.getContext().setAuthentication(authentication);
-
-            log.debug("JWT认证成功，用户: {}", claims.getSubject());
-        } catch (ExpiredJwtException e) {
-            log.warn("JWT令牌已过期: {}", e.getMessage());
-            SecurityContextHolder.clearContext();
-        } catch (SignatureException e) {
-            log.warn("JWT签名验证失败: {}", e.getMessage());
-            SecurityContextHolder.clearContext();
-        } catch (InvalidClaimException e) {
-            log.warn("JWT声明无效: {}", e.getMessage());
-            SecurityContextHolder.clearContext();
         } catch (Exception e) {
-            log.error("JWT认证处理异常", e);
-            SecurityContextHolder.clearContext();
+            log.warn("JWT认证失败，使用匿名认证: {}", e.getMessage());
         }
 
+        // 核心：如果认证信息为空，设置匿名认证
+        //Token解析失败时设置「匿名认证」→ 放行到拦截器
+        if (authentication == null) {
+            authentication = new UsernamePasswordAuthenticationToken(
+                    "anonymousUser", // 匿名用户名
+                    null,            // 凭证
+                    new ArrayList<>()// 空权限
+            );
+            // 现在能正常调用setDetails方法了
+            authentication.setDetails(new WebAuthenticationDetailsSource().buildDetails(request));
+        }
+
+        // 4. 强制设置认证信息到SecurityContext
+        SecurityContextHolder.getContext().setAuthentication(authentication);
+
+        // 5. 继续执行过滤器链
         filterChain.doFilter(request, response);
     }
 

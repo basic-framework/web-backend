@@ -29,7 +29,8 @@ public class WebConfig implements WebMvcConfigurer {
         registry.addInterceptor(userTokenInterceptor)
                 .addPathPatterns("/**")
 //                .excludePathPatterns("/web/login"); // 登录不拦截
-                .excludePathPatterns(ignoreUrl.toArray(new String[0]));
+                .excludePathPatterns(ignoreUrl.toArray(new String[0]))
+         .order(0);
     }
 
     /**

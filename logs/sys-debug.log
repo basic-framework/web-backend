@@ -1,0 +1,24 @@
+2026-01-13 10:08:03.787 [main] DEBUG com.zl.web.ZLBasicApplication - [logStarting,54] - Running with Spring Boot v3.4.5, Spring v6.2.6
+2026-01-13 10:08:07.713 [main] DEBUG com.zl.framework.filter.JwtAuthenticationFilter - [init,240] - Filter 'jwtAuthenticationFilter' configured for use
+2026-01-13 10:13:07.390 [main] DEBUG com.zl.web.ZLBasicApplication - [logStarting,54] - Running with Spring Boot v3.4.5, Spring v6.2.6
+2026-01-13 10:13:10.725 [main] DEBUG com.zl.framework.filter.JwtAuthenticationFilter - [init,240] - Filter 'jwtAuthenticationFilter' configured for use
+2026-01-13 10:17:40.519 [main] DEBUG com.zl.web.ZLBasicApplication - [logStarting,54] - Running with Spring Boot v3.4.5, Spring v6.2.6
+2026-01-13 10:17:43.868 [main] DEBUG com.zl.framework.filter.JwtAuthenticationFilter - [init,240] - Filter 'jwtAuthenticationFilter' configured for use
+2026-01-13 10:24:19.060 [main] DEBUG com.zl.web.ZLBasicApplication - [logStarting,54] - Running with Spring Boot v3.4.5, Spring v6.2.6
+2026-01-13 10:24:23.603 [main] DEBUG com.zl.framework.filter.JwtAuthenticationFilter - [init,240] - Filter 'jwtAuthenticationFilter' configured for use
+2026-01-13 10:24:42.154 [http-nio-8080-exec-3] DEBUG com.zl.framework.config.UserTokenFilter - [doFilter,73] - 【UserTokenFilter】清理ThreadLocal用户信息
+2026-01-13 10:24:51.491 [http-nio-8080-exec-5] DEBUG com.zl.framework.config.UserTokenFilter - [doFilter,73] - 【UserTokenFilter】清理ThreadLocal用户信息
+2026-01-13 10:25:18.486 [main] DEBUG com.zl.web.ZLBasicApplication - [logStarting,54] - Running with Spring Boot v3.4.5, Spring v6.2.6
+2026-01-13 10:25:21.783 [main] DEBUG com.zl.framework.filter.JwtAuthenticationFilter - [init,240] - Filter 'jwtAuthenticationFilter' configured for use
+2026-01-13 10:25:33.166 [http-nio-8080-exec-2] DEBUG com.zl.framework.config.UserTokenFilter - [doFilter,73] - 【UserTokenFilter】清理ThreadLocal用户信息
+2026-01-13 10:25:49.291 [http-nio-8080-exec-5] DEBUG com.zl.framework.config.UserTokenFilter - [doFilter,73] - 【UserTokenFilter】清理ThreadLocal用户信息
+2026-01-13 10:26:54.693 [main] DEBUG com.zl.web.ZLBasicApplication - [logStarting,54] - Running with Spring Boot v3.4.5, Spring v6.2.6
+2026-01-13 10:26:58.099 [main] DEBUG com.zl.framework.filter.JwtAuthenticationFilter - [init,240] - Filter 'jwtAuthenticationFilter' configured for use
+2026-01-13 10:31:01.861 [main] DEBUG com.zl.web.ZLBasicApplication - [logStarting,54] - Running with Spring Boot v3.4.5, Spring v6.2.6
+2026-01-13 10:31:05.183 [main] DEBUG com.zl.framework.filter.JwtAuthenticationFilter - [init,240] - Filter 'jwtAuthenticationFilter' configured for use
+2026-01-13 10:33:19.087 [main] DEBUG com.zl.web.ZLBasicApplication - [logStarting,54] - Running with Spring Boot v3.4.5, Spring v6.2.6
+2026-01-13 10:33:22.454 [main] DEBUG com.zl.framework.filter.JwtAuthenticationFilter - [init,240] - Filter 'jwtAuthenticationFilter' configured for use
+2026-01-13 10:35:50.254 [main] DEBUG com.zl.web.ZLBasicApplication - [logStarting,54] - Running with Spring Boot v3.4.5, Spring v6.2.6
+2026-01-13 10:35:53.661 [main] DEBUG com.zl.framework.filter.JwtAuthenticationFilter - [init,240] - Filter 'jwtAuthenticationFilter' configured for use
+2026-01-13 10:38:23.485 [main] DEBUG com.zl.web.ZLBasicApplication - [logStarting,54] - Running with Spring Boot v3.4.5, Spring v6.2.6
+2026-01-13 10:38:28.173 [main] DEBUG com.zl.framework.filter.JwtAuthenticationFilter - [init,240] - Filter 'jwtAuthenticationFilter' configured for use

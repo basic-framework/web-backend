@@ -16,7 +16,10 @@
             <groupId>com.zl</groupId>
             <artifactId>zl-framework</artifactId>
         </dependency>
-
+        <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>transmittable-thread-local</artifactId>
+        </dependency>
 
 
     </dependencies>

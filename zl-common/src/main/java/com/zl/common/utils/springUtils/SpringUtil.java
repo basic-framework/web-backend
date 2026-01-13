@@ -4,10 +4,14 @@ import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.NoSuchBeanDefinitionException;
 import org.springframework.beans.factory.config.BeanFactoryPostProcessor;
 import org.springframework.beans.factory.config.ConfigurableListableBeanFactory;
+import org.springframework.boot.autoconfigure.thread.Threading;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.ApplicationContextAware;
+import org.springframework.core.env.Environment;
 import org.springframework.stereotype.Component;
 import org.springframework.util.StringUtils;
+
+import static cn.hutool.extra.spring.SpringUtil.getApplicationContext;
 
 /**
  * spring工具类 方便在非spring管理环境中获取bean
@@ -20,6 +24,17 @@ public final class SpringUtil implements BeanFactoryPostProcessor, ApplicationCo
     private static ConfigurableListableBeanFactory beanFactory;
 
     private static ApplicationContext applicationContext;
+
+    /**
+     * 获取spring上下文
+     */
+    public static ApplicationContext context() {
+        return getApplicationContext();
+    }
+
+    public static boolean isVirtual() {
+        return Threading.VIRTUAL.isActive(getBean(Environment.class));
+    }
 
     @Override
     public void postProcessBeanFactory(ConfigurableListableBeanFactory beanFactory) throws BeansException

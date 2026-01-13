@@ -3,11 +3,16 @@ package com.zl.web.controller.test;
 import com.zl.common.utils.ipUtils.AddressUtil;
 import com.zl.common.utils.ipUtils.IPUtil;
 import com.zl.common.result.Result;
+import com.zl.log.annotation.Log;
+import com.zl.log.enums.BusinessStatus;
+import com.zl.log.enums.BusinessType;
+import com.zl.log.enums.OperatorType;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.Parameter;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.servlet.http.HttpServletRequest;
 import lombok.Data;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -30,6 +35,14 @@ public class IpLocationTestController {
      */
     @GetMapping("/location")
     @Operation(summary = "IP定位查询", description = "支持自动获取客户端IP或手动传入IP，返回定位信息")
+    @Log(
+            title = "IP定位查询测试",          // 模块名称
+            businessType = BusinessType.OTHER, // 功能类型（查询）
+            operatorType = OperatorType.MANAGE,// 操作人类别（默认管理端，可根据实际改）
+            isSaveRequestData = true,          // 保存请求参数（默认true，可省略）
+            isSaveResponseData = true,         // 保存响应参数（默认true，可省略）
+            excludeParamNames = {}             // 排除的参数（默认空，可省略）
+    )
     public Result<IpLocationResult> testIpLocation(
             HttpServletRequest request,
             @Parameter(description = "要测试的IP地址（为空则自动获取客户端IP）")

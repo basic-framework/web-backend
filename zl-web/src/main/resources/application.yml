@@ -55,7 +55,7 @@ zl:
         - /customer/**
         - /web/login
         - /web/logout
-        - /web/**
+#        - /web/**
         - /ws/**
         - /doc.html/**
         - /*-swagger/**

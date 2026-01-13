@@ -40,6 +40,7 @@
         <bcprov-jdk15on>1.70</bcprov-jdk15on>
         <spring-ai.version>1.0.0-M6</spring-ai.version>
         <redission.version>3.13.6</redission.version>
+        <alibaba-ttl.version>2.14.2</alibaba-ttl.version>
     </properties>
 
 
@@ -180,7 +181,11 @@
                 <artifactId>redisson</artifactId>
                 <version>${redission.version}</version>
             </dependency>
-
+            <dependency>
+                <groupId>com.alibaba</groupId>
+                <artifactId>transmittable-thread-local</artifactId>
+                <version>${alibaba-ttl.version}</version>
+            </dependency>
 
         </dependencies>
 

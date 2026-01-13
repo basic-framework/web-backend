@@ -24,7 +24,6 @@ DROP TABLE IF EXISTS `sys_oper_log`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `sys_oper_log` (
   `oper_id` bigint NOT NULL COMMENT '日志主键',
-  `tenant_id` varchar(20) COLLATE utf8mb4_general_ci DEFAULT '000000' COMMENT '租户编号',
   `title` varchar(50) COLLATE utf8mb4_general_ci DEFAULT '' COMMENT '模块标题',
   `business_type` int DEFAULT '0' COMMENT '业务类型（0其它 1新增 2修改 3删除）',
   `method` varchar(100) COLLATE utf8mb4_general_ci DEFAULT '' COMMENT '方法名称',
@@ -228,4 +227,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2026-01-13  9:26:59
+-- Dump completed on 2026-01-13  9:47:28
