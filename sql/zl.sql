@@ -16,6 +16,48 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
+-- Table structure for table `sys_oper_log`
+--
+
+DROP TABLE IF EXISTS `sys_oper_log`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `sys_oper_log` (
+  `oper_id` bigint NOT NULL COMMENT '日志主键',
+  `tenant_id` varchar(20) COLLATE utf8mb4_general_ci DEFAULT '000000' COMMENT '租户编号',
+  `title` varchar(50) COLLATE utf8mb4_general_ci DEFAULT '' COMMENT '模块标题',
+  `business_type` int DEFAULT '0' COMMENT '业务类型（0其它 1新增 2修改 3删除）',
+  `method` varchar(100) COLLATE utf8mb4_general_ci DEFAULT '' COMMENT '方法名称',
+  `request_method` varchar(10) COLLATE utf8mb4_general_ci DEFAULT '' COMMENT '请求方式',
+  `operator_type` int DEFAULT '0' COMMENT '操作类别（0其它 1后台用户 2手机端用户）',
+  `oper_name` varchar(50) COLLATE utf8mb4_general_ci DEFAULT '' COMMENT '操作人员',
+  `dept_name` varchar(50) COLLATE utf8mb4_general_ci DEFAULT '' COMMENT '部门名称',
+  `oper_url` varchar(255) COLLATE utf8mb4_general_ci DEFAULT '' COMMENT '请求URL',
+  `oper_ip` varchar(128) COLLATE utf8mb4_general_ci DEFAULT '' COMMENT '主机地址',
+  `oper_location` varchar(255) COLLATE utf8mb4_general_ci DEFAULT '' COMMENT '操作地点',
+  `oper_param` varchar(2000) COLLATE utf8mb4_general_ci DEFAULT '' COMMENT '请求参数',
+  `json_result` varchar(2000) COLLATE utf8mb4_general_ci DEFAULT '' COMMENT '返回参数',
+  `status` int DEFAULT '0' COMMENT '操作状态（0正常 1异常）',
+  `error_msg` varchar(2000) COLLATE utf8mb4_general_ci DEFAULT '' COMMENT '错误消息',
+  `oper_time` datetime DEFAULT NULL COMMENT '操作时间',
+  `cost_time` bigint DEFAULT '0' COMMENT '消耗时间',
+  PRIMARY KEY (`oper_id`),
+  KEY `idx_sys_oper_log_bt` (`business_type`),
+  KEY `idx_sys_oper_log_ot` (`oper_time`),
+  KEY `idx_sys_oper_log_s` (`status`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci ROW_FORMAT=DYNAMIC COMMENT='操作日志记录';
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `sys_oper_log`
+--
+
+LOCK TABLES `sys_oper_log` WRITE;
+/*!40000 ALTER TABLE `sys_oper_log` DISABLE KEYS */;
+/*!40000 ALTER TABLE `sys_oper_log` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `sys_resource`
 --
 
@@ -134,7 +176,7 @@ CREATE TABLE `sys_user` (
   `update_time` datetime DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '更新时间',
   `avatar` varchar(300) DEFAULT NULL COMMENT '头像',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci COMMENT='用户信息表';
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci COMMENT='用户信息表';
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -143,6 +185,7 @@ CREATE TABLE `sys_user` (
 
 LOCK TABLES `sys_user` WRITE;
 /*!40000 ALTER TABLE `sys_user` DISABLE KEYS */;
+INSERT INTO `sys_user` VALUES (1,'lgh','$2a$10$1a9QbQQG3DnnDhSoD28D7.d4ZXsbatJ/6gCkVRB.M5k/Nfz2XxPA2','','',0,NULL,NULL,NULL,'2026-01-04 16:50:54','2026-01-04 16:50:54',NULL);
 /*!40000 ALTER TABLE `sys_user` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -185,4 +228,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2025-07-29 19:33:57
+-- Dump completed on 2026-01-13  9:26:59

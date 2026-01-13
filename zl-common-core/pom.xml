@@ -14,6 +14,7 @@
 	<modules>
 		<module>zl-common-idempotent</module>
 		<module>zl-common-sensitive</module>
+		<module>zl-common-log</module>
 	</modules>
 
 	<properties>
