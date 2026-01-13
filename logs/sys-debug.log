@@ -63,3 +63,5 @@
 2026-01-13 17:39:01.798 [schedule-pool-1] DEBUG c.zl.log.mapper.SysOperLogMapper.insertSelective - [debug,135] - ==> Parameters: IP定位查询测试(String), 0(Integer), com.zl.web.controller.test.IpLocationTestController.testIpLocation()(String), GET(String), 1(Integer), lgh(String), null, /web/ip/location(String), 0:0:0:0:0:0:0:1(String), 山东省 济南市(String), {"ip":"[127.0.0.1],,"}(String), {"code":200,"data":{"internalIp":true,"location":"内网IP","message":"IP定位查询成功","requestIp":"127.0.0.1","success":true}}(String), 0(Integer), null, 320(Long)
 2026-01-13 17:39:01.805 [schedule-pool-1] DEBUG c.zl.log.mapper.SysOperLogMapper.insertSelective - [debug,135] - <==    Updates: 1
 2026-01-13 17:39:01.805 [schedule-pool-2] DEBUG c.zl.log.mapper.SysOperLogMapper.insertSelective - [debug,135] - <==    Updates: 1
+2026-01-13 17:48:57.237 [main] DEBUG com.zl.web.ZLBasicApplication - [logStarting,54] - Running with Spring Boot v3.4.5, Spring v6.2.6
+2026-01-13 17:49:00.602 [main] DEBUG com.zl.framework.filter.JwtAuthenticationFilter - [init,240] - Filter 'jwtAuthenticationFilter' configured for use
