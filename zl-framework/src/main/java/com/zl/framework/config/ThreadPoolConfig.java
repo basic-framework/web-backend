@@ -15,11 +15,14 @@ import org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor;
 @Configuration
 public class ThreadPoolConfig
 {
-    // 核心线程池大小
-    private int corePoolSize = 50;
+//    // 核心线程池大小
+//    private int corePoolSize = 50;
+//
+//    // 最大可创建的线程数
+//    private int maxPoolSize = 200;
 
-    // 最大可创建的线程数
-    private int maxPoolSize = 200;
+    // 核心线程数 = cpu 核心数 + 1
+    private final int corePoolSize = Runtime.getRuntime().availableProcessors() + 1;
 
     // 队列最大长度
     private int queueCapacity = 1000;
@@ -37,7 +40,7 @@ public class ThreadPoolConfig
     public ThreadPoolTaskExecutor threadPoolTaskExecutor()
     {
         ThreadPoolTaskExecutor executor = new ThreadPoolTaskExecutor();
-        executor.setMaxPoolSize(maxPoolSize);
+        executor.setMaxPoolSize(corePoolSize*2);
         executor.setCorePoolSize(corePoolSize);
         executor.setQueueCapacity(queueCapacity);
         executor.setKeepAliveSeconds(keepAliveSeconds);
