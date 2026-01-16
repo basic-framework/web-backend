@@ -1,37 +1,49 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<configuration scan="true" scanPeriod="60 seconds" debug="false">
-    <!-- 日志存放路径 -->
-    <property name="log.path" value="${LOG_PATH:-logs}"/>
-    <!-- 日志输出格式 -->
-    <property name="log.pattern" value="%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger{50} - [%method,%line] - %msg%n"/>
-    <!-- 最大保存时间 -->
-    <property name="log.maxHistory" value="30"/>
-    <!-- 最大文件大小 -->
-    <property name="log.maxFileSize" value="50MB"/>
-    <!-- 总日志文件大小限制 -->
-    <property name="log.totalSizeCap" value="10GB"/>
+<!--
+  scan: 开启配置文件热加载
+  scanPeriod: 扫描间隔30秒
+  debug: 关闭logback自身调试日志
+-->
+<configuration scan="true" scanPeriod="30 seconds" debug="false">
+    <!-- 1. 全局属性配置（logback标准<property>标签，必须同时有name和value） -->
+    <property name="LOG_PATH" value="${LOG_PATH:-./logs}"/>
+    <property name="LOG_CHARSET" value="UTF-8"/>
+    <property name="LOG_MAX_HISTORY" value="30"/>        <!-- 日志保留30天 -->
+    <property name="LOG_MAX_FILE_SIZE" value="100MB"/>   <!-- 单个日志文件最大100MB -->
+    <property name="LOG_TOTAL_SIZE_CAP" value="50GB"/>   <!-- 总日志大小上限 -->
 
-    <!-- 控制台输出 -->
-    <appender name="console" class="ch.qos.logback.core.ConsoleAppender">
+    <!-- 通用日志格式 -->
+    <property name="LOG_PATTERN_DEFAULT" value="%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger{60} - [%method,%line] - %msg%n"/>
+    <!-- 访问日志简化格式 -->
+    <property name="LOG_PATTERN_ACCESS" value="%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger{30} - %msg%n"/>
+
+    <!-- 2. 控制台输出（仅开发/测试环境生效） -->
+    <appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
         <encoder>
-            <pattern>${log.pattern}</pattern>
-            <charset>UTF-8</charset>
+            <pattern>${LOG_PATTERN_DEFAULT}</pattern>
+            <charset>${LOG_CHARSET}</charset>
         </encoder>
+        <!-- 控制台仅输出INFO及以上级别 -->
+        <filter class="ch.qos.logback.classic.filter.ThresholdFilter">
+            <level>INFO</level>
+        </filter>
     </appender>
 
-
-    <!-- 系统信息日志输出 -->
-    <appender name="file_info" class="ch.qos.logback.core.rolling.RollingFileAppender">
-        <file>${log.path}/sys-info.log</file>
+    <!-- 3. 核心滚动日志Appender（按级别分类） -->
+    <!-- 3.1 INFO级别日志 -->
+    <appender name="FILE_INFO" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>${LOG_PATH}/sys-info.log</file>
+        <append>true</append> <!-- 追加写入，避免覆盖 -->
         <rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
-            <fileNamePattern>${log.path}/sys-info.%d{yyyy-MM-dd}.%i.log</fileNamePattern>
-            <maxFileSize>${log.maxFileSize}</maxFileSize>
-            <maxHistory>${log.maxHistory}</maxHistory>
-            <totalSizeCap>${log.totalSizeCap}</totalSizeCap>
+            <fileNamePattern>${LOG_PATH}/sys-info.%d{yyyy-MM-dd}.%i.log</fileNamePattern>
+            <maxFileSize>${LOG_MAX_FILE_SIZE}</maxFileSize>
+            <maxHistory>${LOG_MAX_HISTORY}</maxHistory>
+            <totalSizeCap>${LOG_TOTAL_SIZE_CAP}</totalSizeCap>
+            <cleanHistoryOnStart>true</cleanHistoryOnStart>
         </rollingPolicy>
         <encoder>
-            <pattern>${log.pattern}</pattern>
-            <charset>UTF-8</charset>
+            <pattern>${LOG_PATTERN_DEFAULT}</pattern>
+            <charset>${LOG_CHARSET}</charset>
         </encoder>
         <filter class="ch.qos.logback.classic.filter.LevelFilter">
             <level>INFO</level>
@@ -40,18 +52,20 @@
         </filter>
     </appender>
 
-    <!-- 系统警告日志输出 -->
-    <appender name="file_warn" class="ch.qos.logback.core.rolling.RollingFileAppender">
-        <file>${log.path}/sys-warn.log</file>
+    <!-- 3.2 WARN级别日志 -->
+    <appender name="FILE_WARN" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>${LOG_PATH}/sys-warn.log</file>
+        <append>true</append>
         <rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
-            <fileNamePattern>${log.path}/sys-warn.%d{yyyy-MM-dd}.%i.log</fileNamePattern>
-            <maxFileSize>${log.maxFileSize}</maxFileSize>
-            <maxHistory>${log.maxHistory}</maxHistory>
-            <totalSizeCap>${log.totalSizeCap}</totalSizeCap>
+            <fileNamePattern>${LOG_PATH}/sys-warn.%d{yyyy-MM-dd}.%i.log</fileNamePattern>
+            <maxFileSize>${LOG_MAX_FILE_SIZE}</maxFileSize>
+            <maxHistory>${LOG_MAX_HISTORY}</maxHistory>
+            <totalSizeCap>${LOG_TOTAL_SIZE_CAP}</totalSizeCap>
+            <cleanHistoryOnStart>true</cleanHistoryOnStart>
         </rollingPolicy>
         <encoder>
-            <pattern>${log.pattern}</pattern>
-            <charset>UTF-8</charset>
+            <pattern>${LOG_PATTERN_DEFAULT}</pattern>
+            <charset>${LOG_CHARSET}</charset>
         </encoder>
         <filter class="ch.qos.logback.classic.filter.LevelFilter">
             <level>WARN</level>
@@ -60,18 +74,20 @@
         </filter>
     </appender>
 
-    <!-- 系统错误日志输出 -->
-    <appender name="file_error" class="ch.qos.logback.core.rolling.RollingFileAppender">
-        <file>${log.path}/sys-error.log</file>
+    <!-- 3.3 ERROR级别日志 -->
+    <appender name="FILE_ERROR" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>${LOG_PATH}/sys-error.log</file>
+        <append>true</append>
         <rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
-            <fileNamePattern>${log.path}/sys-error.%d{yyyy-MM-dd}.%i.log</fileNamePattern>
-            <maxFileSize>${log.maxFileSize}</maxFileSize>
-            <maxHistory>${log.maxHistory}</maxHistory>
-            <totalSizeCap>${log.totalSizeCap}</totalSizeCap>
+            <fileNamePattern>${LOG_PATH}/sys-error.%d{yyyy-MM-dd}.%i.log</fileNamePattern>
+            <maxFileSize>${LOG_MAX_FILE_SIZE}</maxFileSize>
+            <maxHistory>${LOG_MAX_HISTORY}</maxHistory>
+            <totalSizeCap>${LOG_TOTAL_SIZE_CAP}</totalSizeCap>
+            <cleanHistoryOnStart>true</cleanHistoryOnStart>
         </rollingPolicy>
         <encoder>
-            <pattern>${log.pattern}</pattern>
-            <charset>UTF-8</charset>
+            <pattern>${LOG_PATTERN_DEFAULT}</pattern>
+            <charset>${LOG_CHARSET}</charset>
         </encoder>
         <filter class="ch.qos.logback.classic.filter.LevelFilter">
             <level>ERROR</level>
@@ -80,294 +96,176 @@
         </filter>
     </appender>
 
-    <!-- 调试日志输出 -->
-    <appender name="file_debug" class="ch.qos.logback.core.rolling.RollingFileAppender">
-        <file>${log.path}/sys-debug.log</file>
+    <!-- 3.4 SQL日志 -->
+    <appender name="FILE_SQL" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>${LOG_PATH}/sql.log</file>
+        <append>true</append>
         <rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
-            <fileNamePattern>${log.path}/sys-debug.%d{yyyy-MM-dd}.%i.log</fileNamePattern>
-            <maxFileSize>${log.maxFileSize}</maxFileSize>
-            <maxHistory>${log.maxHistory}</maxHistory>
-            <totalSizeCap>${log.totalSizeCap}</totalSizeCap>
+            <fileNamePattern>${LOG_PATH}/sql.%d{yyyy-MM-dd}.%i.log</fileNamePattern>
+            <maxFileSize>${LOG_MAX_FILE_SIZE}</maxFileSize>
+            <maxHistory>${LOG_MAX_HISTORY}</maxHistory>
+            <totalSizeCap>${LOG_TOTAL_SIZE_CAP}</totalSizeCap>
+            <cleanHistoryOnStart>true</cleanHistoryOnStart>
         </rollingPolicy>
         <encoder>
-            <pattern>${log.pattern}</pattern>
-            <charset>UTF-8</charset>
-        </encoder>
-        <filter class="ch.qos.logback.classic.filter.LevelFilter">
-            <level>DEBUG</level>
-            <onMatch>ACCEPT</onMatch>
-            <onMismatch>DENY</onMismatch>
-        </filter>
-    </appender>
-
-    <!-- SQL日志输出 -->
-    <appender name="file_sql" class="ch.qos.logback.core.rolling.RollingFileAppender">
-        <file>${log.path}/sql.log</file>
-        <rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
-            <fileNamePattern>${log.path}/sql.%d{yyyy-MM-dd}.%i.log</fileNamePattern>
-            <maxFileSize>${log.maxFileSize}</maxFileSize>
-            <maxHistory>${log.maxHistory}</maxHistory>
-            <totalSizeCap>${log.totalSizeCap}</totalSizeCap>
-        </rollingPolicy>
-        <encoder>
-            <pattern>${log.pattern}</pattern>
-            <charset>UTF-8</charset>
+            <pattern>${LOG_PATTERN_DEFAULT}</pattern>
+            <charset>${LOG_CHARSET}</charset>
         </encoder>
     </appender>
 
-    <!-- 业务日志输出 -->
-    <appender name="file_business" class="ch.qos.logback.core.rolling.RollingFileAppender">
-        <file>${log.path}/business.log</file>
+    <!-- 3.5 访问日志 -->
+    <appender name="FILE_ACCESS" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>${LOG_PATH}/access.log</file>
+        <append>true</append>
         <rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
-            <fileNamePattern>${log.path}/business.%d{yyyy-MM-dd}.%i.log</fileNamePattern>
-            <maxFileSize>${log.maxFileSize}</maxFileSize>
-            <maxHistory>${log.maxHistory}</maxHistory>
-            <totalSizeCap>${log.totalSizeCap}</totalSizeCap>
+            <fileNamePattern>${LOG_PATH}/access.%d{yyyy-MM-dd}.%i.log</fileNamePattern>
+            <maxFileSize>${LOG_MAX_FILE_SIZE}</maxFileSize>
+            <maxHistory>${LOG_MAX_HISTORY}</maxHistory>
+            <totalSizeCap>${LOG_TOTAL_SIZE_CAP}</totalSizeCap>
+            <cleanHistoryOnStart>true</cleanHistoryOnStart>
         </rollingPolicy>
         <encoder>
-            <pattern>${log.pattern}</pattern>
-            <charset>UTF-8</charset>
+            <pattern>${LOG_PATTERN_ACCESS}</pattern>
+            <charset>${LOG_CHARSET}</charset>
         </encoder>
     </appender>
 
-    <!-- 访问日志输出 -->
-    <appender name="file_access" class="ch.qos.logback.core.rolling.RollingFileAppender">
-        <file>${log.path}/access.log</file>
+    <!-- 3.6 业务日志 -->
+    <appender name="FILE_BUSINESS" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>${LOG_PATH}/business.log</file>
+        <append>true</append>
         <rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
-            <fileNamePattern>${log.path}/access.%d{yyyy-MM-dd}.%i.log</fileNamePattern>
-            <maxFileSize>${log.maxFileSize}</maxFileSize>
-            <maxHistory>${log.maxHistory}</maxHistory>
-            <totalSizeCap>${log.totalSizeCap}</totalSizeCap>
+            <fileNamePattern>${LOG_PATH}/business.%d{yyyy-MM-dd}.%i.log</fileNamePattern>
+            <maxFileSize>${LOG_MAX_FILE_SIZE}</maxFileSize>
+            <maxHistory>${LOG_MAX_HISTORY}</maxHistory>
+            <totalSizeCap>${LOG_TOTAL_SIZE_CAP}</totalSizeCap>
+            <cleanHistoryOnStart>true</cleanHistoryOnStart>
         </rollingPolicy>
         <encoder>
-            <pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger{20} - %msg%n</pattern>
-            <charset>UTF-8</charset>
+            <pattern>${LOG_PATTERN_DEFAULT}</pattern>
+            <charset>${LOG_CHARSET}</charset>
         </encoder>
     </appender>
 
-    <!-- 安全日志输出 -->
-    <appender name="file_security" class="ch.qos.logback.core.rolling.RollingFileAppender">
-        <file>${log.path}/security.log</file>
-        <rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
-            <fileNamePattern>${log.path}/security.%d{yyyy-MM-dd}.%i.log</fileNamePattern>
-            <maxFileSize>${log.maxFileSize}</maxFileSize>
-            <maxHistory>${log.maxHistory}</maxHistory>
-            <totalSizeCap>${log.totalSizeCap}</totalSizeCap>
-        </rollingPolicy>
-        <encoder>
-            <pattern>${log.pattern}</pattern>
-            <charset>UTF-8</charset>
-        </encoder>
-    </appender>
-
-    <!-- Spring AI日志输出 -->
-    <appender name="file_ai" class="ch.qos.logback.core.rolling.RollingFileAppender">
-        <file>${log.path}/spring-ai.log</file>
-        <rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
-            <fileNamePattern>${log.path}/spring-ai.%d{yyyy-MM-dd}.%i.log</fileNamePattern>
-            <maxFileSize>${log.maxFileSize}</maxFileSize>
-            <maxHistory>${log.maxHistory}</maxHistory>
-            <totalSizeCap>${log.totalSizeCap}</totalSizeCap>
-        </rollingPolicy>
-        <encoder>
-            <pattern>${log.pattern}</pattern>
-            <charset>UTF-8</charset>
-        </encoder>
-    </appender>
-
-    <!-- 异步输出 - 系统信息 -->
-    <appender name="async_info" class="ch.qos.logback.classic.AsyncAppender">
+    <!-- 4. 异步日志Appender（提升性能） -->
+    <appender name="ASYNC_INFO" class="ch.qos.logback.classic.AsyncAppender">
+        <appender-ref ref="FILE_INFO"/>
+        <queueSize>2048</queueSize>
         <discardingThreshold>0</discardingThreshold>
-        <queueSize>1024</queueSize>
-        <appender-ref ref="file_info"/>
+        <neverBlock>false</neverBlock>
+        <includeCallerData>false</includeCallerData>
     </appender>
 
-    <!-- 异步输出 - 系统警告 -->
-    <appender name="async_warn" class="ch.qos.logback.classic.AsyncAppender">
+    <appender name="ASYNC_WARN" class="ch.qos.logback.classic.AsyncAppender">
+        <appender-ref ref="FILE_WARN"/>
+        <queueSize>2048</queueSize>
         <discardingThreshold>0</discardingThreshold>
-        <queueSize>1024</queueSize>
-        <appender-ref ref="file_warn"/>
     </appender>
 
-    <!-- 异步输出 - 系统错误 -->
-    <appender name="async_error" class="ch.qos.logback.classic.AsyncAppender">
+    <appender name="ASYNC_ERROR" class="ch.qos.logback.classic.AsyncAppender">
+        <appender-ref ref="FILE_ERROR"/>
+        <queueSize>2048</queueSize>
         <discardingThreshold>0</discardingThreshold>
-        <queueSize>1024</queueSize>
-        <appender-ref ref="file_error"/>
     </appender>
 
-    <!-- 异步输出 - 调试 -->
-    <appender name="async_debug" class="ch.qos.logback.classic.AsyncAppender">
+    <appender name="ASYNC_SQL" class="ch.qos.logback.classic.AsyncAppender">
+        <appender-ref ref="FILE_SQL"/>
+        <queueSize>2048</queueSize>
         <discardingThreshold>0</discardingThreshold>
-        <queueSize>1024</queueSize>
-        <appender-ref ref="file_debug"/>
     </appender>
 
-    <!-- 异步输出 - SQL -->
-    <appender name="async_sql" class="ch.qos.logback.classic.AsyncAppender">
+    <appender name="ASYNC_ACCESS" class="ch.qos.logback.classic.AsyncAppender">
+        <appender-ref ref="FILE_ACCESS"/>
+        <queueSize>4096</queueSize>
         <discardingThreshold>0</discardingThreshold>
-        <queueSize>1024</queueSize>
-        <appender-ref ref="file_sql"/>
     </appender>
 
-    <!-- 异步输出 - 业务 -->
-    <appender name="async_business" class="ch.qos.logback.classic.AsyncAppender">
+    <appender name="ASYNC_BUSINESS" class="ch.qos.logback.classic.AsyncAppender">
+        <appender-ref ref="FILE_BUSINESS"/>
+        <queueSize>2048</queueSize>
         <discardingThreshold>0</discardingThreshold>
-        <queueSize>1024</queueSize>
-        <appender-ref ref="file_business"/>
     </appender>
 
-    <!-- 异步输出 - 访问 -->
-    <appender name="async_access" class="ch.qos.logback.classic.AsyncAppender">
-        <discardingThreshold>0</discardingThreshold>
-        <queueSize>1024</queueSize>
-        <appender-ref ref="file_access"/>
-    </appender>
-
-    <!-- 异步输出 - 安全 -->
-    <appender name="async_security" class="ch.qos.logback.classic.AsyncAppender">
-        <discardingThreshold>0</discardingThreshold>
-        <queueSize>1024</queueSize>
-        <appender-ref ref="file_security"/>
-    </appender>
-
-    <!-- 异步输出 - Spring AI -->
-    <appender name="async_ai" class="ch.qos.logback.classic.AsyncAppender">
-        <discardingThreshold>0</discardingThreshold>
-        <queueSize>1024</queueSize>
-        <appender-ref ref="file_ai"/>
-    </appender>
-
-    <!-- 框架日志级别配置 -->
+    <!-- 5. 日志级别配置（按环境差异化） -->
+    <!-- 5.1 框架日志 -->
     <logger name="org.springframework" level="INFO" additivity="false">
-        <appender-ref ref="console"/>
-        <appender-ref ref="async_info"/>
-        <appender-ref ref="async_warn"/>
-        <appender-ref ref="async_error"/>
+        <appender-ref ref="ASYNC_INFO"/>
+        <appender-ref ref="ASYNC_WARN"/>
+        <appender-ref ref="ASYNC_ERROR"/>
     </logger>
 
     <logger name="org.mybatis" level="INFO" additivity="false">
-        <appender-ref ref="console"/>
-        <appender-ref ref="async_info"/>
-        <appender-ref ref="async_warn"/>
-        <appender-ref ref="async_error"/>
+        <appender-ref ref="ASYNC_INFO"/>
+        <appender-ref ref="ASYNC_WARN"/>
+        <appender-ref ref="ASYNC_ERROR"/>
     </logger>
 
-    <logger name="com.zaxxer.hikari" level="INFO" additivity="false">
-        <appender-ref ref="async_info"/>
-        <appender-ref ref="async_warn"/>
-        <appender-ref ref="async_error"/>
-    </logger>
-
-    <logger name="com.alibaba.druid" level="INFO" additivity="false">
-        <appender-ref ref="async_info"/>
-        <appender-ref ref="async_warn"/>
-        <appender-ref ref="async_error"/>
-    </logger>
-
-    <!-- SQL日志 - 单独输出到SQL文件 -->
+    <!-- 5.2 专项日志 -->
     <logger name="com.zl.**.mapper" level="DEBUG" additivity="false">
-        <appender-ref ref="console"/>
-        <appender-ref ref="async_sql"/>
+        <appender-ref ref="ASYNC_SQL"/>
     </logger>
 
-    <!-- Redis日志 -->
-    <logger name="io.lettuce" level="INFO" additivity="false">
-        <appender-ref ref="async_info"/>
-        <appender-ref ref="async_warn"/>
-        <appender-ref ref="async_error"/>
-    </logger>
-
-    <!-- RabbitMQ日志 -->
-    <logger name="org.springframework.amqp" level="INFO" additivity="false">
-        <appender-ref ref="async_info"/>
-        <appender-ref ref="async_warn"/>
-        <appender-ref ref="async_error"/>
-    </logger>
-
-    <!-- Netty日志 -->
-    <logger name="io.netty" level="INFO" additivity="false">
-        <appender-ref ref="async_info"/>
-        <appender-ref ref="async_warn"/>
-        <appender-ref ref="async_error"/>
-    </logger>
-
-    <!-- Spring AI日志 - 单独输出到AI文件 -->
-    <logger name="org.springframework.ai" level="DEBUG" additivity="false">
-        <appender-ref ref="console"/>
-        <appender-ref ref="async_ai"/>
-    </logger>
-
-    <!-- 安全相关日志 - 单独输出到安全文件 -->
-    <logger name="com.zl.security" level="DEBUG" additivity="false">
-        <appender-ref ref="console"/>
-        <appender-ref ref="async_security"/>
-    </logger>
-
-    <!-- 业务日志 - 单独输出到业务文件 -->
-    <logger name="com.zl.service" level="DEBUG" additivity="false">
-        <appender-ref ref="console"/>
-        <appender-ref ref="async_business"/>
-    </logger>
-
-    <!-- 控制器日志 - 单独输出到访问文件 -->
     <logger name="com.zl.controller" level="DEBUG" additivity="false">
-        <appender-ref ref="console"/>
-        <appender-ref ref="async_access"/>
+        <appender-ref ref="ASYNC_ACCESS"/>
     </logger>
 
-    <!-- 项目根日志 -->
-    <logger name="com.zl" level="DEBUG" additivity="false">
-        <appender-ref ref="console"/>
-        <appender-ref ref="async_debug"/>
-        <appender-ref ref="async_info"/>
-        <appender-ref ref="async_warn"/>
-        <appender-ref ref="async_error"/>
+    <logger name="com.zl.service" level="DEBUG" additivity="false">
+        <appender-ref ref="ASYNC_BUSINESS"/>
     </logger>
 
-    <!-- 开发环境配置 -->
+    <!-- 5.3 开发环境 -->
     <springProfile name="dev">
-        <logger name="com.zl" level="DEBUG"/>
-        <logger name="com.zl.**.mapper" level="DEBUG"/>
-        <logger name="org.springframework.ai" level="DEBUG"/>
-        <root level="DEBUG">
-            <appender-ref ref="console"/>
-            <appender-ref ref="async_debug"/>
-            <appender-ref ref="async_info"/>
-            <appender-ref ref="async_warn"/>
-            <appender-ref ref="async_error"/>
+        <logger name="com.zl" level="DEBUG" additivity="false">
+            <appender-ref ref="CONSOLE"/>
+            <appender-ref ref="ASYNC_INFO"/>
+            <appender-ref ref="ASYNC_WARN"/>
+            <appender-ref ref="ASYNC_ERROR"/>
+        </logger>
+        <root level="INFO">
+            <appender-ref ref="CONSOLE"/>
         </root>
     </springProfile>
 
-    <!-- 测试环境配置 -->
+    <!-- 5.4 测试环境 -->
     <springProfile name="test">
-        <logger name="com.zl" level="INFO"/>
-        <logger name="com.zl.**.mapper" level="DEBUG"/>
+        <logger name="com.zl" level="INFO" additivity="false">
+            <appender-ref ref="CONSOLE"/>
+            <appender-ref ref="ASYNC_INFO"/>
+            <appender-ref ref="ASYNC_WARN"/>
+            <appender-ref ref="ASYNC_ERROR"/>
+        </logger>
         <root level="INFO">
-            <appender-ref ref="console"/>
-            <appender-ref ref="async_info"/>
-            <appender-ref ref="async_warn"/>
-            <appender-ref ref="async_error"/>
+            <appender-ref ref="CONSOLE"/>
         </root>
     </springProfile>
 
-    <!-- 生产环境配置 -->
+    <!-- 5.5 生产环境 -->
     <springProfile name="prod">
-        <logger name="com.zl" level="INFO"/>
-        <logger name="com.zl.**.mapper" level="WARN"/>
-        <root level="INFO">
-            <appender-ref ref="async_info"/>
-            <appender-ref ref="async_warn"/>
-            <appender-ref ref="async_error"/>
+        <logger name="com.zl" level="INFO" additivity="false">
+            <appender-ref ref="ASYNC_INFO"/>
+            <appender-ref ref="ASYNC_WARN"/>
+            <appender-ref ref="ASYNC_ERROR"/>
+        </logger>
+        <logger name="com.zl.**.mapper" level="WARN" additivity="false">
+            <appender-ref ref="ASYNC_SQL"/>
+        </logger>
+        <root level="WARN">
+            <appender-ref ref="ASYNC_WARN"/>
+            <appender-ref ref="ASYNC_ERROR"/>
         </root>
     </springProfile>
 
-    <!-- 默认配置 -->
-    <root level="INFO">
-        <appender-ref ref="console"/>
-        <appender-ref ref="async_info"/>
-        <appender-ref ref="async_warn"/>
-        <appender-ref ref="async_error"/>
-    </root>
+    <!-- 5.6 默认配置 -->
+    <springProfile name="!dev &amp; !test &amp; !prod">
+        <logger name="com.zl" level="INFO" additivity="false">
+            <appender-ref ref="CONSOLE"/>
+            <appender-ref ref="ASYNC_INFO"/>
+            <appender-ref ref="ASYNC_WARN"/>
+            <appender-ref ref="ASYNC_ERROR"/>
+        </logger>
+        <root level="INFO">
+            <appender-ref ref="CONSOLE"/>
+        </root>
+    </springProfile>
 
 </configuration>
