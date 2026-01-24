@@ -8,7 +8,7 @@ import org.springframework.context.annotation.PropertySource;
 /**
  * 代码生成器配置类
  *
- * @author code-generator
+ * @author GuihaoLv
  * @date 2026-01-23
  */
 @Data

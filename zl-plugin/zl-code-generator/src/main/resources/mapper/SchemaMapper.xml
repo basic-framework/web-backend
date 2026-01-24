@@ -12,6 +12,11 @@
         <result column="module_name" property="moduleName"/>
         <result column="business_name" property="businessName"/>
         <result column="permission_prefix" property="permissionPrefix"/>
+        <result column="table_type" property="tableType"/>
+        <result column="master_table_id" property="masterTableId"/>
+        <result column="relation_field" property="relationField"/>
+        <result column="tree_parent_field" property="treeParentField"/>
+        <result column="tree_children_field" property="treeChildrenField"/>
         <result column="status" property="status"/>
         <result column="create_time" property="createTime"/>
         <result column="update_time" property="updateTime"/>
@@ -26,7 +31,8 @@
 
     <sql id="Base_Column_List">
         s.id, s.schema_group_id, s.name, s.code, s.table_name, s.function_name, s.module_name,
-        s.business_name, s.permission_prefix, s.status, s.create_time, s.update_time,
+        s.business_name, s.permission_prefix, s.table_type, s.master_table_id, s.relation_field,
+        s.tree_parent_field, s.tree_children_field, s.status, s.create_time, s.update_time,
         s.create_by, s.update_by, s.remark
     </sql>
 
@@ -58,11 +64,20 @@
         ORDER BY id DESC
     </select>
 
+    <select id="selectByMasterTableId" resultMap="BaseResultMap">
+        SELECT <include refid="Base_Column_List"/>
+        FROM dev_schema s
+        WHERE master_table_id = #{masterTableId} AND status = 0
+        ORDER BY id ASC
+    </select>
+
     <insert id="insert" parameterType="com.zl.generator.domain.Schema" useGeneratedKeys="true" keyProperty="id">
         INSERT INTO dev_schema (schema_group_id, name, code, table_name, function_name, module_name,
-                               business_name, permission_prefix, create_by, remark)
+                               business_name, permission_prefix, table_type, master_table_id, relation_field,
+                               tree_parent_field, tree_children_field, create_by, remark)
         VALUES (#{schemaGroupId}, #{name}, #{code}, #{tableName}, #{functionName}, #{moduleName},
-                #{businessName}, #{permissionPrefix}, #{createBy}, #{remark})
+                #{businessName}, #{permissionPrefix}, #{tableType}, #{masterTableId}, #{relationField},
+                #{treeParentField}, #{treeChildrenField}, #{createBy}, #{remark})
     </insert>
 
     <update id="update" parameterType="com.zl.generator.domain.Schema">
@@ -76,6 +91,11 @@
             <if test="moduleName != null">module_name = #{moduleName},</if>
             <if test="businessName != null">business_name = #{businessName},</if>
             <if test="permissionPrefix != null">permission_prefix = #{permissionPrefix},</if>
+            <if test="tableType != null">table_type = #{tableType},</if>
+            <if test="masterTableId != null">master_table_id = #{masterTableId},</if>
+            <if test="relationField != null">relation_field = #{relationField},</if>
+            <if test="treeParentField != null">tree_parent_field = #{treeParentField},</if>
+            <if test="treeChildrenField != null">tree_children_field = #{treeChildrenField},</if>
             <if test="status != null">status = #{status},</if>
             <if test="remark != null">remark = #{remark},</if>
             update_by = #{updateBy},

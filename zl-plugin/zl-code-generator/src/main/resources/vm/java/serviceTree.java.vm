@@ -1,0 +1,78 @@
+package ${packageName}.service;
+
+import ${packageName}.domain.${ClassName};
+import ${packageName}.dto.${ClassName}Dto;
+
+import java.util.List;
+
+/**
+ * ${functionName} Service 接口（树表）
+ *
+ * @author ${author}
+ * @date ${datetime}
+ */
+public interface ${ClassName}Service {
+
+    /**
+     * 查询所有列表
+     *
+     * @return 列表
+     */
+    List<${ClassName}> findAll();
+
+    /**
+     * 根据ID查询
+     *
+     * @param id ID
+     * @return 对象
+     */
+    ${ClassName} findById(Long id);
+
+    /**
+     * 创建
+     *
+     * @param ${classname}Dto 数据传输对象
+     * @return 是否成功
+     */
+    Boolean create(${ClassName}Dto ${classname}Dto);
+
+    /**
+     * 更新
+     *
+     * @param ${classname}Dto 数据传输对象
+     * @return 是否成功
+     */
+    Boolean update(${ClassName}Dto ${classname}Dto);
+
+    /**
+     * 根据ID删除
+     *
+     * @param id ID
+     * @return 是否成功
+     */
+    Boolean deleteById(Long id);
+
+    /**
+     * 查询树形结构
+     *
+     * @return 树形结构列表
+     */
+    List<${ClassName}> findTree();
+
+    /**
+     * 根据父节点ID查询树形结构
+     *
+     * @param parentId 父节点ID
+     * @return 树形结构列表
+     */
+    List<${ClassName}> findTreeByParentId(Long parentId);
+
+    /**
+     * 移动节点
+     *
+     * @param id 节点ID
+     * @param newParentId 新的父节点ID
+     * @return 是否成功
+     */
+    Boolean moveNode(Long id, Long newParentId);
+}

@@ -1,0 +1,124 @@
+package ${packageName}.service.impl;
+
+import cn.hutool.core.bean.BeanUtil;
+import ${packageName}.domain.${ClassName};
+#if($detailTables && $detailTables.size() > 0)
+#foreach($detailTable in $detailTables)
+import ${packageName}.domain.${detailTable.className};
+import ${packageName}.dto.${detailTable.className}Dto;
+import ${packageName}.mapper.${detailTable.className}Mapper;
+#end
+#end
+import ${packageName}.dto.${ClassName}Dto;
+import ${packageName}.mapper.${ClassName}Mapper;
+import ${packageName}.service.${ClassName}Service;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+
+import java.util.List;
+
+/**
+ * ${functionName} Service 实现（主表）
+ *
+ * @author ${author}
+ * @date ${datetime}
+ */
+@Service
+public class ${ClassName}ServiceImpl implements ${ClassName}Service {
+
+    @Autowired
+    private ${ClassName}Mapper ${classname}Mapper;
+#if($detailTables && $detailTables.size() > 0)
+#foreach($detailTable in $detailTables)
+
+    @Autowired
+    private ${detailTable.className}Mapper ${detailTable.businessName}Mapper;
+#end
+#end
+
+    @Override
+    public List<${ClassName}> findAll() {
+        return ${classname}Mapper.selectAll();
+    }
+
+    @Override
+    public ${ClassName} findById(Long id) {
+        ${ClassName} ${classname} = ${classname}Mapper.selectById(id);
+#if($detailTables && $detailTables.size() > 0)
+#foreach($detailTable in $detailTables)
+        // 查询${detailTable.functionName}列表
+        if (${classname} != null) {
+            List<${detailTable.className}> ${detailTable.businessName}List = ${detailTable.businessName}Mapper.selectBy${ClassName}Id(id);
+            ${classname}.set${detailTable.className}List(${detailTable.businessName}List);
+        }
+#end
+#end
+        return ${classname};
+    }
+
+    @Override
+    @Transactional(rollbackFor = Exception.class)
+    public Boolean create(${ClassName}Dto ${classname}Dto) {
+        ${ClassName} ${classname} = BeanUtil.copyProperties(${classname}Dto, ${ClassName}.class);
+        int result = ${classname}Mapper.insert(${classname});
+#if($detailTables && $detailTables.size() > 0)
+
+        // 保存子表数据
+#if($detailTables.size() > 1)
+        List<${ClassName}Dto> detailList;
+#end
+#foreach($detailTable in $detailTables)
+        List<${detailTable.className}Dto> ${detailTable.businessName}List = ${classname}Dto.get${detailTable.className}List();
+        if (${detailTable.businessName}List != null && !${detailTable.businessName}List.isEmpty()) {
+            for (${detailTable.className}Dto ${detailTable.businessName}Dto : ${detailTable.businessName}List) {
+                ${detailTable.className} ${detailTable.businessName} = BeanUtil.copyProperties(${detailTable.businessName}Dto, ${detailTable.className}.class);
+                ${detailTable.businessName}.set${ClassName}Id(${classname}.getId());
+                ${detailTable.businessName}Mapper.insert(${detailTable.businessName});
+            }
+        }
+#end
+#end
+        return result > 0;
+    }
+
+    @Override
+    @Transactional(rollbackFor = Exception.class)
+    public Boolean update(${ClassName}Dto ${classname}Dto) {
+        ${ClassName} ${classname} = BeanUtil.copyProperties(${classname}Dto, ${ClassName}.class);
+        int result = ${classname}Mapper.update(${classname});
+#if($detailTables && $detailTables.size() > 0)
+
+        // 删除原有子表数据
+#foreach($detailTable in $detailTables)
+        ${detailTable.businessName}Mapper.deleteBy${ClassName}Id(${classname}.getId());
+#end
+
+        // 保存新的子表数据
+#foreach($detailTable in $detailTables)
+        List<${detailTable.className}Dto> ${detailTable.businessName}List = ${classname}Dto.get${detailTable.businessName}List();
+        if (${detailTable.businessName}List != null && !${detailTable.businessName}List.isEmpty()) {
+            for (${detailTable.className}Dto ${detailTable.businessName}Dto : ${detailTable.businessName}List) {
+                ${detailTable.className} ${detailTable.businessName} = BeanUtil.copyProperties(${detailTable.businessName}Dto, ${detailTable.className}.class);
+                ${detailTable.businessName}.set${ClassName}Id(${classname}.getId());
+                ${detailTable.businessName}Mapper.insert(${detailTable.businessName});
+            }
+        }
+#end
+#end
+        return result > 0;
+    }
+
+    @Override
+    @Transactional(rollbackFor = Exception.class)
+    public Boolean deleteById(Long id) {
+#if($detailTables && $detailTables.size() > 0)
+        // 删除子表数据
+#foreach($detailTable in $detailTables)
+        ${detailTable.businessName}Mapper.deleteBy${ClassName}Id(id);
+#end
+#end
+        int result = ${classname}Mapper.deleteById(id);
+        return result > 0;
+    }
+}

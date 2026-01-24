@@ -9,7 +9,7 @@ import java.util.Map;
 /**
  * 数据模型 Service 接口
  *
- * @author code-generator
+ * @author GuihaoLv
  * @date 2026-01-23
  */
 public interface SchemaService {
@@ -44,6 +44,14 @@ public interface SchemaService {
      * @return 模型列表
      */
     List<Schema> findByGroupId(Long schemaGroupId);
+
+    /**
+     * 根据主表ID查询子表列表
+     *
+     * @param masterTableId 主表ID
+     * @return 子表列表
+     */
+    List<Schema> findByMasterTableId(Long masterTableId);
 
     /**
      * 创建模型

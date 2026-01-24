@@ -9,7 +9,7 @@ import lombok.NoArgsConstructor;
 /**
  * 数据模型分组实体类
  *
- * @author code-generator
+ * @author GuihaoLv
  * @date 2026-01-23
  */
 @Data

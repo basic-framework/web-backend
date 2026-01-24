@@ -1,0 +1,64 @@
+package ${packageName}.mapper;
+
+import ${packageName}.domain.${ClassName};
+import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Param;
+
+import java.util.List;
+
+/**
+ * ${functionName} Mapper 接口（树表）
+ *
+ * @author ${author}
+ * @date ${datetime}
+ */
+@Mapper
+public interface ${ClassName}Mapper {
+
+    /**
+     * 查询所有
+     *
+     * @return 列表
+     */
+    List<${ClassName}> selectAll();
+
+    /**
+     * 根据ID查询
+     *
+     * @param id ID
+     * @return 对象
+     */
+    ${ClassName} selectById(@Param("id") Long id);
+
+    /**
+     * 根据父节点ID查询
+     *
+     * @param ${treeParentField} 父节点ID
+     * @return 列表
+     */
+    List<${ClassName}> selectBy${ClassName}Id(@Param("${treeParentField}") Long ${treeParentField});
+
+    /**
+     * 插入
+     *
+     * @param ${classname} 对象
+     * @return 影响行数
+     */
+    int insert(${ClassName} ${classname});
+
+    /**
+     * 更新
+     *
+     * @param ${classname} 对象
+     * @return 影响行数
+     */
+    int update(${ClassName} ${classname});
+
+    /**
+     * 根据ID删除
+     *
+     * @param id ID
+     * @return 影响行数
+     */
+    int deleteById(@Param("id") Long id);
+}

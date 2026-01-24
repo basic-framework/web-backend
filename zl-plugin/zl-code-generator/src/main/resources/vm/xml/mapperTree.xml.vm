@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="${packageName}.mapper.${ClassName}Mapper">
+
+    <resultMap id="BaseResultMap" type="${packageName}.domain.${ClassName}">
+#if($pkColumn && $pkColumn.isPk == "1")
+        <id column="${pkColumn.columnName}" property="${pkColumn.javaField}"/>
+#end
+#foreach($column in $columns)
+#if($column.isPk != "1")
+        <result column="${column.columnName}" property="${column.javaField}"/>
+#end
+#end
+    </resultMap>
+
+    <sql id="Base_Column_List">
+#foreach($column in $columns)
+        ${column.columnName}#if($foreach.hasNext),#end
+#end
+    </sql>
+
+    <select id="selectAll" resultMap="BaseResultMap">
+        SELECT
+        <include refid="Base_Column_List"/>
+        FROM ${tableName}
+        ORDER BY ${treeParentField}, sort_no
+    </select>
+
+    <select id="selectById" resultMap="BaseResultMap">
+        SELECT
+        <include refid="Base_Column_List"/>
+        FROM ${tableName}
+#if($pkColumn && $pkColumn.isPk == "1")
+        WHERE ${pkColumn.columnName} = #{id}
+#end
+    </select>
+
+    <select id="selectBy${ClassName}Id" resultMap="BaseResultMap">
+        SELECT
+        <include refid="Base_Column_List"/>
+        FROM ${tableName}
+        WHERE ${treeParentField} = #{${treeParentField}}
+        ORDER BY sort_no
+    </select>
+
+    <insert id="insert" parameterType="${packageName}.domain.${ClassName}"#if($pkColumn && $pkColumn.isPk == "1" && $pkColumn.javaType == "Long") useGeneratedKeys="true" keyProperty="${pkColumn.javaField}"#end>
+        INSERT INTO ${tableName} (
+#foreach($column in $columns)
+#if($column.isPk != "1" || $column.javaType != "Long")
+            ${column.columnName}#if($foreach.hasNext),#end
+#end
+#end
+        ) VALUES (
+#foreach($column in $columns)
+#if($column.isPk != "1" || $column.javaType != "Long")
+            #{${column.javaField}}#if($foreach.hasNext),#end
+#end
+#end
+        )
+    </insert>
+
+    <update id="update" parameterType="${packageName}.domain.${ClassName}">
+        UPDATE ${tableName}
+        <set>
+#foreach($column in $columns)
+#if($column.isPk != "1")
+            <if test="${column.javaField} != null">
+                ${column.columnName} = #{${column.javaField}},
+            </if>
+#end
+#end
+        </set>
+#if($pkColumn && $pkColumn.isPk == "1")
+        WHERE ${pkColumn.columnName} = #{${pkColumn.javaField}}
+#end
+    </update>
+
+    <delete id="deleteById">
+        DELETE FROM ${tableName}
+#if($pkColumn && $pkColumn.isPk == "1")
+        WHERE ${pkColumn.columnName} = #{id}
+#end
+    </delete>
+
+</mapper>

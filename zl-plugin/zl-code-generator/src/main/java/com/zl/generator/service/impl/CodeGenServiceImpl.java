@@ -25,7 +25,7 @@ import java.util.zip.ZipOutputStream;
 /**
  * 代码生成 Service 实现
  *
- * @author code-generator
+ * @author GuihaoLv
  * @date 2026-01-23
  */
 @Slf4j
@@ -133,11 +133,38 @@ public class CodeGenServiceImpl implements CodeGenService {
             fields = buildFieldsFromTable(tableName);
         }
 
+        // 如果是主表，加载子表信息
+        if ("MASTER".equals(schema.getTableType()) && schema.getId() != null) {
+            List<Schema> detailTables = schemaService.findByMasterTableId(schema.getId());
+            if (detailTables != null && !detailTables.isEmpty()) {
+                // 为每个子表设置className等必要信息
+                for (Schema detailTable : detailTables) {
+                    String detailClassName = convertToClassName(detailTable.getTableName());
+                    detailTable.setClassName(detailClassName);
+
+                    // 设置小写类名（用于变量名）
+                    detailTable.setBusinessName(StrUtil.lowerFirst(detailClassName));
+
+                    // 设置功能名称（如果没有的话）
+                    if (StrUtil.isBlank(detailTable.getFunctionName())) {
+                        detailTable.setFunctionName(detailTable.getName() != null ? detailTable.getName() : detailClassName);
+                    }
+
+                    // 设置子表的主表信息
+                    detailTable.setMasterTableName(schema.getTableName());
+                    detailTable.setMasterClassName(schema.getClassName());
+                }
+                schema.setDetailTables(detailTables);
+                log.info("加载到 {} 个子表", detailTables.size());
+            }
+        }
+
         // 准备 Velocity 上下文
         Map<String, Object> context = VelocityUtils.prepareContext(schema, fields, genConfig);
 
-        // 渲染模板并返回预览内容（会自动包含 DTO 模板）
-        Map<String, String> templates = VelocityUtils.getTemplateList();
+        // 根据表类型获取模板列表
+        String tableType = schema.getTableType() != null ? schema.getTableType() : "SINGLE";
+        Map<String, String> templates = VelocityUtils.getTemplateList(tableType);
         Map<String, Object> preview = new HashMap<>();
 
         for (Map.Entry<String, String> entry : templates.entrySet()) {
@@ -183,11 +210,30 @@ public class CodeGenServiceImpl implements CodeGenService {
             fields = buildFieldsFromTable(tableName);
         }
 
+        // 如果是主表，加载子表信息
+        if ("MASTER".equals(schema.getTableType()) && schema.getId() != null) {
+            List<Schema> detailTables = schemaService.findByMasterTableId(schema.getId());
+            if (detailTables != null && !detailTables.isEmpty()) {
+                // 为每个子表设置className等必要信息
+                for (Schema detailTable : detailTables) {
+                    String detailClassName = convertToClassName(detailTable.getTableName());
+                    detailTable.setClassName(detailClassName);
+
+                    // 设置子表的主表信息
+                    detailTable.setMasterTableName(schema.getTableName());
+                    detailTable.setMasterClassName(schema.getClassName());
+                }
+                schema.setDetailTables(detailTables);
+                log.info("加载到 {} 个子表", detailTables.size());
+            }
+        }
+
         // 准备 Velocity 上下文
         Map<String, Object> context = VelocityUtils.prepareContext(schema, fields, genConfig);
 
-        // 获取模板列表并生成代码（包含 DTO 模板）
-        Map<String, String> templates = VelocityUtils.getTemplateList();
+        // 根据表类型获取模板列表
+        String tableType = schema.getTableType() != null ? schema.getTableType() : "SINGLE";
+        Map<String, String> templates = VelocityUtils.getTemplateList(tableType);
 
         for (Map.Entry<String, String> entry : templates.entrySet()) {
             String templateName = entry.getKey();
@@ -251,6 +297,32 @@ public class CodeGenServiceImpl implements CodeGenService {
             fields = buildFieldsFromTable(tableName);
         }
 
+        // 如果是主表，加载子表信息
+        if ("MASTER".equals(schema.getTableType()) && schema.getId() != null) {
+            List<Schema> detailTables = schemaService.findByMasterTableId(schema.getId());
+            if (detailTables != null && !detailTables.isEmpty()) {
+                // 为每个子表设置className等必要信息
+                for (Schema detailTable : detailTables) {
+                    String detailClassName = convertToClassName(detailTable.getTableName());
+                    detailTable.setClassName(detailClassName);
+
+                    // 设置小写类名（用于变量名）
+                    detailTable.setBusinessName(StrUtil.lowerFirst(detailClassName));
+
+                    // 设置功能名称（如果没有的话）
+                    if (StrUtil.isBlank(detailTable.getFunctionName())) {
+                        detailTable.setFunctionName(detailTable.getName() != null ? detailTable.getName() : detailClassName);
+                    }
+
+                    // 设置子表的主表信息
+                    detailTable.setMasterTableName(schema.getTableName());
+                    detailTable.setMasterClassName(schema.getClassName());
+                }
+                schema.setDetailTables(detailTables);
+                log.info("加载到 {} 个子表", detailTables.size());
+            }
+        }
+
         // 准备 Velocity 上下文
         Map<String, Object> context = VelocityUtils.prepareContext(schema, fields, genConfig);
 
@@ -258,8 +330,9 @@ public class CodeGenServiceImpl implements CodeGenService {
         ByteArrayOutputStream byteOutputStream = new ByteArrayOutputStream();
 
         try (ZipOutputStream zipOutputStream = new ZipOutputStream(byteOutputStream)) {
-            // 获取模板列表（包含 DTO 模板）
-            Map<String, String> templates = VelocityUtils.getTemplateList();
+            // 根据表类型获取模板列表
+            String tableType = schema.getTableType() != null ? schema.getTableType() : "SINGLE";
+            Map<String, String> templates = VelocityUtils.getTemplateList(tableType);
 
             for (Map.Entry<String, String> entry : templates.entrySet()) {
                 String templateName = entry.getKey();
@@ -334,6 +407,11 @@ public class CodeGenServiceImpl implements CodeGenService {
     private List<SchemaField> buildFieldsFromTable(String tableName) {
         List<SchemaField> fields = new ArrayList<>();
 
+        // BaseEntity中已有的字段，需要过滤掉（对应数据库字段名）
+        Set<String> baseEntityFields = new HashSet<>(Arrays.asList(
+            "id", "create_time", "update_time", "create_by", "update_by", "remark", "status"
+        ));
+
         try (Connection conn = dataSource.getConnection()) {
             DatabaseMetaData metaData = conn.getMetaData();
 
@@ -348,9 +426,16 @@ public class CodeGenServiceImpl implements CodeGenService {
             // 获取列信息
             try (ResultSet colRs = metaData.getColumns(conn.getCatalog(), null, tableName, null)) {
                 while (colRs.next()) {
+                    String columnName = colRs.getString("COLUMN_NAME");
+
+                    // 过滤掉BaseEntity中已有的字段
+                    if (baseEntityFields.contains(columnName.toLowerCase())) {
+                        log.debug("跳过BaseEntity字段: {}", columnName);
+                        continue;
+                    }
+
                     SchemaField field = new SchemaField();
 
-                    String columnName = colRs.getString("COLUMN_NAME");
                     field.setColumnName(columnName);
 
                     // 转换为Java字段名（驼峰命名）
@@ -409,6 +494,7 @@ public class CodeGenServiceImpl implements CodeGenService {
             throw new RuntimeException("获取表字段信息失败: " + e.getMessage());
         }
 
+        log.info("从表 {} 读取到 {} 个字段（已过滤BaseEntity字段）", tableName, fields.size());
         return fields;
     }
 
@@ -465,6 +551,19 @@ public class CodeGenServiceImpl implements CodeGenService {
     private String toCamelCase(String str) {
         String pascalCase = toPascalCase(str);
         return StrUtil.lowerFirst(pascalCase);
+    }
+
+
+
+
+    /**
+     * 将表名转换为类名
+     *
+     * @param tableName 表名
+     * @return 类名
+     */
+    private String convertToClassName(String tableName) {
+        return toPascalCase(tableName);
     }
 
     /**

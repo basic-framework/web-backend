@@ -9,7 +9,7 @@ import java.util.List;
 /**
  * 数据模型 Mapper 接口
  *
- * @author code-generator
+ * @author GuihaoLv
  * @date 2026-01-23
  */
 @Mapper
@@ -45,6 +45,14 @@ public interface SchemaMapper {
      * @return 模型列表
      */
     List<Schema> selectByGroupId(@Param("schemaGroupId") Long schemaGroupId);
+
+    /**
+     * 根据主表ID查询子表列表
+     *
+     * @param masterTableId 主表ID
+     * @return 子表列表
+     */
+    List<Schema> selectByMasterTableId(@Param("masterTableId") Long masterTableId);
 
     /**
      * 插入模型

@@ -1,0 +1,146 @@
+package ${packageName}.service.impl;
+
+import cn.hutool.core.bean.BeanUtil;
+import ${packageName}.domain.${ClassName};
+import ${packageName}.dto.${ClassName}Dto;
+import ${packageName}.mapper.${ClassName}Mapper;
+import ${packageName}.service.${ClassName}Service;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.stream.Collectors;
+
+/**
+ * ${functionName} Service 实现（树表）
+ *
+ * @author ${author}
+ * @date ${datetime}
+ */
+@Service
+public class ${ClassName}ServiceImpl implements ${ClassName}Service {
+
+    @Autowired
+    private ${ClassName}Mapper ${classname}Mapper;
+
+    @Override
+    public List<${ClassName}> findAll() {
+        return ${classname}Mapper.selectAll();
+    }
+
+    @Override
+    public ${ClassName} findById(Long id) {
+        return ${classname}Mapper.selectById(id);
+    }
+
+    @Override
+    public Boolean create(${ClassName}Dto ${classname}Dto) {
+        ${ClassName} ${classname} = BeanUtil.copyProperties(${classname}Dto, ${ClassName}.class);
+        int result = ${classname}Mapper.insert(${classname});
+        return result > 0;
+    }
+
+    @Override
+    public Boolean update(${ClassName}Dto ${classname}Dto) {
+        ${ClassName} ${classname} = BeanUtil.copyProperties(${classname}Dto, ${ClassName}.class);
+        int result = ${classname}Mapper.update(${classname});
+        return result > 0;
+    }
+
+    @Override
+    public Boolean deleteById(Long id) {
+        // 检查是否有子节点
+        List<${ClassName}> children = ${classname}Mapper.selectBy${ClassName}Id(id);
+        if (children != null && !children.isEmpty()) {
+            throw new RuntimeException("存在子节点，不能删除");
+        }
+        int result = ${classname}Mapper.deleteById(id);
+        return result > 0;
+    }
+
+    @Override
+    public List<${ClassName}> findTree() {
+        List<${ClassName}> allNodes = ${classname}Mapper.selectAll();
+        return buildTree(allNodes, null);
+    }
+
+    @Override
+    public List<${ClassName}> findTreeByParentId(Long parentId) {
+        List<${ClassName}> allNodes = ${classname}Mapper.selectAll();
+        return buildTree(allNodes, parentId);
+    }
+
+    @Override
+    public Boolean moveNode(Long id, Long newParentId) {
+        ${ClassName} ${classname} = ${classname}Mapper.selectById(id);
+        if (${classname} == null) {
+            throw new RuntimeException("节点不存在");
+        }
+
+        // 检查是否移动到自己的子节点下
+        if (newParentId != null) {
+            List<${ClassName}> descendants = getDescendants(id);
+            boolean isDescendant = descendants.stream()
+                .anyMatch(node -> node.getId().equals(newParentId));
+            if (isDescendant) {
+                throw new RuntimeException("不能移动到自己的子节点下");
+            }
+        }
+
+        ${classname}.set${treeParentField.substring(0, 1).toUpperCase()}${treeParentField.substring(1)}(newParentId);
+        int result = ${classname}Mapper.update(${classname});
+        return result > 0;
+    }
+
+    /**
+     * 构建树形结构
+     *
+     * @param allNodes 所有节点
+     * @param parentId 父节点ID
+     * @return 树形结构
+     */
+    private List<${ClassName}> buildTree(List<${ClassName}> allNodes, Long parentId) {
+        List<${ClassName}> tree = new ArrayList<>();
+
+        for (${ClassName} node : allNodes) {
+#if($pkColumn && $pkColumn.javaField)
+            Long nodeId = node.get${pkColumn.javaField.substring(0, 1).toUpperCase()}${pkColumn.javaField.substring(1)}();
+            Long nodeParentId = node.get${treeParentField.substring(0, 1).toUpperCase()}${treeParentField.substring(1)}();
+
+            if ((parentId == null && nodeParentId == null) || (parentId != null && parentId.equals(nodeParentId))) {
+                List<${ClassName}> children = buildTree(allNodes, nodeId);
+                node.set${treeChildrenField.substring(0, 1).toUpperCase()}${treeChildrenField.substring(1)}(children);
+                tree.add(node);
+            }
+#else
+            // 需要配置主键字段
+#end
+        }
+
+        return tree;
+    }
+
+    /**
+     * 获取所有子孙节点
+     *
+     * @param id 节点ID
+     * @return 子孙节点列表
+     */
+    private List<${ClassName}> getDescendants(Long id) {
+        List<${ClassName}> descendants = new ArrayList<>();
+        List<${ClassName}> children = ${classname}Mapper.selectBy${ClassName}Id(id);
+
+        for (${ClassName} child : children) {
+#if($pkColumn && $pkColumn.javaField)
+            Long childId = child.get${pkColumn.javaField.substring(0, 1).toUpperCase()}${pkColumn.javaField.substring(1)}();
+            descendants.add(child);
+            descendants.addAll(getDescendants(childId));
+#else
+            // 需要配置主键字段
+#end
+        }
+
+        return descendants;
+    }
+}

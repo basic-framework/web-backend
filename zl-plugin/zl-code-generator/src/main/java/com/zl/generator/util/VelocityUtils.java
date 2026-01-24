@@ -17,7 +17,7 @@ import java.util.*;
 /**
  * Velocity 模板工具类
  *
- * @author code-generator
+ * @author GuihaoLv
  * @date 2026-01-23
  */
 public class VelocityUtils {
@@ -42,23 +42,70 @@ public class VelocityUtils {
     }
 
     /**
-     * 获取模板列表（新增 dto.java.vm 模板）
+     * 获取模板列表（根据表类型选择不同模板）
+     *
+     * @param tableType 表类型：SINGLE-单表, MASTER-主表, DETAIL-子表, TREE-树表
+     * @return 模板列表
+     */
+    public static Map<String, String> getTemplateList(String tableType) {
+        Map<String, String> templates = new LinkedHashMap<>();
+
+        if ("MASTER".equals(tableType)) {
+            // 主表模板
+            templates.put("domain.java.vm", "vm/java/domainMaster.java.vm");
+            templates.put("vo.java.vm", "vm/java/vo.java.vm");
+            templates.put("bo.java.vm", "vm/java/bo.java.vm");
+            templates.put("dto.java.vm", "vm/java/dto.java.vm");
+            templates.put("mapper.java.vm", "vm/java/mapper.java.vm");
+            templates.put("mapper.xml.vm", "vm/xml/mapper.xml.vm");
+            templates.put("service.java.vm", "vm/java/service.java.vm");
+            templates.put("serviceImpl.java.vm", "vm/java/serviceImplMaster.java.vm");
+            templates.put("controller.java.vm", "vm/java/controller.java.vm");
+        } else if ("DETAIL".equals(tableType)) {
+            // 子表模板
+            templates.put("domain.java.vm", "vm/java/domainDetail.java.vm");
+            templates.put("vo.java.vm", "vm/java/vo.java.vm");
+            templates.put("bo.java.vm", "vm/java/bo.java.vm");
+            templates.put("dto.java.vm", "vm/java/dto.java.vm");
+            templates.put("mapper.java.vm", "vm/java/mapperDetail.java.vm");
+            templates.put("mapper.xml.vm", "vm/xml/mapperDetail.xml.vm");
+            templates.put("service.java.vm", "vm/java/service.java.vm");
+            templates.put("serviceImpl.java.vm", "vm/java/serviceImpl.java.vm");
+            // 子表不需要独立的Controller
+        } else if ("TREE".equals(tableType)) {
+            // 树表模板
+            templates.put("domain.java.vm", "vm/java/domainTree.java.vm");
+            templates.put("vo.java.vm", "vm/java/vo.java.vm");
+            templates.put("bo.java.vm", "vm/java/bo.java.vm");
+            templates.put("dto.java.vm", "vm/java/dto.java.vm");
+            templates.put("mapper.java.vm", "vm/java/mapperTree.java.vm");
+            templates.put("mapper.xml.vm", "vm/xml/mapperTree.xml.vm");
+            templates.put("service.java.vm", "vm/java/serviceTree.java.vm");
+            templates.put("serviceImpl.java.vm", "vm/java/serviceImplTree.java.vm");
+            templates.put("controller.java.vm", "vm/java/controllerTree.java.vm");
+        } else {
+            // 默认单表模板
+            templates.put("domain.java.vm", "vm/java/domain.java.vm");
+            templates.put("vo.java.vm", "vm/java/vo.java.vm");
+            templates.put("bo.java.vm", "vm/java/bo.java.vm");
+            templates.put("dto.java.vm", "vm/java/dto.java.vm");
+            templates.put("mapper.java.vm", "vm/java/mapper.java.vm");
+            templates.put("service.java.vm", "vm/java/service.java.vm");
+            templates.put("serviceImpl.java.vm", "vm/java/serviceImpl.java.vm");
+            templates.put("controller.java.vm", "vm/java/controller.java.vm");
+            templates.put("mapper.xml.vm", "vm/xml/mapper.xml.vm");
+        }
+
+        return templates;
+    }
+
+    /**
+     * 获取模板列表（保持向后兼容，默认单表）
      *
      * @return 模板列表
      */
     public static Map<String, String> getTemplateList() {
-        Map<String, String> templates = new LinkedHashMap<>();
-        templates.put("domain.java.vm", "vm/java/domain.java.vm");
-        templates.put("vo.java.vm", "vm/java/vo.java.vm");
-        templates.put("bo.java.vm", "vm/java/bo.java.vm");
-        // 新增 DTO 模板配置（关键修复点）
-        templates.put("dto.java.vm", "vm/java/dto.java.vm");
-        templates.put("mapper.java.vm", "vm/java/mapper.java.vm");
-        templates.put("service.java.vm", "vm/java/service.java.vm");
-        templates.put("serviceImpl.java.vm", "vm/java/serviceImpl.java.vm");
-        templates.put("controller.java.vm", "vm/java/controller.java.vm");
-        templates.put("mapper.xml.vm", "vm/xml/mapper.xml.vm");
-        return templates;
+        return getTemplateList("SINGLE");
     }
 
     /**
@@ -82,9 +129,9 @@ public class VelocityUtils {
 
         // 类名处理
         String className = convertClassName(schema.getTableName(), genConfig);
+        schema.setClassName(className);
         context.put("ClassName", className);
         context.put("classname", StrUtil.lowerFirst(className));
-        context.put("ClassName", className);
 
         // 模块和业务名称
         context.put("moduleName", StrUtil.isNotBlank(schema.getModuleName()) ? schema.getModuleName() : "system");
@@ -92,6 +139,33 @@ public class VelocityUtils {
 
         // 权限前缀
         context.put("permissionPrefix", StrUtil.isNotBlank(schema.getPermissionPrefix()) ? schema.getPermissionPrefix() : context.get("moduleName") + ":" + context.get("businessName"));
+
+        // 表类型相关信息
+        context.put("tableType", schema.getTableType() != null ? schema.getTableType() : "SINGLE");
+
+        // 主子表相关
+        if (schema.getMasterTableName() != null) {
+            context.put("masterTableName", schema.getMasterTableName());
+        }
+        if (schema.getMasterClassName() != null) {
+            context.put("masterClassName", schema.getMasterClassName());
+        }
+        if (schema.getRelationField() != null) {
+            context.put("relationField", schema.getRelationField());
+        }
+        if (schema.getDetailTables() != null && !schema.getDetailTables().isEmpty()) {
+            context.put("detailTables", schema.getDetailTables());
+        }
+
+        // 树表相关
+        if (schema.getTreeParentField() != null) {
+            context.put("treeParentField", schema.getTreeParentField());
+        }
+        if (schema.getTreeChildrenField() != null) {
+            context.put("treeChildrenField", schema.getTreeChildrenField());
+        } else {
+            context.put("treeChildrenField", "children");
+        }
 
         // 处理字段信息
         List<Map<String, Object>> columns = new ArrayList<>();

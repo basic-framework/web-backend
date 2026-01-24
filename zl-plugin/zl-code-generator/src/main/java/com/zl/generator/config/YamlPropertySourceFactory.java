@@ -14,7 +14,7 @@ import java.util.Properties;
  * Yaml PropertySource Factory
  * 用于支持 @PropertySource 加载 YAML 配置文件
  *
- * @author code-generator
+ * @author GuihaoLv
  * @date 2026-01-23
  */
 public class YamlPropertySourceFactory implements PropertySourceFactory {

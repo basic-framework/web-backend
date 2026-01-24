@@ -7,7 +7,7 @@ import java.util.Map;
 /**
  * 代码生成 Service 接口
  *
- * @author code-generator
+ * @author GuihaoLv
  * @date 2026-01-23
  */
 public interface CodeGenService {

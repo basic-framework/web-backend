@@ -1,7 +1,7 @@
 # 代码生成器配置
 gen:
   # 作者名称
-  author: code-generator
+  author: GuihaoLv
   # 生成代码的包路径
   packageName: com.zl
   # 是否自动去除表前缀

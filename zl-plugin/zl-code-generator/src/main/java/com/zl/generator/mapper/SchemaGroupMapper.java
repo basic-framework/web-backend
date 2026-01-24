@@ -8,7 +8,7 @@ import java.util.List;
 /**
  * 数据模型分组 Mapper 接口
  *
- * @author code-generator
+ * @author GuihaoLv
  * @date 2026-01-23
  */
 @Mapper

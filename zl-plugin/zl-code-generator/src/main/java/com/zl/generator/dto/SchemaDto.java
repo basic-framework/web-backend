@@ -5,7 +5,7 @@ import lombok.Data;
 /**
  * 数据模型 DTO
  *
- * @author code-generator
+ * @author GuihaoLv
  * @date 2026-01-23
  */
 @Data

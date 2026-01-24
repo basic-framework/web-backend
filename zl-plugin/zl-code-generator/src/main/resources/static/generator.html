@@ -421,6 +421,74 @@
 
                 <hr style="margin: 20px 0; border: none; border-top: 1px solid #dee2e6;">
 
+                <h3>📋 表类型配置</h3>
+
+                <div style="padding: 10px; background: #e8f5e9; border-radius: 6px; margin-bottom: 15px; border-left: 4px solid #4caf50;">
+                    <strong style="color: #2e7d32;">💡 使用提示</strong>
+                    <p style="color: #2e7d32; font-size: 12px; margin: 5px 0;">请先从下方"已导入的模型"列表中选择一个模型，然后配置表类型</p>
+                </div>
+
+                <div class="form-group">
+                    <label for="tableType">表类型</label>
+                    <select id="tableType" onchange="handleTableTypeChange()">
+                        <option value="SINGLE">单表（SINGLE）</option>
+                        <option value="MASTER">主表（MASTER）</option>
+                        <option value="DETAIL">子表（DETAIL）</option>
+                        <option value="TREE">树表（TREE）</option>
+                    </select>
+                    <small>选择表的类型以生成对应的代码结构</small>
+                </div>
+
+                <!-- 主表配置 -->
+                <div id="masterTableConfig" style="display: none;">
+                    <div style="padding: 10px; background: #e3f2fd; border-radius: 6px; margin-bottom: 15px; border-left: 4px solid #2196f3;">
+                        <strong style="color: #1976d2;">主表配置</strong>
+                        <p style="color: #1976d2; font-size: 12px; margin: 5px 0;">主表可关联多个子表，生成时会包含子表列表</p>
+                    </div>
+                </div>
+
+                <!-- 子表配置 -->
+                <div id="detailTableConfig" style="display: none;">
+                    <div class="form-group">
+                        <label for="masterTableName">主表表名</label>
+                        <input type="text" id="masterTableName" placeholder="例如：sys_order">
+                        <small>输入主表的表名（从数据库中选择）</small>
+                    </div>
+                    <div class="form-group">
+                        <label for="relationField">关联字段名</label>
+                        <input type="text" id="relationField" placeholder="例如：order_id">
+                        <small>子表中指向主表的外键字段名</small>
+                    </div>
+                    <div style="padding: 10px; background: #fff3e0; border-radius: 6px; margin-bottom: 15px; border-left: 4px solid #ff9800;">
+                        <strong style="color: #e65100;">子表配置</strong>
+                        <p style="color: #e65100; font-size: 12px; margin: 5px 0;">子表必须关联一个主表，生成时会包含关联查询</p>
+                    </div>
+                </div>
+
+                <!-- 树表配置 -->
+                <div id="treeTableConfig" style="display: none;">
+                    <div class="form-group">
+                        <label for="treeParentField">父字段名</label>
+                        <input type="text" id="treeParentField" value="parent_id" placeholder="parent_id">
+                        <small>树表中指向父节点的字段名</small>
+                    </div>
+                    <div class="form-group">
+                        <label for="treeChildrenField">子节点集合字段名</label>
+                        <input type="text" id="treeChildrenField" value="children" placeholder="children">
+                        <small>实体类中存储子节点的集合字段名</small>
+                    </div>
+                    <div style="padding: 10px; background: #f3e5f5; border-radius: 6px; margin-bottom: 15px; border-left: 4px solid #9c27b0;">
+                        <strong style="color: #4a148c;">树表配置</strong>
+                        <p style="color: #4a148c; font-size: 12px; margin: 5px 0;">树表会生成树形结构的查询和管理方法</p>
+                    </div>
+                </div>
+
+                <button class="btn btn-info" onclick="saveTableConfig()" style="margin-bottom: 10px;">
+                    💾 保存表类型配置
+                </button>
+
+                <hr style="margin: 20px 0; border: none; border-top: 1px solid #dee2e6;">
+
                 <h3>📊 已导入的模型</h3>
                 <div id="importedSchemas" class="schema-list" style="margin-top: 15px; max-height: 300px; overflow-y: auto;">
                     <p style="color: #6c757d; font-size: 14px;">暂无导入的模型</p>
@@ -465,6 +533,7 @@
                             <thead>
                                 <tr>
                                     <th>ID</th>
+                                    <th>表类型</th>
                                     <th>模型名称</th>
                                     <th>表名</th>
                                     <th>功能名称</th>
@@ -474,7 +543,7 @@
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td colspan="6" style="text-align: center; color: #6c757d;">暂无数据</td>
+                                    <td colspan="7" style="text-align: center; color: #6c757d;">暂无数据</td>
                                 </tr>
                             </tbody>
                         </table>
@@ -567,6 +636,15 @@
         const API_BASE = '/generator';
         let selectedTables = new Set();
         let allDbTables = [];
+        let currentEditingSchema = null; // 当前正在编辑的模型
+
+        // 表类型标签映射
+        const tableTypeLabels = {
+            'SINGLE': '<span class="status-badge success">单表</span>',
+            'MASTER': '<span class="status-badge" style="background: #e3f2fd; color: #1976d2;">主表</span>',
+            'DETAIL': '<span class="status-badge" style="background: #fff3e0; color: #e65100;">子表</span>',
+            'TREE': '<span class="status-badge" style="background: #f3e5f5; color: #4a148c;">树表</span>'
+        };
 
         // 显示提示信息
         function showAlert(message, type = 'info') {
@@ -576,6 +654,138 @@
             setTimeout(() => {
                 alert.classList.remove('show');
             }, 3000);
+        }
+
+        // 处理表类型变化
+        function handleTableTypeChange() {
+            const tableType = document.getElementById('tableType').value;
+            const masterConfig = document.getElementById('masterTableConfig');
+            const detailConfig = document.getElementById('detailTableConfig');
+            const treeConfig = document.getElementById('treeTableConfig');
+
+            // 隐藏所有配置区域
+            masterConfig.style.display = 'none';
+            detailConfig.style.display = 'none';
+            treeConfig.style.display = 'none';
+
+            // 根据选择的类型显示对应配置
+            switch (tableType) {
+                case 'MASTER':
+                    masterConfig.style.display = 'block';
+                    break;
+                case 'DETAIL':
+                    detailConfig.style.display = 'block';
+                    break;
+                case 'TREE':
+                    treeConfig.style.display = 'block';
+                    break;
+            }
+        }
+
+        // 加载模型配置到表单
+        function loadSchemaConfig(schema) {
+            if (!schema) return;
+
+            currentEditingSchema = schema;
+
+            // 设置表类型
+            document.getElementById('tableType').value = schema.tableType || 'SINGLE';
+
+            // 设置子表配置
+            if (schema.tableType === 'DETAIL') {
+                document.getElementById('masterTableName').value = schema.masterTableName || '';
+                document.getElementById('relationField').value = schema.relationField || '';
+            }
+
+            // 设置树表配置
+            if (schema.tableType === 'TREE') {
+                document.getElementById('treeParentField').value = schema.treeParentField || 'parent_id';
+                document.getElementById('treeChildrenField').value = schema.treeChildrenField || 'children';
+            }
+
+            // 触发表类型变化以显示对应配置区域
+            handleTableTypeChange();
+        }
+
+        // 保存表类型配置
+        async function saveTableConfig() {
+            if (!currentEditingSchema || !currentEditingSchema.id) {
+                showAlert('请先选择一个模型', 'error');
+                return;
+            }
+
+            const tableType = document.getElementById('tableType').value;
+            const config = {
+                id: currentEditingSchema.id,
+                tableType: tableType
+            };
+
+            // 根据表类型添加额外配置
+            if (tableType === 'DETAIL') {
+                const masterTableName = document.getElementById('masterTableName').value.trim();
+                const relationField = document.getElementById('relationField').value.trim();
+
+                if (!masterTableName) {
+                    showAlert('请输入主表表名', 'error');
+                    return;
+                }
+                if (!relationField) {
+                    showAlert('请输入关联字段名', 'error');
+                    return;
+                }
+
+                config.masterTableName = masterTableName;
+                config.relationField = relationField;
+            } else if (tableType === 'TREE') {
+                const treeParentField = document.getElementById('treeParentField').value.trim();
+                const treeChildrenField = document.getElementById('treeChildrenField').value.trim();
+
+                if (!treeParentField) {
+                    showAlert('请输入父字段名', 'error');
+                    return;
+                }
+
+                config.treeParentField = treeParentField;
+                config.treeChildrenField = treeChildrenField || 'children';
+            }
+
+            try {
+                const response = await fetch(`${API_BASE}/schema`, {
+                    method: 'PUT',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(config)
+                });
+
+                const result = await response.json();
+
+                if (result.code === 200) {
+                    showAlert('表类型配置保存成功', 'success');
+                    loadSchemaList(); // 刷新列表
+                } else {
+                    showAlert(result.message || '保存失败', 'error');
+                }
+            } catch (error) {
+                showAlert('保存失败: ' + error.message, 'error');
+            }
+        }
+
+        // 编辑模型配置
+        async function editSchemaConfig(schemaId) {
+            try {
+                const response = await fetch(`${API_BASE}/schema/${schemaId}`);
+                const result = await response.json();
+
+                if (result.code === 200 && result.data) {
+                    loadSchemaConfig(result.data);
+                    showAlert('模型配置已加载，请修改后点击保存', 'info');
+                } else {
+                    showAlert('加载模型配置失败', 'error');
+                }
+            } catch (error) {
+                showAlert('加载失败: ' + error.message, 'error');
+            }
         }
 
         // 切换标签页
@@ -774,6 +984,7 @@
                             <div class="schema-item" onclick="selectSchema(${s.id}, '${s.tableName}')">
                                 <strong>${s.tableName}</strong>
                                 <small>${s.name || s.functionName || ''}</small>
+                                <small style="display: block; margin-top: 3px; color: #6c757d;">${tableTypeLabels[s.tableType] || tableTypeLabels['SINGLE']}</small>
                             </div>
                         `).join('');
                     } else {
@@ -786,12 +997,14 @@
                         tbody.innerHTML = schemas.map(s => `
                             <tr>
                                 <td>${s.id}</td>
+                                <td>${tableTypeLabels[s.tableType] || tableTypeLabels['SINGLE']}</td>
                                 <td>${s.name || '-'}</td>
                                 <td>${s.tableName || '-'}</td>
                                 <td>${s.functionName || '-'}</td>
                                 <td><span class="status-badge success">正常</span></td>
                                 <td>
                                     <button class="btn btn-primary" style="padding: 5px 10px; font-size: 12px;" onclick="viewFields(${s.id})">查看字段</button>
+                                    <button class="btn btn-info" style="padding: 5px 10px; font-size: 12px; background: #17a2b8;" onclick="editSchemaConfig(${s.id})">配置类型</button>
                                     <button class="btn btn-secondary" style="padding: 5px 10px; font-size: 12px;" onclick="syncSchemaFields(${s.id})">同步字段</button>
                                     <button class="btn btn-secondary" style="padding: 5px 10px; font-size: 12px; background: #ffc107; color: #000;" onclick="cleanDuplicateFields(${s.id})">清理重复</button>
                                     <button class="btn btn-info" style="padding: 5px 10px; font-size: 12px;" onclick="previewSchemaCode(${s.id})">预览代码</button>
@@ -800,7 +1013,7 @@
                             </tr>
                         `).join('');
                     } else {
-                        tbody.innerHTML = '<tr><td colspan="6" style="text-align: center; color: #6c757d;">暂无数据</td></tr>';
+                        tbody.innerHTML = '<tr><td colspan="7" style="text-align: center; color: #6c757d;">暂无数据</td></tr>';
                     }
 
                     // 更新预览下拉框
@@ -815,8 +1028,21 @@
         let selectedSchemaId = null;
         let currentFields = []; // 存储当前加载的字段数据
 
-        function selectSchema(schemaId, tableName) {
+        async function selectSchema(schemaId, tableName) {
             selectedSchemaId = schemaId;
+
+            // 加载模型配置到表单
+            try {
+                const response = await fetch(`${API_BASE}/schema/${schemaId}`);
+                const result = await response.json();
+
+                if (result.code === 200 && result.data) {
+                    loadSchemaConfig(result.data);
+                }
+            } catch (error) {
+                console.error('加载模型配置失败:', error);
+            }
+
             viewFields(schemaId);
         }
 

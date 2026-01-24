@@ -18,7 +18,7 @@ import java.util.*;
 /**
  * 数据模型 Service 实现
  *
- * @author code-generator
+ * @author GuihaoLv
  * @date 2026-01-23
  */
 @Service
@@ -52,6 +52,11 @@ public class SchemaServiceImpl implements SchemaService {
     @Override
     public List<Schema> findByGroupId(Long schemaGroupId) {
         return schemaMapper.selectByGroupId(schemaGroupId);
+    }
+
+    @Override
+    public List<Schema> findByMasterTableId(Long masterTableId) {
+        return schemaMapper.selectByMasterTableId(masterTableId);
     }
 
     @Override
