@@ -52,6 +52,7 @@
         <module>zl-extend</module>
         <module>zl-security</module>
         <module>zl-framework</module>
+        <module>zl-plugin</module>
     </modules>
 
 

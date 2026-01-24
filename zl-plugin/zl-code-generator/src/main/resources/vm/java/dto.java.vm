@@ -1,0 +1,22 @@
+package ${packageName}.dto;
+
+import lombok.Data;
+import java.time.LocalDate;
+/**
+ * ${functionName}数据传输对象
+ *
+ * @author ${author}
+ * @date ${datetime}
+ */
+@Data
+public class ${ClassName}Dto {
+#foreach($column in $columns)
+#if($column.isInsert == "1" || $column.isEdit == "1")
+    /**
+     * $column.columnComment
+     */
+    private $column.javaType $column.javaField;
+
+#end
+#end
+}

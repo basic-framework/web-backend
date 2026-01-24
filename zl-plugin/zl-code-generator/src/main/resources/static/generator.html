@@ -1,0 +1,1322 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>代码生成器 - 智领基础脚手架</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1600px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 16px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            overflow: hidden;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 30px;
+            text-align: center;
+        }
+
+        .header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+        }
+
+        .header p {
+            font-size: 1.1em;
+            opacity: 0.9;
+        }
+
+        .main-content {
+            display: grid;
+            grid-template-columns: 350px 1fr;
+            min-height: 700px;
+        }
+
+        .sidebar {
+            background: #f8f9fa;
+            border-right: 1px solid #dee2e6;
+            padding: 20px;
+            overflow-y: auto;
+            max-height: calc(100vh - 200px);
+        }
+
+        .sidebar h3 {
+            color: #495057;
+            margin-bottom: 15px;
+            font-size: 1.2em;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #667eea;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            color: #495057;
+            font-weight: 500;
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ced4da;
+            border-radius: 6px;
+            font-size: 14px;
+            transition: border-color 0.3s;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: #667eea;
+        }
+
+        .form-group small {
+            display: block;
+            margin-top: 5px;
+            color: #6c757d;
+            font-size: 12px;
+        }
+
+        .btn {
+            padding: 12px 24px;
+            border: none;
+            border-radius: 6px;
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            width: 100%;
+            margin-bottom: 10px;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(102, 126, 234, 0.4);
+        }
+
+        .btn-secondary {
+            background: #6c757d;
+            color: white;
+        }
+
+        .btn-secondary:hover {
+            background: #5a6268;
+        }
+
+        .btn-success {
+            background: #28a745;
+            color: white;
+        }
+
+        .btn-success:hover {
+            background: #218838;
+        }
+
+        .btn-info {
+            background: #17a2b8;
+            color: white;
+        }
+
+        .btn-info:hover {
+            background: #138496;
+        }
+
+        .content-area {
+            padding: 30px;
+            overflow-y: auto;
+            max-height: calc(100vh - 200px);
+        }
+
+        .tabs {
+            display: flex;
+            border-bottom: 2px solid #dee2e6;
+            margin-bottom: 20px;
+        }
+
+        .tab {
+            padding: 12px 24px;
+            cursor: pointer;
+            border-bottom: 3px solid transparent;
+            transition: all 0.3s;
+            color: #6c757d;
+            font-weight: 500;
+        }
+
+        .tab:hover {
+            color: #667eea;
+        }
+
+        .tab.active {
+            color: #667eea;
+            border-bottom-color: #667eea;
+        }
+
+        .tab-content {
+            display: none;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        .table-container {
+            overflow-x: auto;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        table th,
+        table td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid #dee2e6;
+        }
+
+        table th {
+            background: #f8f9fa;
+            font-weight: 600;
+            color: #495057;
+        }
+
+        table tr:hover {
+            background: #f8f9fa;
+        }
+
+        .alert {
+            padding: 15px 20px;
+            border-radius: 6px;
+            margin-bottom: 20px;
+            display: none;
+        }
+
+        .alert.show {
+            display: block;
+        }
+
+        .alert-success {
+            background: #d4edda;
+            color: #155724;
+            border: 1px solid #c3e6cb;
+        }
+
+        .alert-error {
+            background: #f8d7da;
+            color: #721c24;
+            border: 1px solid #f5c6cb;
+        }
+
+        .alert-info {
+            background: #d1ecf1;
+            color: #0c5460;
+            border: 1px solid #bee5eb;
+        }
+
+        .table-list {
+            max-height: 400px;
+            overflow-y: auto;
+            border: 1px solid #dee2e6;
+            border-radius: 6px;
+        }
+
+        .table-item {
+            padding: 15px;
+            border-bottom: 1px solid #dee2e6;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: background 0.3s;
+        }
+
+        .table-item:hover {
+            background: #f8f9fa;
+        }
+
+        .table-item:last-child {
+            border-bottom: none;
+        }
+
+        .table-item strong {
+            color: #495057;
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .table-item small {
+            color: #6c757d;
+        }
+
+        .table-actions button {
+            padding: 6px 12px;
+            font-size: 12px;
+            margin-left: 5px;
+        }
+
+        .schema-list {
+            list-style: none;
+        }
+
+        .schema-item {
+            padding: 10px 15px;
+            border-radius: 6px;
+            margin-bottom: 8px;
+            background: white;
+            border: 1px solid #dee2e6;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .schema-item:hover {
+            border-color: #667eea;
+            background: #f8f9fa;
+        }
+
+        .schema-item.active {
+            background: #667eea;
+            color: white;
+            border-color: #667eea;
+        }
+
+        .status-badge {
+            display: inline-block;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 12px;
+            font-weight: 600;
+        }
+
+        .status-badge.success {
+            background: #d4edda;
+            color: #155724;
+        }
+
+        .status-badge.error {
+            background: #f8d7da;
+            color: #721c24;
+        }
+
+        .loading-spinner {
+            display: inline-block;
+            width: 16px;
+            height: 16px;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            border-radius: 50%;
+            border-top-color: white;
+            animation: spin 1s ease-in-out infinite;
+            margin-left: 10px;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+
+        .table-selector {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .table-card {
+            border: 1px solid #dee2e6;
+            border-radius: 8px;
+            padding: 15px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .table-card:hover {
+            border-color: #667eea;
+            box-shadow: 0 4px 12px rgba(102, 126, 234, 0.2);
+        }
+
+        .table-card.selected {
+            border-color: #667eea;
+            background: #f0f4ff;
+        }
+
+        .table-card h4 {
+            margin: 0 0 8px 0;
+            color: #495057;
+        }
+
+        .table-card p {
+            margin: 0;
+            color: #6c757d;
+            font-size: 13px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🚀 代码生成器</h1>
+            <p>智领基础脚手架 - Schema 驱动的代码生成工具</p>
+        </div>
+
+        <div class="main-content">
+            <div class="sidebar">
+                <h3>⚙️ 生成配置</h3>
+
+                <div class="form-group">
+                    <label for="packageName">包路径</label>
+                    <input type="text" id="packageName" value="com.zl">
+                </div>
+
+                <div class="form-group">
+                    <label for="moduleName">模块名称</label>
+                    <input type="text" id="moduleName" value="system">
+                </div>
+
+                <div class="form-group">
+                    <label for="author">作者</label>
+                    <input type="text" id="author" value="code-generator">
+                </div>
+
+                <div class="form-group">
+                    <label>
+                        <input type="checkbox" id="autoRemovePre"> 自动去除表前缀
+                    </label>
+                </div>
+
+                <div class="form-group">
+                    <label for="tablePrefix">表前缀</label>
+                    <input type="text" id="tablePrefix" value="sys_,dev_">
+                </div>
+
+                <hr style="margin: 20px 0; border: none; border-top: 1px solid #dee2e6;">
+
+                <h3>📊 已导入的模型</h3>
+                <div id="importedSchemas" class="schema-list" style="margin-top: 15px; max-height: 300px; overflow-y: auto;">
+                    <p style="color: #6c757d; font-size: 14px;">暂无导入的模型</p>
+                </div>
+
+                <hr style="margin: 20px 0; border: none; border-top: 1px solid #dee2e6;">
+
+                <button class="btn btn-success" onclick="generateAllCode()">
+                    ⚡ 生成全部代码
+                </button>
+            </div>
+
+            <div class="content-area">
+                <div class="alert" id="alert"></div>
+
+                <div class="tabs">
+                    <div class="tab active" onclick="switchTab('import', this)">📥 导入表</div>
+                    <div class="tab" onclick="switchTab('schema', this)">🗃️ 模型管理</div>
+                    <div class="tab" onclick="switchTab('fields', this)">📝 字段配置</div>
+                    <div class="tab" onclick="switchTab('preview', this)">👁️ 代码预览</div>
+                </div>
+
+                <div id="import-tab" class="tab-content active">
+                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+                        <h3>数据库表列表</h3>
+                        <button class="btn btn-info" style="width: auto;" onclick="loadDbTables()">
+                            🔄 刷新列表
+                        </button>
+                    </div>
+                    <p style="color: #6c757d; margin-bottom: 15px;">点击表卡片选择要生成代码的表</p>
+                    <div id="dbTablesList" class="table-selector">
+                        <p style="color: #6c757d; grid-column: 1/-1; text-align: center; padding: 40px;">
+                            点击"刷新列表"加载数据库表
+                        </p>
+                    </div>
+                </div>
+
+                <div id="schema-tab" class="tab-content">
+                    <h3>已导入的模型</h3>
+                    <div class="table-container">
+                        <table id="schemaTable">
+                            <thead>
+                                <tr>
+                                    <th>ID</th>
+                                    <th>模型名称</th>
+                                    <th>表名</th>
+                                    <th>功能名称</th>
+                                    <th>状态</th>
+                                    <th>操作</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td colspan="6" style="text-align: center; color: #6c757d;">暂无数据</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <div id="fields-tab" class="tab-content">
+                    <h3>字段配置</h3>
+                    <p style="color: #6c757d; margin-bottom: 15px;">选择一个模型查看和配置字段。勾选字段并配置操作（增删改查）后生成代码。</p>
+
+                    <!-- 字段选择操作 -->
+                    <div style="margin-bottom: 10px; padding: 10px; background: #e3f2fd; border-radius: 6px; border-left: 4px solid #2196f3;">
+                        <strong style="color: #1976d2;">字段选择：</strong>
+                        <button onclick="selectAllFields()" style="padding: 5px 10px; font-size: 12px; cursor: pointer; background: #28a745; color: white; border: none; border-radius: 3px; margin-left: 10px;">全选字段</button>
+                        <button onclick="deselectAllFields()" style="padding: 5px 10px; font-size: 12px; cursor: pointer; background: #6c757d; color: white; border: none; border-radius: 3px; margin-left: 5px;">取消全选</button>
+                        <span id="selectedCount" style="margin-left: 15px; color: #1976d2; font-weight: 600;">已选: 0 个字段</span>
+                    </div>
+
+                    <!-- 操作配置 -->
+                    <div style="margin-bottom: 10px; padding: 10px; background: #fff3e0; border-radius: 6px; border-left: 4px solid #ff9800;">
+                        <strong style="color: #e65100;">操作配置：</strong>
+                        <button onclick="selectAllByOperation('insert')" style="padding: 5px 10px; font-size: 12px; cursor: pointer; background: #4caf50; color: white; border: none; border-radius: 3px; margin-left: 10px;">全选增</button>
+                        <button onclick="deselectAllByOperation('insert')" style="padding: 5px 10px; font-size: 12px; cursor: pointer; background: #81c784; color: white; border: none; border-radius: 3px; margin-left: 5px;">取消增</button>
+                        <button onclick="selectAllByOperation('edit')" style="padding: 5px 10px; font-size: 12px; cursor: pointer; background: #2196f3; color: white; border: none; border-radius: 3px; margin-left: 10px;">全选改</button>
+                        <button onclick="deselectAllByOperation('edit')" style="padding: 5px 10px; font-size: 12px; cursor: pointer; background: #64b5f6; color: white; border: none; border-radius: 3px; margin-left: 5px;">取消改</button>
+                        <button onclick="selectAllByOperation('list')" style="padding: 5px 10px; font-size: 12px; cursor: pointer; background: #ff9800; color: white; border: none; border-radius: 3px; margin-left: 10px;">全选列表</button>
+                        <button onclick="deselectAllByOperation('list')" style="padding: 5px 10px; font-size: 12px; cursor: pointer; background: #ffb74d; color: white; border: none; border-radius: 3px; margin-left: 5px;">取消列表</button>
+                        <button onclick="selectAllByOperation('query')" style="padding: 5px 10px; font-size: 12px; cursor: pointer; background: #9c27b0; color: white; border: none; border-radius: 3px; margin-left: 10px;">全选查询</button>
+                        <button onclick="deselectAllByOperation('query')" style="padding: 5px 10px; font-size: 12px; cursor: pointer; background: #ba68c8; color: white; border: none; border-radius: 3px; margin-left: 5px;">取消查询</button>
+                    </div>
+
+                    <!-- 功能操作 -->
+                    <div style="margin-bottom: 15px; padding: 10px; background: #f8f9fa; border-radius: 6px;">
+                        <strong>功能操作：</strong>
+                        <button onclick="resetFieldOperations()" style="padding: 5px 10px; font-size: 12px; cursor: pointer; background: #17a2b8; color: white; border: none; border-radius: 3px; margin-left: 10px;">重置操作</button>
+                        <button onclick="saveFieldConfig()" style="padding: 5px 10px; font-size: 12px; cursor: pointer; background: #007bff; color: white; border: none; border-radius: 3px; margin-left: 5px;">保存配置</button>
+                        <button onclick="generateCodeFromConfig()" style="padding: 5px 10px; font-size: 12px; cursor: pointer; background: #dc3545; color: white; border: none; border-radius: 3px; margin-left: 5px;">生成代码</button>
+                    </div>
+
+                    <div class="table-container">
+                        <table id="fieldsTable">
+                            <thead>
+                                <tr>
+                                    <th style="width: 50px;">
+                                        <input type="checkbox" id="selectAllCheckbox" onchange="toggleSelectAll(this)" style="cursor: pointer;">
+                                    </th>
+                                    <th>字段名称</th>
+                                    <th>字段编码</th>
+                                    <th>列名</th>
+                                    <th>Java类型</th>
+                                    <th style="width: 80px;">增</th>
+                                    <th style="width: 80px;">删</th>
+                                    <th style="width: 80px;">改</th>
+                                    <th style="width: 80px;">查</th>
+                                    <th style="width: 80px;">列表</th>
+                                    <th style="width: 80px;">查询</th>
+                                    <th>操作</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td colspan="12" style="text-align: center; color: #6c757d;">暂无数据</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <div id="preview-tab" class="tab-content">
+                    <h3>代码预览</h3>
+                    <p style="color: #6c757d; margin-bottom: 15px;">选择一个表查看生成的代码预览</p>
+                    <div id="previewContent">
+                        <div class="form-group">
+                            <label for="previewTableName">选择表</label>
+                            <select id="previewTableName" onchange="previewCode()">
+                                <option value="">请选择表</option>
+                            </select>
+                        </div>
+                        <div id="codePreview" style="margin-top: 20px;">
+                            <pre style="background: #f8f9fa; padding: 20px; border-radius: 6px; overflow-x: auto; max-height: 600px;"><code style="font-family: 'Consolas', 'Monaco', monospace; font-size: 13px; color: #333;">请选择一个表查看代码预览</code></pre>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // 全局变量
+        const API_BASE = '/generator';
+        let selectedTables = new Set();
+        let allDbTables = [];
+
+        // 显示提示信息
+        function showAlert(message, type = 'info') {
+            const alert = document.getElementById('alert');
+            alert.className = `alert alert-${type} show`;
+            alert.innerHTML = message;
+            setTimeout(() => {
+                alert.classList.remove('show');
+            }, 3000);
+        }
+
+        // 切换标签页
+        function switchTab(tabName, targetElement) {
+            document.querySelectorAll('.tab').forEach(tab => tab.classList.remove('active'));
+            document.querySelectorAll('.tab-content').forEach(content => content.classList.remove('active'));
+
+            // 如果提供了目标元素，则激活它；否则查找对应的tab
+            if (targetElement) {
+                targetElement.classList.add('active');
+            } else {
+                // 通过onclick属性找到对应的tab
+                const tabs = document.querySelectorAll('.tab');
+                for (let tab of tabs) {
+                    if (tab.getAttribute('onclick') && tab.getAttribute('onclick').includes(`'${tabName}'`)) {
+                        tab.classList.add('active');
+                        break;
+                    }
+                }
+            }
+
+            document.getElementById(`${tabName}-tab`).classList.add('active');
+        }
+
+        // 加载数据库表列表
+        async function loadDbTables() {
+            try {
+                const response = await fetch(`${API_BASE}/schema/dbTables`);
+                const result = await response.json();
+
+                if (result.code === 200) {
+                    allDbTables = result.data;
+                    renderDbTables();
+                    showAlert('加载成功，共 ' + allDbTables.length + ' 张表', 'success');
+                } else {
+                    showAlert(result.message || '加载失败', 'error');
+                }
+            } catch (error) {
+                showAlert('请求失败: ' + error.message, 'error');
+            }
+        }
+
+        // 渲染数据库表列表
+        function renderDbTables() {
+            const container = document.getElementById('dbTablesList');
+
+            if (allDbTables.length === 0) {
+                container.innerHTML = '<p style="color: #6c757d; grid-column: 1/-1; text-align: center; padding: 40px;">数据库中没有表</p>';
+                return;
+            }
+
+            container.innerHTML = allDbTables.map(table => `
+                <div class="table-card">
+                    <h4>${table.tableName}</h4>
+                    <p>${table.tableComment}</p>
+                    <div style="margin-top: 10px;">
+                        <button class="btn btn-primary" style="padding: 5px 10px; font-size: 12px; width: auto;" onclick="importTable('${table.tableName}')">导入</button>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        // 导入表
+        async function importTable(tableName) {
+            try {
+                const response = await fetch(`${API_BASE}/schema/importTable`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({ tableName: tableName, schemaGroupId: 1 })
+                });
+                const result = await response.json();
+
+                if (result.code === 200) {
+                    showAlert(`成功导入表: ${tableName}`, 'success');
+                    loadSchemaList(); // 刷新模型列表
+                } else {
+                    showAlert(result.message || '导入失败', 'error');
+                }
+            } catch (error) {
+                showAlert('请求失败: ' + error.message, 'error');
+            }
+        }
+
+        // 更新已选择的表显示
+        function updateSelectedTablesDisplay() {
+            const container = document.getElementById('selectedTables');
+
+            if (selectedTables.size === 0) {
+                container.innerHTML = '<p style="color: #6c757d; font-size: 14px;">暂未选择表</p>';
+                return;
+            }
+
+            container.innerHTML = Array.from(selectedTables).map(tableName => `
+                <div class="schema-item">
+                    <strong>${tableName}</strong>
+                </div>
+            `).join('');
+        }
+
+        // 清空选择
+        function clearSelection() {
+            selectedTables.clear();
+            renderDbTables();
+            updateSelectedTablesDisplay();
+            updatePreviewTableDropdown();
+        }
+
+        // 生成代码
+        async function generateCode() {
+            if (selectedTables.size === 0) {
+                showAlert('请先选择要生成代码的表', 'error');
+                return;
+            }
+
+            const tableNameStr = Array.from(selectedTables).join(',');
+
+            if (!confirm(`确定要生成 ${selectedTables.size} 张表的代码吗？`)) {
+                return;
+            }
+
+            try {
+                const response = await fetch(`${API_BASE}/code/batchGenCode`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({ tableNameStr: tableNameStr })
+                });
+                const result = await response.json();
+
+                if (result.code === 200) {
+                    const data = result.data;
+                    showAlert(`生成完成！成功: ${data.success}/${data.total}`, 'success');
+                    loadSchemaList();
+                } else {
+                    showAlert(result.message || '生成失败', 'error');
+                }
+            } catch (error) {
+                showAlert('请求失败: ' + error.message, 'error');
+            }
+        }
+
+        // 生成所有已导入模型的代码
+        async function generateAllCode() {
+            try {
+                const response = await fetch(`${API_BASE}/schema/list`);
+                const result = await response.json();
+
+                if (result.code !== 200 || !result.data || result.data.length === 0) {
+                    showAlert('没有可生成的模型', 'error');
+                    return;
+                }
+
+                const schemas = result.data;
+                if (!confirm(`确定要生成 ${schemas.length} 个模型的代码吗？`)) {
+                    return;
+                }
+
+                const tableNames = schemas.map(s => s.tableName).join(',');
+
+                const genResponse = await fetch(`${API_BASE}/code/batchGenCode`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({ tableNameStr: tableNames })
+                });
+                const genResult = await genResponse.json();
+
+                if (genResult.code === 200) {
+                    const data = genResult.data;
+                    showAlert(`生成完成！成功: ${data.success}/${data.total}`, 'success');
+                } else {
+                    showAlert(genResult.message || '生成失败', 'error');
+                }
+            } catch (error) {
+                showAlert('请求失败: ' + error.message, 'error');
+            }
+        }
+
+        // 加载模型列表
+        async function loadSchemaList() {
+            try {
+                const response = await fetch(`${API_BASE}/schema/list`);
+                const result = await response.json();
+
+                if (result.code === 200) {
+                    const schemas = result.data;
+
+                    // 更新侧边栏
+                    const sidebarContainer = document.getElementById('importedSchemas');
+                    if (schemas && schemas.length > 0) {
+                        sidebarContainer.innerHTML = schemas.map(s => `
+                            <div class="schema-item" onclick="selectSchema(${s.id}, '${s.tableName}')">
+                                <strong>${s.tableName}</strong>
+                                <small>${s.name || s.functionName || ''}</small>
+                            </div>
+                        `).join('');
+                    } else {
+                        sidebarContainer.innerHTML = '<p style="color: #6c757d; font-size: 14px;">暂无导入的模型</p>';
+                    }
+
+                    // 更新模型管理表格
+                    const tbody = document.querySelector('#schemaTable tbody');
+                    if (schemas && schemas.length > 0) {
+                        tbody.innerHTML = schemas.map(s => `
+                            <tr>
+                                <td>${s.id}</td>
+                                <td>${s.name || '-'}</td>
+                                <td>${s.tableName || '-'}</td>
+                                <td>${s.functionName || '-'}</td>
+                                <td><span class="status-badge success">正常</span></td>
+                                <td>
+                                    <button class="btn btn-primary" style="padding: 5px 10px; font-size: 12px;" onclick="viewFields(${s.id})">查看字段</button>
+                                    <button class="btn btn-secondary" style="padding: 5px 10px; font-size: 12px;" onclick="syncSchemaFields(${s.id})">同步字段</button>
+                                    <button class="btn btn-secondary" style="padding: 5px 10px; font-size: 12px; background: #ffc107; color: #000;" onclick="cleanDuplicateFields(${s.id})">清理重复</button>
+                                    <button class="btn btn-info" style="padding: 5px 10px; font-size: 12px;" onclick="previewSchemaCode(${s.id})">预览代码</button>
+                                    <button class="btn btn-secondary" style="padding: 5px 10px; font-size: 12px; background: #dc3545;" onclick="deleteSchema(${s.id})">删除</button>
+                                </td>
+                            </tr>
+                        `).join('');
+                    } else {
+                        tbody.innerHTML = '<tr><td colspan="6" style="text-align: center; color: #6c757d;">暂无数据</td></tr>';
+                    }
+
+                    // 更新预览下拉框
+                    updatePreviewDropdown(schemas);
+                }
+            } catch (error) {
+                console.error('加载模型列表失败:', error);
+            }
+        }
+
+        // 选择模型
+        let selectedSchemaId = null;
+        let currentFields = []; // 存储当前加载的字段数据
+
+        function selectSchema(schemaId, tableName) {
+            selectedSchemaId = schemaId;
+            viewFields(schemaId);
+        }
+
+        // 查看字段
+        async function viewFields(schemaId) {
+            try {
+                // 设置当前选中的模型ID
+                selectedSchemaId = schemaId;
+                console.log('设置 selectedSchemaId =', selectedSchemaId);
+
+                const response = await fetch(`${API_BASE}/schemaField/list/${schemaId}`);
+                const result = await response.json();
+
+                const tbody = document.querySelector('#fieldsTable tbody');
+
+                if (result.code === 200) {
+                    const fields = result.data;
+                    currentFields = fields || []; // 保存字段数据
+
+                    if (fields && fields.length > 0) {
+                        tbody.innerHTML = fields.map((f, index) => `
+                            <tr data-field-id="${f.id}" data-index="${index}">
+                                <td>
+                                    <input type="checkbox" class="field-checkbox"
+                                           onchange="updateSelectedCount()"
+                                           ${f.isPk === '1' ? 'checked disabled' : ''}>
+                                </td>
+                                <td>${f.name || '-'}</td>
+                                <td>${f.code || '-'}</td>
+                                <td>${f.columnName || '-'}</td>
+                                <td>${f.javaType || '-'}</td>
+                                <td><input type="checkbox" class="operation-checkbox" data-op="insert"
+                                           ${f.isInsert === '1' ? 'checked' : ''} ${f.isPk === '1' ? 'disabled' : ''}></td>
+                                <td><input type="checkbox" class="operation-checkbox" data-op="delete"></td>
+                                <td><input type="checkbox" class="operation-checkbox" data-op="edit"
+                                           ${f.isEdit === '1' ? 'checked' : ''} ${f.isPk === '1' ? 'disabled' : ''}></td>
+                                <td><input type="checkbox" class="operation-checkbox" data-op="query"
+                                           ${f.isQuery === '1' ? 'checked' : ''}></td>
+                                <td><input type="checkbox" class="operation-checkbox" data-op="list"
+                                           ${f.isList === '1' ? 'checked' : ''}></td>
+                                <td>
+                                    <select class="query-type-select" style="padding: 4px; font-size: 12px; width: 100%;">
+                                        <option value="EQ" ${f.queryType === 'EQ' ? 'selected' : ''}>等于</option>
+                                        <option value="NE" ${f.queryType === 'NE' ? 'selected' : ''}>不等于</option>
+                                        <option value="GT" ${f.queryType === 'GT' ? 'selected' : ''}>大于</option>
+                                        <option value="GTE" ${f.queryType === 'GTE' ? 'selected' : ''}>大于等于</option>
+                                        <option value="LT" ${f.queryType === 'LT' ? 'selected' : ''}>小于</option>
+                                        <option value="LTE" ${f.queryType === 'LTE' ? 'selected' : ''}>小于等于</option>
+                                        <option value="LIKE" ${f.queryType === 'LIKE' ? 'selected' : ''}>模糊</option>
+                                    </select>
+                                </td>
+                                <td><button onclick="editField(${f.id})" style="padding: 4px 10px; font-size: 12px; cursor: pointer; background: #007bff; color: white; border: none; border-radius: 3px;">编辑</button></td>
+                            </tr>
+                        `).join('');
+
+                        // 更新选中计数
+                        updateSelectedCount();
+                    } else {
+                        tbody.innerHTML = '<tr><td colspan="12" style="text-align: center; color: #6c757d;">暂无字段数据，请先同步字段</td></tr>';
+                    }
+                } else {
+                    tbody.innerHTML = '<tr><td colspan="12" style="text-align: center; color: #dc3545;">加载失败: ' + (result.message || '未知错误') + '</td></tr>';
+                }
+
+                // 切换到字段标签页
+                switchTab('fields');
+            } catch (error) {
+                console.error('加载字段失败:', error);
+                const tbody = document.querySelector('#fieldsTable tbody');
+                tbody.innerHTML = '<tr><td colspan="12" style="text-align: center; color: #dc3545;">网络错误: ' + error.message + '</td></tr>';
+                showAlert('加载字段失败: ' + error.message, 'error');
+            }
+        }
+
+        // 更新选中计数
+        function updateSelectedCount() {
+            const checkboxes = document.querySelectorAll('#fieldsTable tbody .field-checkbox:checked:not(:disabled)');
+            const count = checkboxes.length;
+            document.getElementById('selectedCount').textContent = `已选: ${count} 个字段`;
+        }
+
+        // 全选/取消全选
+        function toggleSelectAll(checkbox) {
+            const checkboxes = document.querySelectorAll('#fieldsTable tbody .field-checkbox:not(:disabled)');
+            checkboxes.forEach(cb => {
+                cb.checked = checkbox.checked;
+            });
+            updateSelectedCount();
+        }
+
+        // 全选字段
+        function selectAllFields() {
+            const checkboxes = document.querySelectorAll('#fieldsTable tbody .field-checkbox:not(:disabled)');
+            checkboxes.forEach(cb => {
+                cb.checked = true;
+            });
+            updateSelectedCount();
+        }
+
+        // 取消全选字段
+        function deselectAllFields() {
+            const checkboxes = document.querySelectorAll('#fieldsTable tbody .field-checkbox:not(:disabled)');
+            checkboxes.forEach(cb => {
+                cb.checked = false;
+            });
+            updateSelectedCount();
+        }
+
+        // 全选某个操作
+        function selectAllByOperation(operation) {
+            const checkboxes = document.querySelectorAll(`#fieldsTable tbody .operation-checkbox[data-op="${operation}"]:not(:disabled)`);
+            checkboxes.forEach(cb => {
+                cb.checked = true;
+            });
+        }
+
+        // 取消全选某个操作
+        function deselectAllByOperation(operation) {
+            const checkboxes = document.querySelectorAll(`#fieldsTable tbody .operation-checkbox[data-op="${operation}"]:not(:disabled)`);
+            checkboxes.forEach(cb => {
+                cb.checked = false;
+            });
+        }
+
+        // 重置操作配置
+        function resetFieldOperations() {
+            // 重置所有操作复选框为默认状态
+            const checkboxes = document.querySelectorAll('#fieldsTable tbody .operation-checkbox');
+            checkboxes.forEach(cb => {
+                const op = cb.getAttribute('data-op');
+                if (op === 'insert' || op === 'edit') {
+                    cb.checked = true;
+                } else if (op === 'delete') {
+                    cb.checked = false;
+                } else if (op === 'list') {
+                    cb.checked = true;
+                } else if (op === 'query') {
+                    cb.checked = false;
+                }
+            });
+        }
+
+        // 获取选中的字段和操作配置
+        function getSelectedFieldsWithOperations() {
+            const rows = document.querySelectorAll('#fieldsTable tbody tr[data-field-id]');
+            const selectedFields = [];
+
+            rows.forEach(row => {
+                const checkbox = row.querySelector('.field-checkbox');
+                if (checkbox && checkbox.checked) {
+                    const fieldId = row.getAttribute('data-field-id');
+                    const index = parseInt(row.getAttribute('data-index'));
+                    const field = currentFields[index];
+
+                    // 获取操作配置
+                    const operations = [];
+                    const opCheckboxes = row.querySelectorAll('.operation-checkbox');
+                    opCheckboxes.forEach(opCb => {
+                        if (opCb.checked) {
+                            operations.push(opCb.getAttribute('data-op'));
+                        }
+                    });
+
+                    // 获取查询类型
+                    const queryTypeSelect = row.querySelector('.query-type-select');
+                    const queryType = queryTypeSelect ? queryTypeSelect.value : 'EQ';
+
+                    selectedFields.push({
+                        ...field,
+                        operations: operations,
+                        queryType: queryType
+                    });
+                }
+            });
+
+            return selectedFields;
+        }
+
+        // 获取所有字段配置
+        function getAllFieldsConfig() {
+            const rows = document.querySelectorAll('#fieldsTable tbody tr[data-field-id]');
+            const fields = [];
+
+            rows.forEach(row => {
+                const fieldId = row.getAttribute('data-field-id');
+                const index = parseInt(row.getAttribute('data-index'));
+                const field = {...currentFields[index]}; // 创建副本
+
+                // 获取操作配置
+                const opCheckboxes = row.querySelectorAll('.operation-checkbox');
+                const isInsert = row.querySelector('.operation-checkbox[data-op="insert"]').checked;
+                const isEdit = row.querySelector('.operation-checkbox[data-op="edit"]').checked;
+                const isList = row.querySelector('.operation-checkbox[data-op="list"]').checked;
+                const isQuery = row.querySelector('.operation-checkbox[data-op="query"]').checked;
+
+                // 获取查询类型
+                const queryTypeSelect = row.querySelector('.query-type-select');
+                const queryType = queryTypeSelect ? queryTypeSelect.value : 'EQ';
+
+                // 更新字段配置
+                field.isInsert = isInsert ? "1" : "0";
+                field.isEdit = isEdit ? "1" : "0";
+                field.isList = isList ? "1" : "0";
+                field.isQuery = isQuery ? "1" : "0";
+                field.queryType = queryType;
+
+                fields.push(field);
+            });
+
+            return fields;
+        }
+
+        // 保存字段配置
+        async function saveFieldConfig() {
+            console.log('保存配置，当前 selectedSchemaId =', selectedSchemaId);
+
+            if (!selectedSchemaId) {
+                showAlert('请先选择一个模型', 'error');
+                return;
+            }
+
+            try {
+                const fields = getAllFieldsConfig();
+                console.log('准备保存的字段配置：', fields.length, '个字段');
+
+                const response = await fetch(`${API_BASE}/schemaField/batch`, {
+                    method: 'PUT',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(fields)
+                });
+
+                const result = await response.json();
+                console.log('保存结果：', result);
+
+                if (result.code === 200) {
+                    showAlert('字段配置保存成功', 'success');
+                } else {
+                    showAlert(result.message || '保存失败', 'error');
+                }
+            } catch (error) {
+                console.error('保存失败：', error);
+                showAlert('保存失败: ' + error.message, 'error');
+            }
+        }
+
+        // 根据配置生成代码
+        async function generateCodeFromConfig() {
+            console.log('生成代码，当前 selectedSchemaId =', selectedSchemaId);
+
+            if (!selectedSchemaId) {
+                showAlert('请先选择一个模型', 'error');
+                return;
+            }
+
+            // 先保存配置
+            await saveFieldConfig();
+
+            // 获取模型的表名
+            try {
+                const response = await fetch(`${API_BASE}/schema/${selectedSchemaId}`);
+                const result = await response.json();
+
+                if (result.code === 200 && result.data) {
+                    const schema = result.data;
+                    const tableName = schema.tableName;
+
+                    if (!confirm(`确定要生成表 ${tableName} 的代码吗？`)) {
+                        return;
+                    }
+
+                    // 生成代码
+                    const genResponse = await fetch(`${API_BASE}/code/batchGenCode`, {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify({ tableNameStr: tableName })
+                    });
+
+                    const genResult = await genResponse.json();
+
+                    if (genResult.code === 200) {
+                        const data = genResult.data;
+                        showAlert(`代码生成完成！成功: ${data.success}/${data.total}`, 'success');
+                    } else {
+                        showAlert(genResult.message || '生成失败', 'error');
+                    }
+                } else {
+                    showAlert('获取模型信息失败', 'error');
+                }
+            } catch (error) {
+                console.error('生成失败：', error);
+                showAlert('生成失败: ' + error.message, 'error');
+            }
+        }
+
+        // 同步字段
+        async function syncSchemaFields(schemaId) {
+            if (!confirm('确定要同步字段吗？这将覆盖现有字段配置。')) {
+                return;
+            }
+
+            try {
+                const response = await fetch(`${API_BASE}/schema/syncFields/${schemaId}`, {
+                    method: 'POST'
+                });
+                const result = await response.json();
+
+                if (result.code === 200) {
+                    showAlert('同步成功', 'success');
+                    loadSchemaList();
+                } else {
+                    showAlert(result.message || '同步失败', 'error');
+                }
+            } catch (error) {
+                showAlert('请求失败: ' + error.message, 'error');
+            }
+        }
+
+        // 清理重复字段
+        async function cleanDuplicateFields(schemaId) {
+            if (!confirm('确定要清理重复的字段吗？这将删除重复的字段数据。')) {
+                return;
+            }
+
+            try {
+                const response = await fetch(`${API_BASE}/schema/cleanDuplicateFields/${schemaId}`, {
+                    method: 'POST'
+                });
+                const result = await response.json();
+
+                if (result.code === 200) {
+                    showAlert(result.data.message || '清理完成', 'success');
+                    loadSchemaList();
+                } else {
+                    showAlert(result.message || '清理失败', 'error');
+                }
+            } catch (error) {
+                showAlert('请求失败: ' + error.message, 'error');
+            }
+        }
+
+        // 删除模型
+        async function deleteSchema(schemaId) {
+            if (!confirm('确定要删除此模型吗？此操作将同时删除关联的字段。')) {
+                return;
+            }
+
+            try {
+                const response = await fetch(`${API_BASE}/schema/${schemaId}`, {
+                    method: 'DELETE'
+                });
+                const result = await response.json();
+
+                if (result.code === 200) {
+                    showAlert('删除成功', 'success');
+                    loadSchemaList();
+                } else {
+                    showAlert(result.message || '删除失败', 'error');
+                }
+            } catch (error) {
+                showAlert('请求失败: ' + error.message, 'error');
+            }
+        }
+
+        // 预览代码
+        async function previewCode() {
+            const tableName = document.getElementById('previewTableName').value;
+            const previewContainer = document.getElementById('codePreview');
+
+            if (!tableName) {
+                previewContainer.innerHTML = '<pre style="background: #f8f9fa; padding: 20px; border-radius: 6px; overflow-x: auto; max-height: 600px;"><code style="font-family: \'Consolas\', \'Monaco\', monospace; font-size: 13px; color: #333;">请选择一个表查看代码预览</code></pre>';
+                return;
+            }
+
+            try {
+                const response = await fetch(`${API_BASE}/code/getByTableName?tableName=${tableName}`);
+                const result = await response.json();
+
+                if (result.code === 200 && result.data) {
+                    // Convert preview Map to array of file objects
+                    const preview = result.data.preview || {};
+                    const files = Object.entries(preview).map(([fileName, content]) => ({ fileName, content }));
+
+                    let html = '<div style="display: grid; gap: 15px;">';
+
+                    // 按文件类型分组
+                    const domains = files.filter(f => f.fileName.includes('domain.java'));
+                    const mappers = files.filter(f => f.fileName.includes('mapper.java') || f.fileName.includes('Mapper.xml'));
+                    const services = files.filter(f => f.fileName.includes('service'));
+                    const controllers = files.filter(f => f.fileName.includes('controller'));
+
+                    if (domains.length > 0) {
+                        html += '<details open><summary style="cursor: pointer; padding: 10px; background: #e9ecef; border-radius: 4px; font-weight: 600;">📦 Domain 层</summary>';
+                        html += '<div style="margin-top: 10px;">';
+                        domains.forEach(file => {
+                            html += `<div style="margin-bottom: 10px;">
+                                <strong>${file.fileName}</strong>
+                                <pre style="background: #f8f9fa; padding: 15px; border-radius: 4px; overflow-x: auto; max-height: 400px; margin-top: 5px;"><code style="font-family: 'Consolas', 'Monaco', monospace; font-size: 12px; color: #333;">${escapeHtml(file.content)}</code></pre>
+                            </div>`;
+                        });
+                        html += '</div></details>';
+                    }
+
+                    if (mappers.length > 0) {
+                        html += '<details><summary style="cursor: pointer; padding: 10px; background: #e9ecef; border-radius: 4px; font-weight: 600;">🗄️ Mapper 层</summary>';
+                        html += '<div style="margin-top: 10px;">';
+                        mappers.forEach(file => {
+                            html += `<div style="margin-bottom: 10px;">
+                                <strong>${file.fileName}</strong>
+                                <pre style="background: #f8f9fa; padding: 15px; border-radius: 4px; overflow-x: auto; max-height: 400px; margin-top: 5px;"><code style="font-family: 'Consolas', 'Monaco', monospace; font-size: 12px; color: #333;">${escapeHtml(file.content)}</code></pre>
+                            </div>`;
+                        });
+                        html += '</div></details>';
+                    }
+
+                    if (services.length > 0) {
+                        html += '<details><summary style="cursor: pointer; padding: 10px; background: #e9ecef; border-radius: 4px; font-weight: 600;">⚙️ Service 层</summary>';
+                        html += '<div style="margin-top: 10px;">';
+                        services.forEach(file => {
+                            html += `<div style="margin-bottom: 10px;">
+                                <strong>${file.fileName}</strong>
+                                <pre style="background: #f8f9fa; padding: 15px; border-radius: 4px; overflow-x: auto; max-height: 400px; margin-top: 5px;"><code style="font-family: 'Consolas', 'Monaco', monospace; font-size: 12px; color: #333;">${escapeHtml(file.content)}</code></pre>
+                            </div>`;
+                        });
+                        html += '</div></details>';
+                    }
+
+                    if (controllers.length > 0) {
+                        html += '<details><summary style="cursor: pointer; padding: 10px; background: #e9ecef; border-radius: 4px; font-weight: 600;">🎮 Controller 层</summary>';
+                        html += '<div style="margin-top: 10px;">';
+                        controllers.forEach(file => {
+                            html += `<div style="margin-bottom: 10px;">
+                                <strong>${file.fileName}</strong>
+                                <pre style="background: #f8f9fa; padding: 15px; border-radius: 4px; overflow-x: auto; max-height: 400px; margin-top: 5px;"><code style="font-family: 'Consolas', 'Monaco', monospace; font-size: 12px; color: #333;">${escapeHtml(file.content)}</code></pre>
+                            </div>`;
+                        });
+                        html += '</div></details>';
+                    }
+
+                    html += '</div>';
+                    previewContainer.innerHTML = html;
+                } else {
+                    previewContainer.innerHTML = '<pre style="background: #f8d7da; padding: 20px; border-radius: 6px;"><code style="color: #721c24;">加载代码预览失败</code></pre>';
+                }
+            } catch (error) {
+                previewContainer.innerHTML = '<pre style="background: #f8d7da; padding: 20px; border-radius: 6px;"><code style="color: #721c24;">请求失败: ' + error.message + '</code></pre>';
+            }
+        }
+
+        // HTML转义函数
+        function escapeHtml(text) {
+            const div = document.createElement('div');
+            div.textContent = text;
+            return div.innerHTML;
+        }
+
+        // 更新预览表的下拉列表
+        function updatePreviewDropdown(schemas) {
+            const select = document.getElementById('previewTableName');
+            if (schemas && schemas.length > 0) {
+                select.innerHTML = '<option value="">请选择模型</option>' +
+                    schemas.map(s =>
+                        `<option value="${s.tableName}">${s.tableName} - ${s.name || s.functionName || ''}</option>`
+                    ).join('');
+            } else {
+                select.innerHTML = '<option value="">暂无可预览的模型</option>';
+            }
+        }
+
+        // 预览指定Schema的代码
+        async function previewSchemaCode(schemaId) {
+            try {
+                const response = await fetch(`${API_BASE}/schema/${schemaId}`);
+                const result = await response.json();
+
+                if (result.code === 200 && result.data) {
+                    const schema = result.data;
+                    // 切换到预览标签页
+                    switchTab('preview');
+                    // 设置下拉框的值
+                    const select = document.getElementById('previewTableName');
+                    select.value = schema.tableName;
+                    // 触发预览
+                    previewCode();
+                } else {
+                    showAlert('获取模型信息失败', 'error');
+                }
+            } catch (error) {
+                showAlert('请求失败: ' + error.message, 'error');
+            }
+        }
+
+        // 页面加载完成后初始化
+        document.addEventListener('DOMContentLoaded', function() {
+            loadDbTables();
+            loadSchemaList();
+        });
+    </script>
+</body>
+</html>

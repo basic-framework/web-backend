@@ -1,0 +1,54 @@
+package ${packageName}.service.impl;
+
+import cn.hutool.core.bean.BeanUtil;
+import ${packageName}.domain.${ClassName};
+import ${packageName}.dto.${ClassName}Dto;
+import ${packageName}.mapper.${ClassName}Mapper;
+import ${packageName}.service.${ClassName}Service;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import java.util.List;
+
+/**
+ * ${functionName} Service 实现
+ *
+ * @author ${author}
+ * @date ${datetime}
+ */
+@Service
+public class ${ClassName}ServiceImpl implements ${ClassName}Service {
+
+    @Autowired
+    private ${ClassName}Mapper ${classname}Mapper;
+
+    @Override
+    public List<${ClassName}> findAll() {
+        return ${classname}Mapper.selectAll();
+    }
+
+    @Override
+    public ${ClassName} findById(Long id) {
+        return ${classname}Mapper.selectById(id);
+    }
+
+    @Override
+    public Boolean create(${ClassName}Dto ${classname}Dto) {
+        ${ClassName} ${classname} = BeanUtil.copyProperties(${classname}Dto, ${ClassName}.class);
+        int result = ${classname}Mapper.insert(${classname});
+        return result > 0;
+    }
+
+    @Override
+    public Boolean update(${ClassName}Dto ${classname}Dto) {
+        ${ClassName} ${classname} = BeanUtil.copyProperties(${classname}Dto, ${ClassName}.class);
+        int result = ${classname}Mapper.update(${classname});
+        return result > 0;
+    }
+
+    @Override
+    public Boolean deleteById(Long id) {
+        int result = ${classname}Mapper.deleteById(id);
+        return result > 0;
+    }
+}

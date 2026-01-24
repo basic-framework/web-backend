@@ -1,0 +1,93 @@
+package ${packageName}.controller;
+
+import com.zl.common.result.Result;
+import ${packageName}.domain.${ClassName};
+import ${packageName}.dto.${ClassName}Dto;
+import ${packageName}.service.${ClassName}Service;
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.tags.Tag;
+import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
+
+/**
+ * ${functionName}控制器
+ *
+ * @author ${author}
+ * @date ${datetime}
+ */
+@RestController
+@RequestMapping("/${moduleName}/${classname}")
+@Tag(name = "${functionName}管理", description = "${functionName}管理接口")
+@Slf4j
+public class ${ClassName}Controller {
+
+    @Autowired
+    private ${ClassName}Service ${classname}Service;
+
+    /**
+     * 查询所有列表
+     *
+     * @return 列表
+     */
+    @GetMapping("/list")
+    @Operation(summary = "查询列表")
+    public Result<List<${ClassName}>> list() {
+        List<${ClassName}> list = ${classname}Service.findAll();
+        return Result.success(list);
+    }
+
+    /**
+     * 根据ID查询
+     *
+     * @param id ID
+     * @return 对象
+     */
+    @GetMapping("/{id}")
+    @Operation(summary = "根据ID查询")
+    public Result<${ClassName}> getById(@PathVariable Long id) {
+        ${ClassName} ${classname} = ${classname}Service.findById(id);
+        return Result.success(${classname});
+    }
+
+    /**
+     * 创建
+     *
+     * @param ${classname}Dto 数据传输对象
+     * @return 是否成功
+     */
+    @PostMapping
+    @Operation(summary = "创建")
+    public Result<Boolean> create(@RequestBody ${ClassName}Dto ${classname}Dto) {
+        Boolean flag = ${classname}Service.create(${classname}Dto);
+        return Result.success(flag);
+    }
+
+    /**
+     * 更新
+     *
+     * @param ${classname}Dto 数据传输对象
+     * @return 是否成功
+     */
+    @PutMapping
+    @Operation(summary = "更新")
+    public Result<Boolean> update(@RequestBody ${ClassName}Dto ${classname}Dto) {
+        Boolean flag = ${classname}Service.update(${classname}Dto);
+        return Result.success(flag);
+    }
+
+    /**
+     * 根据ID删除
+     *
+     * @param id ID
+     * @return 是否成功
+     */
+    @DeleteMapping("/{id}")
+    @Operation(summary = "删除")
+    public Result<Boolean> delete(@PathVariable Long id) {
+        Boolean flag = ${classname}Service.deleteById(id);
+        return Result.success(flag);
+    }
+}

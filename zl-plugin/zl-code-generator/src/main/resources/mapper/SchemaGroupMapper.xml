@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zl.generator.mapper.SchemaGroupMapper">
+
+    <resultMap id="BaseResultMap" type="com.zl.generator.domain.SchemaGroup">
+        <id column="id" property="id"/>
+        <result column="code" property="code"/>
+        <result column="name" property="name"/>
+        <result column="status" property="status"/>
+        <result column="create_time" property="createTime"/>
+        <result column="update_time" property="updateTime"/>
+        <result column="create_by" property="createBy"/>
+        <result column="update_by" property="updateBy"/>
+        <result column="remark" property="remark"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        id, code, name, status, create_time, update_time, create_by, update_by, remark
+    </sql>
+
+    <select id="selectAll" resultMap="BaseResultMap">
+        SELECT <include refid="Base_Column_List"/>
+        FROM dev_schema_group
+        WHERE status = 0
+        ORDER BY id DESC
+    </select>
+
+    <select id="selectById" resultMap="BaseResultMap">
+        SELECT <include refid="Base_Column_List"/>
+        FROM dev_schema_group
+        WHERE id = #{id}
+    </select>
+
+    <select id="selectByCode" resultMap="BaseResultMap">
+        SELECT <include refid="Base_Column_List"/>
+        FROM dev_schema_group
+        WHERE code = #{code}
+    </select>
+
+    <insert id="insert" parameterType="com.zl.generator.domain.SchemaGroup" useGeneratedKeys="true" keyProperty="id">
+        INSERT INTO dev_schema_group (code, name, status, create_by, remark)
+        VALUES (#{code}, #{name}, 0, #{createBy}, #{remark})
+    </insert>
+
+    <update id="update" parameterType="com.zl.generator.domain.SchemaGroup">
+        UPDATE dev_schema_group
+        <set>
+            <if test="code != null and code != ''">code = #{code},</if>
+            <if test="name != null and name != ''">name = #{name},</if>
+            <if test="status != null">status = #{status},</if>
+            <if test="remark != null">remark = #{remark},</if>
+            update_by = #{updateBy},
+            update_time = CURRENT_TIMESTAMP
+        </set>
+        WHERE id = #{id}
+    </update>
+
+    <delete id="deleteById">
+        DELETE FROM dev_schema_group WHERE id = #{id}
+    </delete>
+
+</mapper>

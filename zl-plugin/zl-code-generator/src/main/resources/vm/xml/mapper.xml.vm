@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="${packageName}.mapper.${ClassName}Mapper">
+
+    <resultMap id="BaseResultMap" type="${packageName}.domain.${ClassName}">
+        <id column="id" property="id"/>
+#foreach($column in $columns)
+#if($column.isPk != "1" && $column.columnName != "create_time" && $column.columnName != "update_time" && $column.columnName != "create_by" && $column.columnName != "update_by" && $column.columnName != "remark" && $column.columnName != "status")
+        <result column="$column.columnName" property="$column.javaField"/>
+#end
+#end
+        <result column="create_time" property="createTime"/>
+        <result column="update_time" property="updateTime"/>
+        <result column="create_by" property="createBy"/>
+        <result column="update_by" property="updateBy"/>
+        <result column="remark" property="remark"/>
+        <result column="status" property="status"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        id#foreach($column in $columns)
+#if($column.columnName != "create_time" && $column.columnName != "update_time" && $column.columnName != "create_by" && $column.columnName != "update_by" && $column.columnName != "remark" && $column.columnName != "status")
+, $column.columnName#end#end
+, create_time, update_time, create_by, update_by, remark, status
+    </sql>
+
+    <select id="selectAll" resultMap="BaseResultMap">
+        SELECT <include refid="Base_Column_List"/>
+        FROM ${tableName}
+        WHERE status = 0
+        ORDER BY id DESC
+    </select>
+
+    <select id="selectById" resultMap="BaseResultMap">
+        SELECT <include refid="Base_Column_List"/>
+        FROM ${tableName}
+        WHERE id = #{id}
+    </select>
+
+    <insert id="insert" parameterType="${packageName}.domain.${ClassName}" useGeneratedKeys="true" keyProperty="id">
+        INSERT INTO ${tableName} (#foreach($column in $columns)$column.columnName#if($foreach.hasNext), #end#end, create_by)
+        VALUES (#foreach($column in $columns)#{$column.javaField}#if($foreach.hasNext), #end#end, #{createBy})
+    </insert>
+
+    <update id="update" parameterType="${packageName}.domain.${ClassName}">
+        UPDATE ${tableName}
+        <set>
+#foreach($column in $columns)
+#if($column.isEdit == "1")
+            <if test="$column.javaField != null#if($column.javaType == 'String') and $column.javaField != ''#end">$column.columnName = #{$column.javaField},</if>
+#end
+#end
+            <if test="remark != null">remark = #{remark},</if>
+            update_by = #{updateBy},
+            update_time = CURRENT_TIMESTAMP
+        </set>
+        WHERE id = #{id}
+    </update>
+
+    <delete id="deleteById">
+        DELETE FROM ${tableName} WHERE id = #{id}
+    </delete>
+
+</mapper>

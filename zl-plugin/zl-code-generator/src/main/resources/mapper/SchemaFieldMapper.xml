@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zl.generator.mapper.SchemaFieldMapper">
+
+    <resultMap id="BaseResultMap" type="com.zl.generator.domain.SchemaField">
+        <id column="id" property="id"/>
+        <result column="schema_id" property="schemaId"/>
+        <result column="name" property="name"/>
+        <result column="code" property="code"/>
+        <result column="column_name" property="columnName"/>
+        <result column="type" property="type"/>
+        <result column="java_type" property="javaType"/>
+        <result column="java_field" property="javaField"/>
+        <result column="comment" property="comment"/>
+        <result column="is_pk" property="isPk"/>
+        <result column="is_required" property="isRequired"/>
+        <result column="is_insert" property="isInsert"/>
+        <result column="is_edit" property="isEdit"/>
+        <result column="is_list" property="isList"/>
+        <result column="is_query" property="isQuery"/>
+        <result column="query_type" property="queryType"/>
+        <result column="html_type" property="htmlType"/>
+        <result column="dict_type" property="dictType"/>
+        <result column="sort_no" property="sortNo"/>
+        <result column="status" property="status"/>
+        <result column="create_time" property="createTime"/>
+        <result column="update_time" property="updateTime"/>
+        <result column="create_by" property="createBy"/>
+        <result column="update_by" property="updateBy"/>
+        <result column="remark" property="remark"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        id, schema_id, name, code, column_name, type, java_type, java_field, comment,
+        is_pk, is_required, is_insert, is_edit, is_list, is_query, query_type, html_type,
+        dict_type, sort_no, status, create_time, update_time, create_by, update_by, remark
+    </sql>
+
+    <select id="selectBySchemaId" resultMap="BaseResultMap">
+        SELECT <include refid="Base_Column_List"/>
+        FROM dev_schema_field
+        WHERE schema_id = #{schemaId}
+        ORDER BY sort_no ASC, id ASC
+    </select>
+
+    <select id="selectById" resultMap="BaseResultMap">
+        SELECT <include refid="Base_Column_List"/>
+        FROM dev_schema_field
+        WHERE id = #{id}
+    </select>
+
+    <insert id="batchInsert" useGeneratedKeys="true" keyProperty="id">
+        INSERT INTO dev_schema_field
+        (schema_id, name, code, column_name, type, java_type, java_field, comment,
+         is_pk, is_required, is_insert, is_edit, is_list, is_query, query_type, html_type,
+         dict_type, sort_no, create_by)
+        VALUES
+        <foreach collection="list" item="item" separator=",">
+            (#{item.schemaId}, #{item.name}, #{item.code}, #{item.columnName}, #{item.type},
+             #{item.javaType}, #{item.javaField}, #{item.comment}, #{item.isPk}, #{item.isRequired},
+             #{item.isInsert}, #{item.isEdit}, #{item.isList}, #{item.isQuery}, #{item.queryType},
+             #{item.htmlType}, #{item.dictType}, #{item.sortNo}, #{item.createBy})
+        </foreach>
+    </insert>
+
+    <update id="update" parameterType="com.zl.generator.domain.SchemaField">
+        UPDATE dev_schema_field
+        <set>
+            <if test="name != null and name != ''">name = #{name},</if>
+            <if test="code != null and code != ''">code = #{code},</if>
+            <if test="columnName != null and columnName != ''">column_name = #{columnName},</if>
+            <if test="type != null and type != ''">type = #{type},</if>
+            <if test="javaType != null">java_type = #{javaType},</if>
+            <if test="javaField != null">java_field = #{javaField},</if>
+            <if test="comment != null">comment = #{comment},</if>
+            <if test="isPk != null">is_pk = #{isPk},</if>
+            <if test="isRequired != null">is_required = #{isRequired},</if>
+            <if test="isInsert != null">is_insert = #{isInsert},</if>
+            <if test="isEdit != null">is_edit = #{isEdit},</if>
+            <if test="isList != null">is_list = #{isList},</if>
+            <if test="isQuery != null">is_query = #{isQuery},</if>
+            <if test="queryType != null">query_type = #{queryType},</if>
+            <if test="htmlType != null">html_type = #{htmlType},</if>
+            <if test="dictType != null">dict_type = #{dictType},</if>
+            <if test="sortNo != null">sort_no = #{sortNo},</if>
+            <if test="status != null">status = #{status},</if>
+            <if test="remark != null">remark = #{remark},</if>
+            update_by = #{updateBy},
+            update_time = CURRENT_TIMESTAMP
+        </set>
+        WHERE id = #{id}
+    </update>
+
+    <delete id="deleteById">
+        DELETE FROM dev_schema_field WHERE id = #{id}
+    </delete>
+
+    <delete id="deleteBySchemaId">
+        DELETE FROM dev_schema_field WHERE schema_id = #{schemaId}
+    </delete>
+
+</mapper>

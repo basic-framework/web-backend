@@ -4,7 +4,7 @@ import com.zl.model.dto.LoginDto;
 import com.zl.model.vo.LoginVo;
 
 
-public interface LoginService {
+public interface  LoginService {
     /**
      * 用户登录
      * @param loginDto

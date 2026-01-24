@@ -1,0 +1,22 @@
+package ${packageName}.bo;
+import java.time.LocalDate;
+import lombok.Data;
+
+/**
+ * ${functionName}业务对象
+ *
+ * @author ${author}
+ * @date ${datetime}
+ */
+@Data
+public class ${ClassName}Bo {
+#foreach($column in $columns)
+#if($column.isInsert == "1" || $column.isEdit == "1")
+    /**
+     * $column.columnComment
+     */
+    private $column.javaType $column.javaField;
+
+#end
+#end
+}

@@ -1,0 +1,14 @@
+# 代码生成器配置
+gen:
+  # 作者名称
+  author: code-generator
+  # 生成代码的包路径
+  packageName: com.zl
+  # 是否自动去除表前缀
+  autoRemovePre: false
+  # 表前缀（多个用逗号分隔）
+  tablePrefix: sys_,dev_
+  # Java代码输出路径
+  outputDir: ${user.dir}/zl-web/src/main/java
+  # XML文件输出路径
+  xmlOutputDir: ${user.dir}/zl-web/src/main/resources/mapper

@@ -1,0 +1,20 @@
+package ${packageName}.vo;
+import java.time.LocalDate;
+import lombok.Data;
+
+/**
+ * ${functionName}视图对象
+ *
+ * @author ${author}
+ * @date ${datetime}
+ */
+@Data
+public class ${ClassName}Vo {
+#foreach($column in $columns)
+    /**
+     * $column.columnComment
+     */
+    private $column.javaType $column.javaField;
+
+#end
+}

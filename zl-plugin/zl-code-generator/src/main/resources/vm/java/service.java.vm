@@ -1,0 +1,54 @@
+package ${packageName}.service;
+
+import ${packageName}.domain.${ClassName};
+import ${packageName}.dto.${ClassName}Dto;
+
+import java.util.List;
+
+/**
+ * ${functionName} Service 接口
+ *
+ * @author ${author}
+ * @date ${datetime}
+ */
+public interface ${ClassName}Service {
+
+    /**
+     * 查询所有列表
+     *
+     * @return 列表
+     */
+    List<${ClassName}> findAll();
+
+    /**
+     * 根据ID查询
+     *
+     * @param id ID
+     * @return 对象
+     */
+    ${ClassName} findById(Long id);
+
+    /**
+     * 创建
+     *
+     * @param ${classname}Dto 数据传输对象
+     * @return 是否成功
+     */
+    Boolean create(${ClassName}Dto ${classname}Dto);
+
+    /**
+     * 更新
+     *
+     * @param ${classname}Dto 数据传输对象
+     * @return 是否成功
+     */
+    Boolean update(${ClassName}Dto ${classname}Dto);
+
+    /**
+     * 根据ID删除
+     *
+     * @param id ID
+     * @return 是否成功
+     */
+    Boolean deleteById(Long id);
+}

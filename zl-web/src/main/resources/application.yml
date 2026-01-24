@@ -39,7 +39,7 @@ knife4j:
 
 # Mybatis配置
 mybatis:
-  mapper-locations: classpath:mapper/*.xml
+  mapper-locations: classpath*:mapper/**/*.xml
   type-aliases-package: com.lgh.model.entity
   configuration:
     map-underscore-to-camel-case: true
@@ -58,6 +58,8 @@ zl:
 #        - /web/**
         - /ws/**
         - /doc.html/**
+        - /generator.html
+        - /generator/**
         - /*-swagger/**
         - /swagger-resources/**
         - /v3/api-docs/**

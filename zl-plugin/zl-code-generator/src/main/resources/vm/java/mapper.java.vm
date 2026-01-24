@@ -1,0 +1,56 @@
+package ${packageName}.mapper;
+
+import ${packageName}.domain.${ClassName};
+import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Param;
+
+import java.util.List;
+
+/**
+ * ${functionName} Mapper 接口
+ *
+ * @author ${author}
+ * @date ${datetime}
+ */
+@Mapper
+public interface ${ClassName}Mapper {
+
+    /**
+     * 查询所有列表
+     *
+     * @return 列表
+     */
+    List<${ClassName}> selectAll();
+
+    /**
+     * 根据ID查询
+     *
+     * @param id ID
+     * @return 对象
+     */
+    ${ClassName} selectById(Long id);
+
+    /**
+     * 插入
+     *
+     * @param ${classname} 对象
+     * @return 影响行数
+     */
+    int insert(${ClassName} ${classname});
+
+    /**
+     * 更新
+     *
+     * @param ${classname} 对象
+     * @return 影响行数
+     */
+    int update(${ClassName} ${classname});
+
+    /**
+     * 根据ID删除
+     *
+     * @param id ID
+     * @return 影响行数
+     */
+    int deleteById(Long id);
+}

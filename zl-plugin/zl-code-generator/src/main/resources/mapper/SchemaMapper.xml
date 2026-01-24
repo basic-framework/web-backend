@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zl.generator.mapper.SchemaMapper">
+
+    <resultMap id="BaseResultMap" type="com.zl.generator.domain.Schema">
+        <id column="id" property="id"/>
+        <result column="schema_group_id" property="schemaGroupId"/>
+        <result column="name" property="name"/>
+        <result column="code" property="code"/>
+        <result column="table_name" property="tableName"/>
+        <result column="function_name" property="functionName"/>
+        <result column="module_name" property="moduleName"/>
+        <result column="business_name" property="businessName"/>
+        <result column="permission_prefix" property="permissionPrefix"/>
+        <result column="status" property="status"/>
+        <result column="create_time" property="createTime"/>
+        <result column="update_time" property="updateTime"/>
+        <result column="create_by" property="createBy"/>
+        <result column="update_by" property="updateBy"/>
+        <result column="remark" property="remark"/>
+    </resultMap>
+
+    <resultMap id="VoResultMap" type="com.zl.generator.domain.Schema" extends="BaseResultMap">
+        <result column="group_name" property="groupName"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        s.id, s.schema_group_id, s.name, s.code, s.table_name, s.function_name, s.module_name,
+        s.business_name, s.permission_prefix, s.status, s.create_time, s.update_time,
+        s.create_by, s.update_by, s.remark
+    </sql>
+
+    <select id="selectAll" resultMap="VoResultMap">
+        SELECT <include refid="Base_Column_List"/>, g.name as group_name
+        FROM dev_schema s
+        LEFT JOIN dev_schema_group g ON s.schema_group_id = g.id
+        WHERE s.status = 0
+        ORDER BY s.id DESC
+    </select>
+
+    <select id="selectById" resultMap="BaseResultMap">
+        SELECT <include refid="Base_Column_List"/>
+        FROM dev_schema s
+        WHERE id = #{id}
+    </select>
+
+    <select id="selectByTableName" resultMap="BaseResultMap">
+        SELECT <include refid="Base_Column_List"/>
+        FROM dev_schema s
+        WHERE table_name = #{tableName}
+        LIMIT 1
+    </select>
+
+    <select id="selectByGroupId" resultMap="BaseResultMap">
+        SELECT <include refid="Base_Column_List"/>
+        FROM dev_schema s
+        WHERE schema_group_id = #{schemaGroupId} AND status = 0
+        ORDER BY id DESC
+    </select>
+
+    <insert id="insert" parameterType="com.zl.generator.domain.Schema" useGeneratedKeys="true" keyProperty="id">
+        INSERT INTO dev_schema (schema_group_id, name, code, table_name, function_name, module_name,
+                               business_name, permission_prefix, create_by, remark)
+        VALUES (#{schemaGroupId}, #{name}, #{code}, #{tableName}, #{functionName}, #{moduleName},
+                #{businessName}, #{permissionPrefix}, #{createBy}, #{remark})
+    </insert>
+
+    <update id="update" parameterType="com.zl.generator.domain.Schema">
+        UPDATE dev_schema
+        <set>
+            <if test="schemaGroupId != null">schema_group_id = #{schemaGroupId},</if>
+            <if test="name != null and name != ''">name = #{name},</if>
+            <if test="code != null and code != ''">code = #{code},</if>
+            <if test="tableName != null and tableName != ''">table_name = #{tableName},</if>
+            <if test="functionName != null">function_name = #{functionName},</if>
+            <if test="moduleName != null">module_name = #{moduleName},</if>
+            <if test="businessName != null">business_name = #{businessName},</if>
+            <if test="permissionPrefix != null">permission_prefix = #{permissionPrefix},</if>
+            <if test="status != null">status = #{status},</if>
+            <if test="remark != null">remark = #{remark},</if>
+            update_by = #{updateBy},
+            update_time = CURRENT_TIMESTAMP
+        </set>
+        WHERE id = #{id}
+    </update>
+
+    <delete id="deleteById">
+        DELETE FROM dev_schema WHERE id = #{id}
+    </delete>
+
+</mapper>

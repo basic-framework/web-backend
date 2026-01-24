@@ -1,0 +1,32 @@
+package ${packageName}.domain;
+
+import com.zl.model.base.BaseEntity;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+#if($importList.size() > 0)
+#foreach($import in $importList)
+import ${import};
+#end
+#end
+
+/**
+ * ${functionName}实体类
+ *
+ * @author ${author}
+ * @date ${datetime}
+ */
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
+public class ${ClassName} extends BaseEntity {
+#foreach($column in $columns)
+#if($column.isPk != "1")
+    /**
+     * $column.columnComment
+     */
+    private $column.javaType $column.javaField;
+
+#end
+#end
+}
