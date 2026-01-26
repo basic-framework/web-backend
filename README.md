@@ -58,18 +58,22 @@ zl-backend/
 │   │   ├── 日志方案/             # 日志系统使用指南
 │   │   └── 异常处理设计/         # 全局异常处理设计文档
 │   ├── 系统架构/                 # 系统架构文档
+│   ├── 扩展插件/                 # 扩展插件文档
+│   │   └── 代码生成器/           # 代码生成器文档
 │   └── LLM应用/                   # 大语言模型应用文档
 ├── sql/                          # SQL脚本目录
-│   ├── zl.sql                   # 初始化数据库脚本
-│   └── test_learning_lesson_data.sql
+│   └── zl.sql                   # 初始化数据库脚本
 ├── zl-common/                    # 通用工具类和异常处理模块
 ├── zl-common-core/               # 通用核心功能模块
 │   ├── zl-common-idempotent/     # 幂等性控制模块
+│   ├── zl-common-log/            # AOP日志收集模块
 │   └── zl-common-sensitive/      # 数据脱敏模块
 ├── zl-model/                     # 数据模型定义模块
 ├── zl-framework/                 # 框架核心模块，包含基础配置和通用组件
 ├── zl-security/                  # 安全认证与授权模块
 ├── zl-web/                       # Web 层模块，包含控制器和入口类
+├── zl-plugin/                    # 插件模块
+│   └── zl-code-generator/        # 代码生成器插件
 └── zl-extend/                    # 扩展功能模块
     ├── zl-file/                  # 文件处理相关模块
     │   ├── zl-file-starter       # 文件服务启动器
@@ -89,13 +93,24 @@ zl-backend/
 ### 核心模块
 
 - **zl-common**：提供通用工具类、异常处理、常量定义等基础功能
-- **zl-common-core**：通用核心功能模块，包含幂等性控制、数据脱敏等核心功能
+- **zl-common-core**：通用核心功能模块，包含幂等性控制、日志收集、数据脱敏等核心功能
   - **zl-common-idempotent**：基于AOP的幂等性控制实现，支持注解式防重复提交
+  - **zl-common-log**：基于AOP的自定义日志收集模块，支持操作日志记录和查询
   - **zl-common-sensitive**：基于Jackson序列化的数据脱敏模块，支持多种脱敏策略
 - **zl-model**：定义数据实体、DTO、VO等数据模型
 - **zl-framework**：框架核心配置，包含异步任务管理、安全配置、全局异常处理等
 - **zl-security**：认证授权机制，基于Spring Security和JWT实现，支持RBAC权限模型
 - **zl-web**：Web层入口，包含控制器、启动类等
+
+### 插件模块
+
+- **zl-code-generator**：代码生成器插件，支持单表、主子表、树表等多种表类型的代码生成
+  - 基于Velocity模板引擎的代码生成
+  - 可视化Web配置界面
+  - 支持批量生成和代码预览
+  - 智能识别主键、字段类型、关联关系
+  - 自动过滤BaseEntity基础字段
+  - 支持主子表级联操作和树表结构操作
 
 ### 扩展模块
 
@@ -138,14 +153,27 @@ zl-backend/
 - 接口分组管理
 
 ### 系统功能
+- **操作日志**：基于AOP的自定义日志收集模块，支持注解式操作日志记录
+  - 记录用户操作行为（增删改查）
+  - 支持模块、功能、操作人类别配置
+  - 支持请求参数和响应参数的记录
+  - 支持排除敏感参数
+  - 异步日志记录，不影响业务性能
 - **幂等性控制**：基于AOP的注解式防重复提交，支持自定义间隔时间和提示信息
 - **数据脱敏**：基于Jackson序列化的数据脱敏功能，支持手机号、身份证、邮箱等多种脱敏策略
 - **全局异常处理**：统一的异常处理机制，支持错误码管理和国际化
-- **日志系统**：基于SLF4J+Logback的分级日志系统，支持按功能和级别分类输出
+- **日志系统**：基于SLF4J+Logback的分级日志系统，支持按时间+大小的滚动日志分片配置
 - **参数校验**：基于Spring Validation的参数校验框架
 - **统一响应格式**：标准化的API响应格式，支持分页和错误信息
+- **线程池优化**：核心线程数=CPU核心数+1，最大线程数=2*核心线程数
 
 ### 扩展能力
+- **代码生成器**：可视化代码生成工具，大幅提升开发效率
+  - 支持单表、主子表、树表等多种表类型
+  - 智能识别字段类型和关联关系
+  - 可视化配置界面，支持代码预览
+  - 批量生成和下载功能
+  - 访问地址：`http://localhost:8080/generator.html`
 - 文件存储与管理（支持MinIO）
 - 大文件分片上传和断点续传（基于MD5的文件命名冲突解决方案）
 - 系统监控（CPU、内存、磁盘等信息）
@@ -214,6 +242,8 @@ zl-backend/
 
 ### 功能测试
 项目提供了多个测试接口，可用于验证各项功能：
+- **代码生成器**：访问 `http://localhost:8080/generator.html` 使用可视化代码生成工具
+- **操作日志测试**：在带有`@Log`注解的接口上操作，查看系统操作日志记录
 - **日志测试**：`GET /web/some-method` - 基础日志测试
 - **权限测试**：登录后访问需要权限的接口，验证RBAC权限控制
 - **幂等性测试**：在带有`@RepeatSubmit`注解的接口上重复提交，验证防重功能
@@ -289,6 +319,26 @@ public class CustomSensitiveService implements SensitiveService {
 }
 ```
 
+#### 操作日志使用指南
+```java
+// 在Controller方法上添加操作日志注解
+@Log(title = "用户管理", businessType = BusinessType.INSERT)
+@PostMapping("/save")
+public Result<Void> saveUser(@RequestBody UserDTO userDTO) {
+    // 业务逻辑
+    return Result.success();
+}
+
+// 排除敏感参数
+@Log(title = "用户管理", businessType = BusinessType.UPDATE,
+     excludeParamNames = {"password", "oldPassword"})
+@PutMapping("/update")
+public Result<Void> updateUser(@RequestBody UserDTO userDTO) {
+    // 业务逻辑
+    return Result.success();
+}
+```
+
 #### 日志使用指南
 ```java
 @Slf4j
@@ -357,8 +407,10 @@ public class AIService {
 ### 功能使用注意事项
 - **权限系统**：确保三组件（JwtAuthenticationFilter、UserTokenInterceptor、JwtAuthorizationManager）正确配置，避免ThreadLocal时序问题
 - **幂等性控制**：注意在Controller方法上添加@RepeatSubmit注解，并合理设置间隔时间
+- **操作日志**：使用@Log注解记录操作，注意排除敏感参数；操作日志采用异步记录，不影响业务性能
 - **数据脱敏**：脱敏功能仅在JSON序列化时生效，不影响数据库存储；需要实现SensitiveService接口来控制脱敏行为
-- **日志系统**：生产环境建议调整日志级别为INFO，避免过多DEBUG日志影响性能
+- **日志系统**：生产环境建议调整日志级别为INFO，避免过多DEBUG日志影响性能；使用按时间+大小的滚动日志分片配置
+- **代码生成器**：首次使用需要导入数据库表结构，支持单表、主子表、树表等多种类型的代码生成
 - **文件上传**：大文件上传需要确保MinIO服务正常运行，并合理设置分片大小
 - **AI功能**：使用AI功能前需要配置相应的API密钥和服务地址
 - **全局异常处理**：自定义异常需要继承BaseServiceException，并定义相应的ErrorCode
