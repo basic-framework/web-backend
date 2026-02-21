@@ -21,12 +21,16 @@ public class UserServiceImpl implements UserService {
     private BCryptPasswordEncoder passwordEncoder;
 
     /***
-     *  查询用户构建对象
-     * @param username
+     *  查询用户构建对象（支持用户名或邮箱登录）
+     * @param account 用户名或邮箱
      * @return
      */
-    public LoginVo findUserVoForLogin(String username) {
-        User user = userMapper.findUserVoForLogin(username);
+    public LoginVo findUserVoForLogin(String account) {
+        // 先尝试用用户名查询，如果不存在再用邮箱查询
+        User user = userMapper.findUserVoForLogin(account);
+        if (ObjectUtil.isEmpty(user)) {
+            user = userMapper.findUserByEmail(account);
+        }
         if (!ObjectUtil.isEmpty(user)){
             return BeanUtil.toBean(user,LoginVo.class);
         }

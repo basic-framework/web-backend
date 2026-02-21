@@ -3,16 +3,29 @@ package com.zl.security.mapper;
 
 import com.zl.model.entity.security.User;
 import com.zl.model.vo.UserNavVo;
-import org.apache.ibatis.annotations.Delete;
-import org.apache.ibatis.annotations.Mapper;
-import org.apache.ibatis.annotations.Select;
-import org.apache.ibatis.annotations.Update;
+import org.apache.ibatis.annotations.*;
 
 @Mapper
 public interface UserMapper {
 
     @Select("select * from sys_user where username=#{username}")
     User findUserVoForLogin(String username);
+
+    /**
+     * 根据邮箱查询用户
+     * @param email
+     * @return
+     */
+    @Select("select * from sys_user where email=#{email}")
+    User findUserByEmail(String email);
+
+    /**
+     * 根据用户名或邮箱查询用户（用于登录）
+     * @param account 用户名或邮箱
+     * @return
+     */
+    @Select("select * from sys_user where username=#{account} or email=#{account}")
+    User findByUsernameOrEmail(String account);
 
     /**
      * 获取用户中心信息
@@ -38,11 +51,8 @@ public interface UserMapper {
      */
     Boolean updateUserInfo(User user);
 
-    /**
-     * 插入用户
-     * @param user
-     */
-    Boolean insert(User user);
+    @Insert("insert into sys_user(username,password,email) values(#{username},#{password},#{email})")
+    int insert(User user);
 
     /**
      * 根据用户名查询id

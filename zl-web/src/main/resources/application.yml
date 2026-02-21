@@ -11,6 +11,15 @@ spring:
 
   main:
     allow-circular-references: true
+  # 邮件配置
+  mail:
+    host: smtp.qq.com
+    port: 465
+    username: 2128400361@qq.com
+    password: gisulmuwpywbfbeg
+    protocol: smtps
+    properties:
+      mail.smtp.ssl.enable: false
   datasource:
     druid:
       driver-class-name: ${spring.datasource.druid.driver-class-name}
@@ -55,6 +64,8 @@ zl:
         - /customer/**
         - /web/login
         - /web/logout
+        - /web/email/send-code
+        - /web/email/register
 #        - /web/**
         - /ws/**
         - /doc.html/**

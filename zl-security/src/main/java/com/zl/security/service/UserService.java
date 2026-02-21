@@ -5,12 +5,12 @@ import com.zl.model.vo.UserNavVo;
 
 public interface UserService {
     /***
-     *  查询用户构建对象
-     * @param username
+     *  查询用户构建对象（支持用户名或邮箱）
+     * @param account 用户名或邮箱
      * @return
      * @return:
      */
-    LoginVo findUserVoForLogin(String username);
+    LoginVo findUserVoForLogin(String account);
 
 
     /**

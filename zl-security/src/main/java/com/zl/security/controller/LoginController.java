@@ -1,11 +1,15 @@
 package com.zl.security.controller;
 
 import com.zl.common.result.Result;
+import com.zl.model.dto.EmailRegisterDto;
 import com.zl.model.dto.LoginDto;
+import com.zl.model.dto.SendCodeDto;
 import com.zl.model.vo.LoginVo;
+import com.zl.security.service.EmailService;
 import com.zl.security.service.LoginService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
+import jakarta.validation.Valid;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -24,6 +28,9 @@ import org.springframework.web.bind.annotation.RestController;
 public class LoginController {
     @Autowired
     private LoginService loginService;
+
+    @Autowired
+    private EmailService emailService;
 
 
      /**
@@ -48,6 +55,30 @@ public class LoginController {
     @Operation(summary = "退出登录")
     public Result<Boolean> logout() {
         Boolean flag=loginService.logout();
+        return Result.success(flag);
+    }
+
+    /**
+     * 发送邮箱验证码
+     * @param sendCodeDto
+     * @return
+     */
+    @PostMapping("/email/send-code")
+    @Operation(summary = "发送注册验证码")
+    public Result<String> sendEmailCode(@Valid @RequestBody SendCodeDto sendCodeDto) {
+        emailService.sendRegisterCode(sendCodeDto);
+        return Result.success("验证码发送成功，请查收邮件");
+    }
+
+    /**
+     * 邮箱注册
+     * @param registerDto
+     * @return
+     */
+    @PostMapping("/email/register")
+    @Operation(summary = "邮箱注册")
+    public Result<Boolean> registerWithEmail(@Valid @RequestBody EmailRegisterDto registerDto) {
+        Boolean flag = emailService.registerWithEmail(registerDto);
         return Result.success(flag);
     }
 
