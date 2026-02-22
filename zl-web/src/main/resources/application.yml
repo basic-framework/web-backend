@@ -13,13 +13,13 @@ spring:
     allow-circular-references: true
   # 邮件配置
   mail:
-    host: smtp.qq.com
-    port: 465
-    username: 2128400361@qq.com
-    password: gisulmuwpywbfbeg
-    protocol: smtps
+    host: smtp.qq.com       # SMTP服务器地址（QQ邮箱的SMTP服务器）
+    port: 465               # SMTP端口（465是SSL加密端口，587是TLS端口）
+    username: 2128400361@qq.com  # 发件人邮箱
+    password: gisulmuwpywbfbeg   # 邮箱授权码（不是登录密码）
+    protocol: smtps         # 邮件协议（smtps是SSL加密的SMTP，smtp是普通协议）
     properties:
-      mail.smtp.ssl.enable: false
+      mail.smtp.ssl.enable: false  # SSL开关（这里配置有问题，后面会说）
   datasource:
     druid:
       driver-class-name: ${spring.datasource.druid.driver-class-name}

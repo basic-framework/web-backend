@@ -65,7 +65,7 @@ public class LoginController {
      */
     @PostMapping("/email/send-code")
     @Operation(summary = "发送注册验证码")
-    public Result<String> sendEmailCode(@Valid @RequestBody SendCodeDto sendCodeDto) {
+    public Result<String> sendEmailCode(@RequestBody SendCodeDto sendCodeDto) {
         emailService.sendRegisterCode(sendCodeDto);
         return Result.success("验证码发送成功，请查收邮件");
     }
@@ -77,7 +77,7 @@ public class LoginController {
      */
     @PostMapping("/email/register")
     @Operation(summary = "邮箱注册")
-    public Result<Boolean> registerWithEmail(@Valid @RequestBody EmailRegisterDto registerDto) {
+    public Result<Boolean> registerWithEmail(@RequestBody EmailRegisterDto registerDto) {
         Boolean flag = emailService.registerWithEmail(registerDto);
         return Result.success(flag);
     }
