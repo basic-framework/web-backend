@@ -1,6 +1,9 @@
 package com.zl.security.controller;
 import com.zl.common.result.Result;
+import com.zl.model.dto.ResetPasswordDto;
+import com.zl.model.dto.SendCodeDto;
 import com.zl.model.vo.UserNavVo;
+import com.zl.security.service.EmailService;
 import com.zl.security.service.UserService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
@@ -19,6 +22,8 @@ import org.springframework.web.bind.annotation.*;
 public class UserController {
     @Autowired
     private UserService userService;
+    @Autowired
+    private EmailService emailService;
 
      /**
      * 获取用户中心信息
@@ -31,15 +36,27 @@ public class UserController {
         return Result.success(userNavVo);
     }
 
+    /**
+     * 发送密码修改验证码
+     * @param sendCodeDto
+     * @return
+     */
+    @PostMapping("/email/resetPw/code")
+    @Operation(summary = "发送密码修改验证码")
+    public Result<String> sendEmailCode(@RequestBody SendCodeDto sendCodeDto) {
+        emailService.sendResetPwCode(sendCodeDto);
+        return Result.success("验证码发送成功，请查收邮件");
+    }
+
      /**
      * 修改密码
-     * @param newPassword
+     * @param resetPasswordDto
      * @return
      */
     @PostMapping("/resetPassword")
     @Operation(summary = "修改密码")
-    public Result<Boolean> resetPassword(@RequestParam("newPassword") String newPassword) {
-        Boolean flag=userService.resetPassword(newPassword);
+    public Result<Boolean> resetPassword(@RequestBody ResetPasswordDto resetPasswordDto) {
+        Boolean flag=userService.resetPassword(resetPasswordDto);
         return Result.success(flag);
     }
 

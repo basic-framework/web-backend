@@ -1,5 +1,6 @@
 package com.zl.security.service;
 
+import com.zl.model.dto.ResetPasswordDto;
 import com.zl.model.vo.LoginVo;
 import com.zl.model.vo.UserNavVo;
 
@@ -22,10 +23,10 @@ public interface UserService {
 
     /**
      * 重置密码
-     * @param newPassword
+     * @param resetPasswordDto
      * @return
      */
-    Boolean resetPassword(String newPassword);
+    Boolean resetPassword(ResetPasswordDto resetPasswordDto);
 
 
     /**

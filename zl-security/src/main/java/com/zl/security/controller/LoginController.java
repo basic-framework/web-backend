@@ -59,7 +59,7 @@ public class LoginController {
     }
 
     /**
-     * 发送邮箱验证码
+     * 发送注册验证码
      * @param sendCodeDto
      * @return
      */
@@ -71,12 +71,12 @@ public class LoginController {
     }
 
     /**
-     * 邮箱注册
+     * 用户邮箱注册
      * @param registerDto
      * @return
      */
     @PostMapping("/email/register")
-    @Operation(summary = "邮箱注册")
+    @Operation(summary = "用户邮箱注册")
     public Result<Boolean> registerWithEmail(@RequestBody EmailRegisterDto registerDto) {
         Boolean flag = emailService.registerWithEmail(registerDto);
         return Result.success(flag);

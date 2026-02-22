@@ -71,5 +71,7 @@ public interface UserMapper {
     Boolean deleteById(Long userId);
 
 
+    @Select("select id from sys_user where email=#{email}")
+    Long getUserIdByEmail(String email);
 
 }

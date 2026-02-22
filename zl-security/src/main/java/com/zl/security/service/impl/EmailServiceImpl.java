@@ -155,6 +155,44 @@ public class EmailServiceImpl implements EmailService {
     }
 
     /**
+     * 密码重置验证码
+     * @param sendCodeDto
+     */
+    public void sendResetPwCode(SendCodeDto sendCodeDto) {
+        String email = sendCodeDto.getEmail();
+
+        // 检查发送频率限制
+        String limitKey = EMAIL_LIMIT_PREFIX + email;
+        Boolean hasLimit = stringRedisTemplate.hasKey(limitKey);
+        if (Boolean.TRUE.equals(hasLimit)) {
+            Long ttl = stringRedisTemplate.getExpire(limitKey, TimeUnit.SECONDS);
+            throw new RuntimeException("发送过于频繁，请" + ttl + "秒后重试");
+        }
+
+        // 生成6位随机验证码
+        String code = RandomUtil.randomNumbers(6);
+
+        // 存储验证码到Redis
+        String codeKey = EMAIL_CODE_PREFIX + email;
+        stringRedisTemplate.opsForValue().set(codeKey, code, CODE_EXPIRE_TIME, TimeUnit.MINUTES);
+
+        // 设置发送限制
+        stringRedisTemplate.opsForValue().set(limitKey, "1", SEND_LIMIT_TIME, TimeUnit.SECONDS);
+
+        // 发送邮件
+        try {
+            sendEmail(email, "密码修改验证码", "您的密码修改验证码是：<strong>" + code + "</strong>，5分钟内有效。");
+            log.info("验证码发送成功，邮箱：{}", email);
+        } catch (Exception e) {
+            // 发送失败，删除已存储的验证码
+            stringRedisTemplate.delete(codeKey);
+            stringRedisTemplate.delete(limitKey);
+            log.error("邮件发送失败：{}", e.getMessage());
+            throw new RuntimeException("邮件发送失败，请稍后重试");
+        }
+    }
+
+    /**
      * 发送HTML邮件
      */
     private void sendEmail(String to, String subject, String content) throws Exception {

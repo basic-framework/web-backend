@@ -21,4 +21,10 @@ public interface EmailService {
      * @return
      */
     Boolean registerWithEmail(EmailRegisterDto registerDto);
+
+    /**
+     * 发送密码修改验证码
+     * @param sendCodeDto
+     */
+    void sendResetPwCode(SendCodeDto sendCodeDto);
 }
