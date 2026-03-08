@@ -67,7 +67,7 @@ public class UserServiceImpl implements UserService {
      * @throws IllegalArgumentException 参数不合法时抛出
      * @throws RuntimeException        数据库操作或认证失败时抛出
      */
-    public Boolean resetPassword(@RequestBody ResetPasswordDto resetPasswordDto) {
+    public Boolean resetPassword(ResetPasswordDto resetPasswordDto) {
         // ========== 1. 入参非空校验 ==========
         if (resetPasswordDto == null) {
             throw new IllegalArgumentException("重置密码参数不能为空");

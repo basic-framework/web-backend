@@ -93,13 +93,16 @@ zl-backend/
 ### 核心模块
 
 - **zl-common**：提供通用工具类、异常处理、常量定义等基础功能
-- **zl-common-core**：通用核心功能模块，包含幂等性控制、日志收集、数据脱敏等核心功能
+- **zl-common-core**：通用核心功能模块，包含幂等性控制、日志收集、数据脱敏等核心功能，已封装为自定义Starter
   - **zl-common-idempotent**：基于AOP的幂等性控制实现，支持注解式防重复提交
-  - **zl-common-log**：基于AOP的自定义日志收集模块，支持操作日志记录和查询
+  - **zl-common-log**：基于AOP的自定义日志收集模块，支持操作日志记录和查询，采用异步日志记录
   - **zl-common-sensitive**：基于Jackson序列化的数据脱敏模块，支持多种脱敏策略
-- **zl-model**：定义数据实体、DTO、VO等数据模型
+- **zl-model**：定义数据实体、DTO、VO等数据模型，包含邮箱注册、密码重置等DTO
 - **zl-framework**：框架核心配置，包含异步任务管理、安全配置、全局异常处理等
 - **zl-security**：认证授权机制，基于Spring Security和JWT实现，支持RBAC权限模型
+  - 支持用户名和邮箱双重登录方式
+  - 提供邮箱验证码注册和密码重置功能
+  - 集成邮件发送服务
 - **zl-web**：Web层入口，包含控制器、启动类等
 
 ### 插件模块
@@ -130,6 +133,7 @@ zl-backend/
 
 ### 安全认证
 - 基于JWT的身份认证机制
+- 支持用户名和邮箱双重登录方式
 - RBAC权限控制模型（用户-角色-资源）
 - 细粒度的API权限控制
 - 支持Token过期刷新机制
@@ -137,6 +141,12 @@ zl-backend/
 - 登录验证码支持
 - ThreadLocal用户上下文管理
 - 三组件协同认证流程（JwtAuthenticationFilter、UserTokenInterceptor、JwtAuthorizationManager）
+- 邮箱验证码功能
+  - 邮箱验证码注册：支持通过邮箱验证码完成用户注册
+  - 邮箱验证码重置密码：支持通过邮箱验证码重置用户密码
+  - 发送频率限制：60秒内只能发送一次验证码
+  - 验证码有效期：5分钟
+  - 验证码存储：基于Redis存储，支持过期自动清理
 
 ### 数据访问
 - 基于MyBatis的ORM映射
@@ -163,16 +173,21 @@ zl-backend/
 - **数据脱敏**：基于Jackson序列化的数据脱敏功能，支持手机号、身份证、邮箱等多种脱敏策略
 - **全局异常处理**：统一的异常处理机制，支持错误码管理和国际化
 - **日志系统**：基于SLF4J+Logback的分级日志系统，支持按时间+大小的滚动日志分片配置
+  - 滚动日志模式：按时间和大小对日志进行分片
+  - 支持多环境日志级别控制
+  - 异步日志输出，避免I/O阻塞
 - **参数校验**：基于Spring Validation的参数校验框架
 - **统一响应格式**：标准化的API响应格式，支持分页和错误信息
 - **线程池优化**：核心线程数=CPU核心数+1，最大线程数=2*核心线程数
 
 ### 扩展能力
-- **代码生成器**：可视化代码生成工具，大幅提升开发效率
+- **代码生成器 V2.0**：可视化代码生成工具，大幅提升开发效率
   - 支持单表、主子表、树表等多种表类型
   - 智能识别字段类型和关联关系
   - 可视化配置界面，支持代码预览
   - 批量生成和下载功能
+  - 自动过滤BaseEntity基础字段
+  - 支持主子表级联操作和树表结构操作
   - 访问地址：`http://localhost:8080/generator.html`
 - 文件存储与管理（支持MinIO）
 - 大文件分片上传和断点续传（基于MD5的文件命名冲突解决方案）
@@ -204,6 +219,11 @@ zl-backend/
 - **Redis配置**：缓存服务配置，支持Redisson分布式锁
 - **JWT配置**：Token有效期（默认30分钟）、密钥等
 - **安全配置**：忽略URL、默认密码、跨域配置等
+- **邮件服务配置**：
+  - SMTP服务器地址和端口
+  - 发件人邮箱账号和授权密码
+  - 验证码有效期（默认5分钟）
+  - 发送频率限制（默认60秒）
 - **文件存储**：支持MinIO对象存储，配置分片上传和断点续传
 - **AI服务配置**：
   - Spring AI：支持通义千问等多种大模型
@@ -227,10 +247,11 @@ zl-backend/
 2. 导入MySQL脚本（sql/zl.sql）
 3. 配置数据库连接信息（application-dev.yml）
 4. 配置Redis连接信息（application-dev.yml）
-5. 根据需要配置文件存储（MinIO）
-6. 根据需要配置AI服务、消息队列等扩展功能
-7. 执行Maven构建：`mvn clean package`
-8. 运行应用：`java -jar zl-web/target/zl-web-1.0-SNAPSHOT.jar`
+5. 配置邮件服务信息（application-dev.yml），如需使用邮箱验证码功能
+6. 根据需要配置文件存储（MinIO）
+7. 根据需要配置AI服务、消息队列等扩展功能
+8. 执行Maven构建：`mvn clean package`
+9. 运行应用：`java -jar zl-web/target/zl-web-1.0-SNAPSHOT.jar`
 
 ### 访问API文档
 启动成功后，访问以下地址查看API文档：
@@ -243,6 +264,9 @@ zl-backend/
 ### 功能测试
 项目提供了多个测试接口，可用于验证各项功能：
 - **代码生成器**：访问 `http://localhost:8080/generator.html` 使用可视化代码生成工具
+- **邮箱注册测试**：`POST /web/email/send-code` 发送注册验证码，`POST /web/email/register` 完成邮箱注册
+- **邮箱登录测试**：`POST /web/login` 支持使用邮箱进行登录
+- **密码重置测试**：`POST /web/user/email/resetPw/code` 发送重置密码验证码，`POST /web/user/resetPassword` 完成密码重置
 - **操作日志测试**：在带有`@Log`注解的接口上操作，查看系统操作日志记录
 - **日志测试**：`GET /web/some-method` - 基础日志测试
 - **权限测试**：登录后访问需要权限的接口，验证RBAC权限控制
@@ -281,6 +305,45 @@ public Result<List<User>> getUserList() {
 // 获取当前用户信息
 LoginVo currentUser = UserUtil.getUser();
 Long userId = UserUtil.getUserId();
+```
+
+#### 邮箱验证码功能使用
+```java
+// 发送注册验证码
+POST /web/email/send-code
+{
+    "email": "user@example.com"
+}
+
+// 邮箱注册
+POST /web/email/register
+{
+    "email": "user@example.com",
+    "username": "testuser",
+    "password": "password123",
+    "verifyCode": "123456"
+}
+
+// 发送密码重置验证码
+POST /web/user/email/resetPw/code
+{
+    "email": "user@example.com"
+}
+
+// 重置密码
+POST /web/user/resetPassword
+{
+    "email": "user@example.com",
+    "newPassword": "newPassword123",
+    "verifyCode": "654321"
+}
+
+// 邮箱登录（支持用户名或邮箱登录）
+POST /web/login
+{
+    "account": "user@example.com",  // 可以是用户名或邮箱
+    "password": "password123"
+}
 ```
 
 #### 幂等性控制开发
@@ -406,6 +469,7 @@ public class AIService {
 
 ### 功能使用注意事项
 - **权限系统**：确保三组件（JwtAuthenticationFilter、UserTokenInterceptor、JwtAuthorizationManager）正确配置，避免ThreadLocal时序问题
+- **邮箱功能**：使用邮箱验证码功能前需要配置邮件服务（SMTP服务器、发件人账号等）；验证码存储在Redis中，确保Redis服务正常运行
 - **幂等性控制**：注意在Controller方法上添加@RepeatSubmit注解，并合理设置间隔时间
 - **操作日志**：使用@Log注解记录操作，注意排除敏感参数；操作日志采用异步记录，不影响业务性能
 - **数据脱敏**：脱敏功能仅在JSON序列化时生效，不影响数据库存储；需要实现SensitiveService接口来控制脱敏行为
