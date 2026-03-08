@@ -64,6 +64,13 @@ public class AsyncManager
         Threads.shutdownAndAwaitTermination(executor);
     }
 
+    /**
+     * 获取线程池对象（供外部调用）
+     * 修复「无法解析 getExecutor」的核心方法
+     */
+    public ScheduledExecutorService getExecutor() {
+        return this.executor;
+    }
 
 
 }
