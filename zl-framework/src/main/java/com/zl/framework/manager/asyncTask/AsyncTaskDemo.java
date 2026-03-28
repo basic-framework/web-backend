@@ -1,7 +1,6 @@
 package com.zl.framework.manager.asyncTask;
 
 import java.util.TimerTask;
-import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.TimeUnit;
 
 /**

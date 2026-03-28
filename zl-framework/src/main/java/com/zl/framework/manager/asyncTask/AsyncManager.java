@@ -1,10 +1,7 @@
 package com.zl.framework.manager.asyncTask;
 
-
-
 import com.zl.common.utils.springUtils.SpringUtil;
 import com.zl.common.utils.jucUtils.Threads;
-
 import java.util.TimerTask;
 import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.TimeUnit;
