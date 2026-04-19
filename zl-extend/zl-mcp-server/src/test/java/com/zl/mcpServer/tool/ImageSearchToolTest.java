@@ -1,7 +1,6 @@
 package com.zl.mcpServer.tool;
 
 import jakarta.annotation.Resource;
-
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
@@ -23,4 +22,6 @@ class ImageSearchToolTest {
         // 3. 打印结果
         System.out.printf("result=%s\n", result);
     }
+
+
 }

@@ -30,36 +30,36 @@ public class UserAuth implements UserDetails {
      * 密码
      */
     private String password;
-
-    /**
-     * 权限内置
-     */
-    private Collection<SimpleGrantedAuthority> authorities;
-
-
-    /**
-     * 用户邮箱
-     */
-    private String email;
+     /**
+      * 权限内置
+      */
+     private Collection<SimpleGrantedAuthority> authorities;
 
 
-    /**
-     * 手机号码
-     */
-    private String phoneNumber;
-
-    /**
-     * 头像
-     */
-    private String avatar;
+     /**
+      * 用户邮箱
+      */
+     private String email;
 
 
-    /**
-     * 创建者
-     */
-    private Long createBy;
+     /**
+      * 手机号码
+      */
+     private String phoneNumber;
 
-    /**
+     /**
+      * 头像
+      */
+     private String avatar;
+
+
+     /**
+      * 创建者
+      */
+     private Long createBy;
+
+     /**
+
      * 创建时间
      */
     private LocalDateTime createTime;
