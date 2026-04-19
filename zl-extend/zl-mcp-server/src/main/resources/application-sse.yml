@@ -1,0 +1,9 @@
+spring:
+  ai:
+    mcp:
+      server:
+        name: zl-mcp-server
+        version: 0.0.1
+        type: SYNC
+        # sse
+        stdio: false

@@ -1,0 +1,13 @@
+spring:
+  ai:
+    mcp:
+      server:
+        name: agent-search-mcp-server
+        version: 0.0.1
+        type: SYNC
+        # stdio
+        stdio: true
+  # stdio
+  main:
+    web-application-type: none
+    banner-mode: off

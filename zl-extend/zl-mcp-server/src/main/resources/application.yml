@@ -1,0 +1,7 @@
+spring:
+  application:
+    name: zl-mcp-server
+  profiles:
+    active: sse #客户端调用 stdio模式需要引入mcp.json脚本，自动下载jar包服务，SSE直接连接现有的服务接口
+server:
+  port: 8127
